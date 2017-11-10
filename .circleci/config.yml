@@ -18,11 +18,6 @@ build: &BUILD
     - run: npm test
 
 jobs:
-  argon:
-    <<: *BUILD
-    working_directory: ~/gtg
-    docker:
-      - image: circleci/node:4.8
   boron:
     <<: *BUILD
     working_directory: ~/gtg
@@ -38,6 +33,5 @@ workflows:
   version: 2
   ci:
     jobs:
-      - argon
       - boron
       - carbon
