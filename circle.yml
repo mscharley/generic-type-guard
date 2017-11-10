@@ -1,0 +1,40 @@
+version: 2
+
+build: &BUILD
+  steps:
+    - checkout
+    - restore_cache:
+        key: dependency-cache-<< checksum "package-lock.json" >>
+        paths:
+          - node_modules
+    - run: npm install
+    - save_cache:
+        key: dependency-cache-<< checksum "package-lock.json" >>
+        paths:
+          - node_modules
+    - run: npm test
+
+jobs:
+  argon:
+    <<: *BUILD
+    working_directory: /root/gtg
+    docker:
+      - image: node:8.9
+  boron:
+    <<: *BUILD
+    working_directory: /root/gtg
+    docker:
+      - image: node:6.12
+  carbon:
+    <<: *BUILD
+    working_directory: /root/gtg
+    docker:
+      - image: node:4.8
+
+workflows:
+  version: 2
+  ci:
+    jobs:
+      - argon
+      - boron
+      - carbon
