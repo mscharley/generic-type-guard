@@ -22,7 +22,7 @@ jobs:
     <<: *BUILD
     working_directory: ~/gtg
     docker:
-      - image: circleci/node:8.9
+      - image: circleci/node:4.8
   boron:
     <<: *BUILD
     working_directory: ~/gtg
@@ -32,7 +32,7 @@ jobs:
     <<: *BUILD
     working_directory: ~/gtg
     docker:
-      - image: circleci/node:4.8
+      - image: circleci/node:8.9
 
 workflows:
   version: 2
