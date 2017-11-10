@@ -1,5 +1,7 @@
 # generic-type-guard
 
+[![CircleCI](https://circleci.com/gh/mscharley/generic-type-guard.svg?style=svg)](https://circleci.com/gh/mscharley/generic-type-guard)
+
 **Source:** [https://github.com/mscharley/generic-type-guard](https://github.com/mscharley/generic-type-guard)  
 **Author:** Matthew Scharley  
 **Contributors:** [See contributors on GitHub][gh-contrib]  
