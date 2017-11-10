@@ -4,12 +4,15 @@ build: &BUILD
   steps:
     - checkout
     - restore_cache:
-        key: dependency-cache-<< checksum "package-lock.json" >>
+        keys:
+          - v1-dependency-cache-<< checksum "package-lock.json" >>
+          # fallback to using the latest cache if no exact match is found
+          - v1-dependency-cache-
         paths:
           - node_modules
     - run: npm install
     - save_cache:
-        key: dependency-cache-<< checksum "package-lock.json" >>
+        key: v1-dependency-cache-<< checksum "package-lock.json" >>
         paths:
           - node_modules
     - run: npm test
@@ -19,17 +22,17 @@ jobs:
     <<: *BUILD
     working_directory: /root/gtg
     docker:
-      - image: node:8.9
+      - image: circleci/node:8.9
   boron:
     <<: *BUILD
     working_directory: /root/gtg
     docker:
-      - image: node:6.12
+      - image: circleci/node:6.12
   carbon:
     <<: *BUILD
     working_directory: /root/gtg
     docker:
-      - image: node:4.8
+      - image: circleci/node:4.8
 
 workflows:
   version: 2
