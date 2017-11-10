@@ -1,0 +1,36 @@
+{
+  "name": "generic-type-guard",
+  "version": "0.0.1",
+  "description": "Generic type guards for TypeScript",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run lint && npm run mocha",
+    "lint": "tslint -p .",
+    "mocha": "mocha --opts mocha.opts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mscharley/generic-type-guard.git"
+  },
+  "keywords": [
+    "typescript",
+    "type-guard",
+    "ts"
+  ],
+  "author": "Matthew Scharley",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mscharley/generic-type-guard/issues"
+  },
+  "homepage": "https://github.com/mscharley/generic-type-guard#readme",
+  "dependencies": {
+    "typescript": "~2.6.1"
+  },
+  "devDependencies": {
+    "mocha": "^4.0.1",
+    "mocha-typescript": "^1.1.12",
+    "ts-node": "^3.3.0",
+    "tslint": "^5.8.0",
+    "tslint-eslint-rules": "^4.1.1"
+  }
+}

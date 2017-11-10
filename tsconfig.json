@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "target": "ES6",
+    "lib": [
+      "es5",
+      "es6",
+      "es7",
+      "esnext.asynciterable"
+    ],
+    "module": "commonjs",
+    "moduleResolution": "Node",
+    "typeRoots": ["./types", "./node_modules/@types"],
+    "paths": {
+      "*": ["../types/*"]
+    },
+    "strict": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "removeComments": true,
+    "sourceMap": true,
+    "baseUrl": "./src",
+    "rootDir": "./src",
+    "outDir": "./dist"
+  }
+}
