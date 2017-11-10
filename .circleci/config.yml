@@ -20,17 +20,17 @@ build: &BUILD
 jobs:
   argon:
     <<: *BUILD
-    working_directory: /root/gtg
+    working_directory: ~/gtg
     docker:
       - image: circleci/node:8.9
   boron:
     <<: *BUILD
-    working_directory: /root/gtg
+    working_directory: ~/gtg
     docker:
       - image: circleci/node:6.12
   carbon:
     <<: *BUILD
-    working_directory: /root/gtg
+    working_directory: ~/gtg
     docker:
       - image: circleci/node:4.8
 
