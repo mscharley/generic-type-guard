@@ -9,6 +9,7 @@
     ],
     "module": "commonjs",
     "moduleResolution": "Node",
+    "declaration": true,
     "typeRoots": ["./types", "./node_modules/@types"],
     "paths": {
       "*": ["../types/*"]
