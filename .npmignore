@@ -1,7 +1,9 @@
-.circleci
-src
+src/**/*
+dist/**/*.spec.js*
+dist/**/*.spec.d.ts
+.circleci/*
 .gitignore
 .nvmrc
+mocha.opts
 tslint.json
 tsconfig.json
-dist/*.spec.js*
