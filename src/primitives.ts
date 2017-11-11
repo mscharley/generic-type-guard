@@ -55,3 +55,10 @@ export const isArray =
  */
 export const isObject = (obj: any): obj is {} =>
   obj != null && typeof obj === "object" && !(obj instanceof Array);
+
+/**
+ * Helper for exhaustiveness checking.
+ */
+export const isNever = (n: never): never => {
+  throw Error(`Unexpected value when expecting never: ${n}`);
+};
