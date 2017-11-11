@@ -1,9 +1,9 @@
 import { expect } from "chai";
 import { slow, suite, test, timeout } from "mocha-typescript";
-import * as c from "./combinators";
-import { TypeGuard } from "./guards";
-import * as o from "./objects";
-import * as p from "./primitives";
+import { TypeGuard } from "../guards";
+import * as o from "../objects";
+import * as p from "../primitives";
+import * as c from "./functions";
 
 interface SimpleInterface {
   str: string;
