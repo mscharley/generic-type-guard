@@ -2,9 +2,10 @@
   "name": "generic-type-guard",
   "version": "0.0.1",
   "description": "Generic type guards for TypeScript",
-  "main": "index.js",
+  "main": "src/index.ts",
   "scripts": {
     "test": "npm run lint && npm run mocha",
+    "test-watch": "nodemon -e ts,json --exec npm test",
     "lint": "tslint -p .",
     "mocha": "mocha --opts mocha.opts"
   },
@@ -27,8 +28,13 @@
     "typescript": "~2.6.1"
   },
   "devDependencies": {
+    "@types/chai": "^4.0.4",
+    "@types/mocha": "^2.2.44",
+    "@types/node": "^8.0.51",
+    "chai": "^4.1.2",
     "mocha": "^4.0.1",
     "mocha-typescript": "^1.1.12",
+    "nodemon": "^1.12.1",
     "source-map-support": "^0.5.0",
     "ts-node": "^3.3.0",
     "tslint": "^5.8.0",
