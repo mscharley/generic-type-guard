@@ -1,0 +1,67 @@
+import { expect } from "chai";
+import { slow, suite, test, timeout } from "mocha-typescript";
+import * as p from "./primitives";
+
+/**
+ * Compilation tests for the primitive types.
+ */
+@suite(timeout(3000), slow(5))
+export class PrimitivesSpec {
+  @test public string() {
+    expect(p.isString("foo")).to.equal(true);
+    expect(p.isString(10)).to.equal(false);
+  }
+
+  @test public number() {
+    expect(p.isNumber(10)).to.equal(true);
+    expect(p.isNumber("foo")).to.equal(false);
+  }
+
+  @test public boolean() {
+    expect(p.isBoolean(true)).to.equal(true);
+    expect(p.isBoolean(false)).to.equal(true);
+    expect(p.isBoolean(null)).to.equal(false);
+    expect(p.isBoolean(10)).to.equal(false);
+  }
+
+  @test public null() {
+    expect(p.isNull(null)).to.equal(true);
+    expect(p.isNull(10)).to.equal(false);
+  }
+
+  @test public undefined() {
+    const foo: { bar?: string } = {};
+    expect(p.isUndefined(undefined)).to.equal(true);
+    expect(p.isUndefined(foo.bar)).to.equal(true);
+    expect(p.isUndefined(10)).to.equal(false);
+  }
+
+  @test public singletonString() {
+    const isHello = p.isSingletonString("Hello");
+    expect(isHello("Hello")).to.equal(true);
+    expect(isHello("foo")).to.equal(false);
+  }
+
+  @test public singletonNumber() {
+    const isTen = p.isSingletonNumber(10);
+    expect(isTen(10)).to.equal(true);
+    expect(isTen(50)).to.equal(false);
+    expect(isTen("Hello")).to.equal(false);
+  }
+
+  @test public array() {
+    const isNumberArray = p.isArray(p.isNumber);
+
+    expect(isNumberArray([])).to.equal(true);
+    expect(isNumberArray([1, 2, 3])).to.equal(true);
+    expect(isNumberArray([1, 2, "foo"])).to.equal(false);
+    expect(isNumberArray({})).to.equal(false);
+  }
+
+  @test public object() {
+    expect(p.isObject({ foo: "bar" })).to.equal(true);
+    expect(p.isObject([])).to.equal(false);
+    expect(p.isObject(null)).to.equal(false);
+    expect(p.isObject("hello")).to.equal(false);
+  }
+}
