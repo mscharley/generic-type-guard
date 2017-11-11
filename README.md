@@ -12,7 +12,8 @@
 
 ## Synopsis
 
-TBC
+This library is an attempt to manage creating type guards in a sensible way, making them 
+composable and reusable.
 
 ## Installation
 
@@ -20,8 +21,31 @@ TBC
 
 ## Usage
 
-TBC
+```typescript
+import { 
+  PartialTypeGuard, 
+  TypeGuard, 
+  hasAttribute, 
+  isNumber, 
+  isObject, 
+  isString, 
+} from "generic-type-guard";
+
+export interface TestInterface {
+  str: string;
+  num: number;
+}
+
+const isTypeSafeTestInterface: tg.PartialTypeGuard<{}, TestInterface> =
+  tg.isIntersection(tg.hasProperty("str", tg.isString), tg.hasProperty("num", tg.isNumber));
+
+export const isTestInterface: TypeGuard<TestInterface> = (o: any): o is TestInterface =>
+  isObject(o) && isTypeSafeTestInterface(o);
+```
+
+[There are more examples available.][example-usage]
 
   [gh-contrib]: https://github.com/mscharley/generic-type-guard/graphs/contributors
   [gh-issues]: https://github.com/mscharley/generic-type-guard/issues
   [license]: https://github.com/mscharley/generic-type-guard/blob/master/LICENSE
+  [example-usage]: https://github.com/mscharley/generic-type-guard/blob/master/src/examples.spec.ts
