@@ -4,3 +4,4 @@ src
 .nvmrc
 tslint.json
 tsconfig.json
+dist/*.spec.js*
