@@ -3,7 +3,9 @@
   "version": "0.0.1",
   "description": "Generic type guards for TypeScript",
   "main": "src/index.ts",
+  "types": "dist/index.d.ts",
   "scripts": {
+    "compile": "tsc",
     "test": "npm run lint && npm run mocha",
     "test-watch": "nodemon -e ts,json --exec npm test",
     "lint": "tslint -p .",
