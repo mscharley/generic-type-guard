@@ -1,5 +1,6 @@
 # generic-type-guard
 
+[![npm version](https://badge.fury.io/js/generic-type-guard.svg)](https://badge.fury.io/js/generic-type-guard)
 [![CircleCI](https://circleci.com/gh/mscharley/generic-type-guard.svg?style=svg)](https://circleci.com/gh/mscharley/generic-type-guard)
 
 **Source:** [https://github.com/mscharley/generic-type-guard](https://github.com/mscharley/generic-type-guard)  
