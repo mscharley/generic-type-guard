@@ -1,6 +1,6 @@
 {
   "name": "generic-type-guard",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Generic type guards for TypeScript",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -27,9 +27,7 @@
     "url": "https://github.com/mscharley/generic-type-guard/issues"
   },
   "homepage": "https://github.com/mscharley/generic-type-guard#readme",
-  "dependencies": {
-    "typescript": "~2.6.1"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@types/chai": "^4.0.4",
     "@types/mocha": "^2.2.44",
@@ -41,6 +39,7 @@
     "source-map-support": "^0.5.0",
     "ts-node": "^3.3.0",
     "tslint": "^5.8.0",
-    "tslint-eslint-rules": "^4.1.1"
+    "tslint-eslint-rules": "^4.1.1",
+    "typescript": "~2.6.1"
   }
 }
