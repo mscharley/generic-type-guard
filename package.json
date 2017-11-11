@@ -5,7 +5,8 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "compile": "tsc",
+    "compile": "rm -r dist && tsc",
+    "release": "npm run compile && npm publish",
     "test": "npm run lint && npm run mocha",
     "test-watch": "nodemon -e ts,json --exec npm test",
     "lint": "tslint -p .",
