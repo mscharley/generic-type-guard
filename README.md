@@ -22,15 +22,32 @@ composable and reusable.
 
 ## Usage
 
+The point of this library is to provide a suite of type guard expressions that are 
+themselves both type safe and composable in a type safe way. To that end we define two new
+types which are just aliases for the built-in type guard type:
+
 ```typescript
-import { 
-  PartialTypeGuard, 
-  TypeGuard, 
-  hasAttribute, 
-  isNumber, 
-  isObject, 
-  isString, 
-} from "generic-type-guard";
+export type PartialTypeGuard<T, U extends T> = (value: T) => value is U;
+export type TypeGuard<T> = PartialTypeGuard<any, T>;
+```
+
+A `PartialTypeGuard` is a type guard which given a value of type `T` can prove it is 
+actually the specialised type `U`. A `TypeGuard` is a type guard that can prove `any` value
+to be of type `T`; it is a `PartialTypeGuard<any, T>`.
+
+### Type safety
+
+What do we mean by type safety when we're talking about something that in a lot of ways
+is inherantly type unsafe? We simply mean that if you change the definition your
+interface/variable/whatever you are checking then your type guard should no longer
+successfully compile.
+
+### Examples
+
+Some examples:
+
+```typescript 
+import * as tg from "generic-type-guard";
 
 export interface TestInterface {
   str: string;
@@ -42,6 +59,18 @@ const isTypeSafeTestInterface: tg.PartialTypeGuard<{}, TestInterface> =
 
 export const isTestInterface: TypeGuard<TestInterface> = (o: any): o is TestInterface =>
   isObject(o) && isTypeSafeTestInterface(o);
+
+// or perhaps you have a larger interface...
+
+export interface ComplexInterface extends TestInterface {
+  b: boolean;
+  maybeString?: string;
+}
+
+export const isTypeSafeComplexInterface: tg.PartialTypeGuard<{}, ComplexInterface> =
+  new tg.IntersectionOf(tg.hasProperty("str", tg.isString), tg.hasProperty("num", tg.isNumber))
+    .with(tg.hasProperty("b", tg.isBoolean))
+    .with(tg.hasProperty("maybeString", tg.isUnion(tg.isUndefined, tg.isString))).get();
 ```
 
 [There are more examples available.][example-usage]
