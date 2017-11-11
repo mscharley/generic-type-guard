@@ -5,6 +5,11 @@ export interface TestInterface {
   num: number;
 }
 
+export interface ComplexInterface extends TestInterface {
+  b: boolean;
+  maybeString?: string;
+}
+
 /**
  * Simple way to test an interface.
  */
@@ -20,3 +25,13 @@ export const isTestInterface: tg.TypeGuard<TestInterface> = (o: any): o is TestI
  */
 export const isTypeSafeTestInterface: tg.PartialTypeGuard<{}, TestInterface> =
   tg.isIntersection(tg.hasProperty("str", tg.isString), tg.hasProperty("num", tg.isNumber));
+
+/**
+ * If you have multiple sets of things to test there is also a fluent-ish interface.
+ *
+ * This is exposed for both intersection and union combinators.
+ */
+export const isTypeSafeComplexInterface: tg.PartialTypeGuard<{}, ComplexInterface> =
+  new tg.IntersectionOf(tg.hasProperty("str", tg.isString), tg.hasProperty("num", tg.isNumber))
+    .with(tg.hasProperty("b", tg.isBoolean))
+    .with(tg.hasProperty("maybeString", tg.isUnion(tg.isUndefined, tg.isString))).get();
