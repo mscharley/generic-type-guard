@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+set -e
+set -x
+git checkout master
+git pull --ff-only
+VERSION=$(npm version "$@")
+git push origin master tag "$VERSION"
+npm run compile
+npm publish
