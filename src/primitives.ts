@@ -65,8 +65,7 @@ export const isMissing = <T>(tgt: TypeGuard<T>): TypeGuard<T | undefined | null>
  */
 export const isArray =
   <T>(valueCheck: TypeGuard<T>): TypeGuard<T[]> => (arr: any): arr is T[] =>
-    typeof arr === "object" && arr instanceof Array &&
-    arr.reduce<boolean>((acc, v) => acc && valueCheck(v), true);
+    Array.isArray(arr) && arr.reduce<boolean>((acc, v) => acc && valueCheck(v), true);
 
 /**
  * Validate if a value is an object.
