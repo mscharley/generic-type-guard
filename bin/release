@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-${1:?You must specify at least one parameter to this script.};
+echo ${1:?You must specify at least one parameter to this script.} > /dev/null;
 set -e
 set -x
 git checkout master
