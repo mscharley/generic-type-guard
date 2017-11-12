@@ -86,6 +86,12 @@ export const isObject = (obj: any): obj is {} =>
   obj != null && typeof obj === "object" && !(obj instanceof Array);
 
 /**
+ * Validates if a value is not null and not undefined.
+ */
+export const isSet = (obj: any): obj is {} | number | string | boolean | symbol =>
+  obj != null;
+
+/**
  * Helper for asserting nothing at all.
  */
 export const isAny = (_a: any): _a is any => true;
