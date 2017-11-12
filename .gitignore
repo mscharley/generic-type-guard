@@ -4,3 +4,5 @@ dist/
 *.tgz
 .stryker-tmp/
 reports/
+.nyc_output/
+coverage/

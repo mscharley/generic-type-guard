@@ -1,7 +1,7 @@
 import { expect } from "chai";
 import { slow, suite, test, timeout } from "mocha-typescript";
-import { UnionOf } from "../../src/combinators/unionof";
-import * as p from "../../src/primitives";
+import * as p from "../primitives";
+import { UnionOf } from "./unionof";
 
 /**
  * Compilation tests for the combinator types.

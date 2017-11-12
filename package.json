@@ -11,9 +11,38 @@
     "test-watch": "nodemon -e ts,json --exec npm test",
     "lint": "tslint -p .",
     "lint-watch": "nodemon -e ts,json --exec tslint -p .",
-    "mocha": "mocha --opts mocha.opts",
+    "mocha": "nyc mocha --opts mocha.opts",
     "stryker": "stryker run",
-    "stryker-watch": "nodemon -e ts,json --exec stryker run"
+    "stryker-watch": "nodemon -e ts,json --exec stryker run",
+    "codecov-local": "nyc report",
+    "codecov-report": "nyc report --reporter=json && codecov -f coverage/*.json"
+  },
+  "nyc": {
+    "include": [
+      "src/**/*.ts",
+      "src/**/*.tsx"
+    ],
+    "exclude": [
+      "**/*.spec.ts"
+    ],
+    "extension": [
+      ".ts",
+      ".tsx"
+    ],
+    "require": [
+      "ts-node/register"
+    ],
+    "reporter": [
+      "text-summary",
+      "html"
+    ],
+    "sourceMap": true,
+    "instrument": true,
+    "checkCoverage": true,
+    "lines": 100,
+    "functions": 100,
+    "branches": 100,
+    "statements": 100
   },
   "repository": {
     "type": "git",
@@ -37,9 +66,11 @@
     "@types/mocha": "^2.2.44",
     "@types/node": "^8.0.51",
     "chai": "^4.1.2",
+    "codecov": "^3.0.0",
     "mocha": "^4.0.1",
     "mocha-typescript": "^1.1.12",
     "nodemon": "^1.12.1",
+    "nyc": "^11.3.0",
     "source-map-support": "^0.5.0",
     "stryker": "^0.13.0",
     "stryker-api": "^0.11.0",

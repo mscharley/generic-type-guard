@@ -1,4 +1,4 @@
-import * as tg from "../src/index";
+import * as tg from "./index";
 
 // tslint:disable:no-console
 

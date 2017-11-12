@@ -6,6 +6,12 @@ module.exports = function(config) {
         pattern: "src/**/*.ts",
         mutated: true,
         included: false
+      },
+      '!src/**/*.spec.ts',
+      {
+        pattern: "src/**/*.spec.ts",
+        mutated: false,
+        included: true
       }
     ],
     testRunner: "mocha",

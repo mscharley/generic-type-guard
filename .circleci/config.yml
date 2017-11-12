@@ -20,6 +20,7 @@ build: &BUILD
         paths:
           - node_modules
     - run: npm test
+    - run: npm run codecov-report
 
 jobs:
   boron:

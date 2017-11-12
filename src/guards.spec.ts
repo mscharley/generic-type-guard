@@ -1,6 +1,6 @@
 import { expect } from "chai";
 import { slow, suite, test, timeout } from "mocha-typescript";
-import * as g from "../src/guards";
+import * as g from "./guards";
 
 /**
  * Compilation tests for the guard types.
