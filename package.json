@@ -18,6 +18,7 @@
   },
   "keywords": [
     "typescript",
+    "typeguard",
     "type-guard",
     "ts"
   ],
