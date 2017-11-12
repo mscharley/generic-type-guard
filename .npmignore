@@ -1,10 +1,12 @@
 bin/*
 src/**/*
-dist/**/*.spec.js*
-dist/**/*.spec.d.ts
+dist/tests/**/*
+tests/**/*
 .circleci/*
+.editorconfig
 .gitignore
 .nvmrc
 mocha.opts
 tslint.json
 tsconfig.json
+stryker.conf.js
