@@ -2,3 +2,4 @@ node_modules/
 dist/
 *.tar.gz
 *.tgz
+.stryker-tmp/
