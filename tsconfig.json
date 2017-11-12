@@ -20,7 +20,7 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "removeComments": true,
-    "sourceMap": true,
+    "inlineSourceMap": true,
     "baseUrl": "./src",
     "rootDirs": [
       "./src",
