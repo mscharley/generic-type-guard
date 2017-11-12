@@ -107,6 +107,17 @@ export class PrimitivesSpec {
     expect(p.isObject({ foo: "bar" })).to.equal(true);
     expect(p.isObject([])).to.equal(false);
     expect(p.isObject(null)).to.equal(false);
+    expect(p.isObject(undefined)).to.equal(false);
     expect(p.isObject("hello")).to.equal(false);
+  }
+
+  @test public any() {
+    expect(p.isAny(true)).to.equal(true);
+    expect(p.isAny("")).to.equal(true);
+    expect(p.isAny(50)).to.equal(true);
+    expect(p.isAny(null)).to.equal(true);
+    expect(p.isAny(undefined)).to.equal(true);
+    expect(p.isAny([])).to.equal(true);
+    expect(p.isAny({})).to.equal(true);
   }
 }

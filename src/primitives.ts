@@ -86,6 +86,11 @@ export const isObject = (obj: any): obj is {} =>
   obj != null && typeof obj === "object" && !(obj instanceof Array);
 
 /**
+ * Helper for asserting nothing at all.
+ */
+export const isAny = (_a: any): _a is any => true;
+
+/**
  * Helper for exhaustiveness checking.
  */
 export const isNever = (n: never): never => {
