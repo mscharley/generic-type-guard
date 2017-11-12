@@ -1,3 +1,4 @@
+bin/*
 src/**/*
 dist/**/*.spec.js*
 dist/**/*.spec.d.ts
