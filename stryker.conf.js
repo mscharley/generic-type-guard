@@ -3,16 +3,18 @@ module.exports = function(config) {
     files: [
       {
         pattern: "src/**/*.ts",
-        mutated: true,
+				mutated: true,
+				transpiled: true,
         included: false
       },
-      "test/**/*.ts"
+      "tests/**/*.ts"
     ],
     testRunner: "mocha",
     mutator: "typescript",
-    transpilers: ["typescript"],
+		transpilers: ["typescript"],
+		tsconfigFile: "tsconfig.json",
     reporter: ["clear-text", "progress"],
     testFramework: "mocha",
-    coverageAnalysis: "perTest"
+    coverageAnalysis: "off"
   });
 };
