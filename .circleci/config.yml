@@ -28,6 +28,11 @@ jobs:
     working_directory: ~/gtg
     docker:
       - image: circleci/node:8.9
+  latest:
+    <<: *BUILD
+    working_directory: ~/gtg
+    docker:
+      - image: circleci/node:9.1
 
 workflows:
   version: 2
