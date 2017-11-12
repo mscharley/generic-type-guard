@@ -40,3 +40,4 @@ workflows:
     jobs:
       - boron
       - carbon
+      - latest
