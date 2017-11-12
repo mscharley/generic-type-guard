@@ -96,9 +96,11 @@ export const isSet = (obj: any): obj is {} | number | string | boolean | symbol 
  */
 export const isAny = (_a: any): _a is any => true;
 
+/* istanbul ignore next */
 /**
  * Helper for exhaustiveness checking.
  */
 export const isNever = (n: never): never => {
+  // No coverage checking as it is impossible to call this function, and that's the point.
   throw Error(`Unexpected value when expecting never: ${n}`);
 };

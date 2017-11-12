@@ -1,6 +1,6 @@
 import { expect } from "chai";
 import { slow, suite, test, timeout } from "mocha-typescript";
-import * as p from "../src/primitives";
+import * as p from "./primitives";
 
 /**
  * Compilation tests for the primitive types.

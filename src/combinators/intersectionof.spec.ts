@@ -1,8 +1,8 @@
 import { expect } from "chai";
 import { slow, suite, test, timeout } from "mocha-typescript";
-import { IntersectionOf } from "../../src/combinators/intersectionof";
-import * as o from "../../src/objects";
-import * as p from "../../src/primitives";
+import * as o from "../objects";
+import * as p from "../primitives";
+import { IntersectionOf } from "./intersectionof";
 
 export interface SimpleInterface {
   str: string;

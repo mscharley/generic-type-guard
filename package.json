@@ -14,12 +14,16 @@
     "mocha": "nyc mocha --opts mocha.opts",
     "stryker": "stryker run",
     "stryker-watch": "nodemon -e ts,json --exec stryker run",
+    "codecov-local": "nyc report",
     "codecov-report": "nyc report --reporter=json && codecov -f coverage/*.json"
   },
   "nyc": {
     "include": [
       "src/**/*.ts",
       "src/**/*.tsx"
+    ],
+    "exclude": [
+      "**/*.spec.ts"
     ],
     "extension": [
       ".ts",
@@ -33,7 +37,12 @@
       "html"
     ],
     "sourceMap": true,
-    "instrument": true
+    "instrument": true,
+    "checkCoverage": true,
+    "lines": 100,
+    "functions": 100,
+    "branches": 100,
+    "statements": 100
   },
   "repository": {
     "type": "git",
