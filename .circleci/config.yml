@@ -37,6 +37,32 @@ jobs:
     working_directory: ~/gtg
     docker:
       - image: circleci/node:9.1
+  stryker:
+    working_directory: ~/gtg
+    docker:
+      - image: circleci/node:8.9
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - v2-dependency-cache-carbon-{{ .Branch }}-{{ checksum "package-lock.json" }}
+            - v2-dependency-cache-carbon-master-{{ checksum "package-lock.json" }}
+            - v2-dependency-cache-carbon-{{ .Branch }}-
+            - v2-dependency-cache-carbon-master-
+            # Fallback to using the latest cache for this version of node if nothing else has worked.
+            - v2-dependency-cache-carbon-
+            # Don't try to use the cache from a different version of node.
+          paths:
+            - node_modules
+      - run: npm install
+      - save_cache:
+          key: v2-dependency-cache-carbon-{{ .Branch }}-{{ checksum "package-lock.json" }}
+          paths:
+            - node_modules
+      - run: npm run stryker
+      - store_artifacts:
+          path: reports/mutation/html
+          destination: stryker
 
 workflows:
   version: 2
@@ -45,3 +71,8 @@ workflows:
       - boron
       - carbon
       - latest
+      - stryker:
+          requires:
+            - boron
+            - carbon
+            - latest

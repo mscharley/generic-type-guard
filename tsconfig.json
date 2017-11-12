@@ -8,11 +8,11 @@
       "esnext.asynciterable"
     ],
     "module": "commonjs",
-    "moduleResolution": "Node",
+    "moduleResolution": "node",
     "declaration": true,
-    "typeRoots": ["./types", "./node_modules/@types"],
+    "typeRoots": [ "./types", "./node_modules/@types" ],
     "paths": {
-      "*": ["../types/*"]
+      "*": [ "../types/*" ]
     },
     "strict": true,
     "emitDecoratorMetadata": true,
@@ -22,7 +22,10 @@
     "removeComments": true,
     "sourceMap": true,
     "baseUrl": "./src",
-    "rootDir": "./src",
+    "rootDirs": [
+      "./src",
+      "./tests"
+    ],
     "outDir": "./dist"
   }
 }
