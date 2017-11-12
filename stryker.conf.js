@@ -5,7 +5,6 @@ module.exports = function(config) {
       {
         pattern: "src/**/*.ts",
         mutated: true,
-        transpiled: true,
         included: false
       }
     ],
