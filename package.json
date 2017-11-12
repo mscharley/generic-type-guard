@@ -9,11 +9,11 @@
     "release": "bin/release",
     "test": "npm run lint && npm run mocha",
     "test-watch": "nodemon -e ts,json --exec npm test",
-		"lint": "tslint -p .",
-		"lint-watch": "nodemon -e ts,json --exec tslint -p .",
-		"mocha": "mocha --opts mocha.opts",
-		"stryker": "stryker run",
-		"stryker-watch": "nodemon -e ts,json --exec stryker run"
+    "lint": "tslint -p .",
+    "lint-watch": "nodemon -e ts,json --exec tslint -p .",
+    "mocha": "mocha --opts mocha.opts",
+    "stryker": "stryker run",
+    "stryker-watch": "nodemon -e ts,json --exec stryker run"
   },
   "repository": {
     "type": "git",

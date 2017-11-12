@@ -22,10 +22,10 @@
     "removeComments": true,
     "sourceMap": true,
     "baseUrl": "./src",
-		"rootDirs": [
-			"./src",
-			"./tests"
-		],
+    "rootDirs": [
+      "./src",
+      "./tests"
+    ],
     "outDir": "./dist"
   }
 }
