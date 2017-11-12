@@ -1,5 +1,6 @@
 import { expect } from "chai";
 import { slow, suite, test, timeout } from "mocha-typescript";
+import * as c from "./combinators";
 import { DummyClass } from "./dummy_class.spec";
 import * as o from "./objects";
 import * as p from "./primitives";
@@ -14,6 +15,13 @@ export class ObjectsSpec {
     expect(hasFooString({ foo: "bar" })).to.equal(true);
     expect(hasFooString({})).to.equal(false);
     expect(hasFooString({ bar: "foo" })).to.equal(false);
+  }
+
+  @test public propertyUndefined() {
+    const hasMaybeFooString = o.hasProperty("foo", c.isUnion(p.isUndefined, p.isString));
+    expect(hasMaybeFooString({ foo: "bar" })).to.equal(true);
+    expect(hasMaybeFooString({})).to.equal(true);
+    expect(hasMaybeFooString({ bar: "foo" })).to.equal(true);
   }
 
   @test public instance() {
