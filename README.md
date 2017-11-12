@@ -1,7 +1,4 @@
-# generic-type-guard
-
-[![npm version](https://badge.fury.io/js/generic-type-guard.svg)](https://badge.fury.io/js/generic-type-guard)
-[![CircleCI](https://circleci.com/gh/mscharley/generic-type-guard.svg?style=svg)](https://circleci.com/gh/mscharley/generic-type-guard)
+# generic-type-guard [![npm](https://img.shields.io/npm/v/generic-type-guard.svg)](https://www.npmjs.com/package/generic-type-guard) [![CircleCI](https://img.shields.io/circleci/project/github/mscharley/generic-type-guard.svg)](https://circleci.com/gh/mscharley/generic-type-guard)
 
 **Source:** [https://github.com/mscharley/generic-type-guard](https://github.com/mscharley/generic-type-guard)  
 **Author:** Matthew Scharley  
