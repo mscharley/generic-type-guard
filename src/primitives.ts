@@ -43,12 +43,29 @@ export const isUndefined: TypeGuard<undefined> = (u): u is undefined =>
   typeof u === "undefined";
 
 /**
+ * Validate if a value is optionally a given type.
+ */
+export const isOptional = <T>(tgt: TypeGuard<T>): TypeGuard<T | undefined> =>
+  (o): o is T | undefined => typeof o === "undefined" || tgt(o);
+
+/**
+ * Validate if a value is a given type or null.
+ */
+export const isNullable = <T>(tgt: TypeGuard<T>): TypeGuard<T | null> =>
+  (o): o is T | null => o === null || tgt(o);
+
+/**
+ * Validates if a value is a given type or null or undefined.
+ */
+export const isMissing = <T>(tgt: TypeGuard<T>): TypeGuard<T | undefined | null> =>
+  (o): o is T | null | undefined => o == null || tgt(o);
+
+/**
  * Validate if a value is an array of a specific type of value.
  */
 export const isArray =
   <T>(valueCheck: TypeGuard<T>): TypeGuard<T[]> => (arr: any): arr is T[] =>
-    typeof arr === "object" && arr instanceof Array &&
-    arr.reduce<boolean>((acc, v) => acc && valueCheck(v), true);
+    Array.isArray(arr) && arr.reduce<boolean>((acc, v) => acc && valueCheck(v), true);
 
 /**
  * Validate if a value is an object.

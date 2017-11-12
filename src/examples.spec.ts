@@ -8,6 +8,7 @@ export interface TestInterface {
 export interface ComplexInterface extends TestInterface {
   b: boolean;
   maybeString?: string;
+  nullableString: string | null;
 }
 
 /**
@@ -34,4 +35,5 @@ export const isTypeSafeTestInterface: tg.PartialTypeGuard<{}, TestInterface> =
 export const isTypeSafeComplexInterface: tg.PartialTypeGuard<{}, ComplexInterface> =
   new tg.IntersectionOf(tg.hasProperty("str", tg.isString), tg.hasProperty("num", tg.isNumber))
     .with(tg.hasProperty("b", tg.isBoolean))
-    .with(tg.hasProperty("maybeString", tg.isUnion(tg.isUndefined, tg.isString))).get();
+    .with(tg.hasProperty("maybeString", tg.isUnion(tg.isUndefined, tg.isString)))
+    .with(tg.hasProperty("nullableString", tg.isNullable(tg.isString))).get();
