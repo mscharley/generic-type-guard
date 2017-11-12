@@ -2,4 +2,4 @@
 --require ts-node/register
 --require source-map-support/register
 --watch-extensions ts
-tests/**/*.spec.ts
+tests/**/*.ts

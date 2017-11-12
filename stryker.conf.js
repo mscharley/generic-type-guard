@@ -15,6 +15,7 @@ module.exports = function(config) {
     tsconfigFile: "./tsconfig.json",
     reporter: ["clear-text", "html", "progress"],
     testFramework: "mocha",
+    thresholds: { high: 95, low: 85, break: 80 },
     coverageAnalysis: "off"
   });
 };
