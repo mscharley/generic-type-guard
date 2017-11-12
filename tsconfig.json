@@ -8,7 +8,7 @@
       "esnext.asynciterable"
     ],
     "module": "commonjs",
-    "moduleResolution": "Node",
+    "moduleResolution": "node",
     "declaration": true,
     "typeRoots": [ "./types", "./node_modules/@types" ],
     "paths": {

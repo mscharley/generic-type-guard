@@ -1,19 +1,19 @@
 module.exports = function(config) {
   config.set({
     files: [
+      '!src/**/*.ts',
       {
         pattern: "src/**/*.ts",
         mutated: true,
         transpiled: true,
         included: false
-      },
-      "tests/**/*.ts"
+      }
     ],
     testRunner: "mocha",
     mutator: "typescript",
     transpilers: ["typescript"],
-    tsconfigFile: "tsconfig.json",
-    reporter: ["clear-text", "progress"],
+    tsconfigFile: "./tsconfig.json",
+    reporter: ["clear-text", "html", "progress"],
     testFramework: "mocha",
     coverageAnalysis: "off"
   });
