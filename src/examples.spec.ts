@@ -1,5 +1,7 @@
 import * as tg from "./index";
 
+// tslint:disable:no-console
+
 export interface TestInterface {
   str: string;
   num: number;
@@ -9,6 +11,14 @@ export interface ComplexInterface extends TestInterface {
   b: boolean;
   maybeString?: string;
   nullableString: string | null;
+}
+
+const n: any = "something else";
+const isFooOrBar = tg.isSingletonStringUnion("foo", "bar");
+
+if (isFooOrBar(n)) {
+  // The n variable is typed as "foo" | "bar" right now, but this won't ever print anything.
+  console.log(n);
 }
 
 /**

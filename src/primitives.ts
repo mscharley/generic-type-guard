@@ -13,6 +13,12 @@ export const isSingletonNumber = <T extends number>(v: T): TypeGuard<T> => (n): 
   n === v;
 
 /**
+ * Validate if a value is one of a set of specific numbers.
+ */
+export const isSingletonNumberUnion = <T extends number>(...ns: T[]): TypeGuard<T> =>
+  (n): n is T => ns.find((v) => v === n) !== undefined;
+
+/**
  * Validate if a value is a string.
  */
 export const isString: TypeGuard<string> = (s): s is string =>
@@ -23,6 +29,12 @@ export const isString: TypeGuard<string> = (s): s is string =>
  */
 export const isSingletonString = <T extends string>(v: T): TypeGuard<T> => (s): s is T =>
   s === v;
+
+/**
+ * Validate if a value is one of a set of specific strings.
+ */
+export const isSingletonStringUnion = <T extends string>(...ss: T[]): TypeGuard<T> =>
+  (s): s is T => ss.find((v) => v === s) !== undefined;
 
 /**
  * Validate if a value is a boolean.

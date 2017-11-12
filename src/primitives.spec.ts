@@ -72,11 +72,26 @@ export class PrimitivesSpec {
     expect(isHello("foo")).to.equal(false);
   }
 
+  @test public singletonStringUnion() {
+    const isGreeting = p.isSingletonStringUnion("hello", "こんにちは");
+    expect(isGreeting("hello")).to.equal(true);
+    expect(isGreeting("こんにちは")).to.equal(true);
+    expect(isGreeting("foo")).to.equal(false);
+    expect(isGreeting(5)).to.equal(false);
+  }
+
   @test public singletonNumber() {
     const isTen = p.isSingletonNumber(10);
     expect(isTen(10)).to.equal(true);
     expect(isTen(50)).to.equal(false);
     expect(isTen("Hello")).to.equal(false);
+  }
+
+  @test public singletonNumberUnion() {
+    const isTeen = p.isSingletonNumberUnion(13, 14, 15, 16, 17, 18, 19);
+    expect(isTeen(14)).to.equal(true);
+    expect(isTeen(20)).to.equal(false);
+    expect(isTeen("hello")).to.equal(false);
   }
 
   @test public array() {
