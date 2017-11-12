@@ -13,6 +13,7 @@ export class ObjectsSpec {
   @test public property() {
     const hasFooString = o.hasProperty("foo", p.isString);
     expect(hasFooString({ foo: "bar" })).to.equal(true);
+    expect(hasFooString({ foo: 10 })).to.equal(false);
     expect(hasFooString({})).to.equal(false);
     expect(hasFooString({ bar: "foo" })).to.equal(false);
   }
