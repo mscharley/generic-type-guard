@@ -45,18 +45,18 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - v2-dependency-cache-{{ .Environment.CIRCLE_STAGE }}-{{ .Branch }}-{{ checksum "package-lock.json" }}
-            - v2-dependency-cache-{{ .Environment.CIRCLE_STAGE }}-master-{{ checksum "package-lock.json" }}
-            - v2-dependency-cache-{{ .Environment.CIRCLE_STAGE }}-{{ .Branch }}-
-            - v2-dependency-cache-{{ .Environment.CIRCLE_STAGE }}-master-
+            - v2-dependency-cache-carbon-{{ .Branch }}-{{ checksum "package-lock.json" }}
+            - v2-dependency-cache-carbon-master-{{ checksum "package-lock.json" }}
+            - v2-dependency-cache-carbon-{{ .Branch }}-
+            - v2-dependency-cache-carbon-master-
             # Fallback to using the latest cache for this version of node if nothing else has worked.
-            - v2-dependency-cache-{{ .Environment.CIRCLE_STAGE }}-
+            - v2-dependency-cache-carbon-
             # Don't try to use the cache from a different version of node.
           paths:
             - node_modules
       - run: npm install
       - save_cache:
-          key: v2-dependency-cache-{{ .Environment.CIRCLE_STAGE }}-{{ .Branch }}-{{ checksum "package-lock.json" }}
+          key: v2-dependency-cache-carbon-{{ .Branch }}-{{ checksum "package-lock.json" }}
           paths:
             - node_modules
       - run: npm run stryker
