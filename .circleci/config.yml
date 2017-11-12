@@ -60,6 +60,9 @@ jobs:
           paths:
             - node_modules
       - run: npm run stryker
+      - store_artifacts:
+          path: reports/mutation/html
+          destination: stryker
 
 workflows:
   version: 2
