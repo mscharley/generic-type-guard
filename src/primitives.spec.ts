@@ -36,6 +36,36 @@ export class PrimitivesSpec {
     expect(p.isUndefined(10)).to.equal(false);
   }
 
+  @test public optional() {
+    const isOptionalString = p.isOptional(p.isString);
+    expect(isOptionalString("foo")).to.equal(true);
+    expect(isOptionalString("")).to.equal(true);
+    expect(isOptionalString(undefined)).to.equal(true);
+    expect(isOptionalString(null)).to.equal(false);
+    expect(isOptionalString(10)).to.equal(false);
+    expect(isOptionalString(0)).to.equal(false);
+  }
+
+  @test public nullable() {
+    const isNullableString = p.isNullable(p.isString);
+    expect(isNullableString("foo")).to.equal(true);
+    expect(isNullableString("")).to.equal(true);
+    expect(isNullableString(undefined)).to.equal(false);
+    expect(isNullableString(null)).to.equal(true);
+    expect(isNullableString(10)).to.equal(false);
+    expect(isNullableString(0)).to.equal(false);
+  }
+
+  @test public missing() {
+    const isMissingString = p.isMissing(p.isString);
+    expect(isMissingString("foo")).to.equal(true);
+    expect(isMissingString("")).to.equal(true);
+    expect(isMissingString(undefined)).to.equal(true);
+    expect(isMissingString(null)).to.equal(true);
+    expect(isMissingString(0)).to.equal(false);
+    expect(isMissingString(10)).to.equal(false);
+  }
+
   @test public singletonString() {
     const isHello = p.isSingletonString("Hello");
     expect(isHello("Hello")).to.equal(true);
