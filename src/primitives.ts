@@ -82,24 +82,30 @@ export const isArray =
 /**
  * Validate if a value is an object.
  */
-export const isObject = (obj: any): obj is {} =>
+export const isObject: TypeGuard<{}> = (obj: any): obj is {} =>
   obj != null && typeof obj === "object" && !(obj instanceof Array);
 
 /**
  * Validates if a value is not null and not undefined.
  */
-export const isSet = (obj: any): obj is {} | number | string | boolean | symbol =>
-  obj != null;
+export const isSet: TypeGuard<{} | number | string | boolean | symbol> =
+  (obj: any): obj is {} | number | string | boolean | symbol => obj != null;
 
 /**
  * Helper for asserting nothing at all.
+ *
+ * Note: this is very rarely useful. You probably want isSet. isAny
+ * allows null and undefined through as well - it matches TypeScripts type
+ * and simply returns a static true because anything is an any.
+ *
+ * You can use isSet to validate that a value is non-null then let TypeScript
+ * widen it back to any in your interface.
  */
-export const isAny = (_a: any): _a is any => true;
+export const isAny: TypeGuard<any> = (_a: any): _a is any => true;
 
 /**
  * Helper for exhaustiveness checking.
  */
 export const isNever = (n: never): never => {
-  // No coverage checking as it is impossible to call this function, and that's the point.
   throw Error(`Unexpected value when expecting never: ${n}`);
 };

@@ -112,12 +112,13 @@ export class PrimitivesSpec {
   }
 
   @test public set() {
-    expect(p.isSet(null)).to.equal(false);
-    expect(p.isSet(undefined)).to.equal(false);
     expect(p.isSet(42)).to.equal(true);
     expect(p.isSet(true)).to.equal(true);
     expect(p.isSet(false)).to.equal(true);
     expect(p.isSet("foo")).to.equal(true);
+    expect(p.isSet(Symbol())).to.equal(true);
+    expect(p.isSet(null)).to.equal(false);
+    expect(p.isSet(undefined)).to.equal(false);
     expect(p.isSet([])).to.equal(true);
     expect(p.isSet({})).to.equal(true);
   }
