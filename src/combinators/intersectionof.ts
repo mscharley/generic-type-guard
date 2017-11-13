@@ -4,16 +4,18 @@ import { isIntersection } from "./functions";
 /**
  * A small class to help with constructing larger intersection checkers.
  */
-export class IntersectionOf<B, T extends B, U extends B> {
-  private combination: PartialTypeGuard<B, T & U>;
+export class IntersectionOf<B, T extends B> {
+  private ptt: PartialTypeGuard<B, T>;
 
-  constructor(ptt: PartialTypeGuard<B, T>, ptu: PartialTypeGuard<B, U>) {
-    this.combination = isIntersection(ptt, ptu);
+  constructor(ptt: PartialTypeGuard<B, T>) {
+    this.ptt = ptt;
   }
 
-  public get = () => this.combination;
+  public get() {
+    return this.ptt;
+  }
 
-  public with<V extends B>(ptv: PartialTypeGuard<B, V>) {
-    return new IntersectionOf(this.combination, ptv);
+  public with<U extends B>(ptu: PartialTypeGuard<B, U>) {
+    return new IntersectionOf(isIntersection(this.ptt, ptu));
   }
 }

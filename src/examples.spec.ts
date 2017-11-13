@@ -43,7 +43,8 @@ export const isTypeSafeTestInterface: tg.PartialTypeGuard<{}, TestInterface> =
  * This is exposed for both intersection and union combinators.
  */
 export const isTypeSafeComplexInterface: tg.PartialTypeGuard<{}, ComplexInterface> =
-  new tg.IntersectionOf(tg.hasProperty("str", tg.isString), tg.hasProperty("num", tg.isNumber))
+  new tg.IntersectionOf(tg.hasProperty("str", tg.isString))
+    .with(tg.hasProperty("num", tg.isNumber))
     .with(tg.hasProperty("b", tg.isBoolean))
     .with(tg.hasProperty("maybeString", tg.isUnion(tg.isUndefined, tg.isString)))
     .with(tg.hasProperty("nullableString", tg.isNullable(tg.isString))).get();

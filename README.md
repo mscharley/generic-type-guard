@@ -65,7 +65,8 @@ export interface ComplexInterface extends TestInterface {
 }
 
 export const isTypeSafeComplexInterface: tg.PartialTypeGuard<{}, ComplexInterface> =
-  new tg.IntersectionOf(tg.hasProperty("str", tg.isString), tg.hasProperty("num", tg.isNumber))
+  new tg.IntersectionOf(tg.hasProperty("str", tg.isString))
+    .with(tg.hasProperty("num", tg.isNumber))
     .with(tg.hasProperty("b", tg.isBoolean))
     .with(tg.hasProperty("maybeString", tg.isUnion(tg.isUndefined, tg.isString))).get();
 ```
