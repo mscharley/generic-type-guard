@@ -1,6 +1,6 @@
 {
   "name": "generic-type-guard",
-  "version": "0.4.1",
+  "version": "1.0.0",
   "description": "Generic type guards for TypeScript",
   "main": "dist/src/index.js",
   "types": "dist/src/index.d.ts",
