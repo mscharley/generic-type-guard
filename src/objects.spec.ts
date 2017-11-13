@@ -1,7 +1,7 @@
 import { expect } from "chai";
 import { slow, suite, test, timeout } from "mocha-typescript";
 import * as c from "./combinators";
-import { DummyClass } from "./dummy_class.spec";
+import { DummyClass, FullDummyClass } from "./dummy_classes.spec";
 import * as o from "./objects";
 import * as p from "./primitives";
 
@@ -16,6 +16,11 @@ export class ObjectsSpec {
     expect(hasFooString({ foo: 10 })).to.equal(false);
     expect(hasFooString({})).to.equal(false);
     expect(hasFooString({ bar: "foo" })).to.equal(false);
+  }
+
+  @test public propertyOfBaseClass() {
+    const hasFooString = o.hasProperty("foo", p.isString);
+    expect(hasFooString(new FullDummyClass())).to.equal(true);
   }
 
   @test public propertyUndefined() {
