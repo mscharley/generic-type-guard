@@ -131,4 +131,10 @@ export class PrimitivesSpec {
     expect(p.isAny([])).to.equal(true);
     expect(p.isAny({})).to.equal(true);
   }
+
+  @test public never() {
+    const fn: any = p.isNever;
+    // tslint:disable-next-line:no-unsafe-any
+    expect(() => fn("Oops!")).to.throw("Unexpected value when expecting never: Oops!");
+  }
 }

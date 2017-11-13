@@ -96,7 +96,6 @@ export const isSet = (obj: any): obj is {} | number | string | boolean | symbol 
  */
 export const isAny = (_a: any): _a is any => true;
 
-/* istanbul ignore next */
 /**
  * Helper for exhaustiveness checking.
  */
