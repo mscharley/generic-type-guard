@@ -7,6 +7,7 @@ import { isIntersection } from "./functions";
 
 export interface InterfaceBuilder<T extends {}> {
   get(): TypeGuard<T>;
+  with<V>(ptv: TypeGuard<V>): InterfaceBuilder<T & V>;
   withProperty<K extends string, V>(key: K, ptv: TypeGuard<V>): InterfaceBuilder<T & { [prop in K]: V }>;
 }
 
@@ -24,6 +25,10 @@ class InterfaceStep<T extends {}> implements InterfaceBuilder<T> {
     return (o): o is T => isObject(o) && this.ptt(o);
   }
 
+  public with<V>(ptv: TypeGuard<V>): InterfaceBuilder<T & V> {
+    return new InterfaceStep(isIntersection(this.ptt, ptv));
+  }
+
   public withProperty<K extends string, V>(key: K, ptv: TypeGuard<V>): InterfaceBuilder<T & { [prop in K]: V }> {
     return new InterfaceStep(isIntersection(this.ptt, hasProperty(key, ptv)));
   }
@@ -35,6 +40,10 @@ class InterfaceStep<T extends {}> implements InterfaceBuilder<T> {
 export class IsInterface implements InterfaceBuilder<{}> {
   public get(): TypeGuard<{}> {
     return isObject;
+  }
+
+  public with<V>(ptv: TypeGuard<V>): InterfaceBuilder<{} & V> {
+    return new InterfaceStep(ptv);
   }
 
   public withProperty<K extends string, V>(key: K, ptv: TypeGuard<V>): InterfaceBuilder<{ [prop in K]: V }> {
