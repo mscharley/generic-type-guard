@@ -28,7 +28,7 @@
       "curly": true,
       "deprecation": true,
       "eofline": true,
-      "forin": true,
+      "forin": false,
       "indent": [true, "spaces", 2],
       "interface-name": [true, "never-prefix"],
       "jsdoc-format": [true, "check-multiline-start"],
