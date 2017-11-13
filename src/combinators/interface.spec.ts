@@ -2,6 +2,7 @@ import { expect } from "chai";
 import { slow, suite, test, timeout } from "mocha-typescript";
 import { FullDummyClass, LargeInterface } from "../dummy_classes.spec";
 import { TypeGuard } from "../guards";
+import * as o from "../objects";
 import * as p from "../primitives";
 import { IsInterface } from "./interface";
 
@@ -24,7 +25,7 @@ export class InterfaceSpec {
         .withProperty("str", p.isString)
         .withProperty("num", p.isNumber)
         .withProperty("b", p.isBoolean)
-        .withProperty("n", p.isNull).get();
+        .with(o.hasProperty("n", p.isNull)).get();
     expect(isSimpleInterface({ str: "foo", num: 10, b: false, n: null })).to.equal(true);
     expect(isSimpleInterface({ str: "foo", num: "foo", b: false, n: null })).to.equal(false);
     expect(isSimpleInterface(10)).to.equal(false);
@@ -33,7 +34,7 @@ export class InterfaceSpec {
   @test public classImplementsInterface() {
     const isLargeInterface: TypeGuard<LargeInterface> =
       new IsInterface()
-        .withProperty("foo", p.isString)
+        .with(o.hasProperty("foo", p.isString))
         .withProperty("bar", p.isNumber)
         .withProperty("active", p.isBoolean)
         .get();
