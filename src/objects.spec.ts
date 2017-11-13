@@ -44,6 +44,20 @@ export class ObjectsSpec {
     expect(hasStringStringIndex({ foo: "bar", bar: 10 })).to.equal(false, "string index with number");
   }
 
+  @test public numberIndex() {
+    const hasNumberStringIndex = o.hasNumberIndexSignature(p.isString);
+    expect(hasNumberStringIndex({ foo: "bar" })).to.equal(false, "string index");
+    expect(hasNumberStringIndex(["foo"])).to.equal(true, "numeric index");
+    expect(hasNumberStringIndex(["foo", 10])).to.equal(false, "numeric index with number");
+  }
+
+  @test public looseNumberIndex() {
+    const hasNumberStringIndex = o.hasNumberIndexSignature(p.isString, false);
+    expect(hasNumberStringIndex({ foo: "bar" })).to.equal(true, "string index");
+    expect(hasNumberStringIndex(["foo"])).to.equal(true, "numeric index");
+    expect(hasNumberStringIndex(["foo", 10])).to.equal(false, "numeric index with number");
+  }
+
   @test public instance() {
     const isDummyClass = o.isInstance(DummyClass);
     expect(isDummyClass(new DummyClass())).to.equal(true);
