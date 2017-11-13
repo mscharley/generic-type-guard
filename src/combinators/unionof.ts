@@ -4,16 +4,18 @@ import { isUnion } from "./functions";
 /**
  * A small class to help with constructing larger union checkers.
  */
-export class UnionOf<B, T extends B, U extends B> {
-  private combination: PartialTypeGuard<B, T | U>;
+export class UnionOf<B, T extends B> {
+  private ptt: PartialTypeGuard<B, T>;
 
-  constructor(ptt: PartialTypeGuard<B, T>, ptu: PartialTypeGuard<B, U>) {
-    this.combination = isUnion(ptt, ptu);
+  constructor(ptt: PartialTypeGuard<B, T>) {
+    this.ptt = ptt;
   }
 
-  public get = () => this.combination;
+  public get() {
+    return this.ptt;
+  }
 
   public with<V extends B>(ptv: PartialTypeGuard<B, V>) {
-    return new UnionOf(this.combination, ptv);
+    return new UnionOf(isUnion(this.ptt, ptv));
   }
 }

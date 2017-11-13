@@ -64,13 +64,26 @@ export interface ComplexInterface extends TestInterface {
   maybeString?: string;
 }
 
-export const isTypeSafeComplexInterface: tg.PartialTypeGuard<{}, ComplexInterface> =
-  new tg.IntersectionOf(tg.hasProperty("str", tg.isString), tg.hasProperty("num", tg.isNumber))
+export const isTypeSafeComplexInterface: tg.TypeGuard<ComplexInterface> =
+  new tg.IsInterface()
+    .withProperty("str", tg.isString)
+    .withProperty("num", tg.isNumber)
+    .withProperty("b", tg.isBoolean)
+    .withProperty("maybeString", tg.isOptional(tg.isString))
+    .withProperty("nullableString", tg.isNullable(tg.isString))
+    .get();
+
+// Alternatively:
+
+export const isTypeSafeComplexInterface2: tg.PartialTypeGuard<{}, ComplexInterface> =
+  new tg.IntersectionOf(tg.hasProperty("str", tg.isString))
+    .with(tg.hasProperty("num", tg.isNumber))
     .with(tg.hasProperty("b", tg.isBoolean))
-    .with(tg.hasProperty("maybeString", tg.isUnion(tg.isUndefined, tg.isString))).get();
+    .with(tg.hasProperty("maybeString", tg.isUnion(tg.isUndefined, tg.isString)))
+    .with(tg.hasProperty("nullableString", tg.isNullable(tg.isString))).get();
 ```
 
-[There are more examples available.][example-usage]
+[There are more detailed examples available.][example-usage]
 
   [gh-contrib]: https://github.com/mscharley/generic-type-guard/graphs/contributors
   [gh-issues]: https://github.com/mscharley/generic-type-guard/issues
