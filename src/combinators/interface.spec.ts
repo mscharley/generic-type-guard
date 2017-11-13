@@ -28,4 +28,12 @@ export class InterfaceSpec {
     expect(isSimpleInterface({ str: "foo", num: "foo", b: false, n: null })).to.equal(false);
     expect(isSimpleInterface(10)).to.equal(false);
   }
+
+  @test public emptyInterface() {
+    const isEmptyInterface: TypeGuard<{}> =
+      new IsInterface().get();
+    expect(isEmptyInterface({})).to.equal(true);
+    expect(isEmptyInterface({ foo: "bar" })).to.equal(true);
+    expect(isEmptyInterface(10)).to.equal(false);
+  }
 }
