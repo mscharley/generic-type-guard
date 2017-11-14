@@ -1,11 +1,10 @@
 # generic-type-guard
 
-[![Join the chat at https://gitter.im/generic-type-guard/Lobby](https://badges.gitter.im/generic-type-guard/Lobby.svg)](https://gitter.im/generic-type-guard/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-
 [![npm](https://img.shields.io/npm/v/generic-type-guard.svg)](https://www.npmjs.com/package/generic-type-guard)
 [![CircleCI](https://img.shields.io/circleci/project/github/mscharley/generic-type-guard.svg)](https://circleci.com/gh/mscharley/generic-type-guard)
 [![Codecov](https://img.shields.io/codecov/c/github/mscharley/generic-type-guard.svg)](https://codecov.io/gh/mscharley/generic-type-guard)
 [![Dependency Status](https://gemnasium.com/badges/github.com/mscharley/generic-type-guard.svg)](https://gemnasium.com/github.com/mscharley/generic-type-guard)
+[![Join the chat at https://gitter.im/generic-type-guard/Lobby](https://badges.gitter.im/generic-type-guard/Lobby.svg)](https://gitter.im/generic-type-guard/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 **Source:** [https://github.com/mscharley/generic-type-guard](https://github.com/mscharley/generic-type-guard)  
 **Author:** Matthew Scharley  
