@@ -61,6 +61,23 @@ export class InterfaceSpec {
     expect(isLooseArrayLike([])).to.equal(true, "loose empty array");
   }
 
+  @test public combinedIndex() {
+    const isWeirdArray: TypeGuard<{ [prop: number]: string; foo: string }> =
+      new IsInterface().withProperty("foo", p.isString).withNumericIndexSignature(p.isString).get();
+    const isLooselyWeirdArray: TypeGuard<{ [prop: number]: string; foo: string }> =
+      new IsInterface().withProperty("foo", p.isString).withNumericIndexSignature(p.isString, false).get();
+    const isWeirdObject: TypeGuard<{ [prop: string]: string; 0: string }> =
+      new IsInterface().withProperty("0", p.isString).withStringIndexSignature(p.isString).get();
+    const isLooselyWeirdObject: TypeGuard<{ [prop: string]: string; 0: string }> =
+      new IsInterface().withProperty("0", p.isString).withStringIndexSignature(p.isString, false).get();
+    expect(isWeirdArray({ 0: "foo", foo: "bar" })).to.equal(true);
+    expect(isWeirdArray({ foo: "bar" })).to.equal(false);
+    expect(isLooselyWeirdArray({ foo: "bar" })).to.equal(true);
+    expect(isWeirdObject({ foo: "bar", 0: "baz" })).to.equal(true);
+    expect(isWeirdObject({ 0: "baz" })).to.equal(false);
+    expect(isLooselyWeirdObject({ 0: "baz" })).to.equal(true);
+  }
+
   @test public emptyInterface() {
     const isEmptyInterface: TypeGuard<{}> =
       new IsInterface().get();
