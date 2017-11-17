@@ -3,6 +3,7 @@ version: 2
 build: &BUILD
   steps:
     - checkout
+    - run: sudo npm install -g greenkeeper-lockfile@1
     - restore_cache:
         keys:
           - v2-dependency-cache-{{ .Environment.CIRCLE_STAGE }}-{{ .Branch }}-{{ checksum "package-lock.json" }}
@@ -15,12 +16,14 @@ build: &BUILD
         paths:
           - node_modules
     - run: npm install
+    - run: greenkeeper-lockfile-update
     - save_cache:
         key: v2-dependency-cache-{{ .Environment.CIRCLE_STAGE }}-{{ .Branch }}-{{ checksum "package-lock.json" }}
         paths:
           - node_modules
     - run: npm test
     - run: npm run codecov-report
+    - run: greenkeeper-lockfile-upload
 
 jobs:
   boron:
@@ -69,11 +72,10 @@ workflows:
   version: 2
   ci:
     jobs:
-      - boron
       - carbon
-      - latest
+      - boron:
+          requires: [ 'carbon' ]
+      - latest:
+          requires: [ 'carbon' ]
       - stryker:
-          requires:
-            - boron
-            - carbon
-            - latest
+          requires: [ 'carbon' ]
