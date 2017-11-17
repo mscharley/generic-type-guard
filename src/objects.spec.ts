@@ -33,6 +33,7 @@ export class ObjectsSpec {
   @test public stringIndex() {
     const hasStringStringIndex = o.hasStringIndexSignature(p.isString);
     expect(hasStringStringIndex({ foo: "bar" })).to.equal(true, "string index");
+    expect(hasStringStringIndex({})).to.equal(false, "empty string index");
     expect(hasStringStringIndex(["foo"])).to.equal(false, "numeric index");
     expect(hasStringStringIndex({ foo: "bar", bar: 10 })).to.equal(false, "string index with number");
   }
@@ -40,21 +41,24 @@ export class ObjectsSpec {
   @test public looseStringIndex() {
     const hasStringStringIndex = o.hasStringIndexSignature(p.isString, false);
     expect(hasStringStringIndex({ foo: "bar" })).to.equal(true, "string index");
+    expect(hasStringStringIndex({})).to.equal(true, "empty string index");
     expect(hasStringStringIndex(["foo"])).to.equal(true, "numeric index");
     expect(hasStringStringIndex({ foo: "bar", bar: 10 })).to.equal(false, "string index with number");
   }
 
   @test public numberIndex() {
-    const hasNumberStringIndex = o.hasNumberIndexSignature(p.isString);
+    const hasNumberStringIndex = o.hasNumericIndexSignature(p.isString);
     expect(hasNumberStringIndex({ foo: "bar" })).to.equal(false, "string index");
     expect(hasNumberStringIndex(["foo"])).to.equal(true, "numeric index");
+    expect(hasNumberStringIndex([])).to.equal(false, "empty numeric index");
     expect(hasNumberStringIndex(["foo", 10])).to.equal(false, "numeric index with number");
   }
 
   @test public looseNumberIndex() {
-    const hasNumberStringIndex = o.hasNumberIndexSignature(p.isString, false);
+    const hasNumberStringIndex = o.hasNumericIndexSignature(p.isString, false);
     expect(hasNumberStringIndex({ foo: "bar" })).to.equal(true, "string index");
     expect(hasNumberStringIndex(["foo"])).to.equal(true, "numeric index");
+    expect(hasNumberStringIndex([])).to.equal(true, "empty numeric index");
     expect(hasNumberStringIndex(["foo", 10])).to.equal(false, "numeric index with number");
   }
 

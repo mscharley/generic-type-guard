@@ -43,7 +43,7 @@ export const hasStringIndexSignature =
  *   Whether to enforce that there is at least one property already set. Be careful setting this to false, you will
  *   get some unexpected outputs, for instance objects will have a numeric index signature.
  */
-export const hasNumberIndexSignature =
+export const hasNumericIndexSignature =
   <V>(value: TypeGuard<V>, enforce = true): PartialTypeGuard<{}, { [prop: number]: V }> =>
     (o): o is { [prop: string]: V } => {
       let n = 0;

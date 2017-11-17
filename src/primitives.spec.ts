@@ -103,12 +103,22 @@ export class PrimitivesSpec {
     expect(isNumberArray({})).to.equal(false);
   }
 
+  @test public objectLike() {
+    expect(p.isObjectLike({ foo: "bar" })).to.equal(true);
+    expect(p.isObjectLike([])).to.equal(true);
+    expect(p.isObjectLike(null)).to.equal(false);
+    expect(p.isObjectLike(undefined)).to.equal(false);
+    expect(p.isObjectLike("hello")).to.equal(false);
+    expect(p.isObjectLike(10)).to.equal(false);
+  }
+
   @test public object() {
     expect(p.isObject({ foo: "bar" })).to.equal(true);
     expect(p.isObject([])).to.equal(false);
     expect(p.isObject(null)).to.equal(false);
     expect(p.isObject(undefined)).to.equal(false);
     expect(p.isObject("hello")).to.equal(false);
+    expect(p.isObject(10)).to.equal(false);
   }
 
   @test public set() {

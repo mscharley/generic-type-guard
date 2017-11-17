@@ -80,6 +80,15 @@ export const isArray =
     Array.isArray(arr) && arr.reduce<boolean>((acc, v) => acc && valueCheck(v), true);
 
 /**
+ * Validate if a value is like an object.
+ *
+ * Specifically, this only checks typeof === "object" which includes
+ * things that typescript has other primitives for like arrays.
+ */
+export const isObjectLike: TypeGuard<{}> = (obj: any): obj is {} =>
+  obj != null && typeof obj === "object";
+
+/**
  * Validate if a value is an object.
  */
 export const isObject: TypeGuard<{}> = (obj: any): obj is {} =>
