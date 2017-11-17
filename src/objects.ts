@@ -4,7 +4,7 @@ import { PartialTypeGuard, TypeGuard } from "./guards";
  * Validates that a given object has a property of a given type.
  */
 export const hasProperty =
-  <K extends string, V>(property: K, value: TypeGuard<V>): PartialTypeGuard<{}, { [prop in K]: V }> =>
+  <K extends string, V>(property: K, value: TypeGuard<V>): PartialTypeGuard<{}, Record<K, V>> =>
   (o): o is { [prop in K]: V } =>
     // If the property exists and conforms to the value type guard.
     property in o ? value((o as { [prop: string]: any })[property])
