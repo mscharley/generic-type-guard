@@ -69,6 +69,7 @@ export const isTestInterface: TypeGuard<TestInterface> = (o: any): o is TestInte
 export interface ComplexInterface extends TestInterface {
   b: boolean;
   maybeString?: string;
+  nullableString: string | null;
 }
 
 export const isTypeSafeComplexInterface: tg.TypeGuard<ComplexInterface> =
