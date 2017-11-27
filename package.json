@@ -76,7 +76,7 @@
     "stryker": "0.14.0",
     "stryker-api": "0.11.0",
     "stryker-html-reporter": "0.11.0",
-    "stryker-mocha-framework": "0.7.0",
+    "stryker-mocha-framework": "0.7.1",
     "stryker-mocha-runner": "0.10.0",
     "stryker-typescript": "0.5.0",
     "ts-node": "^3.3.0",
