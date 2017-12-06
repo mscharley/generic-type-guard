@@ -1,4 +1,5 @@
 import { PartialTypeGuard, TypeGuard } from "./guards";
+import { isObject } from "./primitives";
 
 /**
  * Validates that a given object has a property of a given type.
@@ -10,6 +11,15 @@ export const hasProperty =
     property in o ? value((o as { [prop: string]: any })[property])
     // Or the property does not exist and the value type guard allows for undefined.
     : value(undefined);
+
+/**
+ * Validate that a variable is an object with a single field.
+ *
+ * If you need multiple fields then use IsInterface.
+ */
+export const isRecord =
+  <K extends string, V>(property: K, value: TypeGuard<V>): TypeGuard<Record<K, V>> =>
+  (o): o is {[prop in K]: V} => isObject(o) && hasProperty(property, value)(o);
 
 /**
  * Validates that a given object has a string index signature.
