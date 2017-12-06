@@ -8,9 +8,7 @@ export const hasProperty =
   <K extends string, V>(property: K, value: TypeGuard<V>): PartialTypeGuard<{}, Record<K, V>> =>
   (o): o is { [prop in K]: V } =>
     // If the property exists and conforms to the value type guard.
-    property in o ? value((o as { [prop: string]: any })[property])
-    // Or the property does not exist and the value type guard allows for undefined.
-    : value(undefined);
+    value((o as { [prop: string]: any })[property]);
 
 /**
  * Validate that a variable is an object with a single field.
