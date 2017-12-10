@@ -79,7 +79,7 @@
     "stryker-mocha-framework": "0.7.1",
     "stryker-mocha-runner": "0.10.1",
     "stryker-typescript": "0.7.1",
-    "ts-node": "^3.3.0",
+    "ts-node": "^4.0.1",
     "tslint": "^5.8.0",
     "tslint-eslint-rules": "^4.1.1",
     "typescript": "~2.6.1"
