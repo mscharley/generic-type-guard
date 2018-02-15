@@ -103,6 +103,14 @@ export class PrimitivesSpec {
     expect(isNumberArray({})).to.equal(false);
   }
 
+  @test public narrowArray() {
+    const isNumberArray = p.narrowArray<number | string, number>(p.isNumber);
+
+    expect(isNumberArray([10, 20])).to.equal(true);
+    expect(isNumberArray([10, "foo"])).to.equal(false);
+    expect(isNumberArray([])).to.equal(true);
+  }
+
   @test public objectLike() {
     expect(p.isObjectLike({ foo: "bar" })).to.equal(true);
     expect(p.isObjectLike([])).to.equal(true);
