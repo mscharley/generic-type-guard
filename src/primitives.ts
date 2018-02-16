@@ -4,7 +4,41 @@ import { AlmostAny, NotEmpty, PartialTypeGuard, TypeGuard } from "./guards";
  * Validate if a value is a javascript number.
  */
 export const isNumber: TypeGuard<number> = (n): n is number =>
+  typeof n === "number" && !global.isNaN(n);
+
+/**
+ * Validate the value is a finite number.
+ */
+export const isFiniteNumber: TypeGuard<number> = (n): n is number =>
+  typeof n === "number" && !global.isNaN(n) && global.isFinite(n);
+
+/**
+ * Validate the value is a number in the rawest sense.
+ *
+ * This check is exactly what the type system says on the tin. This value is a floating point value with all
+ * the edge cases that entails.
+ */
+export const isFloat: TypeGuard<number> = (n): n is number =>
   typeof n === "number";
+
+/**
+ * Alias for isFloat.
+ *
+ * @see isFloat()
+ */
+export const isDouble = isFloat;
+
+/**
+ * Validate the value is infinite.
+ */
+export const isInfinity: TypeGuard<number> = (n): n is number =>
+  typeof n === "number" && !global.isNaN(n) && !global.isFinite(n);
+
+/**
+ * Validates a value is exactly the NaN constant value.
+ */
+export const isNaN: TypeGuard<number> = (n): n is number =>
+  typeof n === "number" && global.isNaN(n);
 
 /**
  * Validate if a value is a specific javascript number.
