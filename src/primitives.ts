@@ -1,4 +1,4 @@
-import { PartialTypeGuard, TypeGuard } from "./guards";
+import { NotEmpty, PartialTypeGuard, TypeGuard } from "./guards";
 
 /**
  * Validate if a value is a javascript number.
@@ -104,8 +104,8 @@ export const isObject: TypeGuard<{}> = (obj: any): obj is {} =>
 /**
  * Validates if a value is not null and not undefined.
  */
-export const isSet: TypeGuard<{} | number | string | boolean | symbol> =
-  (obj: any): obj is {} | number | string | boolean | symbol => obj != null;
+export const isSet: TypeGuard<NotEmpty> =
+  (obj: any): obj is NotEmpty => obj != null;
 
 /**
  * Helper for asserting nothing at all.
