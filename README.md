@@ -30,12 +30,12 @@ types which are just aliases for the built-in type guard type:
 
 ```typescript
 export type PartialTypeGuard<T, U extends T> = (value: T) => value is U;
-export type TypeGuard<T> = PartialTypeGuard<any, T>;
+export type TypeGuard<T> = PartialTypeGuard<AlmostAny, T>;
 ```
 
 A `PartialTypeGuard` is a type guard which given a value of type `T` can prove it is 
-actually the specialised type `U`. A `TypeGuard` is a type guard that can prove `any` value
-to be of type `T`; it is a `PartialTypeGuard<any, T>`.
+actually the specialised type `U`. A `TypeGuard` is a type guard that can prove any value
+to be of type `T`; it is a `PartialTypeGuard<AlmostAny, T>`.
 
 ### Type safety
 
