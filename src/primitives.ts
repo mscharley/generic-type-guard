@@ -1,4 +1,4 @@
-import { TypeGuard } from "./guards";
+import { PartialTypeGuard, TypeGuard } from "./guards";
 
 /**
  * Validate if a value is a javascript number.
@@ -78,6 +78,13 @@ export const isMissing = <T>(tgt: TypeGuard<T>): TypeGuard<T | undefined | null>
 export const isArray =
   <T>(valueCheck: TypeGuard<T>): TypeGuard<T[]> => (arr: any): arr is T[] =>
     Array.isArray(arr) && arr.reduce<boolean>((acc, v) => acc && valueCheck(v), true);
+
+/**
+ * Narrow the type of elements inside an array.
+ */
+export const narrowArray =
+  <T, U extends T>(pt: PartialTypeGuard<T, U>): PartialTypeGuard<T[], U[]> =>
+    (ts: T[]): ts is U[] => ts.reduce<boolean>((acc, b) => acc && pt(b), true);
 
 /**
  * Validate if a value is like an object.
