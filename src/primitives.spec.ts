@@ -13,8 +13,44 @@ export class PrimitivesSpec {
   }
 
   @test public number() {
+    expect(p.isNumber(NaN)).to.equal(false);
+    expect(p.isNumber(Infinity)).to.equal(true);
     expect(p.isNumber(10)).to.equal(true);
     expect(p.isNumber("foo")).to.equal(false);
+  }
+
+  @test public finiteNumber() {
+    expect(p.isFiniteNumber(NaN)).to.equal(false);
+    expect(p.isFiniteNumber(Infinity)).to.equal(false);
+    expect(p.isFiniteNumber(10)).to.equal(true);
+    expect(p.isFiniteNumber("foo")).to.equal(false);
+  }
+
+  @test public float() {
+    expect(p.isFloat(NaN)).to.equal(true);
+    expect(p.isFloat(Infinity)).to.equal(true);
+    expect(p.isFloat(10)).to.equal(true);
+    expect(p.isFloat("foo")).to.equal(false);
+  }
+
+  @test public double() {
+    // This is a reference equality check.
+    expect(p.isDouble).to.equal(p.isFloat);
+  }
+
+  @test public infinity() {
+    expect(p.isInfinity(NaN)).to.equal(false);
+    expect(p.isInfinity(Infinity)).to.equal(true);
+    expect(p.isInfinity(-Infinity)).to.equal(true);
+    expect(p.isInfinity(10)).to.equal(false);
+    expect(p.isInfinity("foo")).to.equal(false);
+  }
+
+  @test public nan() {
+    expect(p.isNaN(NaN)).to.equal(true);
+    expect(p.isNaN(Infinity)).to.equal(false);
+    expect(p.isNaN(10)).to.equal(false);
+    expect(p.isNaN("foo")).to.equal(false);
   }
 
   @test public boolean() {
