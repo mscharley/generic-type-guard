@@ -1,4 +1,4 @@
-import { NotEmpty, PartialTypeGuard, TypeGuard } from "./guards";
+import { AlmostAny, NotEmpty, PartialTypeGuard, TypeGuard } from "./guards";
 
 /**
  * Validate if a value is a javascript number.
@@ -76,8 +76,8 @@ export const isMissing = <T>(tgt: TypeGuard<T>): TypeGuard<T | undefined | null>
  * Validate if a value is an array of a specific type of value.
  */
 export const isArray =
-  <T>(valueCheck: TypeGuard<T>): TypeGuard<T[]> => (arr: any): arr is T[] =>
-    Array.isArray(arr) && arr.reduce<boolean>((acc, v) => acc && valueCheck(v), true);
+  <T>(valueCheck: TypeGuard<T>): TypeGuard<T[]> => (arr: AlmostAny): arr is T[] =>
+    Array.isArray(arr) && arr.reduce<boolean>((acc, v) => acc && valueCheck(v as AlmostAny), true);
 
 /**
  * Narrow the type of elements inside an array.
@@ -92,20 +92,20 @@ export const narrowArray =
  * Specifically, this only checks typeof === "object" which includes
  * things that typescript has other primitives for like arrays.
  */
-export const isObjectLike: TypeGuard<{}> = (obj: any): obj is {} =>
+export const isObjectLike: TypeGuard<{}> = (obj: AlmostAny): obj is {} =>
   obj != null && typeof obj === "object";
 
 /**
  * Validate if a value is an object.
  */
-export const isObject: TypeGuard<{}> = (obj: any): obj is {} =>
+export const isObject: TypeGuard<{}> = (obj: AlmostAny): obj is {} =>
   obj != null && typeof obj === "object" && !(obj instanceof Array);
 
 /**
  * Validates if a value is not null and not undefined.
  */
 export const isSet: TypeGuard<NotEmpty> =
-  (obj: any): obj is NotEmpty => obj != null;
+  (obj: AlmostAny): obj is NotEmpty => obj != null;
 
 /**
  * Helper for asserting nothing at all.
@@ -117,7 +117,7 @@ export const isSet: TypeGuard<NotEmpty> =
  * You can use isSet to validate that a value is non-null then let TypeScript
  * widen it back to any in your interface.
  */
-export const isAny: TypeGuard<any> = (_a: any): _a is any => true;
+export const isAny: TypeGuard<AlmostAny> = (_a: AlmostAny): _a is AlmostAny => true;
 
 /**
  * Helper for exhaustiveness checking.

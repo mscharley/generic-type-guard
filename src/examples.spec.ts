@@ -13,7 +13,7 @@ export interface ComplexInterface extends TestInterface {
   nullableString: string | null;
 }
 
-const n: any = "something else";
+const n: tg.AlmostAny = "something else";
 const isFooOrBar = tg.isSingletonStringUnion("foo", "bar");
 
 if (isFooOrBar(n)) {
@@ -24,7 +24,7 @@ if (isFooOrBar(n)) {
 /**
  * Simple way to test an interface.
  */
-export const isTestInterface: tg.TypeGuard<TestInterface> = (o: any): o is TestInterface =>
+export const isTestInterface: tg.TypeGuard<TestInterface> = (o: tg.AlmostAny): o is TestInterface =>
   tg.isObject(o) && tg.hasProperty("str", tg.isString)(o) && tg.hasProperty("num", tg.isNumber)(o);
 
 /**
@@ -60,3 +60,8 @@ export const isTypeSafeComplexInterface2: tg.TypeGuard<ComplexInterface> =
     .withProperty("maybeString", tg.isOptional(tg.isString))
     .withProperty("nullableString", tg.isNullable(tg.isString))
     .get();
+
+/* This is supposed to fail to compile. This is here for quick checking in later releases.
+const isFoo: tg.PartialTypeGuard<string, "foo"> = (s: string): s is "foo" => s === "foo";
+export const isSomething: tg.TypeGuard<{ foo: Array<"foo"> }> = tg.isRecord("foo", tg.narrowArray(isFoo));
+/**/
