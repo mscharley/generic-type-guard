@@ -1,6 +1,6 @@
 import { expect } from "chai";
 import { slow, suite, test, timeout } from "mocha-typescript";
-import { TypeGuard } from "../guards";
+import { PartialTypeGuard } from "../guards";
 import * as o from "../objects";
 import * as p from "../primitives";
 import * as c from "./functions";
@@ -24,7 +24,7 @@ export class CombinatorsSpec {
   }
 
   @test public intersectionObject() {
-    const isInterface: TypeGuard<SimpleInterface> =
+    const isInterface: PartialTypeGuard<{}, SimpleInterface> =
       c.isIntersection(o.hasProperty("str", p.isString), o.hasProperty("num", p.isNumber));
 
     expect(isInterface({ str: "foo", num: 10 })).to.equal(true);

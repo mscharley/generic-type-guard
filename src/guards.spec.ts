@@ -18,7 +18,7 @@ export class GuardsSpec {
   @test public typeGuardsArePartialGuards() {
     const fn: g.TypeGuard<"Hello"> =
       (s): s is "Hello" => typeof s === "string" && s === "Hello";
-    const fn2: g.PartialTypeGuard<any, "Hello"> = fn;
+    const fn2: g.PartialTypeGuard<g.AlmostAny, "Hello"> = fn;
 
     expect(fn2("Hello")).to.equal(true);
   }

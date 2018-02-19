@@ -1,4 +1,4 @@
-import { PartialTypeGuard, TypeGuard } from "./guards";
+import { AlmostAny, PartialTypeGuard, TypeGuard } from "./guards";
 import { isObject } from "./primitives";
 
 /**
@@ -8,7 +8,7 @@ export const hasProperty =
   <K extends string, V>(property: K, value: TypeGuard<V>): PartialTypeGuard<{}, Record<K, V>> =>
   (o): o is { [prop in K]: V } =>
     // If the property exists and conforms to the value type guard.
-    value((o as { [prop: string]: any })[property]);
+    value((o as { [prop: string]: AlmostAny })[property]);
 
 /**
  * Validate that a variable is an object with a single field.
@@ -32,7 +32,7 @@ export const hasStringIndexSignature =
       let n = 0;
       for (const prop in o) {
         if (isNaN(parseInt(prop, 10))) {
-          if (value((o as { [prop: string]: any })[prop])) {
+          if (value((o as { [prop: string]: AlmostAny })[prop])) {
             n += 1;
           }
           else {
@@ -58,7 +58,7 @@ export const hasNumericIndexSignature =
       for (const prop in o) {
         if (!isNaN(parseInt(prop, 10))) {
           // We still index as a string here because prop is a string.
-          if (value((o as { [prop: string]: any })[prop])) {
+          if (value((o as { [prop: string]: AlmostAny })[prop])) {
             n += 1;
           }
           else {

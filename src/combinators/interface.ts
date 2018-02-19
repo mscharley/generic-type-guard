@@ -7,7 +7,7 @@ import { isIntersection } from "./functions";
 
 export interface InterfaceBuilder<T extends {}> {
   get(): TypeGuard<T>;
-  with<V>(ptv: TypeGuard<V>): InterfaceBuilder<T & V>;
+  with<V>(ptv: PartialTypeGuard<{}, V>): InterfaceBuilder<T & V>;
   withProperty<K extends string, V>(key: K, ptv: TypeGuard<V>): InterfaceBuilder<T & { [prop in K]: V }>;
   withStringIndexSignature<V>(value: TypeGuard<V>, enforce?: boolean): InterfaceBuilder<T & { [prop: string]: V }>;
   withNumericIndexSignature<V>(value: TypeGuard<V>, enforce?: boolean): InterfaceBuilder<T & { [i: number]: V }>;
@@ -27,8 +27,8 @@ class InterfaceStep<T extends {}> implements InterfaceBuilder<T> {
     return (obj): obj is T => isObjectLike(obj) && this.ptt(obj);
   }
 
-  public with<V>(ptv: TypeGuard<V>): InterfaceBuilder<T & V> {
-    return new InterfaceStep(isIntersection(this.ptt, ptv));
+  public with<V>(ptv: PartialTypeGuard<{}, V>): InterfaceBuilder<T & V> {
+    return new InterfaceStep<T & V>(isIntersection(this.ptt, ptv));
   }
 
   public withProperty<K extends string, V>(key: K, ptv: TypeGuard<V>): InterfaceBuilder<T & Record<K, V>> {
@@ -54,7 +54,7 @@ export class IsInterface implements InterfaceBuilder<{}> {
     return isObjectLike;
   }
 
-  public with<V>(ptv: TypeGuard<V>): InterfaceBuilder<{} & V> {
+  public with<V>(ptv: PartialTypeGuard<{}, V>): InterfaceBuilder<{} & V> {
     return new InterfaceStep(ptv);
   }
 
