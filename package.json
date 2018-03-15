@@ -72,7 +72,7 @@
     "mocha-typescript": "^1.1.12",
     "nodemon": "^1.15.0",
     "nyc": "^11.5.0",
-    "source-map-support": "0.5.3",
+    "source-map-support": "0.5.4",
     "stryker": "0.19.3",
     "stryker-api": "0.13.0",
     "stryker-html-reporter": "0.12.1",
