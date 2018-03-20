@@ -1,6 +1,5 @@
 src/**/*
 dist/**/*.spec.js
-/.circleci/*
 .editorconfig
 .gitignore
 .nvmrc
@@ -8,3 +7,6 @@ mocha.opts
 tslint.json
 tsconfig.json
 stryker.conf.js
+.nyc_output/
+coverage/
+reports/
