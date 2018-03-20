@@ -1,11 +1,10 @@
 #!/usr/bin/env bash
 
-echo ${1:?You must specify at least one parameter to this script.} > /dev/null;
 set -e
 set -x
 git checkout master
 git pull --ff-only
-VERSION=$(npm version "$@")
-git push origin master tag "$VERSION"
-npm run compile
-npm publish
+npm run test
+npm run build
+npm run release
+lerna publish
