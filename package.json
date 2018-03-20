@@ -1,8 +1,10 @@
 {
   "scripts": {
-    "install": "lerna bootstrap",
+    "install": "lerna bootstrap --reject-cycles",
     "lerna": "lerna",
-    "test": "lerna run test"
+    "build": "lerna run build",
+    "test": "lerna run test",
+    "stryker": "lerna run stryker"
   },
   "devDependencies": {
     "lerna": "^2.9.0"

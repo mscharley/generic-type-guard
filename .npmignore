@@ -1,8 +1,6 @@
-bin/*
 src/**/*
-dist/tests/**/*
-tests/**/*
-.circleci/*
+dist/**/*.spec.js
+/.circleci/*
 .editorconfig
 .gitignore
 .nvmrc
