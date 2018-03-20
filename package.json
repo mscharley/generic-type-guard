@@ -4,7 +4,9 @@
     "lerna": "lerna",
     "build": "lerna run build",
     "test": "lerna run test",
-    "stryker": "lerna run stryker"
+    "test-watch": "lerna run --parallel test-watch",
+    "stryker": "lerna run stryker",
+    "codecov-report": "lerna run --parallel codecov-report"
   },
   "devDependencies": {
     "lerna": "^2.9.0"
