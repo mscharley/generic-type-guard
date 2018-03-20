@@ -1,0 +1,87 @@
+{
+  "name": "generic-type-guard",
+  "version": "2.0.0",
+  "description": "Generic type guards for TypeScript",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "compile": "rm -fr dist && tsc",
+    "release": "bin/release",
+    "test": "npm run lint && npm run mocha",
+    "test-watch": "nodemon -e ts,json --exec npm test",
+    "lint": "tslint -p . -c ../../tslint.json",
+    "lint-watch": "nodemon -e ts,json --exec tslint -p .",
+    "mocha": "nyc mocha --opts mocha.opts",
+    "mocha-watch": "nodemon -e ts,json --exec npm run mocha",
+    "stryker": "stryker run",
+    "stryker-watch": "nodemon -e ts,json --exec stryker run",
+    "codecov-local": "nyc report",
+    "codecov-report": "nyc report --reporter=json && codecov -f coverage/*.json"
+  },
+  "nyc": {
+    "include": [
+      "src/**/*.ts",
+      "src/**/*.tsx"
+    ],
+    "exclude": [
+      "**/*.spec.ts"
+    ],
+    "extension": [
+      ".ts",
+      ".tsx"
+    ],
+    "require": [
+      "ts-node/register"
+    ],
+    "reporter": [
+      "text-summary",
+      "html"
+    ],
+    "sourceMap": true,
+    "instrument": true,
+    "checkCoverage": true,
+    "lines": 100,
+    "functions": 100,
+    "branches": 100,
+    "statements": 100
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mscharley/generic-type-guard.git"
+  },
+  "keywords": [
+    "typescript",
+    "typeguard",
+    "type-guard",
+    "ts"
+  ],
+  "author": "Matthew Scharley",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mscharley/generic-type-guard/issues"
+  },
+  "homepage": "https://github.com/mscharley/generic-type-guard#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "@types/chai": "*",
+    "@types/mocha": "*",
+    "@types/node": "*",
+    "chai": "^4.1.2",
+    "codecov": "^3.0.0",
+    "mocha": "^5.0.1",
+    "mocha-typescript": "^1.1.12",
+    "nodemon": "^1.15.0",
+    "nyc": "^11.5.0",
+    "source-map-support": "0.5.3",
+    "stryker": "0.19.3",
+    "stryker-api": "0.13.0",
+    "stryker-html-reporter": "0.12.1",
+    "stryker-mocha-framework": "0.8.3",
+    "stryker-mocha-runner": "0.10.5",
+    "stryker-typescript": "0.9.1",
+    "ts-node": "^4.1.0",
+    "tslint": "^5.9.1",
+    "tslint-eslint-rules": "^5.0.0",
+    "typescript": "~2.7.0"
+  }
+}
