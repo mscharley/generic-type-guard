@@ -1,5 +1,6 @@
 src/**/*
 dist/**/*.spec.js
+dist/**/*.spec.d.js
 .editorconfig
 .gitignore
 .nvmrc
