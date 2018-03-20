@@ -65,8 +65,8 @@ jobs:
             - node_modules
       - run: npm run stryker
       - store_artifacts:
-          path: packages/*/reports/mutation/html
-          destination: stryker
+          path: packages/generic-type-guard/reports/mutation/html
+          destination: stryker-generic-type-guard
 
 workflows:
   version: 2
