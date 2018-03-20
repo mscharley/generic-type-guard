@@ -65,7 +65,7 @@ jobs:
             - node_modules
       - run: npm run stryker
       - store_artifacts:
-          path: reports/mutation/html
+          path: packages/*/reports/mutation/html
           destination: stryker
 
 workflows:
