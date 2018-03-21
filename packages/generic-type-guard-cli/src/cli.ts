@@ -5,7 +5,6 @@ import chalk from "chalk";
  *
  * This is called from the JS/TS executable stub as quickly as possible.
  */
-export const main = () => {
-  // tslint:disable-next-line:no-console
-  console.log(chalk.red("Hello world!"), process.argv);
+export const main = (args: string[], log: (...msg: any[]) => void) => {
+  log(chalk.red("Hello world!"), args);
 };

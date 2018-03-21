@@ -43,10 +43,10 @@
     "sourceMap": true,
     "instrument": true,
     "checkCoverage": true,
-    "lines": 100,
-    "functions": 100,
-    "branches": 100,
-    "statements": 100
+    "lines": 95,
+    "functions": 95,
+    "branches": 95,
+    "statements": 95
   },
   "repository": {
     "type": "git",
@@ -89,6 +89,7 @@
     "stryker-mocha-framework": "0.8.3",
     "stryker-mocha-runner": "0.10.5",
     "stryker-typescript": "0.9.1",
+    "testdouble": "^3.5.2",
     "ts-node": "^4.1.0",
     "tslint": "^5.9.1",
     "tslint-eslint-rules": "^5.0.0",
