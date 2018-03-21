@@ -1,11 +1,15 @@
 {
-  "name": "generic-type-guard",
-  "version": "2.0.0",
-  "description": "Generic type guards for TypeScript",
+  "name": "generic-type-guard-cli",
+  "version": "1.0.0",
+  "description": "CLI for code generation of generic typeguards",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "bin": {
+    "gtg-cli": "bin/cli.js"
+  },
   "scripts": {
     "build": "rm -fr dist && tsc",
+    "start": "ts-node src/bin/cli",
     "test": "npm run lint && npm run mocha",
     "test-watch": "nodemon -e ts,json --exec npm test",
     "lint": "tslint -p . -c ../../tslint.json",
@@ -52,15 +56,22 @@
     "typescript",
     "typeguard",
     "type-guard",
-    "ts"
+    "ts",
+    "cli",
+    "codegen",
+    "code-generator",
+    "code-generation"
   ],
   "author": "Matthew Scharley",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/mscharley/generic-type-guard/issues"
   },
-  "homepage": "https://github.com/mscharley/generic-type-guard/tree/master/packages/generic-type-guard#readme",
-  "dependencies": {},
+  "homepage": "https://github.com/mscharley/generic-type-guard/tree/master/packages/generic-type-guard-cli#readme",
+  "dependencies": {
+    "chalk": "^2.3.2",
+    "generic-type-guard": "^2.0.0"
+  },
   "devDependencies": {
     "@types/chai": "*",
     "@types/mocha": "*",
