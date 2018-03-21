@@ -6,7 +6,8 @@
     "test": "lerna run test",
     "test-watch": "lerna run --parallel test-watch",
     "stryker": "lerna run stryker",
-    "codecov-report": "lerna run --parallel codecov-report"
+    "codecov-report": "lerna run --parallel codecov-report",
+    "outdated": "lerna exec --bail false npm outdated"
   },
   "devDependencies": {
     "lerna": "^2.9.0"
