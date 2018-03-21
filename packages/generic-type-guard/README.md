@@ -5,7 +5,7 @@
 [![Codecov](https://img.shields.io/codecov/c/github/mscharley/generic-type-guard.svg)](https://codecov.io/gh/mscharley/generic-type-guard)
 [![Join the chat at https://gitter.im/generic-type-guard/Lobby](https://badges.gitter.im/generic-type-guard/Lobby.svg)](https://gitter.im/generic-type-guard/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-**Source:** [https://github.com/mscharley/generic-type-guard](https://github.com/mscharley/generic-type-guard)  
+**Source:** [https://github.com/mscharley/generic-type-guard](https://github.com/mscharley/generic-type-guard/packages/generic-type-guard)  
 **Author:** Matthew Scharley  
 **Contributors:** [See contributors on GitHub][gh-contrib]  
 **Bugs/Support:** [Github Issues][gh-issues]  

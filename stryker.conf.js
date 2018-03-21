@@ -15,12 +15,15 @@ module.exports = function(config) {
       }
     ],
     testRunner: "mocha",
+    testFramework: "mocha",
+    mochaOptions: {
+      opts: "../../mocha.opts",
+    },
     mutator: "typescript",
     transpilers: ["typescript"],
     tsconfigFile: "./tsconfig.json",
     reporter: ["clear-text", "html", "progress"],
-    testFramework: "mocha",
-    thresholds: { high: 100, low: 100, break: 100 },
+    thresholds: { high: 100, low: 99, break: 95 },
     coverageAnalysis: "off"
   });
 };

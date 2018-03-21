@@ -1,21 +1,25 @@
 {
-  "name": "generic-type-guard",
-  "version": "2.0.0",
-  "description": "Generic type guards for TypeScript",
+  "name": "generic-type-guard-cli",
+  "version": "1.0.0",
+  "description": "CLI for code generation of generic typeguards",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "bin": {
+    "gtg-cli": "bin/cli.js"
+  },
   "scripts": {
     "build": "rm -fr dist && tsc",
+    "start": "ts-node src/bin/cli",
     "test": "npm run lint && npm run mocha",
     "test-watch": "nodemon -e ts,json --exec npm test",
-    "lint": "tslint -p . -c ../../tslint.json",
-    "lint-watch": "nodemon -e ts,json --exec tslint -p . -c ../../tslint.json",
+    "lint": "tslint -t verbose -p . -c ../../tslint.json",
+    "lint-watch": "nodemon -e ts,json --exec tslint -t verbose -p . -c ../../tslint.json",
     "mocha": "nyc mocha --opts ../../mocha.opts",
     "mocha-watch": "nodemon -e ts,json --exec npm run mocha --opts ../../mocha.opts",
     "stryker": "stryker run ../../stryker.conf.js",
     "stryker-watch": "nodemon -e ts,json --exec stryker run ../../stryker.conf.js",
     "codecov-local": "nyc report",
-    "codecov-report": "nyc report --reporter=json && codecov -p ../.. -f coverage/*.json -F generic_type_guard"
+    "codecov-report": "nyc report --reporter=json && codecov -p ../.. -f coverage/*.json -F generic_type_guard_cli"
   },
   "nyc": {
     "include": [
@@ -39,10 +43,10 @@
     "sourceMap": true,
     "instrument": true,
     "checkCoverage": true,
-    "lines": 100,
-    "functions": 100,
-    "branches": 100,
-    "statements": 100
+    "lines": 95,
+    "functions": 95,
+    "branches": 95,
+    "statements": 95
   },
   "repository": {
     "type": "git",
@@ -52,15 +56,22 @@
     "typescript",
     "typeguard",
     "type-guard",
-    "ts"
+    "ts",
+    "cli",
+    "codegen",
+    "code-generator",
+    "code-generation"
   ],
   "author": "Matthew Scharley",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/mscharley/generic-type-guard/issues"
   },
-  "homepage": "https://github.com/mscharley/generic-type-guard/tree/master/packages/generic-type-guard#readme",
-  "dependencies": {},
+  "homepage": "https://github.com/mscharley/generic-type-guard/tree/master/packages/generic-type-guard-cli#readme",
+  "dependencies": {
+    "chalk": "^2.3.2",
+    "generic-type-guard": "^2.0.0"
+  },
   "devDependencies": {
     "@types/chai": "*",
     "@types/mocha": "*",
@@ -78,6 +89,7 @@
     "stryker-mocha-framework": "0.8.3",
     "stryker-mocha-runner": "0.10.5",
     "stryker-typescript": "0.9.1",
+    "testdouble": "^3.5.2",
     "ts-node": "^4.1.0",
     "tslint": "^5.9.1",
     "tslint-eslint-rules": "^5.0.0",
