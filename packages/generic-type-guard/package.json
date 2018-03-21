@@ -15,7 +15,7 @@
     "stryker": "stryker run ../../stryker.conf.js",
     "stryker-watch": "nodemon -e ts,json --exec stryker run ../../stryker.conf.js",
     "codecov-local": "nyc report",
-    "codecov-report": "nyc report --reporter=json && codecov -f coverage/*.json"
+    "codecov-report": "nyc report --reporter=json && codecov -p ../.. -f coverage/*.json -F generic_type_guard"
   },
   "nyc": {
     "include": [
