@@ -4,6 +4,7 @@ import * as td from "testdouble";
 import { main } from "./cli";
 
 // tslint:disable:no-unsafe-any
+// tslint:disable:no-void-expression
 
 /**
  * Specs for the CLI file.
@@ -18,8 +19,5 @@ export class CliSpec {
     const log = td.function<(...msg: any[]) => void>();
     main([], log);
     td.verify(log(chalk.red("Hello world!"), []));
-    for (let i = 0; i < 10_000_000; i++) {
-      // Do nothing.
-    }
   }
 }
