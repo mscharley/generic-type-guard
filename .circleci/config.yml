@@ -3,9 +3,10 @@ version: 2
 build: &BUILD
   steps:
     - checkout
-    - run: npm install
-    - run: npm test
-    - run: npm run codecov-report
+    - run: yarn install
+    - run: yarn build
+    - run: yarn test
+    - run: yarn codecov-report
 
 jobs:
   boron:
@@ -29,8 +30,9 @@ jobs:
       - image: circleci/node:8.9
     steps:
       - checkout
-      - run: npm install
-      - run: npm run stryker
+      - run: yarn install
+      - run: yarn build
+      - run: yarn stryker
       - store_artifacts:
           path: packages/generic-type-guard/reports/mutation/html
           destination: stryker-generic-type-guard

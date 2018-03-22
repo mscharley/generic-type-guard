@@ -8,28 +8,35 @@
     "gtg-cli": "bin/cli.js"
   },
   "scripts": {
+    "clean": "rm -fr dist",
     "build": "rm -fr dist && tsc",
     "start": "ts-node src/bin/cli",
-    "test": "npm run lint && npm run mocha",
-    "test-watch": "nodemon -e ts,json --exec npm test",
+    "test": "yarn lint && yarn mocha-nyc",
+    "test-watch": "nodemon -e ts,json -i coverage -i dist --exec yarn test",
     "lint": "tslint -t verbose -p . -c ../../tslint.json",
     "lint-watch": "nodemon -e ts,json --exec tslint -t verbose -p . -c ../../tslint.json",
-    "mocha": "nyc mocha --opts ../../mocha.opts",
-    "mocha-watch": "nodemon -e ts,json --exec npm run mocha --opts ../../mocha.opts",
-    "stryker": "stryker run ../../stryker.conf.js",
-    "stryker-watch": "nodemon -e ts,json --exec stryker run ../../stryker.conf.js",
+    "mocha": "mocha --opts mocha.opts src/**/*.spec.ts",
+    "mocha-nyc": "tsc && nyc mocha --opts mocha.opts dist/**/*.spec.js",
+    "mocha-watch": "nodemon -e ts,json --exec yarn run mocha",
+    "stryker": "stryker run ./stryker.conf.js",
+    "stryker-watch": "nodemon -e ts,json --exec stryker run ./stryker.conf.js",
     "codecov-local": "nyc report",
     "codecov-report": "nyc report --reporter=json && codecov -p ../.. -f coverage/*.json -F generic_type_guard_cli"
   },
   "nyc": {
     "include": [
+      "dist/**/*.js",
+      "dist/**/*.jsx",
       "src/**/*.ts",
       "src/**/*.tsx"
     ],
     "exclude": [
+      "**/*.spec.js",
       "**/*.spec.ts"
     ],
     "extension": [
+      ".js",
+      ".jsx",
       ".ts",
       ".tsx"
     ],
@@ -70,7 +77,10 @@
   "homepage": "https://github.com/mscharley/generic-type-guard/tree/master/packages/generic-type-guard-cli#readme",
   "dependencies": {
     "chalk": "^2.3.2",
-    "generic-type-guard": "^2.0.0"
+    "generic-type-guard": "^2.0.0",
+    "log4js": "^2.5.3",
+    "reflect-metadata": "^0.1.12",
+    "typedi": "^0.7.1"
   },
   "devDependencies": {
     "@types/chai": "*",
@@ -82,15 +92,15 @@
     "mocha-typescript": "^1.1.12",
     "nodemon": "^1.15.0",
     "nyc": "^11.5.0",
-    "source-map-support": "0.5.3",
-    "stryker": "0.19.3",
-    "stryker-api": "0.13.0",
-    "stryker-html-reporter": "0.12.1",
-    "stryker-mocha-framework": "0.8.3",
-    "stryker-mocha-runner": "0.10.5",
-    "stryker-typescript": "0.9.1",
+    "source-map-support": ">= 0.5.3, < 1.0.0",
+    "stryker": ">= 0.19.3, < 1.0.0",
+    "stryker-api": ">= 0.13.0, < 1.0.0",
+    "stryker-html-reporter": ">= 0.12.1, < 1.0.0",
+    "stryker-mocha-framework": ">= 0.8.3, < 1.0.0",
+    "stryker-mocha-runner": ">= 0.10.5, < 1.0.0",
+    "stryker-typescript": ">= 0.9.1, < 1.0.0",
     "testdouble": "^3.5.2",
-    "ts-node": "^4.1.0",
+    "ts-node": "^5.0.1",
     "tslint": "^5.9.1",
     "tslint-eslint-rules": "^5.0.0",
     "typescript": "~2.7.0"

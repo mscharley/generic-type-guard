@@ -12,12 +12,15 @@ module.exports = function(config) {
         pattern: "src/**/*.spec.ts",
         mutated: false,
         included: true
-      }
+      },
+      // Exists purely to wrap untestable code.
+      '!src/utils/FileLoader.ts',
+      { pattern: "src/utils/FileLoader.ts", mutated: false, included: false }
     ],
     testRunner: "mocha",
     testFramework: "mocha",
     mochaOptions: {
-      opts: "../../mocha.opts",
+      opts: "./mocha.opts",
     },
     mutator: "typescript",
     transpilers: ["typescript"],
