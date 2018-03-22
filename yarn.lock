@@ -3994,13 +3994,7 @@ source-map-resolve@^0.5.0:
     source-map-url "^0.4.0"
     urix "^0.1.0"
 
-source-map-support@0.5.3:
-  version "0.5.3"
-  resolved "https://registry.yarnpkg.com/source-map-support/-/source-map-support-0.5.3.tgz#2b3d5fff298cfa4d1afd7d4352d569e9a0158e76"
-  dependencies:
-    source-map "^0.6.0"
-
-source-map-support@^0.5.0:
+"source-map-support@>= 0.5.3, < 1.0.0", source-map-support@^0.5.0:
   version "0.5.4"
   resolved "https://registry.yarnpkg.com/source-map-support/-/source-map-support-0.5.4.tgz#54456efa89caa9270af7cd624cc2f123e51fbae8"
   dependencies:
@@ -4220,15 +4214,15 @@ strong-log-transformer@^1.0.6:
     moment "^2.6.0"
     through "^2.3.4"
 
-stryker-api@0.13.0:
-  version "0.13.0"
-  resolved "https://registry.yarnpkg.com/stryker-api/-/stryker-api-0.13.0.tgz#25677e3d2f915630072ccdd1130ed793c60dee48"
+"stryker-api@>= 0.13.0, < 1.0.0":
+  version "0.14.0"
+  resolved "https://registry.yarnpkg.com/stryker-api/-/stryker-api-0.14.0.tgz#5f00b29b7bc0912a2c26bff9b6121c5385f547e4"
   dependencies:
     tslib "^1.6.0"
 
-stryker-html-reporter@0.12.1:
-  version "0.12.1"
-  resolved "https://registry.yarnpkg.com/stryker-html-reporter/-/stryker-html-reporter-0.12.1.tgz#93aab724fbf334d39419559f79cafef5707d2806"
+"stryker-html-reporter@>= 0.12.1, < 1.0.0":
+  version "0.12.4"
+  resolved "https://registry.yarnpkg.com/stryker-html-reporter/-/stryker-html-reporter-0.12.4.tgz#a6b853ee0eed9bbf9e72c1954ff5ebefde7d72cc"
   dependencies:
     file-url "^2.0.0"
     lodash "^4.13.1"
@@ -4238,31 +4232,31 @@ stryker-html-reporter@0.12.1:
     rimraf "^2.6.1"
     typed-html "^0.6.0"
 
-stryker-mocha-framework@0.8.3:
-  version "0.8.3"
-  resolved "https://registry.yarnpkg.com/stryker-mocha-framework/-/stryker-mocha-framework-0.8.3.tgz#0ce8fbf2d4776a49404c379295756812d1673a2c"
+"stryker-mocha-framework@>= 0.8.3, < 1.0.0":
+  version "0.8.6"
+  resolved "https://registry.yarnpkg.com/stryker-mocha-framework/-/stryker-mocha-framework-0.8.6.tgz#573f50b282269d897eb770f143b77e96ffc37c6c"
   dependencies:
     log4js "^1.1.1"
 
-stryker-mocha-runner@0.10.5:
-  version "0.10.5"
-  resolved "https://registry.yarnpkg.com/stryker-mocha-runner/-/stryker-mocha-runner-0.10.5.tgz#f2356bd2292498b73e03e576f9764f1401d1933b"
+"stryker-mocha-runner@>= 0.10.5, < 1.0.0":
+  version "0.10.8"
+  resolved "https://registry.yarnpkg.com/stryker-mocha-runner/-/stryker-mocha-runner-0.10.8.tgz#c1c2a9d968a5302267d127933260f22c37ad61ff"
   dependencies:
     log4js "^1.1.1"
     tslib "^1.5.0"
 
-stryker-typescript@0.9.1:
-  version "0.9.1"
-  resolved "https://registry.yarnpkg.com/stryker-typescript/-/stryker-typescript-0.9.1.tgz#7c622fe62e6f1404b64536f3ee012638363b089b"
+"stryker-typescript@>= 0.9.1, < 1.0.0":
+  version "0.9.4"
+  resolved "https://registry.yarnpkg.com/stryker-typescript/-/stryker-typescript-0.9.4.tgz#e765f60f47a661f6e91227b07757c91cbb254f2c"
   dependencies:
     lodash.flatmap "^4.5.0"
     log4js "^1.1.1"
     semver "^5.4.1"
     tslib "^1.5.0"
 
-stryker@0.19.3:
-  version "0.19.3"
-  resolved "https://registry.yarnpkg.com/stryker/-/stryker-0.19.3.tgz#aeaeef155bca30c36cb1bf31afc276e2dba576e9"
+"stryker@>= 0.19.3, < 1.0.0":
+  version "0.20.1"
+  resolved "https://registry.yarnpkg.com/stryker/-/stryker-0.20.1.tgz#db3add03687540d667b5d03a0f4ba1c6db02fd43"
   dependencies:
     chalk "^2.3.0"
     commander "^2.12.2"

@@ -1,14 +1,15 @@
 {
   "name": "generic-type-guard-meta",
   "private": true,
-  "workspaces": [ "packages/*" ],
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
     "build": "lerna run build",
     "test": "lerna run test",
     "test-watch": "lerna run --parallel test-watch",
     "stryker": "lerna run stryker",
-    "codecov-report": "lerna run --parallel codecov-report",
-    "outdated": "lerna exec --bail false npm outdated"
+    "codecov-report": "lerna run --parallel codecov-report"
   },
   "devDependencies": {
     "lerna": "^2.9.0"
