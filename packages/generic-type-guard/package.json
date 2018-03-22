@@ -12,8 +12,8 @@
     "lint-watch": "nodemon -e ts,json --exec tslint -p . -c ../../tslint.json",
     "mocha": "nyc mocha --opts mocha.opts",
     "mocha-watch": "nodemon -e ts,json --exec yarn mocha --opts ../../mocha.opts",
-    "stryker": "stryker run ../../stryker.conf.js",
-    "stryker-watch": "nodemon -e ts,json --exec stryker run ../../stryker.conf.js",
+    "stryker": "stryker run ./stryker.conf.js",
+    "stryker-watch": "nodemon -e ts,json --exec stryker run ./stryker.conf.js",
     "codecov-local": "nyc report",
     "codecov-report": "nyc report --reporter=json && codecov -p ../.. -f coverage/*.json -F generic_type_guard"
   },

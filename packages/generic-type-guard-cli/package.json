@@ -18,8 +18,8 @@
     "mocha": "mocha --opts mocha.opts src/**/*.spec.ts",
     "mocha-nyc": "tsc && nyc mocha --opts mocha.opts dist/**/*.spec.js",
     "mocha-watch": "nodemon -e ts,json --exec yarn run mocha",
-    "stryker": "stryker run ../../stryker.conf.js",
-    "stryker-watch": "nodemon -e ts,json --exec stryker run ../../stryker.conf.js",
+    "stryker": "stryker run ./stryker.conf.js",
+    "stryker-watch": "nodemon -e ts,json --exec stryker run ./stryker.conf.js",
     "codecov-local": "nyc report",
     "codecov-report": "nyc report --reporter=json && codecov -p ../.. -f coverage/*.json -F generic_type_guard_cli"
   },
