@@ -38,6 +38,16 @@ export class ConfigurationServiceSpec {
     expect(config.name).to.equal("Matthew");
   }
 
+  @test("should ignore invalid files")
+  public testSuccessWithInvalidFile() {
+    td.when(this.loader.load(path.resolve(process.cwd(), "gtg-cli"))).thenReturn({
+      name: 10,
+    });
+
+    const config = this.container.get<ConfigurationService>(ConfigurationService);
+    expect(config.name).to.equal("Unknown");
+  }
+
   @test("should provide a fallback name if not in file")
   public testFallback() {
     td.when(this.loader.load(path.resolve(process.cwd(), "gtg-cli"))).thenReturn({});

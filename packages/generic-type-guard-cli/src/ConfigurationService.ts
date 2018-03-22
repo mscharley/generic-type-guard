@@ -1,17 +1,34 @@
+import * as tg from "generic-type-guard";
 import * as path from "path";
 import { Inject, Service } from "typedi";
 import { FileLoader } from "./utils/FileLoader";
 
+export interface Configuration {
+  name: string;
+}
+
+const isPartialConfiguration: tg.TypeGuard<Partial<Configuration>> =
+  new tg.IsInterface()
+  .withProperty("name", tg.isOptional(tg.isString))
+  .get();
+
+/**
+ * ConfigurationService is an abstraction for accessing application configuration.
+ */
 @Service()
-export class ConfigurationService {
-  private config: { [name: string]: string };
+export class ConfigurationService implements Configuration {
+  private config: Partial<Configuration>;
 
   constructor(
     @Inject(() => FileLoader) loader: FileLoader,
   ) {
     try {
       const configPath = path.resolve(process.cwd(), "gtg-cli");
-      this.config = loader.load(configPath);
+      const loadedConfig: tg.AlmostAny = loader.load(configPath) as tg.AlmostAny;
+
+      this.config = isPartialConfiguration(loadedConfig)
+        ? loadedConfig
+        : {};
     }
     catch (e) {
       this.config = {};

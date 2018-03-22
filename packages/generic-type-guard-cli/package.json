@@ -12,7 +12,7 @@
     "build": "rm -fr dist && tsc",
     "start": "ts-node src/bin/cli",
     "test": "yarn lint && yarn mocha-nyc",
-    "test-watch": "nodemon -e ts,json --exec yarn test",
+    "test-watch": "nodemon -e ts,json -i coverage -i dist --exec yarn test",
     "lint": "tslint -t verbose -p . -c ../../tslint.json",
     "lint-watch": "nodemon -e ts,json --exec tslint -t verbose -p . -c ../../tslint.json",
     "mocha": "mocha --opts mocha.opts src/**/*.spec.ts",
