@@ -1,7 +1,9 @@
 import chalk from "chalk";
 import { slow, suite, test, timeout } from "mocha-typescript";
 import * as td from "testdouble";
-import { main } from "./cli";
+import { Container } from "typedi";
+import { ConfigurationService } from "./ConfigurationService";
+import { main } from "./main";
 
 // tslint:disable:no-unsafe-any
 // tslint:disable:no-void-expression
@@ -11,6 +13,13 @@ import { main } from "./cli";
  */
 @suite(slow(50), timeout(300))
 export class CliSpec {
+  public before() {
+    Container.reset();
+    Container.set(ConfigurationService, {
+      name: "world",
+    });
+  }
+
   public after() {
     td.reset();
   }

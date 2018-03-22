@@ -8,14 +8,16 @@
     "gtg-cli": "bin/cli.js"
   },
   "scripts": {
+    "clean": "rm -fr dist",
     "build": "rm -fr dist && tsc",
     "start": "ts-node src/bin/cli",
-    "test": "npm run lint && npm run mocha",
+    "test": "npm run lint && npm run mocha-nyc",
     "test-watch": "nodemon -e ts,json --exec npm test",
     "lint": "tslint -t verbose -p . -c ../../tslint.json",
     "lint-watch": "nodemon -e ts,json --exec tslint -t verbose -p . -c ../../tslint.json",
-    "mocha": "nyc mocha --opts ../../mocha.opts",
-    "mocha-watch": "nodemon -e ts,json --exec npm run mocha --opts ../../mocha.opts",
+    "mocha": "mocha --opts mocha.opts src/**/*.spec.ts",
+    "mocha-nyc": "tsc && nyc mocha --opts mocha.opts dist/**/*.spec.js",
+    "mocha-watch": "nodemon -e ts,json --exec npm run mocha",
     "stryker": "stryker run ../../stryker.conf.js",
     "stryker-watch": "nodemon -e ts,json --exec stryker run ../../stryker.conf.js",
     "codecov-local": "nyc report",
@@ -23,13 +25,18 @@
   },
   "nyc": {
     "include": [
+      "dist/**/*.js",
+      "dist/**/*.jsx",
       "src/**/*.ts",
       "src/**/*.tsx"
     ],
     "exclude": [
+      "**/*.spec.js",
       "**/*.spec.ts"
     ],
     "extension": [
+      ".js",
+      ".jsx",
       ".ts",
       ".tsx"
     ],
@@ -70,7 +77,10 @@
   "homepage": "https://github.com/mscharley/generic-type-guard/tree/master/packages/generic-type-guard-cli#readme",
   "dependencies": {
     "chalk": "^2.3.2",
-    "generic-type-guard": "^2.0.0"
+    "generic-type-guard": "^2.0.0",
+    "log4js": "^2.5.3",
+    "reflect-metadata": "^0.1.12",
+    "typedi": "^0.7.1"
   },
   "devDependencies": {
     "@types/chai": "*",
