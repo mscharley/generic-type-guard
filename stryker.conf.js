@@ -17,7 +17,7 @@ module.exports = function(config) {
     testRunner: "mocha",
     testFramework: "mocha",
     mochaOptions: {
-      opts: "../../mocha.opts",
+      opts: "./mocha.opts",
     },
     mutator: "typescript",
     transpilers: ["typescript"],
