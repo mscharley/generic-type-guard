@@ -4,7 +4,6 @@ set -e
 set -x
 git checkout master
 git pull --ff-only
-npm run test
-npm run build
-npm run release
-lerna publish
+yarn clean
+yarn build
+lerna publish "$@"
