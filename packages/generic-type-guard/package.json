@@ -6,6 +6,7 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "rm -fr dist && tsc --target es3",
+    "prepack": "rm -fr dist && tsc --target es3",
     "test": "yarn lint && yarn mocha",
     "test-watch": "nodemon -e ts,json --exec yarn test",
     "lint": "tslint -p . -c ../../tslint.json",

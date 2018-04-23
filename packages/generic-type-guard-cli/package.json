@@ -8,8 +8,8 @@
     "gtg-cli": "bin/cli.js"
   },
   "scripts": {
-    "clean": "rm -fr dist",
     "build": "rm -fr dist && tsc",
+    "prepack": "rm -fr dist && tsc",
     "start": "ts-node src/bin/cli",
     "test": "yarn lint && yarn mocha-nyc",
     "test-watch": "nodemon -e ts,json -i coverage -i dist --exec yarn test",
