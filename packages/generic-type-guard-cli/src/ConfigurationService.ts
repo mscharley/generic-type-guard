@@ -9,8 +9,8 @@ export interface Configuration {
 
 const isPartialConfiguration: tg.TypeGuard<Partial<Configuration>> =
   new tg.IsInterface()
-  .withProperty("name", tg.isOptional(tg.isString))
-  .get();
+    .withProperty("name", tg.isOptional(tg.isString))
+    .get();
 
 /**
  * ConfigurationService is an abstraction for accessing application configuration.

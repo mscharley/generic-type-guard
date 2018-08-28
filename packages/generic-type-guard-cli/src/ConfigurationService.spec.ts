@@ -28,6 +28,7 @@ export class ConfigurationServiceSpec {
     td.reset();
   }
 
+  // tslint:disable-next-line:deprecation
   @test("should load name from file")
   public testSuccess() {
     td.when(this.loader.load(path.resolve(process.cwd(), "gtg-cli"))).thenReturn({
@@ -38,6 +39,7 @@ export class ConfigurationServiceSpec {
     expect(config.name).to.equal("Matthew");
   }
 
+  // tslint:disable-next-line:deprecation
   @test("should ignore invalid files")
   public testSuccessWithInvalidFile() {
     td.when(this.loader.load(path.resolve(process.cwd(), "gtg-cli"))).thenReturn({
@@ -48,6 +50,7 @@ export class ConfigurationServiceSpec {
     expect(config.name).to.equal("Unknown");
   }
 
+  // tslint:disable-next-line:deprecation
   @test("should provide a fallback name if not in file")
   public testFallback() {
     td.when(this.loader.load(path.resolve(process.cwd(), "gtg-cli"))).thenReturn({});
@@ -56,6 +59,7 @@ export class ConfigurationServiceSpec {
     expect(config.name).to.equal("Unknown");
   }
 
+  // tslint:disable-next-line:deprecation
   @test("should provide a fallback name if there is an error loading the file")
   public testError() {
     td.when(this.loader.load(path.resolve(process.cwd(), "gtg-cli"))).thenThrow(new Error());
