@@ -24,7 +24,7 @@ export class ConfigurationService implements Configuration {
   ) {
     try {
       const configPath = path.resolve(process.cwd(), "gtg-cli");
-      const loadedConfig: tg.AlmostAny = loader.load(configPath) as tg.AlmostAny;
+      const loadedConfig = loader.load(configPath);
 
       this.config = isPartialConfiguration(loadedConfig)
         ? loadedConfig
