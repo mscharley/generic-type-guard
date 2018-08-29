@@ -10,3 +10,9 @@ yarn install
 yarn build
 yarn test
 ```
+
+# Release
+
+```
+yarn lerna publish
+```
