@@ -125,7 +125,8 @@ export class PrimitivesSpec {
 
   @test public singletonNumberUnion() {
     const isTeen = p.isSingletonNumberUnion(13, 14, 15, 16, 17, 18, 19);
-    expect(isTeen(14)).to.equal(true);
+    expect(isTeen(13)).to.equal(true);
+    expect(isTeen(15)).to.equal(true);
     expect(isTeen(20)).to.equal(false);
     expect(isTeen("hello")).to.equal(false);
   }

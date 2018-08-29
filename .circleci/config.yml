@@ -13,17 +13,17 @@ jobs:
     <<: *BUILD
     working_directory: ~/gtg
     docker:
-      - image: circleci/node:6.12
+      - image: circleci/node:6.14
   carbon:
     <<: *BUILD
     working_directory: ~/gtg
     docker:
-      - image: circleci/node:8.9
+      - image: circleci/node:8.11
   latest:
     <<: *BUILD
     working_directory: ~/gtg
     docker:
-      - image: circleci/node:9.1
+      - image: circleci/node:10.9
   stryker:
     working_directory: ~/gtg
     docker:

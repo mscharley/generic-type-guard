@@ -13,7 +13,7 @@ export interface ComplexInterface extends TestInterface {
   nullableString: string | null;
 }
 
-const n: tg.AlmostAny = "something else";
+const n: unknown = "something else";
 const isFooOrBar = tg.isSingletonStringUnion("foo", "bar");
 
 if (isFooOrBar(n)) {
@@ -24,7 +24,7 @@ if (isFooOrBar(n)) {
 /**
  * Simple way to test an interface.
  */
-export const isTestInterface: tg.TypeGuard<TestInterface> = (o: tg.AlmostAny): o is TestInterface =>
+export const isTestInterface: tg.TypeGuard<TestInterface> = (o: unknown): o is TestInterface =>
   tg.isObject(o) && tg.hasProperty("str", tg.isString)(o) && tg.hasProperty("num", tg.isNumber)(o);
 
 /**
