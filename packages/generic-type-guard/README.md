@@ -30,12 +30,12 @@ types which are just aliases for the built-in type guard type:
 
 ```typescript
 export type PartialTypeGuard<T, U extends T> = (value: T) => value is U;
-export type TypeGuard<T> = PartialTypeGuard<AlmostAny, T>;
+export type TypeGuard<T> = PartialTypeGuard<unknown, T>;
 ```
 
 A `PartialTypeGuard` is a type guard which given a value of type `T` can prove it is 
 actually the specialised type `U`. A `TypeGuard` is a type guard that can prove any value
-to be of type `T`; it is a `PartialTypeGuard<AlmostAny, T>`.
+to be of type `T`; it is a `PartialTypeGuard<unknown, T>`.
 
 ### Type safety
 
@@ -148,28 +148,6 @@ const isFoo: tg.TypeGuard<Foo> = tg.isRecord("foo", tg.isString);
 ```
 
 Again, checking that `foo` is a string is sufficient to prove that it is either a string or undefined.
-
-#### AlmostAny
-
-There are lots of cases where `any` is useful. Unfortunately, when used as a type parameter it isn't *just* a top type, it effectively completely
-negates that type parameter. This meant that in early versions of this library there was an insidious bug where all `PartialTypeGuard`s were also
-full `TypeGuard`s because the `any` used in the definition of the `TypeGuard` type. This meant that `PartialTypeGuard` was useless. In fact there
-were multiple bugs inside this library, not to mention all manner of issues when trying to use it. To this end we introduce a true top type to
-TypeScript which is named `AlmostAny` and is defined as follows:
-
-```typescript
-export type NotEmpty = {} | object | number | string | boolean | symbol | Function;
-export type AlmostAny = NotEmpty | null | undefined;
-```
-
-This type represents a value that can be anything representable by the type system without being attached to the semantics of the `any` type which
-gives fully dynamic access to the value. `AlmostAny` is used through this library internally and I encourage you to use it as well. If you have the
-`no-unsafe-any` TSLint rule enabled you can safely cast `any` to `AlmostAny` and not lose any meaning, you only lose the dynamic access.
-
-```typescript
-const foo: any = "foobar";
-if (tg.isString(foo as tg.AlmostAny)) { /* ... */ }
-```
 
   [gh-contrib]: https://github.com/mscharley/generic-type-guard/graphs/contributors
   [gh-issues]: https://github.com/mscharley/generic-type-guard/issues
