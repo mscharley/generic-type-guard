@@ -90,7 +90,7 @@
     "codecov": "^3.0.0",
     "mocha": "^5.0.1",
     "mocha-typescript": "^1.1.12",
-    "nodemon": "^1.15.0",
+    "nodemon": "^1.18.7",
     "nyc": "^13.1.0",
     "source-map-support": ">= 0.5.3, < 1.0.0",
     "stryker": ">= 0.19.3, < 1.0.0",
