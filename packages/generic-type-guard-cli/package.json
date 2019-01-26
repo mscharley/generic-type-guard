@@ -100,7 +100,7 @@
     "stryker-mocha-runner": ">= 0.10.5, < 1.0.0",
     "stryker-typescript": ">= 0.9.1, < 1.0.0",
     "testdouble": "^3.9.1",
-    "ts-node": "^7.0.1",
+    "ts-node": "^8.0.2",
     "tslint": "^5.9.1",
     "tslint-eslint-rules": "^5.0.0",
     "typescript": "~3.1.3"
