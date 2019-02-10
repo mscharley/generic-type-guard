@@ -73,5 +73,5 @@ export const hasNumericIndexSignature =
 /**
  * Validates that a given object is an instance of a class.
  */
-export const isInstance = <T extends {}>(klass: { new(...args: any[]): T }): TypeGuard<T> =>
+export const isInstance = <T extends {}>(klass: new(...args: any[]) => T): TypeGuard<T> =>
   (o): o is T => o instanceof klass;
