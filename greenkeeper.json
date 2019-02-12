@@ -1,8 +1,12 @@
 {
   "groups": {
-    "default": {
+    "lerna": {
       "packages": [
-        "package.json",
+        "package.json"
+      ]
+    },
+    "gtg": {
+      "packages": [
         "packages/generic-type-guard-cli/package.json",
         "packages/generic-type-guard/package.json"
       ]
