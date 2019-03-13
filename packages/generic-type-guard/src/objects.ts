@@ -77,8 +77,8 @@ export const isInstance = <T extends {}>(klass: new (...args: any[]) => T): Type
   (o): o is T => o instanceof klass;
 
 /**
- * asdf
+ * Validate that a given object has all the given properties
  */
 export const hasProperties =
-  <T extends { [key: string]: TypeGuard<any> }>(props: T): PartialTypeGuard<{}, T> =>
+  <T extends { [key: string]: TypeGuard<any> }>(props: T): PartialTypeGuard<{}, { [P in keyof T]: T[P][any] }> =>
     (o): o is T => Object.keys(props).every((key) => hasProperty(key, props[key])(o));
