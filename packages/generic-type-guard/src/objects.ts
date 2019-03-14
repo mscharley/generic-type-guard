@@ -1,4 +1,4 @@
-import { PartialTypeGuard, TypeGuard, Guard } from "./guards";
+import { MappedGuard, PartialTypeGuard, TypeGuard } from "./guards";
 import { isObject } from "./primitives";
 
 /**
@@ -80,5 +80,13 @@ export const isInstance = <T extends {}>(klass: new (...args: any[]) => T): Type
  * Validate that a given object has all the given properties
  */
 export const hasProperties =
-  <V>(props: Guard<V>): PartialTypeGuard<{}, { [K in keyof V]: V[K] }> =>
-    (o): o is { [K in keyof V]: V[K] } => Object.keys(props).every((key) => hasProperty(key, props[key])(o));
+  <V>(props: MappedGuard<V>): PartialTypeGuard<{}, { [K in keyof V]: V[K] }> =>
+    // (o): o is { [K in keyof V]: V[K] } => Object.keys(props).every((key) => hasProperty(key, props[key])(o));
+    (o): o is { [K in keyof V]: V[K] } => {
+      let isType = true;
+      for (const prop in props) {
+        isType = isType && hasProperty(prop, props[prop])(o);
+      }
+
+      return isType;
+    };

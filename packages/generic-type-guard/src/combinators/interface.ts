@@ -1,4 +1,4 @@
-import { Guard, PartialTypeGuard, TypeGuard } from "../guards";
+import { MappedGuard, PartialTypeGuard, TypeGuard } from "../guards";
 import * as o from "../objects";
 import { isObjectLike } from "../primitives";
 import { isIntersection } from "./functions";
@@ -72,7 +72,7 @@ export class IsInterface implements InterfaceBuilder<{}> {
     return new InterfaceStep(o.hasNumericIndexSignature(value, enforce));
   }
 
-  public withProperties<V>(props: Guard<V>)
+  public withProperties<V>(props: MappedGuard<V>)
     : InterfaceBuilder<{ [P in keyof V]: V[P] }> {
     return new InterfaceStep(o.hasProperties(props));
   }
