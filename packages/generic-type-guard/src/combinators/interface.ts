@@ -11,6 +11,7 @@ export interface InterfaceBuilder<T extends {}> {
   withProperty<K extends string, V>(key: K, ptv: TypeGuard<V>): InterfaceBuilder<T & { [prop in K]: V }>;
   withStringIndexSignature<V>(value: TypeGuard<V>, enforce?: boolean): InterfaceBuilder<T & { [prop: string]: V }>;
   withNumericIndexSignature<V>(value: TypeGuard<V>, enforce?: boolean): InterfaceBuilder<T & { [i: number]: V }>;
+  withProperties<V>(props: MappedGuard<V>): InterfaceBuilder<T & { [P in keyof V]: V[P] }>;
 }
 
 /**
@@ -44,6 +45,10 @@ class InterfaceStep<T extends {}> implements InterfaceBuilder<T> {
     : InterfaceBuilder<T & { [i: number]: V }> {
     return new InterfaceStep(isIntersection(this.ptt, o.hasNumericIndexSignature(value, enforce)));
   }
+
+  public withProperties<V>(props: MappedGuard<V>): InterfaceBuilder<T & { [P in keyof V]: V[P] }> {
+    return new InterfaceStep(isIntersection(this.ptt, o.hasProperties(props)));
+  }
 }
 
 /**
@@ -72,8 +77,7 @@ export class IsInterface implements InterfaceBuilder<{}> {
     return new InterfaceStep(o.hasNumericIndexSignature(value, enforce));
   }
 
-  public withProperties<V>(props: MappedGuard<V>)
-    : InterfaceBuilder<{ [P in keyof V]: V[P] }> {
+  public withProperties<V>(props: MappedGuard<V>): InterfaceBuilder<{ [P in keyof V]: V[P] }> {
     return new InterfaceStep(o.hasProperties(props));
   }
 }
