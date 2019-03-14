@@ -46,7 +46,7 @@ class InterfaceStep<T extends {}> implements InterfaceBuilder<T> {
     return new InterfaceStep(isIntersection(this.ptt, o.hasNumericIndexSignature(value, enforce)));
   }
 
-  public withProperties<V>(props: MappedGuard<V>): InterfaceBuilder<T & { [P in keyof V]: V[P] }> {
+  public withProperties<V>(props: MappedGuard<V>): InterfaceBuilder<T & V> {
     return new InterfaceStep(isIntersection(this.ptt, o.hasProperties(props)));
   }
 }
