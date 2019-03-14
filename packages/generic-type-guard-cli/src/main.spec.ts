@@ -1,5 +1,4 @@
 import chalk from "chalk";
-import { slow, suite, test, timeout } from "mocha-typescript";
 import * as td from "testdouble";
 import { Container } from "typedi";
 import { ConfigurationService } from "./ConfigurationService";
@@ -11,22 +10,23 @@ import { main } from "./main";
 /**
  * Specs for the CLI file.
  */
-@suite(slow(50), timeout(300))
-export class CliSpec {
-  public before() {
+describe("Cli", function(this: Mocha.Suite) {
+  this.slow(50).timeout(300);
+
+  beforeEach(() => {
     Container.reset();
     Container.set(ConfigurationService, {
       name: "world",
     });
-  }
+  });
 
-  public after() {
+  afterEach(() => {
     td.reset();
-  }
+  });
 
-  @test public testMain() {
+  it("testMain", () => {
     const log = td.function<(...msg: any[]) => void>();
     main([], log);
     td.verify(log(chalk.red("Hello world!"), []));
-  }
-}
+  });
+});
