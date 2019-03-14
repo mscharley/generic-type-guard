@@ -77,7 +77,7 @@ export class IsInterface implements InterfaceBuilder<{}> {
     return new InterfaceStep(o.hasNumericIndexSignature(value, enforce));
   }
 
-  public withProperties<V>(props: MappedGuard<V>): InterfaceBuilder<{ [P in keyof V]: V[P] }> {
+  public withProperties<V>(props: MappedGuard<V>): InterfaceBuilder<V> {
     return new InterfaceStep(o.hasProperties(props));
   }
 }

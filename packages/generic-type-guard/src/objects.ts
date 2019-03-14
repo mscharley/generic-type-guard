@@ -82,8 +82,8 @@ export const isInstance = <T extends {}>(klass: new (...args: any[]) => T): Type
  *    object being validated whose types are TypeGuards for the matching type on the original property.
  */
 export const hasProperties =
-  <V>(props: MappedGuard<V>): PartialTypeGuard<{}, { [K in keyof V]: V[K] }> =>
-    (o): o is { [K in keyof V]: V[K] } => {
+  <V>(props: MappedGuard<V>): PartialTypeGuard<{}, V> =>
+    (o): o is V => {
       let isType = true;
       for (const prop in props) {
         isType = isType && hasProperty(prop, props[prop])(o);
