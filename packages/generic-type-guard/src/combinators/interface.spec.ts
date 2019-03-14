@@ -92,12 +92,15 @@ export class InterfaceSpec {
         .withProperties({
           b: p.isBoolean,
           n: p.isNull,
+        })
+        .withProperties({
           num: p.isNumber,
           str: p.isString,
         })
         .get();
     expect(isSimpleInterface({ str: "foo", num: 10, b: false, n: null })).to.equal(true);
     expect(isSimpleInterface({ str: "foo", num: "foo", b: false, n: null })).to.equal(false);
+    expect(isSimpleInterface({ str: "foo", num: 10, b: false })).to.equal(false);
     expect(isSimpleInterface(10)).to.equal(false);
   }
 }
