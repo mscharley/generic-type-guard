@@ -78,6 +78,8 @@ export const isInstance = <T extends {}>(klass: new (...args: any[]) => T): Type
 
 /**
  * Validate that a given object has all the given properties
+ * @param props a MappedGuard of the object to be validated, i.e. an object that has the same properties as the
+ *    object being validated whose types are TypeGuards for the matching type on the original property.
  */
 export const hasProperties =
   <V>(props: MappedGuard<V>): PartialTypeGuard<{}, { [K in keyof V]: V[K] }> =>
