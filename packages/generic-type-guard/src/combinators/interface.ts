@@ -11,7 +11,7 @@ export interface InterfaceBuilder<T extends {}> {
   withProperty<K extends string, V>(key: K, ptv: TypeGuard<V>): InterfaceBuilder<T & { [prop in K]: V }>;
   withStringIndexSignature<V>(value: TypeGuard<V>, enforce?: boolean): InterfaceBuilder<T & { [prop: string]: V }>;
   withNumericIndexSignature<V>(value: TypeGuard<V>, enforce?: boolean): InterfaceBuilder<T & { [i: number]: V }>;
-  withProperties<V>(props: MappedGuard<V>): InterfaceBuilder<T & { [P in keyof V]: V[P] }>;
+  withProperties<V>(props: MappedGuard<V>): InterfaceBuilder<T & V>;
 }
 
 /**
