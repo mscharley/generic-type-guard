@@ -81,4 +81,11 @@ describe("Objects", function(this: Mocha.Suite) {
     expect(isDummyClass({ foo: "bar" })).to.equal(false);
     expect(isDummyClass("foo")).to.equal(false);
   });
+
+  it("properties", () => {
+    const hasProps = o.hasProperties({ foo: p.isString, bar: p.isNumber });
+    expect(hasProps({ foo: "foo", bar: 1 })).to.equal(true);
+    expect(hasProps({ foo: "foo" })).to.equal(false);
+    expect(hasProps({ foo: "foo", bar: "1" })).to.equal(false);
+  });
 });

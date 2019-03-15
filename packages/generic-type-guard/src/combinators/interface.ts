@@ -1,4 +1,4 @@
-import { PartialTypeGuard, TypeGuard } from "../guards";
+import { MappedTypeGuard, PartialTypeGuard, TypeGuard } from "../guards";
 import * as o from "../objects";
 import { isObjectLike } from "../primitives";
 import { isIntersection } from "./functions";
@@ -11,6 +11,7 @@ export interface InterfaceBuilder<T extends {}> {
   withProperty<K extends string, V>(key: K, ptv: TypeGuard<V>): InterfaceBuilder<T & { [prop in K]: V }>;
   withStringIndexSignature<V>(value: TypeGuard<V>, enforce?: boolean): InterfaceBuilder<T & { [prop: string]: V }>;
   withNumericIndexSignature<V>(value: TypeGuard<V>, enforce?: boolean): InterfaceBuilder<T & { [i: number]: V }>;
+  withProperties<V>(props: MappedTypeGuard<V>): InterfaceBuilder<T & V>;
 }
 
 /**
@@ -36,13 +37,17 @@ class InterfaceStep<T extends {}> implements InterfaceBuilder<T> {
   }
 
   public withStringIndexSignature<V>(value: TypeGuard<V>, enforce: boolean = true)
-      : InterfaceBuilder<T & { [prop: string]: V }> {
+    : InterfaceBuilder<T & { [prop: string]: V }> {
     return new InterfaceStep(isIntersection(this.ptt, o.hasStringIndexSignature(value, enforce)));
   }
 
   public withNumericIndexSignature<V>(value: TypeGuard<V>, enforce: boolean = true)
-      : InterfaceBuilder<T & { [i: number]: V }> {
+    : InterfaceBuilder<T & { [i: number]: V }> {
     return new InterfaceStep(isIntersection(this.ptt, o.hasNumericIndexSignature(value, enforce)));
+  }
+
+  public withProperties<V>(props: MappedTypeGuard<V>): InterfaceBuilder<T & V> {
+    return new InterfaceStep(isIntersection(this.ptt, o.hasProperties(props)));
   }
 }
 
@@ -70,5 +75,9 @@ export class IsInterface implements InterfaceBuilder<{}> {
   public withNumericIndexSignature<V>(value: TypeGuard<V>, enforce: boolean = true)
     : InterfaceBuilder<{ [i: number]: V }> {
     return new InterfaceStep(o.hasNumericIndexSignature(value, enforce));
+  }
+
+  public withProperties<V>(props: MappedTypeGuard<V>): InterfaceBuilder<V> {
+    return new InterfaceStep(o.hasProperties(props));
   }
 }

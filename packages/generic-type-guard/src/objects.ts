@@ -1,4 +1,4 @@
-import { PartialTypeGuard, TypeGuard } from "./guards";
+import { MappedTypeGuard, PartialTypeGuard, TypeGuard } from "./guards";
 import { isObject } from "./primitives";
 
 /**
@@ -6,9 +6,9 @@ import { isObject } from "./primitives";
  */
 export const hasProperty =
   <K extends string, V>(property: K, value: TypeGuard<V>): PartialTypeGuard<{}, Record<K, V>> =>
-  (o): o is { [prop in K]: V } =>
-    // If the property exists and conforms to the value type guard.
-    value((o as { [prop: string]: unknown })[property]);
+    (o): o is { [prop in K]: V } =>
+      // If the property exists and conforms to the value type guard.
+      value((o as { [prop: string]: unknown })[property]);
 
 /**
  * Validate that a variable is an object with a single field.
@@ -17,7 +17,7 @@ export const hasProperty =
  */
 export const isRecord =
   <K extends string, V>(property: K, value: TypeGuard<V>): TypeGuard<Record<K, V>> =>
-  (o): o is {[prop in K]: V} => isObject(o) && hasProperty(property, value)(o);
+    (o): o is { [prop in K]: V } => isObject(o) && hasProperty(property, value)(o);
 
 /**
  * Validates that a given object has a string index signature.
@@ -73,5 +73,22 @@ export const hasNumericIndexSignature =
 /**
  * Validates that a given object is an instance of a class.
  */
-export const isInstance = <T extends {}>(klass: new(...args: any[]) => T): TypeGuard<T> =>
+export const isInstance = <T extends {}>(klass: new (...args: any[]) => T): TypeGuard<T> =>
   (o): o is T => o instanceof klass;
+
+/**
+ * Validate that a given object has all the given properties
+ * @param props a MappedGuard of the object to be validated, i.e. an object that has the same properties as the
+ *    object being validated whose types are TypeGuards for the matching type on the original property.
+ */
+export const hasProperties =
+  <V>(props: MappedTypeGuard<V>): PartialTypeGuard<{}, V> =>
+    (o): o is V => {
+      for (const prop in props) {
+        if (!hasProperty(prop, props[prop])(o)) {
+          return false;
+        }
+      }
+
+      return true;
+    };

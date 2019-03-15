@@ -56,7 +56,7 @@ describe("Interface", function(this: Mocha.Suite) {
       new IsInterface().withNumericIndexSignature(p.isString).get();
     const isLooseArrayLike: TypeGuard<{ [prop: number]: string }> =
       new IsInterface().withNumericIndexSignature(p.isString, false).get();
-    expect(isArrayLike([ "one", "two", "three" ])).to.equal(true, "filled array");
+    expect(isArrayLike(["one", "two", "three"])).to.equal(true, "filled array");
     expect(isArrayLike([])).to.equal(false, "strict empty array");
     expect(isLooseArrayLike([])).to.equal(true, "loose empty array");
   });
@@ -84,5 +84,23 @@ describe("Interface", function(this: Mocha.Suite) {
     expect(isEmptyInterface({})).to.equal(true);
     expect(isEmptyInterface({ foo: "bar" })).to.equal(true);
     expect(isEmptyInterface(10)).to.equal(false);
+  });
+
+  it("withProperties", () => {
+    const isSimpleInterface: TypeGuard<SimpleInterface> =
+      new IsInterface()
+        .withProperties({
+          b: p.isBoolean,
+          n: p.isNull,
+        })
+        .withProperties({
+          num: p.isNumber,
+          str: p.isString,
+        })
+        .get();
+    expect(isSimpleInterface({ str: "foo", num: 10, b: false, n: null })).to.equal(true);
+    expect(isSimpleInterface({ str: "foo", num: "foo", b: false, n: null })).to.equal(false);
+    expect(isSimpleInterface({ str: "foo", num: 10, b: false })).to.equal(false);
+    expect(isSimpleInterface(10)).to.equal(false);
   });
 });
