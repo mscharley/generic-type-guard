@@ -53,15 +53,17 @@ export const isTypeSafeComplexInterface: tg.PartialTypeGuard<{}, ComplexInterfac
  * This is the alternative syntax for defining interfaces in a bit cleaner way.
  */
 export const isTypeSafeComplexInterface2: tg.TypeGuard<ComplexInterface> =
-  new tg.IsInterface()
-    .withProperty("str", tg.isString)
-    .withProperty("num", tg.isNumber)
-    .withProperty("b", tg.isBoolean)
-    .withProperty("maybeString", tg.isOptional(tg.isString))
-    .withProperty("nullableString", tg.isNullable(tg.isString))
-    .get();
+  new tg.IsInterface().withProperties({
+    b: tg.isBoolean,
+    maybeString: tg.isOptional(tg.isString),
+    nullableString: tg.isNullable(tg.isString),
+    num: tg.isNumber,
+    str: tg.isString,
+  }).get();
 
+// tslint:disable:completed-docs
 /* This is supposed to fail to compile. This is here for quick checking in later releases.
 const isFoo: tg.PartialTypeGuard<string, "foo"> = (s: string): s is "foo" => s === "foo";
 export const isSomething: tg.TypeGuard<{ foo: Array<"foo"> }> = tg.isRecord("foo", tg.narrowArray(isFoo));
 /**/
+// tslint:enable:completed-docs
