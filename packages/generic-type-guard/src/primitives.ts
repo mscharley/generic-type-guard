@@ -1,4 +1,6 @@
-import { NotEmpty, PartialTypeGuard, TypeGuard } from "./guards";
+import { PartialTypeGuard, TypeGuard } from "./guards";
+
+type Diff<T, U> = T extends U ? never : T;
 
 /**
  * Validate if a value is a javascript number.
@@ -138,8 +140,8 @@ export const isObject: TypeGuard<{}> = (obj: unknown): obj is {} =>
 /**
  * Validates if a value is not null and not undefined.
  */
-export const isSet: TypeGuard<NotEmpty> =
-  (obj: unknown): obj is NotEmpty => obj != null;
+export const isSet =
+  <T = unknown>(obj: T): obj is Diff<T, undefined | null> => obj != null;
 
 /**
  * Helper for asserting nothing at all.
