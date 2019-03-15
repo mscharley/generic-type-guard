@@ -7,7 +7,7 @@ import * as p from "./primitives";
 /**
  * Compilation tests for the guard types.
  */
-describe("Objects", function(this: Mocha.Suite) {
+describe("Objects", function (this: Mocha.Suite) {
   this.slow(5).timeout(3000);
 
   it("record", () => {
@@ -81,7 +81,7 @@ describe("Objects", function(this: Mocha.Suite) {
     expect(isDummyClass({ foo: "bar" })).to.equal(false);
     expect(isDummyClass("foo")).to.equal(false);
   });
-  
+
   it("properties", () => {
     const hasProps = o.hasProperties({ foo: p.isString, bar: p.isNumber });
     expect(hasProps({ foo: "foo", bar: 1 })).to.equal(true);

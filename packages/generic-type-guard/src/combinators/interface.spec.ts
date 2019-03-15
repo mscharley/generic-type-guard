@@ -15,7 +15,7 @@ export interface SimpleInterface {
 /**
  * Compilation tests for the IsInterface class.
  */
-describe("Interface", function(this: Mocha.Suite) {
+describe("Interface", function (this: Mocha.Suite) {
   this.slow(5).timeout(3000);
 
   // This class is a wrapper around isUnion, most of the real tests happen there.
@@ -85,7 +85,7 @@ describe("Interface", function(this: Mocha.Suite) {
     expect(isEmptyInterface({ foo: "bar" })).to.equal(true);
     expect(isEmptyInterface(10)).to.equal(false);
   });
-  
+
   it("withProperties", () => {
     const isSimpleInterface: TypeGuard<SimpleInterface> =
       new IsInterface()
