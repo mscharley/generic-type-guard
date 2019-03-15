@@ -83,6 +83,12 @@ export const isInstance = <T extends {}>(klass: new (...args: any[]) => T): Type
  */
 export const hasProperties =
   <V>(props: MappedTypeGuard<V>): PartialTypeGuard<{}, V> =>
-    (o): o is V =>
-      (Object.entries(props) as Array<[string, TypeGuard<any>]>)
-        .every((entry) => hasProperty(entry[0], entry[1])(o));
+    (o): o is V => {
+      for (const prop in props) {
+        if (!hasProperty(prop, props[prop])(o)) {
+          return false;
+        }
+      }
+
+      return true;
+    };
