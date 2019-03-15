@@ -7,7 +7,7 @@ import * as p from "./primitives";
 /**
  * Compilation tests for the guard types.
  */
-describe("Objects", function (this: Mocha.Suite) {
+describe("Objects", function(this: Mocha.Suite) {
   this.slow(5).timeout(3000);
 
   it("record", () => {
