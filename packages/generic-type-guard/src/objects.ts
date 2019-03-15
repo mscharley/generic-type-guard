@@ -1,4 +1,4 @@
-import { MappedGuard, PartialTypeGuard, TypeGuard } from "./guards";
+import { MappedTypeGuard, PartialTypeGuard, TypeGuard } from "./guards";
 import { isObject } from "./primitives";
 
 /**
@@ -82,7 +82,7 @@ export const isInstance = <T extends {}>(klass: new (...args: any[]) => T): Type
  *    object being validated whose types are TypeGuards for the matching type on the original property.
  */
 export const hasProperties =
-  <V>(props: MappedGuard<V>): PartialTypeGuard<{}, V> =>
+  <V>(props: MappedTypeGuard<V>): PartialTypeGuard<{}, V> =>
     (o): o is V =>
       (Object.entries(props) as Array<[string, TypeGuard<any>]>)
         .every((entry) => hasProperty(entry[0], entry[1])(o));
