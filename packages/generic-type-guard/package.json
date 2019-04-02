@@ -65,7 +65,7 @@
     "@stryker-mutator/core": "~1.1.0",
     "@stryker-mutator/html-reporter": "~1.1.0",
     "@stryker-mutator/mocha-framework": "~1.1.0",
-    "@stryker-mutator/mocha-runner": "~1.1.0",
+    "@stryker-mutator/mocha-runner": "~1.2.0",
     "@stryker-mutator/typescript": "~1.1.0",
     "@types/chai": "*",
     "@types/mocha": "*",
