@@ -72,45 +72,18 @@ compiler ensure that you've caught everything.
 
 Some examples:
 
-```typescript 
+```typescript
 import * as tg from "generic-type-guard";
 
-export interface TestInterface {
-  str: string;
-  num: number;
-}
-
-const isTypeSafeTestInterface: tg.PartialTypeGuard<{}, TestInterface> =
-  tg.isIntersection(tg.hasProperty("str", tg.isString), tg.hasProperty("num", tg.isNumber));
-
-export const isTestInterface: TypeGuard<TestInterface> = (o: any): o is TestInterface =>
-  isObject(o) && isTypeSafeTestInterface(o);
-
-// or perhaps you have a larger interface...
-
-export interface ComplexInterface extends TestInterface {
-  b: boolean;
-  maybeString?: string;
-  nullableString: string | null;
-}
-
-export const isTypeSafeComplexInterface: tg.TypeGuard<ComplexInterface> =
-  new tg.IsInterface()
-    .withProperty("str", tg.isString)
-    .withProperty("num", tg.isNumber)
-    .withProperty("b", tg.isBoolean)
-    .withProperty("maybeString", tg.isOptional(tg.isString))
-    .withProperty("nullableString", tg.isNullable(tg.isString))
-    .get();
-
-// Alternatively:
-
-export const isTypeSafeComplexInterface2: tg.PartialTypeGuard<{}, ComplexInterface> =
-  new tg.IntersectionOf(tg.hasProperty("str", tg.isString))
-    .with(tg.hasProperty("num", tg.isNumber))
-    .with(tg.hasProperty("b", tg.isBoolean))
-    .with(tg.hasProperty("maybeString", tg.isUnion(tg.isUndefined, tg.isString)))
-    .with(tg.hasProperty("nullableString", tg.isNullable(tg.isString))).get();
+export const isComplexInterface =
+  new tg.IsInterface().withProperties({
+    str: tg.isString,
+    num: tg.isNumber,
+    b: tg.isBoolean,
+    maybeString: tg.isOptional(tg.isString),
+    nullableString: tg.isNullable(tg.isString),
+  }).get();
+export type ComplexInterface = tg.GuardedType<typeof isComplexInterface>;
 ```
 
 [There are more detailed examples available.][example-usage]
