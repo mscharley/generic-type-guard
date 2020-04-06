@@ -1,0 +1,16 @@
+{
+  "extends": [
+    "config:js-lib",
+    "schedule:weekends",
+    ":automergeMinor",
+    ":semanticCommits",
+    ":rebaseStalePrs"
+  ],
+  "packageRules": [
+    {
+      "packageNames": ["@types/node"],
+      "allowedVersions": "^12.0.0",
+      "major": { "enabled": true }
+    }
+  ]
+}

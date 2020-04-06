@@ -13,17 +13,27 @@ jobs:
     <<: *BUILD
     working_directory: ~/gtg
     docker:
-      - image: circleci/node:6.14
+      - image: circleci/node:6
   carbon:
     <<: *BUILD
     working_directory: ~/gtg
     docker:
-      - image: circleci/node:8.11
+      - image: circleci/node:8
+  dubnium:
+    <<: *BUILD
+    working_directory: ~/gtg
+    docker:
+      - image: circleci/node:10
+  erbium:
+    <<: *BUILD
+    working_directory: ~/gtg
+    docker:
+      - image: circleci/node:12
   latest:
     <<: *BUILD
     working_directory: ~/gtg
     docker:
-      - image: circleci/node:10.9
+      - image: circleci/node
   stryker:
     working_directory: ~/gtg
     docker:
@@ -41,10 +51,14 @@ workflows:
   version: 2
   ci:
     jobs:
-      - carbon
       - boron:
-          requires: [ 'carbon' ]
+          requires: [ 'erbium' ]
+      - carbon:
+          requires: [ 'erbium' ]
+      - dubnium:
+          requires: [ 'erbium' ]
+      - erbium
       - latest:
-          requires: [ 'carbon' ]
+          requires: [ 'erbium' ]
       - stryker:
-          requires: [ 'carbon' ]
+          requires: [ 'erbium' ]
