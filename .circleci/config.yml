@@ -9,16 +9,6 @@ build: &BUILD
     - run: yarn codecov-report
 
 jobs:
-  boron:
-    <<: *BUILD
-    working_directory: ~/gtg
-    docker:
-      - image: circleci/node:6
-  carbon:
-    <<: *BUILD
-    working_directory: ~/gtg
-    docker:
-      - image: circleci/node:8
   dubnium:
     <<: *BUILD
     working_directory: ~/gtg
@@ -37,7 +27,7 @@ jobs:
   stryker:
     working_directory: ~/gtg
     docker:
-      - image: circleci/node:8.17
+      - image: circleci/node:12
     steps:
       - checkout
       - run: yarn install
@@ -51,10 +41,6 @@ workflows:
   version: 2
   ci:
     jobs:
-      - boron:
-          requires: [ 'erbium' ]
-      - carbon:
-          requires: [ 'erbium' ]
       - dubnium:
           requires: [ 'erbium' ]
       - erbium
