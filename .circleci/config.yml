@@ -37,7 +37,7 @@ jobs:
   stryker:
     working_directory: ~/gtg
     docker:
-      - image: circleci/node:8.9
+      - image: circleci/node:8.17
     steps:
       - checkout
       - run: yarn install
