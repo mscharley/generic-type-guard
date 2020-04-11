@@ -71,7 +71,7 @@
     "@types/mocha": "*",
     "@types/node": "*",
     "chai": "4.2.0",
-    "codecov": "^3.0.0",
+    "codecov": "3.6.5",
     "mocha": "7.1.1",
     "nodemon": "1.19.4",
     "nyc": "14.1.1",
