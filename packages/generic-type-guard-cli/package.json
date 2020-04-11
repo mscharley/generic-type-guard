@@ -96,7 +96,7 @@
     "mocha": "6.2.3",
     "nodemon": "1.19.4",
     "nyc": "14.1.1",
-    "source-map-support": "0.5.11",
+    "source-map-support": "0.5.16",
     "testdouble": "3.11.0",
     "ts-node": "8.0.3",
     "tslint": "5.14.0",
