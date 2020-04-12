@@ -8,8 +8,8 @@
     "gtg-cli": "bin/cli.js"
   },
   "scripts": {
-    "build": "rm -fr dist && tsc",
-    "prepack": "rm -fr dist && tsc",
+    "build": "rimraf dist && tsc",
+    "prepack": "rimraf dist && tsc",
     "start": "ts-node src/bin/cli",
     "test": "yarn lint && yarn mocha-nyc",
     "test-watch": "nodemon -e ts,json -i coverage -i dist --exec yarn test",
@@ -96,6 +96,7 @@
     "mocha": "7.1.1",
     "nodemon": "1.19.4",
     "nyc": "14.1.1",
+    "rimraf": "3.0.2",
     "source-map-support": "0.5.16",
     "testdouble": "3.13.1",
     "ts-node": "8.8.2",
