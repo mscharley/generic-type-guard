@@ -102,6 +102,14 @@ describe("Primitives", function(this: Mocha.Suite) {
     expect(isMissingString(10)).to.equal(false);
   });
 
+  it("elementOf", () => {
+    const isTen = p.isElementOf<number | string>(10, "ten");
+    expect(isTen("ten")).to.equal(true);
+    expect(isTen(10)).to.equal(true);
+    expect(isTen(100)).to.equal(false);
+    expect(isTen(true)).to.equal(false);
+  });
+
   it("singletonString", () => {
     const isHello = p.isSingletonString("Hello");
     expect(isHello("Hello")).to.equal(true);
