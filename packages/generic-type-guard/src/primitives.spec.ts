@@ -189,8 +189,8 @@ describe("Primitives", function(this: Mocha.Suite) {
   });
 
   it("never", () => {
+    /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
     const fn: any = p.isNever;
-    // tslint:disable-next-line:no-unsafe-any
     expect(() => fn("Oops!")).to.throw("Unexpected value when expecting never: Oops!");
   });
 });

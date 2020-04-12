@@ -1,4 +1,4 @@
-// tslint:disable:max-classes-per-file
+/* eslint-disable @typescript-eslint/no-inferrable-types */
 
 export interface LargeInterface {
   foo: string;

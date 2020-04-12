@@ -36,13 +36,11 @@ class InterfaceStep<T extends {}> implements InterfaceBuilder<T> {
     return new InterfaceStep(isIntersection(this.ptt, o.hasProperty(key, ptv)));
   }
 
-  public withStringIndexSignature<V>(value: TypeGuard<V>, enforce: boolean = true)
-    : InterfaceBuilder<T & { [prop: string]: V }> {
+  public withStringIndexSignature<V>(value: TypeGuard<V>, enforce = true): InterfaceBuilder<T & { [prop: string]: V }> {
     return new InterfaceStep(isIntersection(this.ptt, o.hasStringIndexSignature(value, enforce)));
   }
 
-  public withNumericIndexSignature<V>(value: TypeGuard<V>, enforce: boolean = true)
-    : InterfaceBuilder<T & { [i: number]: V }> {
+  public withNumericIndexSignature<V>(value: TypeGuard<V>, enforce = true): InterfaceBuilder<T & { [i: number]: V }> {
     return new InterfaceStep(isIntersection(this.ptt, o.hasNumericIndexSignature(value, enforce)));
   }
 
@@ -67,13 +65,11 @@ export class IsInterface implements InterfaceBuilder<{}> {
     return new InterfaceStep(o.hasProperty(key, ptv));
   }
 
-  public withStringIndexSignature<V>(value: TypeGuard<V>, enforce: boolean = true)
-    : InterfaceBuilder<{ [prop: string]: V }> {
+  public withStringIndexSignature<V>(value: TypeGuard<V>, enforce = true): InterfaceBuilder<{ [prop: string]: V }> {
     return new InterfaceStep(o.hasStringIndexSignature(value, enforce));
   }
 
-  public withNumericIndexSignature<V>(value: TypeGuard<V>, enforce: boolean = true)
-    : InterfaceBuilder<{ [i: number]: V }> {
+  public withNumericIndexSignature<V>(value: TypeGuard<V>, enforce = true): InterfaceBuilder<{ [i: number]: V }> {
     return new InterfaceStep(o.hasNumericIndexSignature(value, enforce));
   }
 

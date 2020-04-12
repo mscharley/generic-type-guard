@@ -25,7 +25,7 @@ describe("Cli", function(this: Mocha.Suite) {
   });
 
   it("testMain", () => {
-    const log = td.function<(...msg: any[]) => void>();
+    const log = td.function<(...msg: unknown[]) => void>();
     main([], log);
     td.verify(log(chalk.red("Hello world!"), []));
   });
