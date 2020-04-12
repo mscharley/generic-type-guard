@@ -1007,12 +1007,7 @@
     typed-inject "~2.1.1"
     typed-rest-client "~1.7.1"
 
-"@stryker-mutator/html-reporter@3.1.0":
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/@stryker-mutator/html-reporter/-/html-reporter-3.1.0.tgz#b89692338037a0d168f9153457f5c71360c0c8c6"
-  integrity sha512-Lpn9YGt4NS9lLYhjBNZ1yZ9tCX9FWa66skR6Ieij3wMMtQvPlSswar6fmVqUiyPl/wmpTGSoptOcWDFEZ5qp8A==
-
-"@stryker-mutator/mocha-framework@3.1.0":
+"@stryker-mutator/mocha-framework@3.1.0", "@stryker-mutator/mocha-framework@^3.1.0":
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/@stryker-mutator/mocha-framework/-/mocha-framework-3.1.0.tgz#c2feba2c903670cb1f8ebfa7512c06bf1ef0a8fe"
   integrity sha512-tTgivRwRBoCOkBLIDrVlTvpHxAIFLhdAYn1+3AjOEH+fO90W58OPBmixon3E2Xwro3XsGEQCzeJyA40Qo6v4FA==
@@ -1020,7 +1015,7 @@
     "@stryker-mutator/api" "^3.1.0"
     "@stryker-mutator/util" "^3.1.0"
 
-"@stryker-mutator/mocha-runner@3.1.0":
+"@stryker-mutator/mocha-runner@3.1.0", "@stryker-mutator/mocha-runner@^3.1.0":
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/@stryker-mutator/mocha-runner/-/mocha-runner-3.1.0.tgz#a863341379b94bb49453d8b015edd7382863f79e"
   integrity sha512-Zg4jisPRmZDV2i4TUIJTsh8TmInSuVHZ0AMyY7vWdvxD0EQUBW+CrnDsfmhmiRpUej6jM8kc/XuqOZetO8dZ4A==
@@ -1029,7 +1024,7 @@
     multimatch "~4.0.0"
     tslib "~1.11.1"
 
-"@stryker-mutator/typescript@3.1.0":
+"@stryker-mutator/typescript@3.1.0", "@stryker-mutator/typescript@^3.1.0":
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/@stryker-mutator/typescript/-/typescript-3.1.0.tgz#beb4f220acded7c8c6498975c673dba5ca57e2b4"
   integrity sha512-HExZsNguVD93V4x1nzq+qZqpeGJ7qujGeW+vHLSVX7l3O0hmUNDAW48JA69Q1R9X9drVExNsfVfWNbQH1IEXUQ==
@@ -1050,10 +1045,10 @@
   resolved "https://registry.yarnpkg.com/@tootallnate/once/-/once-1.0.0.tgz#9c13c2574c92d4503b005feca8f2e16cc1611506"
   integrity sha512-KYyTT/T6ALPkIRd2Ge080X/BsXvy9O0hcWTtMWkPvwAwF99+vn6Dv4GzrFT/Nn1LePr+FFDbRXXlqmsy9lw2zA==
 
-"@types/chai@*":
-  version "4.1.7"
-  resolved "https://registry.yarnpkg.com/@types/chai/-/chai-4.1.7.tgz#1b8e33b61a8c09cbe1f85133071baa0dbf9fa71a"
-  integrity sha512-2Y8uPt0/jwjhQ6EiluT0XCri1Dbplr0ZxfFXUz+ye13gaqE8u5gL5ppao1JrUYr9cIip5S6MvQzBS7Kke7U9VA==
+"@types/chai@4.2.11":
+  version "4.2.11"
+  resolved "https://registry.yarnpkg.com/@types/chai/-/chai-4.2.11.tgz#d3614d6c5f500142358e6ed24e1bf16657536c50"
+  integrity sha512-t7uW6eFafjO+qJ3BIV2gGUyZs27egcNRkUdalkud+Qa3+kg//f129iuOFivHDXQ+vnU3fDXuwgv0cqMCbcE8sw==
 
 "@types/color-name@^1.1.1":
   version "1.1.1"
@@ -1079,15 +1074,20 @@
   resolved "https://registry.yarnpkg.com/@types/minimatch/-/minimatch-3.0.3.tgz#3dca0e3f33b200fc7d1139c0cd96c1268cadfd9d"
   integrity sha512-tHq6qdbT9U1IRSGf14CL0pUlULksvY9OZ+5eEgl1N7t+OA3tGvNpxJCzuKQlsNgCVwbAs670L1vcVQi8j9HjnA==
 
-"@types/mocha@*":
-  version "5.2.6"
-  resolved "https://registry.yarnpkg.com/@types/mocha/-/mocha-5.2.6.tgz#b8622d50557dd155e9f2f634b7d68fd38de5e94b"
-  integrity sha512-1axi39YdtBI7z957vdqXI4Ac25e7YihYQtJa+Clnxg1zTJEaIRbndt71O3sP4GAMgiAm0pY26/b9BrY4MR/PMw==
+"@types/mocha@7.0.2":
+  version "7.0.2"
+  resolved "https://registry.yarnpkg.com/@types/mocha/-/mocha-7.0.2.tgz#b17f16cf933597e10d6d78eae3251e692ce8b0ce"
+  integrity sha512-ZvO2tAcjmMi8V/5Z3JsyofMe3hasRcaw88cto5etSVMwVQfeivGAlEYmaQgceUSVYFofVjT+ioHsATjdWcFt1w==
 
 "@types/node@*":
   version "11.11.3"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-11.11.3.tgz#7c6b0f8eaf16ae530795de2ad1b85d34bf2f5c58"
   integrity sha512-wp6IOGu1lxsfnrD+5mX6qwSwWuqsdkKKxTN4aQc4wByHAKZJf9/D4KXPQ1POUjEbnCP5LMggB0OEFNY9OTsMqg==
+
+"@types/node@12.0.0":
+  version "12.0.0"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-12.0.0.tgz#d11813b9c0ff8aaca29f04cbc12817f4c7d656e5"
+  integrity sha512-Jrb/x3HT4PTJp6a4avhmJCDEVrPdqLfl3e8GGMbpkGGdwAV5UGlIs4vVEfsHHfylZVOKZWpOqmqFH8CbfOZ6kg==
 
 "@types/node@>= 8":
   version "13.11.1"
