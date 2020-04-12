@@ -43,6 +43,15 @@ export const isNaN: TypeGuard<number> = (n): n is number =>
   typeof n === "number" && global.isNaN(n);
 
 /**
+ * Validates that a value is one of a set of values.
+ */
+export const isElementOf = 
+  (<T>(...ss: T[]): TypeGuard<T> => (s): s is T => ss.indexOf(s as T) >= 0) as {
+    (): TypeGuard<never>;
+    <T>(...ss: T[]): TypeGuard<T>;
+  };
+
+/**
  * Validate if a value is a specific javascript number.
  */
 export const isSingletonNumber = <T extends number>(v: T): TypeGuard<T> => (n): n is T =>
@@ -51,8 +60,11 @@ export const isSingletonNumber = <T extends number>(v: T): TypeGuard<T> => (n): 
 /**
  * Validate if a value is one of a set of specific numbers.
  */
-export const isSingletonNumberUnion = <T extends number>(...ns: T[]): TypeGuard<T> =>
-  (n): n is T => ns.indexOf(n as T) >= 0;
+export const isSingletonNumberUnion = 
+  (<T extends number>(...ss: T[]): TypeGuard<T> => (s): s is T => ss.indexOf(s as T) >= 0) as {
+    (): TypeGuard<never>;
+    <T extends number>(...ss: T[]): TypeGuard<T>;
+  };
 
 /**
  * Validate if a value is a string.
@@ -69,8 +81,11 @@ export const isSingletonString = <T extends string>(v: T): TypeGuard<T> => (s): 
 /**
  * Validate if a value is one of a set of specific strings.
  */
-export const isSingletonStringUnion = <T extends string>(...ss: T[]): TypeGuard<T> =>
-  (s): s is T => ss.indexOf(s as T) >= 0;
+export const isSingletonStringUnion = 
+  (<T extends string>(...ss: T[]): TypeGuard<T> => (s): s is T => ss.indexOf(s as T) >= 0) as {
+    (): TypeGuard<never>;
+    <T extends string>(...ss: T[]): TypeGuard<T>;
+  };
 
 /**
  * Validate if a value is a boolean.

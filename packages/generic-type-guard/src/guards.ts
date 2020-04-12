@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 /**
  * A partial type guard that can take a value of one type and determine if it is also a valid value of a subtype.
  */
