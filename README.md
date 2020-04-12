@@ -8,7 +8,7 @@
 **Author:** Matthew Scharley  
 **Contributors:** [See contributors on GitHub][gh-contrib]  
 **Bugs/Support:** [Github Issues][gh-issues]  
-**Copyright:** 2017  
+**Copyright:** 2020  
 **License:** [MIT license][license]  
 **Status:** Active
 
@@ -71,45 +71,18 @@ compiler ensure that you've caught everything.
 
 Some examples:
 
-```typescript 
+```typescript
 import * as tg from "generic-type-guard";
 
-export interface TestInterface {
-  str: string;
-  num: number;
-}
-
-const isTypeSafeTestInterface: tg.PartialTypeGuard<{}, TestInterface> =
-  tg.isIntersection(tg.hasProperty("str", tg.isString), tg.hasProperty("num", tg.isNumber));
-
-export const isTestInterface: TypeGuard<TestInterface> = (o: any): o is TestInterface =>
-  isObject(o) && isTypeSafeTestInterface(o);
-
-// or perhaps you have a larger interface...
-
-export interface ComplexInterface extends TestInterface {
-  b: boolean;
-  maybeString?: string;
-  nullableString: string | null;
-}
-
-export const isTypeSafeComplexInterface: tg.TypeGuard<ComplexInterface> =
-  new tg.IsInterface()
-    .withProperty("str", tg.isString)
-    .withProperty("num", tg.isNumber)
-    .withProperty("b", tg.isBoolean)
-    .withProperty("maybeString", tg.isOptional(tg.isString))
-    .withProperty("nullableString", tg.isNullable(tg.isString))
-    .get();
-
-// Alternatively:
-
-export const isTypeSafeComplexInterface2: tg.PartialTypeGuard<{}, ComplexInterface> =
-  new tg.IntersectionOf(tg.hasProperty("str", tg.isString))
-    .with(tg.hasProperty("num", tg.isNumber))
-    .with(tg.hasProperty("b", tg.isBoolean))
-    .with(tg.hasProperty("maybeString", tg.isUnion(tg.isUndefined, tg.isString)))
-    .with(tg.hasProperty("nullableString", tg.isNullable(tg.isString))).get();
+export const isComplexInterface =
+  new tg.IsInterface().withProperties({
+    str: tg.isString,
+    num: tg.isNumber,
+    b: tg.isBoolean,
+    maybeString: tg.isOptional(tg.isString),
+    nullableString: tg.isNullable(tg.isString),
+  }).get();
+export type ComplexInterface = tg.GuardedType<typeof isComplexInterface>;
 ```
 
 [There are more detailed examples available.][example-usage]
@@ -147,6 +120,15 @@ const isFoo: tg.TypeGuard<Foo> = tg.isRecord("foo", tg.isString);
 ```
 
 Again, checking that `foo` is a string is sufficient to prove that it is either a string or undefined.
+
+##### Fix for structural typing issues
+
+If possible, you should reframe the question. Instead of creating a type to guard against, create a guard and export the type:
+
+```typescript
+const isFoo = tg.isRecord("foo", tg.isOptional(tg.isString));
+type Foo = tg.GuardedType<typeof isFoo>;
+```
 
   [gh-contrib]: https://github.com/mscharley/generic-type-guard/graphs/contributors
   [gh-issues]: https://github.com/mscharley/generic-type-guard/issues

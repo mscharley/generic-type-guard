@@ -3,13 +3,12 @@
 [![npm](https://img.shields.io/npm/v/generic-type-guard.svg)](https://www.npmjs.com/package/generic-type-guard)
 [![CircleCI](https://img.shields.io/circleci/project/github/mscharley/generic-type-guard.svg)](https://circleci.com/gh/mscharley/generic-type-guard)
 [![Codecov](https://img.shields.io/codecov/c/github/mscharley/generic-type-guard.svg)](https://codecov.io/gh/mscharley/generic-type-guard)
-[![Join the chat at https://gitter.im/generic-type-guard/Lobby](https://badges.gitter.im/generic-type-guard/Lobby.svg)](https://gitter.im/generic-type-guard/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-**Source:** [https://github.com/mscharley/generic-type-guard](https://github.com/mscharley/generic-type-guard/packages/generic-type-guard)  
+**Source:** [https://github.com/mscharley/generic-type-guard](https://github.com/mscharley/generic-type-guard/tree/master/packages/generic-type-guard)  
 **Author:** Matthew Scharley  
 **Contributors:** [See contributors on GitHub][gh-contrib]  
 **Bugs/Support:** [Github Issues][gh-issues]  
-**Copyright:** 2017  
+**Copyright:** 2020  
 **License:** [MIT license][license]  
 **Status:** Active
 
@@ -121,6 +120,15 @@ const isFoo: tg.TypeGuard<Foo> = tg.isRecord("foo", tg.isString);
 ```
 
 Again, checking that `foo` is a string is sufficient to prove that it is either a string or undefined.
+
+##### Fix for structural typing issues
+
+If possible, you should reframe the question. Instead of creating a type to guard against, create a guard and export the type:
+
+```typescript
+const isFoo = tg.isRecord("foo", tg.isOptional(tg.isString));
+type Foo = tg.GuardedType<typeof isFoo>;
+```
 
   [gh-contrib]: https://github.com/mscharley/generic-type-guard/graphs/contributors
   [gh-issues]: https://github.com/mscharley/generic-type-guard/issues
