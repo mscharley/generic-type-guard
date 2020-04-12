@@ -25,6 +25,8 @@
     "noUnusedParameters": true,
     "removeComments": false,
     "inlineSourceMap": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
     "baseUrl": "./src",
     "rootDirs": [ "./src" ],
     "outDir": "./dist"
