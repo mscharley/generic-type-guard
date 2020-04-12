@@ -93,7 +93,7 @@
     "chai": "4.2.0",
     "codecov": "3.6.5",
     "mocha": "7.1.1",
-    "nodemon": "1.19.4",
+    "nodemon": "2.0.3",
     "nyc": "14.1.1",
     "rimraf": "3.0.2",
     "source-map-support": "0.5.16",
