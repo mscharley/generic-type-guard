@@ -13,8 +13,8 @@
     "start": "ts-node src/bin/cli",
     "test": "yarn lint && yarn mocha-nyc",
     "test-watch": "nodemon -e ts,json -i coverage -i dist --exec yarn test",
-    "lint": "tslint -t verbose -p . -c ../../tslint.json",
-    "lint-watch": "nodemon -e ts,json --exec tslint -t verbose -p . -c ../../tslint.json",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "lint-watch": "nodemon -e ts,json --exec eslint . --ext .js,.jsx,.ts,.tsx",
     "mocha": "mocha --opts mocha.opts src/**/*.spec.ts",
     "mocha-nyc": "tsc && nyc mocha --opts mocha.opts dist/**/*.spec.js",
     "mocha-watch": "nodemon -e ts,json --exec yarn run mocha",
@@ -90,8 +90,11 @@
     "@types/chai": "4.2.11",
     "@types/mocha": "7.0.2",
     "@types/node": "12.12.35",
+    "@typescript-eslint/eslint-plugin": "2.27.0",
+    "@typescript-eslint/parser": "2.27.0",
     "chai": "4.2.0",
     "codecov": "3.6.5",
+    "eslint": "6.8.0",
     "mocha": "7.1.1",
     "nodemon": "2.0.3",
     "nyc": "14.1.1",
@@ -99,8 +102,6 @@
     "source-map-support": "0.5.16",
     "testdouble": "3.13.1",
     "ts-node": "8.8.2",
-    "tslint": "5.14.0",
-    "tslint-eslint-rules": "5.4.0",
     "typescript": "3.8.3"
   }
 }

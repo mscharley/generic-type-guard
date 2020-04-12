@@ -11,11 +11,11 @@ export class IntersectionOf<B, T extends B> {
     this.ptt = ptt;
   }
 
-  public get() {
+  public get(): PartialTypeGuard<B, T> {
     return this.ptt;
   }
 
-  public with<U extends B>(ptu: PartialTypeGuard<B, U>) {
+  public with<U extends B>(ptu: PartialTypeGuard<B, U>): IntersectionOf<B, T & U> {
     return new IntersectionOf(isIntersection(this.ptt, ptu));
   }
 }

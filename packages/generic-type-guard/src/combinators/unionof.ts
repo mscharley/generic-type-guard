@@ -11,11 +11,11 @@ export class UnionOf<B, T extends B> {
     this.ptt = ptt;
   }
 
-  public get() {
+  public get(): PartialTypeGuard<B, T> {
     return this.ptt;
   }
 
-  public with<V extends B>(ptv: PartialTypeGuard<B, V>) {
+  public with<U extends B>(ptv: PartialTypeGuard<B, U>): UnionOf<B, T | U> {
     return new UnionOf(isUnion(this.ptt, ptv));
   }
 }
