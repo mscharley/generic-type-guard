@@ -22,7 +22,7 @@ export const isRecord =
 /**
  * Validates that a given object has a string index signature.
  *
- * @param {boolean} enforce
+ * @param enforce
  *   Whether to enforce that there is at least one property already set. Be careful setting this to false, you will
  *   get some unexpected outputs, for instance arrays will have a string index signature.
  */
@@ -47,7 +47,7 @@ export const hasStringIndexSignature =
 /**
  * Validates that a given object has a numeric index signature.
  *
- * @param {boolean} enforce
+ * @param enforce
  *   Whether to enforce that there is at least one property already set. Be careful setting this to false, you will
  *   get some unexpected outputs, for instance objects will have a numeric index signature.
  */
