@@ -1007,7 +1007,7 @@
     typed-inject "~2.1.1"
     typed-rest-client "~1.7.1"
 
-"@stryker-mutator/mocha-framework@3.1.0", "@stryker-mutator/mocha-framework@^3.1.0":
+"@stryker-mutator/mocha-framework@3.1.0":
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/@stryker-mutator/mocha-framework/-/mocha-framework-3.1.0.tgz#c2feba2c903670cb1f8ebfa7512c06bf1ef0a8fe"
   integrity sha512-tTgivRwRBoCOkBLIDrVlTvpHxAIFLhdAYn1+3AjOEH+fO90W58OPBmixon3E2Xwro3XsGEQCzeJyA40Qo6v4FA==
@@ -1015,7 +1015,7 @@
     "@stryker-mutator/api" "^3.1.0"
     "@stryker-mutator/util" "^3.1.0"
 
-"@stryker-mutator/mocha-runner@3.1.0", "@stryker-mutator/mocha-runner@^3.1.0":
+"@stryker-mutator/mocha-runner@3.1.0":
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/@stryker-mutator/mocha-runner/-/mocha-runner-3.1.0.tgz#a863341379b94bb49453d8b015edd7382863f79e"
   integrity sha512-Zg4jisPRmZDV2i4TUIJTsh8TmInSuVHZ0AMyY7vWdvxD0EQUBW+CrnDsfmhmiRpUej6jM8kc/XuqOZetO8dZ4A==
@@ -1024,7 +1024,7 @@
     multimatch "~4.0.0"
     tslib "~1.11.1"
 
-"@stryker-mutator/typescript@3.1.0", "@stryker-mutator/typescript@^3.1.0":
+"@stryker-mutator/typescript@3.1.0":
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/@stryker-mutator/typescript/-/typescript-3.1.0.tgz#beb4f220acded7c8c6498975c673dba5ca57e2b4"
   integrity sha512-HExZsNguVD93V4x1nzq+qZqpeGJ7qujGeW+vHLSVX7l3O0hmUNDAW48JA69Q1R9X9drVExNsfVfWNbQH1IEXUQ==
