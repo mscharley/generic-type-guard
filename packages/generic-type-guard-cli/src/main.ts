@@ -1,8 +1,7 @@
 import "reflect-metadata";
-
 import chalk from "chalk";
-import Container from "typedi";
 import { ConfigurationService } from "./ConfigurationService";
+import Container from "typedi";
 
 /**
  * This is the main entrypoint for the application.

@@ -1,7 +1,9 @@
+import * as p from "../primitives";
 import { expect } from "chai";
 import { TypeGuard } from "../guards";
-import * as p from "../primitives";
 import { UnionOf } from "./unionof";
+
+/* eslint-disable no-magic-numbers */
 
 /**
  * Compilation tests for the UnionOf spec.

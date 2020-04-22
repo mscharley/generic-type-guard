@@ -1,5 +1,5 @@
-import * as tg from "generic-type-guard";
 import * as path from "path";
+import * as tg from "generic-type-guard";
 import { Inject, Service } from "typedi";
 import { FileLoader } from "./utils/FileLoader";
 

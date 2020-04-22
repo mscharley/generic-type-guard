@@ -1,4 +1,4 @@
 import { main } from "../main";
 
-// tslint:disable
+/* eslint-disable-next-line no-console */
 main(process.argv, console.log);

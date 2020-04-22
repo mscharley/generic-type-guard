@@ -1,9 +1,11 @@
-import { expect } from "chai";
-import { FullDummyClass, LargeInterface } from "../dummy_classes.spec";
-import { TypeGuard } from "../guards";
 import * as o from "../objects";
 import * as p from "../primitives";
+import { FullDummyClass, LargeInterface } from "../dummy_classes.spec";
+import { expect } from "chai";
 import { IsInterface } from "./interface";
+import { TypeGuard } from "../guards";
+
+/* eslint-disable no-magic-numbers */
 
 export interface SimpleInterface {
   str: string;

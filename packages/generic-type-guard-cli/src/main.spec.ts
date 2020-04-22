@@ -1,11 +1,10 @@
-import chalk from "chalk";
 import * as td from "testdouble";
-import { Container } from "typedi";
+import chalk from "chalk";
 import { ConfigurationService } from "./ConfigurationService";
+import { Container } from "typedi";
 import { main } from "./main";
 
-// tslint:disable:no-unsafe-any
-// tslint:disable:no-void-expression
+/* eslint-disable no-magic-numbers */
 
 /**
  * Specs for the CLI file.

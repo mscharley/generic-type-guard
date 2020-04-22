@@ -2,6 +2,8 @@ import { PartialTypeGuard, TypeGuard } from "./guards";
 
 type Diff<T, U> = T extends U ? never : T;
 
+const MINIMUM_ARRAY_INDEX = 0;
+
 /**
  * Validate if a value is a javascript number.
  */
@@ -46,7 +48,7 @@ export const isNaN: TypeGuard<number> = (n): n is number =>
  * Validates that a value is one of a set of values.
  */
 export const isElementOf = 
-  (<T>(...ss: T[]): TypeGuard<T> => (s): s is T => ss.indexOf(s as T) >= 0) as {
+  (<T>(...ss: T[]): TypeGuard<T> => (s): s is T => ss.indexOf(s as T) >= MINIMUM_ARRAY_INDEX) as {
     (): TypeGuard<never>;
     <T>(...ss: T[]): TypeGuard<T>;
   };
@@ -61,7 +63,7 @@ export const isSingletonNumber = <T extends number>(v: T): TypeGuard<T> => (n): 
  * Validate if a value is one of a set of specific numbers.
  */
 export const isSingletonNumberUnion = 
-  (<T extends number>(...ss: T[]): TypeGuard<T> => (s): s is T => ss.indexOf(s as T) >= 0) as {
+  (<T extends number>(...ss: T[]): TypeGuard<T> => (s): s is T => ss.indexOf(s as T) >= MINIMUM_ARRAY_INDEX) as {
     (): TypeGuard<never>;
     <T extends number>(...ss: T[]): TypeGuard<T>;
   };
@@ -82,7 +84,7 @@ export const isSingletonString = <T extends string>(v: T): TypeGuard<T> => (s): 
  * Validate if a value is one of a set of specific strings.
  */
 export const isSingletonStringUnion = 
-  (<T extends string>(...ss: T[]): TypeGuard<T> => (s): s is T => ss.indexOf(s as T) >= 0) as {
+  (<T extends string>(...ss: T[]): TypeGuard<T> => (s): s is T => ss.indexOf(s as T) >= MINIMUM_ARRAY_INDEX) as {
     (): TypeGuard<never>;
     <T extends string>(...ss: T[]): TypeGuard<T>;
   };

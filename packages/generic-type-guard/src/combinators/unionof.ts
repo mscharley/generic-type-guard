@@ -1,5 +1,5 @@
-import { PartialTypeGuard } from "../guards";
 import { isUnion } from "./functions";
+import { PartialTypeGuard } from "../guards";
 
 /**
  * A small class to help with constructing larger union checkers.

@@ -1,6 +1,6 @@
 import * as tg from "./index";
 
-// tslint:disable:no-console
+/* eslint-disable no-console */
 
 export interface TestInterface {
   str: string;
