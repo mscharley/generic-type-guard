@@ -1,13 +1,12 @@
 
-import { expect } from "chai";
 import * as path from "path";
 import * as td from "testdouble";
 import Container, { ContainerInstance } from "typedi";
 import { ConfigurationService } from "./ConfigurationService";
+import { expect } from "chai";
 import { FileLoader } from "./utils/FileLoader";
 
-// tslint:disable:no-unsafe-any
-// tslint:disable:no-void-expression
+/* eslint-disable no-magic-numbers */
 
 /**
  * Specs for the configuration service.

@@ -1,8 +1,10 @@
-import { expect } from "chai";
 import * as c from "./combinators";
-import { DummyClass, FullDummyClass } from "./dummy_classes.spec";
 import * as o from "./objects";
 import * as p from "./primitives";
+import { DummyClass, FullDummyClass } from "./dummy_classes.spec";
+import { expect } from "chai";
+
+/* eslint-disable no-magic-numbers */
 
 /**
  * Compilation tests for the guard types.

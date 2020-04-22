@@ -1,8 +1,10 @@
-import { expect } from "chai";
-import { PartialTypeGuard } from "../guards";
+import * as c from "./functions";
 import * as o from "../objects";
 import * as p from "../primitives";
-import * as c from "./functions";
+import { expect } from "chai";
+import { PartialTypeGuard } from "../guards";
+
+/* eslint-disable no-magic-numbers */
 
 interface SimpleInterface {
   str: string;

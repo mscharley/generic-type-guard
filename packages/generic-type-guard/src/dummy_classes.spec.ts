@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-inferrable-types */
+/* eslint-disable no-magic-numbers */
 
 export interface LargeInterface {
   foo: string;

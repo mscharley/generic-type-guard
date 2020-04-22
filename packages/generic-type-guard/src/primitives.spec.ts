@@ -1,5 +1,7 @@
-import { expect } from "chai";
 import * as p from "./primitives";
+import { expect } from "chai";
+
+/* eslint-disable no-magic-numbers */
 
 /**
  * Compilation tests for the primitive types.
@@ -179,7 +181,7 @@ describe("Primitives", function(this: Mocha.Suite) {
     expect(p.isSet(true)).to.equal(true);
     expect(p.isSet(false)).to.equal(true);
     expect(p.isSet("foo")).to.equal(true);
-    expect(p.isSet(Symbol())).to.equal(true);
+    expect(p.isSet(Symbol("Testing symbol"))).to.equal(true);
     expect(p.isSet(null)).to.equal(false);
     expect(p.isSet(undefined)).to.equal(false);
     expect(p.isSet([])).to.equal(true);

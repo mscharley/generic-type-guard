@@ -1,8 +1,10 @@
-import { expect } from "chai";
-import { PartialTypeGuard } from "../guards";
 import * as o from "../objects";
 import * as p from "../primitives";
+import { expect } from "chai";
 import { IntersectionOf } from "./intersectionof";
+import { PartialTypeGuard } from "../guards";
+
+/* eslint-disable no-magic-numbers */
 
 export interface SimpleInterface {
   str: string;

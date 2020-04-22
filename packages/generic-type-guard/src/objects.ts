@@ -33,7 +33,7 @@ export const hasStringIndexSignature =
       for (const prop in o) {
         if (isNaN(parseInt(prop, 10))) {
           if (value((o as { [prop: string]: unknown })[prop])) {
-            n += 1;
+            n++;
           }
           else {
             return false;
@@ -41,6 +41,7 @@ export const hasStringIndexSignature =
         }
       }
 
+      /* eslint-disable-next-line no-magic-numbers */
       return !enforce || n > 0;
     };
 
@@ -59,7 +60,7 @@ export const hasNumericIndexSignature =
         if (!isNaN(parseInt(prop, 10))) {
           // We still index as a string here because prop is a string.
           if (value((o as { [prop: string]: unknown })[prop])) {
-            n += 1;
+            n++;
           }
           else {
             return false;
@@ -67,6 +68,7 @@ export const hasNumericIndexSignature =
         }
       }
 
+      /* eslint-disable-next-line no-magic-numbers */
       return !enforce || n > 0;
     };
 

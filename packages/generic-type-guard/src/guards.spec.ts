@@ -1,5 +1,7 @@
-import { expect } from "chai";
 import * as g from "./guards";
+import { expect } from "chai";
+
+/* eslint-disable no-magic-numbers */
 
 /**
  * Compilation tests for the guard types.
