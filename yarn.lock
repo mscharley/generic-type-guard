@@ -1007,10 +1007,10 @@
     call-me-maybe "^1.0.1"
     glob-to-regexp "^0.3.0"
 
-"@mscharley/eslint-config@1.2.2":
-  version "1.2.2"
-  resolved "https://registry.yarnpkg.com/@mscharley/eslint-config/-/eslint-config-1.2.2.tgz#56ac273e99d5cbe7c4baf76e5641350329cdee3d"
-  integrity sha512-YiUqxLbf8yR7F+/zis6CeVCxtK4blY+0OPTJbtk8pqtlNxpZDhdTkwZCxUG45zwyZa5UOC+lkwIy2XFO/iWYeg==
+"@mscharley/eslint-config@1.2.4":
+  version "1.2.4"
+  resolved "https://registry.yarnpkg.com/@mscharley/eslint-config/-/eslint-config-1.2.4.tgz#69b30c288308d94f0a2168407829075edf98c96c"
+  integrity sha512-FX+VF4qJ3kPlrc+i2yidRQFNw9Y8KG1tF7r8iq9yBaJATXTqnhLAZOQM0caU6epCBTkhimnK4mayQC6YrJpc6g==
 
 "@nodelib/fs.stat@^1.1.2":
   version "1.1.3"
