@@ -73,7 +73,7 @@
     "@typescript-eslint/eslint-plugin": "2.33.0",
     "@typescript-eslint/parser": "2.33.0",
     "chai": "4.2.0",
-    "codecov": "3.6.5",
+    "codecov": "3.7.0",
     "eslint": "7.0.0",
     "mocha": "7.1.2",
     "nodemon": "2.0.4",
