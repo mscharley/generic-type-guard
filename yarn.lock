@@ -1124,22 +1124,22 @@
   resolved "https://registry.yarnpkg.com/@sindresorhus/is/-/is-0.14.0.tgz#9fb3a3cf3132328151f353de4632e01e52102bea"
   integrity sha512-9NET910DNaIPngYnLLPeg+Ogzqsi9uM4mSboU5y6p8S5DzMTVEsJZrawi+BoDNUVBa2DhJqQYUFvMDfgU062LQ==
 
-"@stryker-mutator/api@^3.2.3":
-  version "3.2.3"
-  resolved "https://registry.yarnpkg.com/@stryker-mutator/api/-/api-3.2.3.tgz#f07762e455b9bffadcdfb0eeba9db65038614764"
-  integrity sha512-lveSUaBzEyrDS66zpw0grb9wdGrUi6EGaMkbFm7kuhqFCVj74hlrDAspfK/mQwo9A5t+RffXPpjoGB6Uytuptw==
+"@stryker-mutator/api@^3.2.4":
+  version "3.2.4"
+  resolved "https://registry.yarnpkg.com/@stryker-mutator/api/-/api-3.2.4.tgz#e6c0be234f63a4e5c29f95b41084a1227ceffad4"
+  integrity sha512-WzeLrerYih+xi2HyUtSFKRJq23O4P3HZ669w42MS+q0ivxd953Hr+ZXNfuK6so3jXVzygt5hv3FTyEenm+w0Qg==
   dependencies:
     mutation-testing-report-schema "~1.3.0"
     surrial "~2.0.2"
     tslib "~2.0.0"
 
-"@stryker-mutator/core@3.2.3":
-  version "3.2.3"
-  resolved "https://registry.yarnpkg.com/@stryker-mutator/core/-/core-3.2.3.tgz#ce51b08e6f7256a40c62cd8800f1d19432cb4bd4"
-  integrity sha512-b9HsfKy1ZHEOa93IOKVNt3Ur/7+bJZheiNfc8pNGMJXZhYql4KA6E8js1w6pDHAVmVx3ScYYyGVIWJPFd5/ZeA==
+"@stryker-mutator/core@3.2.4":
+  version "3.2.4"
+  resolved "https://registry.yarnpkg.com/@stryker-mutator/core/-/core-3.2.4.tgz#859b98bd1aa92021b5a73b7b70d26feb80cb984f"
+  integrity sha512-bTPFctIx1iH0YPx0dJxfMfJKyxv9+NIONjEPfrZsJjaUoQFv787s9+bnzD/JUYCYoG6Hj7XjMFsFs97xI318yA==
   dependencies:
-    "@stryker-mutator/api" "^3.2.3"
-    "@stryker-mutator/util" "^3.2.3"
+    "@stryker-mutator/api" "^3.2.4"
+    "@stryker-mutator/util" "^3.2.4"
     ajv "^6.12.0"
     chalk "~4.0.0"
     commander "~5.1.0"
@@ -1164,39 +1164,39 @@
     typed-inject "~2.2.1"
     typed-rest-client "~1.7.1"
 
-"@stryker-mutator/mocha-framework@3.2.3":
-  version "3.2.3"
-  resolved "https://registry.yarnpkg.com/@stryker-mutator/mocha-framework/-/mocha-framework-3.2.3.tgz#b7dc1e8195fa3b0b88c33b66cc28f8a073deb217"
-  integrity sha512-axBqVnlp7zmEW89FiuU139ZnwVJgwRbUWN/zvst2F9dbbNIuFdn3yMwoi4vsBdGPQ0LuNBfo1XOoPqBUA2ki0g==
+"@stryker-mutator/mocha-framework@3.2.4":
+  version "3.2.4"
+  resolved "https://registry.yarnpkg.com/@stryker-mutator/mocha-framework/-/mocha-framework-3.2.4.tgz#bbcbdaff70608daa59ad8a84e1ca5c082fc70b27"
+  integrity sha512-BzE+B++Maex3wZ9Wk45ARoZwNLTCxI4/dB9cK0WhJhS4QLvacF8sOuEhKuUDLprIAW3h0nOKpUONiyBdQR2+vQ==
   dependencies:
-    "@stryker-mutator/api" "^3.2.3"
-    "@stryker-mutator/util" "^3.2.3"
+    "@stryker-mutator/api" "^3.2.4"
+    "@stryker-mutator/util" "^3.2.4"
 
-"@stryker-mutator/mocha-runner@3.2.3":
-  version "3.2.3"
-  resolved "https://registry.yarnpkg.com/@stryker-mutator/mocha-runner/-/mocha-runner-3.2.3.tgz#d4fcba291645f3eb7603b2e0be099ff82156cdcb"
-  integrity sha512-fuNGXf7lQ2H6VunVbaRvfK3d1xaylFMfaB47wsuce6HCrHxegIvvhFnp2LaWrwVV1CR0R9MJ74O+WYf47aI6RA==
+"@stryker-mutator/mocha-runner@3.2.4":
+  version "3.2.4"
+  resolved "https://registry.yarnpkg.com/@stryker-mutator/mocha-runner/-/mocha-runner-3.2.4.tgz#760017236ddf69c584ebcfeb3cf0fe9e1d11cd98"
+  integrity sha512-RCO/mmukG8hJ4mYVUxMr/pmfx1RM+49ORc1PaG0IhDM/v0cQuGdrZfG9VEdOEAg1CbA9cMMFRT84V1y0Tot8zA==
   dependencies:
-    "@stryker-mutator/api" "^3.2.3"
-    "@stryker-mutator/util" "^3.2.3"
+    "@stryker-mutator/api" "^3.2.4"
+    "@stryker-mutator/util" "^3.2.4"
     multimatch "~4.0.0"
     tslib "~2.0.0"
 
-"@stryker-mutator/typescript@3.2.3":
-  version "3.2.3"
-  resolved "https://registry.yarnpkg.com/@stryker-mutator/typescript/-/typescript-3.2.3.tgz#5420b49a32d19df1a2e31fede39c856699e85a89"
-  integrity sha512-ByZLYvR3A+a6Hf4c9GiGHIBmTco/oSxjOfCO7JIy0GjtJJk4iC7AYnjzpwKry/0VpRQa9vw4ukxvpywCepafQQ==
+"@stryker-mutator/typescript@3.2.4":
+  version "3.2.4"
+  resolved "https://registry.yarnpkg.com/@stryker-mutator/typescript/-/typescript-3.2.4.tgz#de40376a7672eebd95fa88bb66e8ef72700ad03c"
+  integrity sha512-ZVYVMeTFSiy0Nfj+y7AxvtL+GH/gHbBf1D/vgRwpUn15G3AZ7j6ip7KVvahTSTwzeKlXwSU2sYu1/vCf3i+92Q==
   dependencies:
-    "@stryker-mutator/api" "^3.2.3"
-    "@stryker-mutator/util" "^3.2.3"
+    "@stryker-mutator/api" "^3.2.4"
+    "@stryker-mutator/util" "^3.2.4"
     lodash.flatmap "~4.5.0"
     semver "~6.3.0"
     tslib "~2.0.0"
 
-"@stryker-mutator/util@^3.2.3":
-  version "3.2.3"
-  resolved "https://registry.yarnpkg.com/@stryker-mutator/util/-/util-3.2.3.tgz#404a4a675a9fe77f0f6e66fe0f3e0237a1f98acc"
-  integrity sha512-yU6sK2SkAvOsbvrhHmFBpCtianjeMtI71x1Pgb2IEaO1i+ttybLDjg/jHFOKEO3ngC/HyB/1HwfJLwd1StVBgQ==
+"@stryker-mutator/util@^3.2.4":
+  version "3.2.4"
+  resolved "https://registry.yarnpkg.com/@stryker-mutator/util/-/util-3.2.4.tgz#117aadfb3357774e903dcc45105b6db8f60ffbd5"
+  integrity sha512-s/yB6Ok0NZfGlQD1A/3BPdwCyS2YA5yQzIFNsFE8q/GqmMlZ5SjliEFNgp7u3LUYpqqBStmmz6qzP/PoL1BxqQ==
 
 "@szmarczak/http-timer@^1.1.2":
   version "1.1.2"
