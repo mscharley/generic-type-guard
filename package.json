@@ -12,6 +12,6 @@
     "codecov-report": "lerna run --parallel codecov-report"
   },
   "devDependencies": {
-    "lerna": "3.21.0"
+    "lerna": "3.22.0"
   }
 }
