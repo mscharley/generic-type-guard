@@ -81,7 +81,7 @@ describe("Interface", function(this: Mocha.Suite) {
   });
 
   it("emptyInterface", () => {
-    const isEmptyInterface: TypeGuard<{}> =
+    const isEmptyInterface: TypeGuard<object> =
       new IsInterface().get();
     expect(isEmptyInterface({})).to.equal(true);
     expect(isEmptyInterface({ foo: "bar" })).to.equal(true);
