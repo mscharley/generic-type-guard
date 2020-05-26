@@ -20,7 +20,7 @@ describe("IntersectionOf", function(this: Mocha.Suite) {
 
   // This class is a wrapper around isUnion, most of the real tests happen there.
   it("unionStringNumber", () => {
-    const isSimpleInterface: PartialTypeGuard<{}, SimpleInterface> =
+    const isSimpleInterface: PartialTypeGuard<object, SimpleInterface> =
       new IntersectionOf(o.hasProperty("str", p.isString))
         .with(o.hasProperty("num", p.isNumber))
         .with(o.hasProperty("b", p.isBoolean)).get();

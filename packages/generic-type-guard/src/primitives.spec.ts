@@ -150,6 +150,14 @@ describe("Primitives", function(this: Mocha.Suite) {
     expect(isNumberArray({})).to.equal(false);
   });
 
+  it("narrowValue", () => {
+    const narrow = p.narrowValue<unknown, string, "foo">(p.isString, p.isSingletonString("foo"));
+
+    expect(narrow("foo")).to.equal(true);
+    expect(narrow("hello world")).to.equal(false);
+    expect(narrow(10)).to.equal(false);
+  });
+
   it("narrowArray", () => {
     const isNumberArray = p.narrowArray<number | string, number>(p.isNumber);
 

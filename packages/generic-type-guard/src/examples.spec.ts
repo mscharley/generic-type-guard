@@ -29,15 +29,15 @@ export const isTestInterface: tg.TypeGuard<TestInterface> = (o: unknown): o is T
  * from `undefined`. If you add properties to TestInterface or change types then this form will
  * trigger a type error as the interfaces won't match up structurally.
  */
-export const isTypeSafeTestInterface: tg.PartialTypeGuard<{}, TestInterface> =
+export const isTypeSafeTestInterface: tg.PartialTypeGuard<object, TestInterface> =
   tg.isIntersection(tg.hasProperty("str", tg.isString), tg.hasProperty("num", tg.isNumber));
 
 /**
  * If you have multiple sets of things to test there is also a fluent-ish interface.
  *
  * This is exposed for both intersection and union combinators.
- * 
- * If you have a complex interface like this, then the best way to deal with the type is to 
+ *
+ * If you have a complex interface like this, then the best way to deal with the type is to
  * generate it from the guard if feasible.
  */
 export const isTypeSafeComplexInterface =
