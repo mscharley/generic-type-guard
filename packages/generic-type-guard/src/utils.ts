@@ -1,4 +1,3 @@
-import { isSingletonString } from "primitives";
 import { GuardedType, PartialTypeGuard } from "./guards";
 
 /**
