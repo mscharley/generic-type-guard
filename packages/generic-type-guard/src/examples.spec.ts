@@ -44,8 +44,8 @@ export const isTypeSafeComplexInterface =
   new tg.IntersectionOf(tg.hasProperty("str", tg.isString))
     .with(tg.hasProperty("num", tg.isNumber))
     .with(tg.hasProperty("b", tg.isBoolean))
-    .with(tg.hasProperty("maybeString", tg.isUnion(tg.isUndefined, tg.isString)))
-    .with(tg.hasProperty("nullableString", tg.isNullable(tg.isString))).get();
+    .with(tg.hasOptionalProperty("maybeString", tg.isString))
+    .with(tg.hasOptionalProperty("nullableString", tg.isNullable(tg.isString))).get();
 export type ComplexInterface = tg.GuardedType<typeof isTypeSafeComplexInterface>;
 
 /**
@@ -54,10 +54,11 @@ export type ComplexInterface = tg.GuardedType<typeof isTypeSafeComplexInterface>
 export const isTypeSafeComplexInterface2: tg.TypeGuard<ComplexInterface> =
   new tg.IsInterface().withProperties({
     b: tg.isBoolean,
-    maybeString: tg.isOptional(tg.isString),
-    nullableString: tg.isNullable(tg.isString),
     num: tg.isNumber,
     str: tg.isString,
+  }).withOptionalProperties({
+    maybeString: tg.isOptional(tg.isString),
+    nullableString: tg.isNullable(tg.isString),
   }).get();
 
 /* This is supposed to fail to compile. This is here for quick checking in later releases.
