@@ -1,5 +1,10 @@
 import { PartialTypeGuard } from "./guards";
 
+/**
+ * Indicates there was an error validating a typeguard.
+ *
+ * @public
+ */
 export class AssertionError extends RangeError {
   public constructor(message?: string) {
     super(message);
@@ -15,6 +20,7 @@ export class AssertionError extends RangeError {
  * you should do this check manually and throw your own error.
  *
  * @throws AssertionError if the guard returns false.
+ * @public
  */
 export const assert: <T, U extends T, Guard extends PartialTypeGuard<T, U>>(value: T, guard: Guard, message?: string) => asserts value is U =
   (value, guard, message) => {

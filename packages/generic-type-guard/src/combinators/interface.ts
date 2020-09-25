@@ -7,6 +7,8 @@ import { isObjectLike } from "../primitives";
 
 /**
  * Fluent Builder pattern for creating guards for interface types.
+ *
+ * @public
  */
 export interface InterfaceBuilder<T extends object> {
   /**
@@ -22,50 +24,48 @@ export interface InterfaceBuilder<T extends object> {
   /**
    * Add a single property to the interface.
    *
-   * @param key The string key of the property.
-   * @param ptv The type guard for this property.
+   * @param key - The string key of the property.
+   * @param ptv - The type guard for this property.
    */
   withProperty<K extends string, V>(key: K, ptv: TypeGuard<V>): InterfaceBuilder<T & { [prop in K]: V }>;
 
   /**
    * Add a single optional property to the interface.
    *
-   * @param key The string key of the property.
-   * @param ptv The type guard for this property.
+   * @param key - The string key of the property.
+   * @param ptv - The type guard for this property.
    */
   withOptionalProperty<K extends string, V>(key: K, ptv: TypeGuard<V>): InterfaceBuilder<T & { [prop in K]?: V }>;
 
   /**
    * Add a string index signature to the interface.
    *
-   * @param value The type guard for values accessed by the index signature.
-   * @param enforce
-   *   Whether to enforce that there is at least one property already set. Be careful setting this to false, you will
-   *   get some unexpected outputs, for instance arrays will have a string index signature.
+   * @param value - The type guard for values accessed by the index signature.
+   * @param enforce - Whether to enforce that there is at least one property already set. Be careful setting this to
+   *   false, you will get some unexpected outputs, for instance arrays will have a string index signature.
    */
   withStringIndexSignature<V>(value: TypeGuard<V>, enforce?: boolean): InterfaceBuilder<T & { [prop: string]: V }>;
 
   /**
    * Add a numeric index signature to the interface.
    *
-   * @param value The type guard for values accessed by the index signature.
-   * @param enforce
-   *   Whether to enforce that there is at least one property already set. Be careful setting this to false, you will
-   *   get some unexpected outputs, for instance arrays will have a string index signature.
+   * @param value - The type guard for values accessed by the index signature.
+   * @param enforce - Whether to enforce that there is at least one property already set. Be careful setting this to
+   *   false, you will get some unexpected outputs, for instance arrays will have a string index signature.
    */
   withNumericIndexSignature<V>(value: TypeGuard<V>, enforce?: boolean): InterfaceBuilder<T & { [i: number]: V }>;
 
   /**
    * Add many properties to the interface at once.
    *
-   * @param props A map of properties to guards to apply to the interface.
+   * @param props - A map of properties to guards to apply to the interface.
    */
   withProperties<V extends object>(props: MappedTypeGuard<V>): InterfaceBuilder<T & V>;
 
   /**
    * Add many optional properties to the interface at once.
    *
-   * @param props A map of properties to guards to apply to the interface.
+   * @param props - A map of properties to guards to apply to the interface.
    */
   withOptionalProperties<V extends object>(props: MappedTypeGuard<V>): InterfaceBuilder<T & Partial<V>>;
 }
@@ -115,6 +115,8 @@ class InterfaceStep<T extends object> implements InterfaceBuilder<T> {
 
 /**
  * A small class to help with constructing interface guards.
+ *
+ * @public
  */
 export class IsInterface implements InterfaceBuilder<object> {
   public get(): TypeGuard<object> {

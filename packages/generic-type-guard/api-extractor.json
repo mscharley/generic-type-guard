@@ -1,6 +1,7 @@
 /**
  * Config file for API Extractor.  For more info, please visit: https://api-extractor.com
  */
+// code: language=jsonc
 {
   "$schema": "https://developer.microsoft.com/json-schemas/api-extractor/v7/api-extractor.schema.json",
 

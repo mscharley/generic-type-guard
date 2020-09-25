@@ -3,6 +3,8 @@ import { PartialTypeGuard } from "../guards";
 
 /**
  * A small class to help with constructing larger union checkers.
+ *
+ * @public
  */
 export class UnionOf<B, T extends B> {
   private ptt: PartialTypeGuard<B, T>;

@@ -3,6 +3,8 @@ import { PartialTypeGuard } from "../guards";
 
 /**
  * A small class to help with constructing larger intersection checkers.
+ *
+ * @public
  */
 export class IntersectionOf<B, T extends B> {
   private ptt: PartialTypeGuard<B, T>;

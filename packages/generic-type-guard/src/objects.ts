@@ -3,6 +3,8 @@ import { isObject } from "./primitives";
 
 /**
  * Validates that a given object has a property of a given type.
+ *
+ * @public
  */
 export const hasProperty =
   <K extends string, V>(property: K, value: TypeGuard<V>): PartialTypeGuard<object, Record<K, V>> =>
@@ -12,6 +14,8 @@ export const hasProperty =
 
 /**
  * Validates that a given object has an optional property of a given type.
+ *
+ * @public
  */
 export const hasOptionalProperty =
   <K extends string, V>(property: K, value: TypeGuard<V>): PartialTypeGuard<object, { [prop in K]?: V }> =>
@@ -23,7 +27,9 @@ export const hasOptionalProperty =
 /**
  * Validate that a variable is an object with a single field.
  *
- * If you need multiple fields then use IsInterface.
+ * If you need multiple fields then use hasProperties.
+ *
+ * @public
  */
 export const isRecord =
   <K extends string, V>(property: K, value: TypeGuard<V>): TypeGuard<Record<K, V>> =>
@@ -32,9 +38,10 @@ export const isRecord =
 /**
  * Validates that a given object has a string index signature.
  *
- * @param enforce
- *   Whether to enforce that there is at least one property already set. Be careful setting this to false, you will
- *   get some unexpected outputs, for instance arrays will have a string index signature.
+ * @param enforce - Whether to enforce that there is at least one property already set. Be careful setting this to
+ *   false, you will get some unexpected outputs, for instance arrays will have a string index signature.
+ *
+ * @public
  */
 export const hasStringIndexSignature =
   <V>(value: TypeGuard<V>, enforce = true): PartialTypeGuard<object, { [prop: string]: V }> =>
@@ -58,9 +65,10 @@ export const hasStringIndexSignature =
 /**
  * Validates that a given object has a numeric index signature.
  *
- * @param enforce
- *   Whether to enforce that there is at least one property already set. Be careful setting this to false, you will
- *   get some unexpected outputs, for instance objects will have a numeric index signature.
+ * @param enforce - Whether to enforce that there is at least one property already set. Be careful setting this to
+ *   false, you will get some unexpected outputs, for instance objects will have a numeric index signature.
+ *
+ * @public
  */
 export const hasNumericIndexSignature =
   <V>(value: TypeGuard<V>, enforce = true): PartialTypeGuard<object, { [prop: number]: V }> =>
@@ -84,6 +92,8 @@ export const hasNumericIndexSignature =
 
 /**
  * Validates that a given object is an instance of a class.
+ *
+ * @public
  */
 export const isInstance = <T extends object>(klass: new (...args: unknown[]) => T): TypeGuard<T> =>
   (o: unknown): o is T => o instanceof klass;
@@ -91,8 +101,10 @@ export const isInstance = <T extends object>(klass: new (...args: unknown[]) => 
 /**
  * Validate that a given object has all the given properties
  *
- * @param props a MappedGuard of the object to be validated, i.e. an object that has the same properties as the
+ * @param props - a MappedGuard of the object to be validated, i.e. an object that has the same properties as the
  *    object being validated whose types are TypeGuards for the matching type on the original property.
+ *
+ * @public
  */
 export const hasProperties =
   <V extends object>(props: MappedTypeGuard<V>): PartialTypeGuard<object, V> =>
@@ -109,8 +121,10 @@ export const hasProperties =
 /**
  * Validate that a given object has all the given optional properties
  *
- * @param props a MappedGuard of the object to be validated, i.e. an object that has the same properties as the
+ * @param props - a MappedGuard of the object to be validated, i.e. an object that has the same properties as the
  *    object being validated whose types are TypeGuards for the matching type on the original property.
+ *
+ * @public
  */
 export const hasOptionalProperties =
   <V extends object>(props: MappedTypeGuard<V>): PartialTypeGuard<object, Partial<V>> =>
