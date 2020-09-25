@@ -1,4 +1,5 @@
-import { PartialTypeGuard } from "./guards";
+import { isSingletonString } from "primitives";
+import { GuardedType, PartialTypeGuard } from "./guards";
 
 /**
  * Indicates there was an error validating a typeguard.
@@ -22,7 +23,7 @@ export class AssertionError extends RangeError {
  * @throws AssertionError if the guard returns false.
  * @public
  */
-export const assert: <T, U extends T, Guard extends PartialTypeGuard<T, U>>(value: T, guard: Guard, message?: string) => asserts value is U =
+export const assert: <T, Guard extends PartialTypeGuard<T, T>>(value: T, guard: Guard, message?: string) => asserts value is GuardedType<Guard> =
   (value, guard, message) => {
     if (!guard(value)) {
       throw new AssertionError(message ?? `Invalid value provided: ${value}`);
