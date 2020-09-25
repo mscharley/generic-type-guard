@@ -22,12 +22,20 @@ describe("Objects", function(this: Mocha.Suite) {
     expect(hasFooString("foo")).to.equal(false);
   });
 
+  it("optionalProperty", () => {
+    const hasFooString = o.hasOptionalProperty("foo", p.isString);
+    expect(hasFooString({ foo: "bar" }), "correct").to.equal(true);
+    expect(hasFooString({ foo: 10 }), "invalid number").to.equal(false);
+    expect(hasFooString({}), "missing value").to.equal(true);
+    expect(hasFooString({ bar: "foo" }), "different property").to.equal(true);
+  });
+
   it("property", () => {
     const hasFooString = o.hasProperty("foo", p.isString);
-    expect(hasFooString({ foo: "bar" })).to.equal(true);
-    expect(hasFooString({ foo: 10 })).to.equal(false);
-    expect(hasFooString({})).to.equal(false);
-    expect(hasFooString({ bar: "foo" })).to.equal(false);
+    expect(hasFooString({ foo: "bar" }), "correct").to.equal(true);
+    expect(hasFooString({ foo: 10 }), "invalid number").to.equal(false);
+    expect(hasFooString({}), "missing value").to.equal(false);
+    expect(hasFooString({ bar: "foo" }), "different property").to.equal(false);
   });
 
   it("propertyOfBaseClass", () => {
@@ -82,6 +90,13 @@ describe("Objects", function(this: Mocha.Suite) {
     // Objects that are structurally similar should not work.
     expect(isDummyClass({ foo: "bar" })).to.equal(false);
     expect(isDummyClass("foo")).to.equal(false);
+  });
+
+  it("optionalProperties", () => {
+    const hasProps = o.hasOptionalProperties({ foo: p.isString, bar: p.isNumber });
+    expect(hasProps({ foo: "foo", bar: 1 })).to.equal(true);
+    expect(hasProps({ foo: "foo" })).to.equal(true);
+    expect(hasProps({ foo: "foo", bar: "1" })).to.equal(false);
   });
 
   it("properties", () => {

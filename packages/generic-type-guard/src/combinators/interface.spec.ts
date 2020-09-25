@@ -7,13 +7,6 @@ import { TypeGuard } from "../guards";
 
 /* eslint-disable no-magic-numbers */
 
-export interface SimpleInterface {
-  str: string;
-  num: number;
-  b: boolean;
-  n: null;
-}
-
 /**
  * Compilation tests for the IsInterface class.
  */
@@ -22,13 +15,27 @@ describe("Interface", function(this: Mocha.Suite) {
 
   // This class is a wrapper around isUnion, most of the real tests happen there.
   it("interface", () => {
-    const isSimpleInterface: TypeGuard<SimpleInterface> =
+    const isSimpleInterface =
       new IsInterface()
         .withProperty("str", p.isString)
         .withProperty("num", p.isNumber)
         .withProperty("b", p.isBoolean)
         .with(o.hasProperty("n", p.isNull)).get();
     expect(isSimpleInterface({ str: "foo", num: 10, b: false, n: null })).to.equal(true);
+    expect(isSimpleInterface({ str: "foo", num: 10, n: null })).to.equal(false);
+    expect(isSimpleInterface({ str: "foo", num: "foo", b: false, n: null })).to.equal(false);
+    expect(isSimpleInterface(10)).to.equal(false);
+  });
+
+  it("optionalInterface", () => {
+    const isSimpleInterface =
+      new IsInterface()
+        .withOptionalProperty("str", p.isString)
+        .withOptionalProperty("num", p.isNumber)
+        .withOptionalProperty("b", p.isBoolean)
+        .with(o.hasOptionalProperty("n", p.isNull)).get();
+    expect(isSimpleInterface({ str: "foo", num: 10, b: false, n: null })).to.equal(true);
+    expect(isSimpleInterface({ str: "foo", num: 10 })).to.equal(true);
     expect(isSimpleInterface({ str: "foo", num: "foo", b: false, n: null })).to.equal(false);
     expect(isSimpleInterface(10)).to.equal(false);
   });
@@ -88,8 +95,26 @@ describe("Interface", function(this: Mocha.Suite) {
     expect(isEmptyInterface(10)).to.equal(false);
   });
 
+  it("withOptionalProperties", () => {
+    const isSimpleInterface =
+      new IsInterface()
+        .withOptionalProperties({
+          num: p.isNumber,
+          str: p.isString,
+        })
+        .withOptionalProperties({
+          b: p.isBoolean,
+          n: p.isNull,
+        })
+        .get();
+    expect(isSimpleInterface({ str: "foo", num: 10, b: false, n: null })).to.equal(true);
+    expect(isSimpleInterface({ str: "foo", num: "foo", b: false, n: null })).to.equal(false);
+    expect(isSimpleInterface({ b: false, n: null })).to.equal(true);
+    expect(isSimpleInterface(10)).to.equal(false);
+  });
+
   it("withProperties", () => {
-    const isSimpleInterface: TypeGuard<SimpleInterface> =
+    const isSimpleInterface =
       new IsInterface()
         .withProperties({
           b: p.isBoolean,
