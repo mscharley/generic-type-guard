@@ -28,6 +28,14 @@ export interface InterfaceBuilder<T extends object> {
   withProperty<K extends string, V>(key: K, ptv: TypeGuard<V>): InterfaceBuilder<T & { [prop in K]: V }>;
 
   /**
+   * Add a single optional property to the interface.
+   *
+   * @param key The string key of the property.
+   * @param ptv The type guard for this property.
+   */
+  withOptionalProperty<K extends string, V>(key: K, ptv: TypeGuard<V>): InterfaceBuilder<T & { [prop in K]?: V }>;
+
+  /**
    * Add a string index signature to the interface.
    *
    * @param value The type guard for values accessed by the index signature.
@@ -53,6 +61,13 @@ export interface InterfaceBuilder<T extends object> {
    * @param props A map of properties to guards to apply to the interface.
    */
   withProperties<V extends object>(props: MappedTypeGuard<V>): InterfaceBuilder<T & V>;
+
+  /**
+   * Add many optional properties to the interface at once.
+   *
+   * @param props A map of properties to guards to apply to the interface.
+   */
+  withOptionalProperties<V extends object>(props: MappedTypeGuard<V>): InterfaceBuilder<T & Partial<V>>;
 }
 
 /**
@@ -77,6 +92,10 @@ class InterfaceStep<T extends object> implements InterfaceBuilder<T> {
     return new InterfaceStep(isIntersection(this.ptt, o.hasProperty(key, ptv)));
   }
 
+  public withOptionalProperty<K extends string, V>(key: K, ptv: TypeGuard<V>): InterfaceBuilder<T & { [prop in K]?: V }> {
+    return new InterfaceStep(isIntersection(this.ptt, o.hasOptionalProperty(key, ptv)));
+  }
+
   public withStringIndexSignature<V>(value: TypeGuard<V>, enforce = true): InterfaceBuilder<T & { [prop: string]: V }> {
     return new InterfaceStep(isIntersection(this.ptt, o.hasStringIndexSignature(value, enforce)));
   }
@@ -87,6 +106,10 @@ class InterfaceStep<T extends object> implements InterfaceBuilder<T> {
 
   public withProperties<V extends object>(props: MappedTypeGuard<V>): InterfaceBuilder<T & V> {
     return new InterfaceStep(isIntersection(this.ptt, o.hasProperties(props)));
+  }
+
+  public withOptionalProperties<V extends object>(props: MappedTypeGuard<V>): InterfaceBuilder<T & Partial<V>> {
+    return new InterfaceStep(isIntersection(this.ptt, o.hasOptionalProperties(props)));
   }
 }
 
@@ -106,6 +129,10 @@ export class IsInterface implements InterfaceBuilder<object> {
     return new InterfaceStep(o.hasProperty(key, ptv));
   }
 
+  public withOptionalProperty<K extends string, V>(key: K, ptv: TypeGuard<V>): InterfaceBuilder<object & { [prop in K]?: V }> {
+    return new InterfaceStep(o.hasOptionalProperty(key, ptv));
+  }
+
   public withStringIndexSignature<V>(value: TypeGuard<V>, enforce = true): InterfaceBuilder<{ [prop: string]: V }> {
     return new InterfaceStep(o.hasStringIndexSignature(value, enforce));
   }
@@ -116,5 +143,9 @@ export class IsInterface implements InterfaceBuilder<object> {
 
   public withProperties<V extends object>(props: MappedTypeGuard<V>): InterfaceBuilder<object & V> {
     return new InterfaceStep(o.hasProperties(props));
+  }
+
+  public withOptionalProperties<V extends object>(props: MappedTypeGuard<V>): InterfaceBuilder<object & Partial<V>> {
+    return new InterfaceStep(o.hasOptionalProperties(props));
   }
 }

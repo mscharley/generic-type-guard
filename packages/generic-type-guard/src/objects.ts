@@ -11,6 +11,16 @@ export const hasProperty =
       value((o as { [prop: string]: unknown })[property]);
 
 /**
+ * Validates that a given object has an optional property of a given type.
+ */
+export const hasOptionalProperty =
+  <K extends string, V>(property: K, value: TypeGuard<V>): PartialTypeGuard<object, { [prop in K]?: V }> =>
+    (o: object): o is { [prop in K]: V } =>
+      !(property in o) ||
+      // If the property exists and conforms to the value type guard.
+      value((o as { [prop: string]: unknown })[property]);
+
+/**
  * Validate that a variable is an object with a single field.
  *
  * If you need multiple fields then use IsInterface.
@@ -80,6 +90,7 @@ export const isInstance = <T extends object>(klass: new (...args: unknown[]) => 
 
 /**
  * Validate that a given object has all the given properties
+ *
  * @param props a MappedGuard of the object to be validated, i.e. an object that has the same properties as the
  *    object being validated whose types are TypeGuards for the matching type on the original property.
  */
@@ -88,6 +99,24 @@ export const hasProperties =
     (o: object): o is V => {
       for (const prop in props) {
         if (!hasProperty(prop, props[prop])(o)) {
+          return false;
+        }
+      }
+
+      return true;
+    };
+
+/**
+ * Validate that a given object has all the given optional properties
+ *
+ * @param props a MappedGuard of the object to be validated, i.e. an object that has the same properties as the
+ *    object being validated whose types are TypeGuards for the matching type on the original property.
+ */
+export const hasOptionalProperties =
+  <V extends object>(props: MappedTypeGuard<V>): PartialTypeGuard<object, Partial<V>> =>
+    (o: object): o is Partial<V> => {
+      for (const prop in props) {
+        if (!hasOptionalProperty(prop, props[prop])(o)) {
           return false;
         }
       }
