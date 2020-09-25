@@ -3,10 +3,10 @@
   "version": "3.2.0",
   "description": "Generic type guards for TypeScript",
   "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "types": "dist/generic-type-guard.d.ts",
   "scripts": {
-    "build": "rimraf dist && tsc --target es3",
-    "prepack": "rimraf dist && tsc --target es3",
+    "build": "rimraf dist && tsc --target es3 && api-extractor run --local --verbose",
+    "prepack": "rimraf dist && tsc --target es3 && api-extractor run --local",
     "test": "yarn lint && yarn mocha",
     "test-watch": "nodemon -e ts,json --exec yarn test",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
@@ -62,6 +62,7 @@
   },
   "homepage": "https://github.com/mscharley/generic-type-guard/tree/master/packages/generic-type-guard#readme",
   "devDependencies": {
+    "@microsoft/api-extractor": "7.9.22",
     "@mscharley/eslint-config": "1.2.4",
     "@stryker-mutator/core": "3.3.1",
     "@stryker-mutator/mocha-framework": "3.3.1",

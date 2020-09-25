@@ -15,7 +15,7 @@ describe("utils", function(this: Mocha.Suite): void {
   });
 
   describe("AssertionError", () => {
-    it("Works as an exception", () => {
+    it("works as an exception", () => {
       expect(() => {
         throw new AssertionError();
       }).throws(AssertionError);
