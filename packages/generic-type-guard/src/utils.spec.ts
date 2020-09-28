@@ -17,10 +17,10 @@ describe("utils", function(this: Mocha.Suite): void {
   describe("AssertionError", () => {
     it("works as an exception", () => {
       expect(() => {
-        throw new AssertionError();
+        throw new AssertionError({});
       }).throws(AssertionError);
       expect(() => {
-        throw new AssertionError("Hello world");
+        throw new AssertionError({}, "Hello world");
       }).throws(AssertionError, "Hello world");
     });
   });
