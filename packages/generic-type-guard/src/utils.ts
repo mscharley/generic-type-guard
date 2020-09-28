@@ -6,7 +6,10 @@ import { GuardedType, PartialTypeGuard } from "./guards";
  * @public
  */
 export class AssertionError extends RangeError {
-  public constructor(message?: string) {
+  public constructor(
+    public value: unknown,
+    message?: string,
+  ) {
     super(message);
 
     this.name = this.constructor.name;
@@ -25,6 +28,6 @@ export class AssertionError extends RangeError {
 export const assert: <T, Guard extends PartialTypeGuard<T, T>>(value: T, guard: Guard, message?: string) => asserts value is GuardedType<Guard> =
   (value, guard, message) => {
     if (!guard(value)) {
-      throw new AssertionError(message ?? `Invalid value provided: ${value}`);
+      throw new AssertionError(value, message ?? `Invalid value provided: ${JSON.stringify(value)}`);
     }
   };
