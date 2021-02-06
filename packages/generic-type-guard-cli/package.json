@@ -93,7 +93,7 @@
     "@types/node": "12.19.16",
     "@typescript-eslint/eslint-plugin": "3.10.1",
     "@typescript-eslint/parser": "3.10.1",
-    "chai": "4.2.0",
+    "chai": "4.3.0",
     "codecov": "3.8.1",
     "eslint": "7.19.0",
     "mocha": "7.2.0",
