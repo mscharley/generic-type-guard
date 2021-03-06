@@ -3,8 +3,7 @@
   "packageManager": "npm",
   "reporters": [
     "html",
-    "clear-text",
-    "progress"
+    "clear-text"
   ],
   "buildCommand": "npm run build",
   "testRunner": "mocha",
