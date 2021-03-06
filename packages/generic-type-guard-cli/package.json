@@ -81,7 +81,7 @@
     "generic-type-guard": "^3.3.3",
     "log4js": "^6.0.0",
     "reflect-metadata": "^0.1.12",
-    "typedi": "^0.8.0"
+    "typedi": "^0.10.0"
   },
   "devDependencies": {
     "@mscharley/eslint-config": "1.3.2",
