@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-inferrable-types */
-/* eslint-disable no-magic-numbers */
+/* eslint-disable @typescript-eslint/no-magic-numbers */
 
 export interface LargeInterface {
   foo: string;
@@ -11,7 +11,7 @@ export interface LargeInterface {
  * Dummy class definition which can be used by the object tests.
  */
 export class DummyClass {
-  public foo: string = "foo";
+  public foo: string = 'foo';
 }
 
 /**

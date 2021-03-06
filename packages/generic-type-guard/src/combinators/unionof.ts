@@ -1,5 +1,5 @@
-import { isUnion } from "./functions";
-import { PartialTypeGuard } from "../guards";
+import { isUnion } from './functions';
+import type { PartialTypeGuard } from '../guards';
 
 /**
  * A small class to help with constructing larger union checkers.
@@ -7,9 +7,9 @@ import { PartialTypeGuard } from "../guards";
  * @public
  */
 export class UnionOf<B, T extends B> {
-  private ptt: PartialTypeGuard<B, T>;
+  private readonly ptt: PartialTypeGuard<B, T>;
 
-  constructor(ptt: PartialTypeGuard<B, T>) {
+  public constructor(ptt: PartialTypeGuard<B, T>) {
     this.ptt = ptt;
   }
 

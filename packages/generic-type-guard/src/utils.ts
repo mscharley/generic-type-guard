@@ -1,4 +1,4 @@
-import { GuardedType, PartialTypeGuard } from "./guards";
+import type { GuardedType, PartialTypeGuard } from './guards';
 
 /**
  * Indicates there was an error validating a typeguard.
@@ -6,10 +6,7 @@ import { GuardedType, PartialTypeGuard } from "./guards";
  * @public
  */
 export class AssertionError extends RangeError {
-  public constructor(
-    public value: unknown,
-    message?: string,
-  ) {
+  public constructor(public value: unknown, message?: string) {
     super(message);
 
     this.name = this.constructor.name;
@@ -25,9 +22,15 @@ export class AssertionError extends RangeError {
  * @throws AssertionError if the guard returns false.
  * @public
  */
-export const assert: <T, Guard extends PartialTypeGuard<T, T>>(value: T, guard: Guard, message?: string) => asserts value is GuardedType<Guard> =
-  (value, guard, message) => {
-    if (!guard(value)) {
-      throw new AssertionError(value, message ?? `Invalid value provided: ${JSON.stringify(value)}`);
-    }
-  };
+export const assert: <T, Guard extends PartialTypeGuard<T, T>>(
+  value: T,
+  guard: Guard,
+  message?: string,
+) => asserts value is GuardedType<Guard> = (value, guard, message) => {
+  if (!guard(value)) {
+    throw new AssertionError(
+      value,
+      message ?? `Invalid value provided: ${JSON.stringify(value)}`,
+    );
+  }
+};

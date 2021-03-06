@@ -1,5 +1,5 @@
-import { isIntersection } from "./functions";
-import { PartialTypeGuard } from "../guards";
+import { isIntersection } from './functions';
+import type { PartialTypeGuard } from '../guards';
 
 /**
  * A small class to help with constructing larger intersection checkers.
@@ -7,9 +7,9 @@ import { PartialTypeGuard } from "../guards";
  * @public
  */
 export class IntersectionOf<B, T extends B> {
-  private ptt: PartialTypeGuard<B, T>;
+  private readonly ptt: PartialTypeGuard<B, T>;
 
-  constructor(ptt: PartialTypeGuard<B, T>) {
+  public constructor(ptt: PartialTypeGuard<B, T>) {
     this.ptt = ptt;
   }
 
@@ -23,7 +23,9 @@ export class IntersectionOf<B, T extends B> {
   /**
    * Add a new option for this intersection.
    */
-  public with<U extends B>(ptu: PartialTypeGuard<B, U>): IntersectionOf<B, T & U> {
+  public with<U extends B>(
+    ptu: PartialTypeGuard<B, U>,
+  ): IntersectionOf<B, T & U> {
     return new IntersectionOf(isIntersection(this.ptt, ptu));
   }
 }

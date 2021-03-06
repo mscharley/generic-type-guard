@@ -14,6 +14,7 @@
     "test": "yarn lint && yarn mocha-nyc",
     "test-watch": "nodemon -e ts,json -i coverage -i dist --exec yarn test",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "lint-fix": "eslint . --fix --ext .js,.jsx,.ts,.tsx",
     "lint-watch": "nodemon -e ts,json --exec eslint . --ext .js,.jsx,.ts,.tsx",
     "mocha": "mocha --opts mocha.opts src/**/*.spec.ts",
     "mocha-nyc": "tsc && nyc mocha --opts mocha.opts dist/**/*.spec.js",
@@ -83,8 +84,8 @@
     "typedi": "^0.8.0"
   },
   "devDependencies": {
-    "@mscharley/eslint-config": "1.3.0",
-    "@mscharley/prettier-config": "1.1.0",
+    "@mscharley/eslint-config": "1.3.2",
+    "@mscharley/prettier-config": "1.1.1",
     "@stryker-mutator/core": "3.3.1",
     "@stryker-mutator/mocha-framework": "3.3.1",
     "@stryker-mutator/mocha-runner": "3.3.1",
