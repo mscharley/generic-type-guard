@@ -19,6 +19,11 @@ jobs:
     working_directory: ~/gtg
     docker:
       - image: circleci/node:12
+  fermium:
+    <<: *BUILD
+    working_directory: ~/gtg
+    docker:
+      - image: circleci/node:14
   latest:
     <<: *BUILD
     working_directory: ~/gtg
@@ -27,7 +32,7 @@ jobs:
   stryker:
     working_directory: ~/gtg
     docker:
-      - image: circleci/node:12
+      - image: circleci/node:14
     steps:
       - checkout
       - run: yarn install
@@ -42,9 +47,11 @@ workflows:
   ci:
     jobs:
       - dubnium:
-          requires: [ 'erbium' ]
-      - erbium
+          requires: ["fermium"]
+      - erbium:
+          requires: ["fermium"]
+      - fermium
       - latest:
-          requires: [ 'erbium' ]
+          requires: ["fermium"]
       - stryker:
-          requires: [ 'erbium' ]
+          requires: ["fermium"]
