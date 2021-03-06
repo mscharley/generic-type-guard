@@ -1,28 +1,19 @@
 {
-  "$schema": "https://raw.githubusercontent.com/stryker-mutator/stryker/master/packages/api/schema/stryker-core.json",
-  "mutator": "typescript",
-  "packageManager": "yarn",
+  "$schema": "./node_modules/@stryker-mutator/core/schema/stryker-schema.json",
+  "packageManager": "npm",
   "reporters": [
     "html",
-    "clear-text",
-    "progress"
+    "clear-text"
   ],
+  "buildCommand": "npm run build",
   "testRunner": "mocha",
-  "transpilers": ["typescript"],
-  "testFramework": "mocha",
-  "mochaOptions": {
-    "spec": [
-      "dist/**/*.spec.js"
-    ],
-    "opts": "./mocha.opts"
-  },
+  "checkers": ["typescript"],
+  "tsconfigFile": "tsconfig.stryker.json",
   "coverageAnalysis": "perTest",
-  "tsconfigFile": "tsconfig.json",
+  "mochaOptions": {
+    "spec": [ "dist/**/*.spec.js" ]
+  },
   "thresholds": { "high": 100, "low": 99, "break": 95 },
-  "files": [
-    "mocha.opts",
-    "src/**/*.ts"
-  ],
   "mutate": [
     "src/**/*.ts",
     "!src/**/*.spec.ts"
