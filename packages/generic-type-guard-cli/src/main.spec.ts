@@ -1,21 +1,21 @@
-import * as td from "testdouble";
-import chalk from "chalk";
-import { ConfigurationService } from "./ConfigurationService";
-import { Container } from "typedi";
-import { main } from "./main";
+import * as td from 'testdouble';
+import chalk from 'chalk';
+import { ConfigurationService } from './ConfigurationService';
+import { Container } from 'typedi';
+import { main } from './main';
 
-/* eslint-disable no-magic-numbers */
+/* eslint-disable @typescript-eslint/no-magic-numbers */
 
 /**
  * Specs for the CLI file.
  */
-describe("Cli", function(this: Mocha.Suite) {
+describe('Cli', function (this: Mocha.Suite) {
   this.slow(50).timeout(300);
 
   beforeEach(() => {
     Container.reset();
     Container.set(ConfigurationService, {
-      name: "world",
+      name: 'world',
     });
   });
 
@@ -23,9 +23,9 @@ describe("Cli", function(this: Mocha.Suite) {
     td.reset();
   });
 
-  it("testMain", () => {
+  it('testMain', () => {
     const log = td.function<(...msg: unknown[]) => void>();
     main([], log);
-    td.verify(log(chalk.red("Hello world!"), []));
+    td.verify(log(chalk.red('Hello world!'), []));
   });
 });

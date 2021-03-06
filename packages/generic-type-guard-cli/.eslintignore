@@ -2,3 +2,4 @@ node_modules
 dist
 coverage
 reports/mutation
+.eslintrc.js

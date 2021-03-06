@@ -1,4 +1,7 @@
-import { Service } from "typedi";
+import { Service } from 'typedi';
+
+/* eslint-disable @typescript-eslint/no-require-imports */
+/* eslint-disable @typescript-eslint/no-var-requires */
 
 /**
  * FileLoader is an injectable wrapper around Node's require function for testing.
@@ -7,7 +10,6 @@ import { Service } from "typedi";
 export class FileLoader {
   /* istanbul ignore next */
   public load(path: string): unknown {
-    /* eslint-disable-next-line @typescript-eslint/no-var-requires */
     return require(path) as unknown;
   }
 }

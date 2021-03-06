@@ -8,6 +8,7 @@
     "build": "lerna run build",
     "test": "lerna run test",
     "test-watch": "lerna run --parallel test-watch",
+    "lint-fix": "lerna run lint-fix",
     "stryker": "lerna run stryker",
     "codecov-report": "lerna run --parallel codecov-report"
   },

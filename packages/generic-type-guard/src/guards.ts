@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-type-alias */
 
 /**
  * A partial type guard that can take a value of one type and determine if it is also a valid value of a subtype.
@@ -17,8 +18,9 @@ export type TypeGuard<T> = PartialTypeGuard<unknown, T>;
  *
  * @public
  */
-export type GuardedType<T extends PartialTypeGuard<any, unknown>> =
-  T extends PartialTypeGuard<any, infer U> ? U : never;
+export type GuardedType<
+  T extends PartialTypeGuard<any, unknown>
+> = T extends PartialTypeGuard<any, infer U> ? U : never;
 
 /**
  * An object of type guards based on the input type.
