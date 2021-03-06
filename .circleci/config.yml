@@ -3,10 +3,10 @@ version: 2
 build: &BUILD
   steps:
     - checkout
-    - run: yarn install
-    - run: yarn build
-    - run: yarn test
-    - run: yarn codecov-report
+    - run: npm install
+    - run: npm run build
+    - run: npm test
+    - run: npm run codecov-report
 
 jobs:
   dubnium:
@@ -35,9 +35,9 @@ jobs:
       - image: circleci/node:14
     steps:
       - checkout
-      - run: yarn install
-      - run: yarn build
-      - run: yarn stryker
+      - run: npm install
+      - run: npm run build
+      - run: npm run stryker
       - store_artifacts:
           path: packages/generic-type-guard/reports/mutation/html
           destination: stryker-generic-type-guard
@@ -47,11 +47,11 @@ workflows:
   ci:
     jobs:
       - dubnium:
-          requires: ["fermium"]
+          requires: ['fermium']
       - erbium:
-          requires: ["fermium"]
+          requires: ['fermium']
       - fermium
       - latest:
-          requires: ["fermium"]
+          requires: ['fermium']
       - stryker:
-          requires: ["fermium"]
+          requires: ['fermium']
