@@ -1,4 +1,4 @@
-import type { GuardedType, PartialTypeGuard } from './guards';
+import type { GuardedType, PartialTypeGuard as PTG } from './guards';
 
 /**
  * Indicates there was an error validating a typeguard.
@@ -22,7 +22,7 @@ export class AssertionError extends RangeError {
  * @throws AssertionError if the guard returns false.
  * @public
  */
-export const assert: <T, Guard extends PartialTypeGuard<T, T>>(
+export const assert: <T, Guard extends PTG<T, T>>(
   value: T,
   guard: Guard,
   message?: string,
@@ -33,4 +33,41 @@ export const assert: <T, Guard extends PartialTypeGuard<T, T>>(
       message ?? `Invalid value provided: ${JSON.stringify(value)}`,
     );
   }
+};
+
+/**
+ * Helper to string many different typeguards together into something larger.
+ *
+ * @param guards A list of partial typeguards to string together.
+ *
+ * @public
+ */
+export const combine: {
+  <A, B extends A, C extends B>(g1: PTG<A, B>, g2: PTG<B, C>): PTG<A, C>;
+  <A, B extends A, C extends B, D extends C>(
+    g1: PTG<A, B>,
+    g2: PTG<B, C>,
+    g3: PTG<C, D>,
+  ): PTG<A, D>;
+  <A, B extends A, C extends B, D extends C, E extends D>(
+    g1: PTG<A, B>,
+    g2: PTG<B, C>,
+    g3: PTG<C, D>,
+    g4: PTG<D, E>,
+  ): PTG<A, E>;
+  <A, B extends A, C extends B, D extends C, E extends D, F extends E>(
+    g1: PTG<A, B>,
+    g2: PTG<B, C>,
+    g3: PTG<C, D>,
+    g4: PTG<D, E>,
+    g5: PTG<D, E>,
+  ): PTG<A, F>;
+} = (...guards: Array<PTG<unknown, unknown>>) => (v: unknown): v is unknown => {
+  for (const guard of guards) {
+    if (!guard(v)) {
+      return false;
+    }
+  }
+
+  return true;
 };

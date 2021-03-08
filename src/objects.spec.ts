@@ -138,4 +138,17 @@ describe('Objects', function (this: Mocha.Suite) {
     expect(hasOnlyProps({ foo: 'foo' })).to.equal(false);
     expect(hasOnlyProps({ foo: 'foo', bar: '1' })).to.equal(false);
   });
+
+  describe('#exactObject', () => {
+    it('checks for ', () => {
+      const isObjectWithLength = o.isExactObject({
+        length: p.isNumber,
+      });
+
+      expect(isObjectWithLength({ length: 10 })).to.equal(true);
+      expect(isObjectWithLength({ hello: 'world' })).to.equal(false);
+      // arrays are object type but not objects for isObject
+      expect(isObjectWithLength([])).to.equal(false);
+    });
+  });
 });

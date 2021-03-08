@@ -1,4 +1,5 @@
 import type { MappedTypeGuard, PartialTypeGuard, TypeGuard } from './guards';
+import { combine } from './utils';
 import { isObject } from './primitives';
 
 /**
@@ -177,3 +178,12 @@ export const hasOptionalProperties = <V extends object>(
 
   return true;
 };
+
+/**
+ * Validate that an object has exactly the fields provided
+ *
+ * @public
+ */
+export const isExactObject = <V extends object>(
+  props: MappedTypeGuard<V>,
+): TypeGuard<V> => combine(isObject, hasProperties(props));

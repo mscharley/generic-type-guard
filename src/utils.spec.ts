@@ -1,5 +1,7 @@
-import { assert, AssertionError } from './utils';
+import { assert, AssertionError, combine } from './utils';
+import { isNumber, isObject } from './primitives';
 import { expect } from 'chai';
+import { hasProperties } from './objects';
 import td from 'testdouble';
 
 /* eslint-disable @typescript-eslint/no-magic-numbers */
@@ -44,6 +46,21 @@ describe('utils', function (this: Mocha.Suite): void {
         RangeError,
         'Hello world',
       );
+    });
+  });
+
+  describe('#combine', () => {
+    it('combines two assertions', () => {
+      const hasLength = hasProperties({
+        length: isNumber,
+      });
+      const isCool = combine(isObject, hasLength);
+
+      expect(isCool({ length: 10 })).to.equal(true);
+      expect(isCool({ hello: 'world' })).to.equal(false);
+      // arrays are object type but not objects for isObject
+      expect(hasLength([])).to.equal(true);
+      expect(isCool([])).to.equal(false);
     });
   });
 });
