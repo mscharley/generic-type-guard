@@ -132,6 +132,33 @@ export const hasProperties = <V extends object>(
 };
 
 /**
+ * Validate that a given object only has the given properties
+ *
+ * @param props - A MappedTypeGuard of the object to be validated.
+ *
+ * @public
+ */
+export const hasOnlyProperties = <V extends object>(
+  props: MappedTypeGuard<V>,
+): PartialTypeGuard<object, V> => (o: object): o is V => {
+  const found: Array<keyof typeof props> = [];
+
+  for (const prop in o) {
+    if (prop in props) {
+      const propsKey = prop as Extract<keyof typeof props, string>;
+      if (!hasProperty(propsKey, props[propsKey])(o)) {
+        return false;
+      }
+      found.push(propsKey);
+    } else {
+      return false;
+    }
+  }
+
+  return found.length === Object.keys(props).length;
+};
+
+/**
  * Validate that a given object has all the given optional properties
  *
  * @param props - a MappedGuard of the object to be validated, i.e. an object that has the same properties as the
