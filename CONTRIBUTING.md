@@ -1,20 +1,23 @@
 # Install
 
 ```
-yarn install
+npm install
 ```
 
 # Tests
 
 ```
-yarn build
-yarn test
+npm build
+npm test
 ```
 
 # Release
 
-Ensure you're logged in with `npm login` and `yarn login`.
+Ensure you're logged in with `npm login`.
 
 ```
-yarn lerna publish
+npm version <bump-type>
+npm publish
 ```
+
+Don't forget to commit and tag the version bump for GitHub releases too.
