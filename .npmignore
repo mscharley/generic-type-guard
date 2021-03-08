@@ -12,6 +12,7 @@ tslint.json
 tsconfig.json
 stryker.conf.js
 .nyc_output/
+.stryker-tmp/
 coverage/
 reports/
 *.tgz
