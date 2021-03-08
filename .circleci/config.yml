@@ -1,38 +1,28 @@
-version: 2
+version: 2.1
 
-build: &BUILD
-  steps:
-    - checkout
-    - run: npm install
-    - run: npm run build
-    - run: npm test
-    - run: npm run codecov-report
+orbs:
+  node: circleci/node@4.2.0
 
 jobs:
-  dubnium:
-    <<: *BUILD
-    working_directory: ~/gtg
-    docker:
-      - image: circleci/node:10
-  erbium:
-    <<: *BUILD
-    working_directory: ~/gtg
-    docker:
-      - image: circleci/node:12
-  fermium:
-    <<: *BUILD
-    working_directory: ~/gtg
-    docker:
-      - image: circleci/node:14
-  latest:
-    <<: *BUILD
-    working_directory: ~/gtg
-    docker:
-      - image: circleci/node
+  ci:
+    parameters:
+      node-version:
+        type: string
+    executor:
+      name: node/default
+      tag: << parameters.node-version >>
+    working_directory: /mnt/ramdisk
+    steps:
+      - checkout
+      - run: npm install
+      - run: npm run build
+      - run: npm test
+      - run: npm run codecov-report
   stryker:
-    working_directory: ~/gtg
-    docker:
-      - image: circleci/node:14
+    executor:
+      name: node/default
+      tag: '14.16'
+    working_directory: /mnt/ramdisk
     steps:
       - checkout
       - run: npm install
@@ -46,12 +36,13 @@ workflows:
   version: 2
   ci:
     jobs:
-      - dubnium:
-          requires: ['fermium']
-      - erbium:
-          requires: ['fermium']
-      - fermium
-      - latest:
-          requires: ['fermium']
-      - stryker:
-          requires: ['fermium']
+      - ci:
+          name: dubnium
+          node-version: '10.24'
+      - ci:
+          name: erbium
+          node-version: '12.21'
+      - ci:
+          name: fermium
+          node-version: '14.16'
+      - stryker

@@ -1,4 +1,3 @@
 {
-  "typescript.tsdk": "node_modules/typescript/lib",
-  "tslint.packageManager": "yarn"
+  "typescript.tsdk": "node_modules/typescript/lib"
 }
