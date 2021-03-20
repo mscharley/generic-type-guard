@@ -75,7 +75,7 @@
     "@stryker-mutator/typescript-checker": "4.5.1",
     "@types/chai": "4.2.15",
     "@types/mocha": "8.2.2",
-    "@types/node": "12.20.5",
+    "@types/node": "12.20.6",
     "chai": "4.3.4",
     "codecov": "3.8.1",
     "mocha": "8.3.2",
