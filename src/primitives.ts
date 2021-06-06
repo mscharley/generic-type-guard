@@ -64,9 +64,9 @@ export const isNaN: TypeGuard<number> = (n: unknown): n is number =>
  *
  * @public
  */
-export const isElementOf = (<T>(...ss: T[]): TypeGuard<T> => (
-  s: unknown,
-): s is T => ss.indexOf(s as T) >= MINIMUM_ARRAY_INDEX) as {
+export const isElementOf = (<T>(...ss: T[]): TypeGuard<T> =>
+  (s: unknown): s is T =>
+    ss.indexOf(s as T) >= MINIMUM_ARRAY_INDEX) as {
   (): TypeGuard<never>;
   <T>(...ss: T[]): TypeGuard<T>;
 };
@@ -76,9 +76,10 @@ export const isElementOf = (<T>(...ss: T[]): TypeGuard<T> => (
  *
  * @public
  */
-export const isSingletonNumber = <T extends number>(v: T): TypeGuard<T> => (
-  n: unknown,
-): n is T => n === v;
+export const isSingletonNumber =
+  <T extends number>(v: T): TypeGuard<T> =>
+  (n: unknown): n is T =>
+    n === v;
 
 /**
  * Validate if a value is one of a set of specific numbers.
@@ -86,9 +87,10 @@ export const isSingletonNumber = <T extends number>(v: T): TypeGuard<T> => (
  * @public
  */
 export const isSingletonNumberUnion = (<T extends number>(
-  ...ss: T[]
-): TypeGuard<T> => (s: unknown): s is T =>
-  ss.indexOf(s as T) >= MINIMUM_ARRAY_INDEX) as {
+    ...ss: T[]
+  ): TypeGuard<T> =>
+  (s: unknown): s is T =>
+    ss.indexOf(s as T) >= MINIMUM_ARRAY_INDEX) as {
   (): TypeGuard<never>;
   <T extends number>(...ss: T[]): TypeGuard<T>;
 };
@@ -106,9 +108,10 @@ export const isString: TypeGuard<string> = (s: unknown): s is string =>
  *
  * @public
  */
-export const isSingletonString = <T extends string>(v: T): TypeGuard<T> => (
-  s: unknown,
-): s is T => s === v;
+export const isSingletonString =
+  <T extends string>(v: T): TypeGuard<T> =>
+  (s: unknown): s is T =>
+    s === v;
 
 /**
  * Validate if a value is one of a set of specific strings.
@@ -116,9 +119,10 @@ export const isSingletonString = <T extends string>(v: T): TypeGuard<T> => (
  * @public
  */
 export const isSingletonStringUnion = (<T extends string>(
-  ...ss: T[]
-): TypeGuard<T> => (s: unknown): s is T =>
-  ss.indexOf(s as T) >= MINIMUM_ARRAY_INDEX) as {
+    ...ss: T[]
+  ): TypeGuard<T> =>
+  (s: unknown): s is T =>
+    ss.indexOf(s as T) >= MINIMUM_ARRAY_INDEX) as {
   (): TypeGuard<never>;
   <T extends string>(...ss: T[]): TypeGuard<T>;
 };
@@ -151,59 +155,64 @@ export const isUndefined: TypeGuard<undefined> = (u: unknown): u is undefined =>
  *
  * @public
  */
-export const isOptional = <T>(tgt: TypeGuard<T>): TypeGuard<T | undefined> => (
-  o: unknown,
-): o is T | undefined => typeof o === 'undefined' || tgt(o);
+export const isOptional =
+  <T>(tgt: TypeGuard<T>): TypeGuard<T | undefined> =>
+  (o: unknown): o is T | undefined =>
+    typeof o === 'undefined' || tgt(o);
 
 /**
  * Validate if a value is a given type or null.
  *
  * @public
  */
-export const isNullable = <T>(tgt: TypeGuard<T>): TypeGuard<T | null> => (
-  o: unknown,
-): o is T | null => o === null || tgt(o);
+export const isNullable =
+  <T>(tgt: TypeGuard<T>): TypeGuard<T | null> =>
+  (o: unknown): o is T | null =>
+    o === null || tgt(o);
 
 /**
  * Validates if a value is a given type or null or undefined.
  *
  * @public
  */
-export const isMissing = <T>(
-  tgt: TypeGuard<T>,
-): TypeGuard<T | undefined | null> => (o: unknown): o is T | null | undefined =>
-  o == null || tgt(o);
+export const isMissing =
+  <T>(tgt: TypeGuard<T>): TypeGuard<T | undefined | null> =>
+  (o: unknown): o is T | null | undefined =>
+    o == null || tgt(o);
 
 /**
  * Validate if a value is an array of a specific type of value.
  *
  * @public
  */
-export const isArray = <T>(valueCheck: TypeGuard<T>): TypeGuard<T[]> => (
-  arr: unknown,
-): arr is T[] =>
-  Array.isArray(arr) &&
-  arr.reduce<boolean>((acc, v) => acc && valueCheck(v as unknown), true);
+export const isArray =
+  <T>(valueCheck: TypeGuard<T>): TypeGuard<T[]> =>
+  (arr: unknown): arr is T[] =>
+    Array.isArray(arr) &&
+    arr.reduce<boolean>((acc, v) => acc && valueCheck(v as unknown), true);
 
 /**
  * Narrow the type of a value.
  *
  * @public
  */
-export const narrowValue = <T, U extends T, V extends U>(
-  ptt: PartialTypeGuard<T, U>,
-  ptu: PartialTypeGuard<U, V>,
-): PartialTypeGuard<T, V> => (t: T): t is V => ptt(t) && ptu(t);
+export const narrowValue =
+  <T, U extends T, V extends U>(
+    ptt: PartialTypeGuard<T, U>,
+    ptu: PartialTypeGuard<U, V>,
+  ): PartialTypeGuard<T, V> =>
+  (t: T): t is V =>
+    ptt(t) && ptu(t);
 
 /**
  * Narrow the type of elements inside an array.
  *
  * @public
  */
-export const narrowArray = <T, U extends T>(
-  pt: PartialTypeGuard<T, U>,
-): PartialTypeGuard<T[], U[]> => (ts: T[]): ts is U[] =>
-  ts.reduce<boolean>((acc, b) => acc && pt(b), true);
+export const narrowArray =
+  <T, U extends T>(pt: PartialTypeGuard<T, U>): PartialTypeGuard<T[], U[]> =>
+  (ts: T[]): ts is U[] =>
+    ts.reduce<boolean>((acc, b) => acc && pt(b), true);
 
 /**
  * Validate if a value is like an object.

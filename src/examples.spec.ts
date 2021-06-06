@@ -64,17 +64,18 @@ export type ComplexInterface = tg.GuardedType<
 /**
  * This is the alternative syntax for defining interfaces in a bit cleaner way.
  */
-export const isTypeSafeComplexInterface2: tg.TypeGuard<ComplexInterface> = new tg.IsInterface()
-  .withProperties({
-    b: tg.isBoolean,
-    num: tg.isNumber,
-    str: tg.isString,
-  })
-  .withOptionalProperties({
-    maybeString: tg.isOptional(tg.isString),
-    nullableString: tg.isNullable(tg.isString),
-  })
-  .get();
+export const isTypeSafeComplexInterface2: tg.TypeGuard<ComplexInterface> =
+  new tg.IsInterface()
+    .withProperties({
+      b: tg.isBoolean,
+      num: tg.isNumber,
+      str: tg.isString,
+    })
+    .withOptionalProperties({
+      maybeString: tg.isOptional(tg.isString),
+      nullableString: tg.isNullable(tg.isString),
+    })
+    .get();
 
 /* This is supposed to fail to compile. This is here for quick checking in later releases.
 const isFoo: tg.PartialTypeGuard<string, "foo"> = (s: string): s is "foo" => s === "foo";

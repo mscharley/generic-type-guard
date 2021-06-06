@@ -59,12 +59,12 @@ describe('Interface', function (this: Mocha.Suite) {
   });
 
   it('stringIndex', () => {
-    const isObject: TypeGuard<
-      Record<string, number>
-    > = new IsInterface().withStringIndexSignature(p.isNumber).get();
-    const isLooseObject: TypeGuard<
-      Record<string, number>
-    > = new IsInterface().withStringIndexSignature(p.isNumber, false).get();
+    const isObject: TypeGuard<Record<string, number>> = new IsInterface()
+      .withStringIndexSignature(p.isNumber)
+      .get();
+    const isLooseObject: TypeGuard<Record<string, number>> = new IsInterface()
+      .withStringIndexSignature(p.isNumber, false)
+      .get();
     expect(isObject({ one: 1, two: 2, three: 3 })).to.equal(
       true,
       'filled object',
@@ -74,12 +74,11 @@ describe('Interface', function (this: Mocha.Suite) {
   });
 
   it('numberIndex', () => {
-    const isArrayLike: TypeGuard<
-      Record<number, string>
-    > = new IsInterface().withNumericIndexSignature(p.isString).get();
-    const isLooseArrayLike: TypeGuard<
-      Record<number, string>
-    > = new IsInterface().withNumericIndexSignature(p.isString, false).get();
+    const isArrayLike: TypeGuard<Record<number, string>> = new IsInterface()
+      .withNumericIndexSignature(p.isString)
+      .get();
+    const isLooseArrayLike: TypeGuard<Record<number, string>> =
+      new IsInterface().withNumericIndexSignature(p.isString, false).get();
     expect(isArrayLike(['one', 'two', 'three'])).to.equal(true, 'filled array');
     expect(isArrayLike([])).to.equal(false, 'strict empty array');
     expect(isLooseArrayLike([])).to.equal(true, 'loose empty array');

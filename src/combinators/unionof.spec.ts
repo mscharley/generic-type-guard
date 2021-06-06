@@ -12,9 +12,8 @@ describe('UnionOf', function (this: Mocha.Suite) {
   this.slow(5).timeout(3000);
 
   it('unionStringNumber', () => {
-    const isNullableStringOrNumber: TypeGuard<
-      string | number | null
-    > = new UnionOf(p.isString).with(p.isNumber).with(p.isNull).get();
+    const isNullableStringOrNumber: TypeGuard<string | number | null> =
+      new UnionOf(p.isString).with(p.isNumber).with(p.isNull).get();
     expect(isNullableStringOrNumber('foo')).to.equal(true);
     expect(isNullableStringOrNumber(10)).to.equal(true);
     expect(isNullableStringOrNumber(null)).to.equal(true);
