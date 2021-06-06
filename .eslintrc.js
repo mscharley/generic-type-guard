@@ -2,6 +2,7 @@ module.exports = {
   root: true,
   extends: [
     '@mscharley',
+    '@mscharley/eslint-config/node',
   ],
   overrides: [
     {
