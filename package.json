@@ -85,6 +85,6 @@
     "source-map-support": "0.5.19",
     "testdouble": "3.16.1",
     "ts-node": "10.0.0",
-    "typescript": "4.3.2"
+    "typescript": "4.3.4"
   }
 }
