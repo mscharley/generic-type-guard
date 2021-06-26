@@ -68,7 +68,7 @@
   },
   "devDependencies": {
     "@microsoft/api-extractor": "7.16.1",
-    "@mscharley/eslint-config": "1.5.1",
+    "@mscharley/eslint-config": "1.5.2",
     "@mscharley/prettier-config": "1.1.1",
     "@stryker-mutator/core": "5.1.1",
     "@stryker-mutator/mocha-runner": "5.1.1",
