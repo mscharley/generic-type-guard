@@ -38,7 +38,7 @@ export const assert: <T, Guard extends PTG<T, T>>(
 /**
  * Helper to string many different typeguards together into something larger.
  *
- * @param guards A list of partial typeguards to string together.
+ * @param guards - A list of partial typeguards to string together.
  *
  * @public
  */

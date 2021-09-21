@@ -71,7 +71,6 @@ export const hasStringIndexSignature =
       }
     }
 
-    /* eslint-disable-next-line @typescript-eslint/no-magic-numbers */
     return !enforce || n > 0;
   };
 
@@ -101,7 +100,6 @@ export const hasNumericIndexSignature =
       }
     }
 
-    /* eslint-disable-next-line @typescript-eslint/no-magic-numbers */
     return !enforce || n > 0;
   };
 
