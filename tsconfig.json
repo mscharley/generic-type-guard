@@ -1,10 +1,7 @@
 {
   "compilerOptions": {
     "target": "es6",
-    "lib": [
-      "es5",
-      "es6",
-    ],
+    "lib": ["es5", "es6"],
     "module": "commonjs",
     "moduleResolution": "node",
     "sourceMap": true,
@@ -15,9 +12,6 @@
       "./node_modules/@types",
       "../../node_modules/@types"
     ],
-    "paths": {
-      "*": [ "../types/*" ]
-    },
     "strict": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
@@ -26,8 +20,9 @@
     "removeComments": false,
     "esModuleInterop": true,
     "resolveJsonModule": true,
+    "downlevelIteration": true,
     "baseUrl": "./src",
-    "rootDirs": [ "./src" ],
+    "rootDirs": ["./src"],
     "outDir": "./dist"
   }
 }

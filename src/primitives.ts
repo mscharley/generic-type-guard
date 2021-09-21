@@ -215,6 +215,20 @@ export const narrowArray =
     ts.reduce<boolean>((acc, b) => acc && pt(b), true);
 
 /**
+ * Validate if an object is a Set containing elements of a given type.
+ *
+ * @public
+ */
+export const isSetOf =
+  <T>(tg: TypeGuard<T>) =>
+  (o: unknown): o is Set<T> =>
+    o instanceof Set &&
+    Array.of(...(o as Set<unknown>).values()).reduce<boolean>(
+      (acc, v) => acc && tg(v),
+      true,
+    );
+
+/**
  * Validate if a value is like an object.
  *
  * Specifically, this only checks typeof === "object" which includes

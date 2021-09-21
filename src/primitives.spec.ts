@@ -169,6 +169,15 @@ describe('Primitives', function (this: Mocha.Suite) {
     expect(isNumberArray([])).to.equal(true);
   });
 
+  it('setOf', () => {
+    const isNumberSet = p.isSetOf(p.isNumber);
+
+    expect(isNumberSet(new Set([4, 5]))).to.equal(true);
+    expect(isNumberSet(new Set(['hello', 'world']))).to.equal(false);
+    expect(isNumberSet([4, 5])).to.equal(false);
+    expect(isNumberSet(5)).to.equal(false);
+  });
+
   it('objectLike', () => {
     expect(p.isObjectLike({ foo: 'bar' })).to.equal(true);
     expect(p.isObjectLike([])).to.equal(true);
