@@ -85,7 +85,7 @@
     "eslint-plugin-deprecation": "1.2.1",
     "eslint-plugin-node": "11.1.0",
     "eslint-plugin-prettier": "4.0.0",
-    "mocha": "9.1.1",
+    "mocha": "9.1.2",
     "nodemon": "2.0.13",
     "nyc": "15.1.0",
     "prettier": "2.4.1",
