@@ -31,7 +31,7 @@ jobs:
   stryker:
     executor:
       name: node/default
-      tag: '14.16'
+      tag: '16.13'
     working_directory: /mnt/ramdisk
     steps:
       - checkout
@@ -52,11 +52,11 @@ workflows:
           update_npm: true
       - ci:
           name: erbium
-          node-version: '12.21'
+          node-version: '12.22'
           update_npm: true
       - ci:
           name: fermium
-          node-version: '14.16'
+          node-version: '14.18'
           update_npm: true
       - ci:
           name: gallium
