@@ -1,19 +1,29 @@
 version: 2.1
 
 orbs:
-  node: circleci/node@4.9.0
+  node: circleci/node@4
 
 jobs:
   ci:
     parameters:
       node-version:
         type: string
+      update_npm:
+        description: "Whether to update npm to at least npm 7.x"
+        default: false
+        type: boolean
     executor:
       name: node/default
       tag: << parameters.node-version >>
     working_directory: /mnt/ramdisk
     steps:
       - checkout
+      - when:
+          condition:
+            equal: [true, << parameters.update_npm >>]
+          steps:
+            - node/install-npm:
+                version: "7"
       - run: npm install
       - run: npm run build
       - run: npm test
@@ -21,7 +31,7 @@ jobs:
   stryker:
     executor:
       name: node/default
-      tag: '14.16'
+      tag: '16.13'
     working_directory: /mnt/ramdisk
     steps:
       - checkout
@@ -39,10 +49,16 @@ workflows:
       - ci:
           name: dubnium
           node-version: '10.24'
+          update_npm: true
       - ci:
           name: erbium
-          node-version: '12.21'
+          node-version: '12.22'
+          update_npm: true
       - ci:
           name: fermium
-          node-version: '14.16'
+          node-version: '14.18'
+          update_npm: true
+      - ci:
+          name: gallium
+          node-version: '16.13'
       - stryker
