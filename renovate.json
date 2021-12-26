@@ -9,7 +9,7 @@
   "packageRules": [
     {
       "packageNames": ["@types/node"],
-      "allowedVersions": "^12.0.0",
+      "allowedVersions": "^16.0.0",
       "major": { "enabled": true }
     }
   ]
