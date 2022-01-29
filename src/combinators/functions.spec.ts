@@ -26,11 +26,10 @@ describe('Combinators', function (this: Mocha.Suite) {
   });
 
   it('intersectionObject', () => {
-    const isInterface: PartialTypeGuard<object, SimpleInterface> =
-      c.isIntersection(
-        o.hasProperty('str', p.isString),
-        o.hasProperty('num', p.isNumber),
-      );
+    const isInterface: PartialTypeGuard<object, SimpleInterface> = c.isIntersection(
+      o.hasProperty('str', p.isString),
+      o.hasProperty('num', p.isNumber),
+    );
 
     expect(isInterface({ str: 'foo', num: 10 })).to.equal(true);
     expect(isInterface({ str: 'foo' })).to.equal(false);

@@ -8,10 +8,7 @@ import { isObject } from './primitives';
  * @public
  */
 export const hasProperty =
-  <K extends string, V>(
-    property: K,
-    value: TypeGuard<V>,
-  ): PartialTypeGuard<object, Record<K, V>> =>
+  <K extends string, V>(property: K, value: TypeGuard<V>): PartialTypeGuard<object, Record<K, V>> =>
   (o: object): o is { [prop in K]: V } =>
     // If the property exists and conforms to the value type guard.
     value((o as Record<string, unknown>)[property]);
@@ -22,10 +19,7 @@ export const hasProperty =
  * @public
  */
 export const hasOptionalProperty =
-  <K extends string, V>(
-    property: K,
-    value: TypeGuard<V>,
-  ): PartialTypeGuard<object, { [prop in K]?: V }> =>
+  <K extends string, V>(property: K, value: TypeGuard<V>): PartialTypeGuard<object, { [prop in K]?: V }> =>
   (o: object): o is { [prop in K]: V } =>
     !(property in o) ||
     // If the property exists and conforms to the value type guard.
@@ -39,10 +33,7 @@ export const hasOptionalProperty =
  * @public
  */
 export const isRecord =
-  <K extends string, V>(
-    property: K,
-    value: TypeGuard<V>,
-  ): TypeGuard<Record<K, V>> =>
+  <K extends string, V>(property: K, value: TypeGuard<V>): TypeGuard<Record<K, V>> =>
   (o: unknown): o is { [prop in K]: V } =>
     isObject(o) && hasProperty(property, value)(o);
 
@@ -55,10 +46,7 @@ export const isRecord =
  * @public
  */
 export const hasStringIndexSignature =
-  <V>(
-    value: TypeGuard<V>,
-    enforce = true,
-  ): PartialTypeGuard<object, Record<string, V>> =>
+  <V>(value: TypeGuard<V>, enforce = true): PartialTypeGuard<object, Record<string, V>> =>
   (o: object): o is Record<string, V> => {
     let n = 0;
     for (const prop in o) {
@@ -83,10 +71,7 @@ export const hasStringIndexSignature =
  * @public
  */
 export const hasNumericIndexSignature =
-  <V>(
-    value: TypeGuard<V>,
-    enforce = true,
-  ): PartialTypeGuard<object, Record<number, V>> =>
+  <V>(value: TypeGuard<V>, enforce = true): PartialTypeGuard<object, Record<number, V>> =>
   (o: object): o is Record<string, V> => {
     let n = 0;
     for (const prop in o) {
@@ -169,9 +154,7 @@ export const hasOnlyProperties =
  * @public
  */
 export const hasOptionalProperties =
-  <V extends object>(
-    props: MappedTypeGuard<V>,
-  ): PartialTypeGuard<object, Partial<V>> =>
+  <V extends object>(props: MappedTypeGuard<V>): PartialTypeGuard<object, Partial<V>> =>
   (o: object): o is Partial<V> => {
     for (const prop in props) {
       if (!hasOptionalProperty(prop, props[prop])(o)) {
@@ -187,6 +170,5 @@ export const hasOptionalProperties =
  *
  * @public
  */
-export const isExactObject = <V extends object>(
-  props: MappedTypeGuard<V>,
-): TypeGuard<V> => combine(isObject, hasProperties(props));
+export const isExactObject = <V extends object>(props: MappedTypeGuard<V>): TypeGuard<V> =>
+  combine(isObject, hasProperties(props));

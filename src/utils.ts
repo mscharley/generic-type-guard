@@ -28,10 +28,7 @@ export const assert: <T, Guard extends PTG<T, T>>(
   message?: string,
 ) => asserts value is GuardedType<Guard> = (value, guard, message) => {
   if (!guard(value)) {
-    throw new AssertionError(
-      value,
-      message ?? `Invalid value provided: ${JSON.stringify(value)}`,
-    );
+    throw new AssertionError(value, message ?? `Invalid value provided: ${JSON.stringify(value)}`);
   }
 };
 
@@ -44,11 +41,7 @@ export const assert: <T, Guard extends PTG<T, T>>(
  */
 export const combine: {
   <A, B extends A, C extends B>(g1: PTG<A, B>, g2: PTG<B, C>): PTG<A, C>;
-  <A, B extends A, C extends B, D extends C>(
-    g1: PTG<A, B>,
-    g2: PTG<B, C>,
-    g3: PTG<C, D>,
-  ): PTG<A, D>;
+  <A, B extends A, C extends B, D extends C>(g1: PTG<A, B>, g2: PTG<B, C>, g3: PTG<C, D>): PTG<A, D>;
   <A, B extends A, C extends B, D extends C, E extends D>(
     g1: PTG<A, B>,
     g2: PTG<B, C>,

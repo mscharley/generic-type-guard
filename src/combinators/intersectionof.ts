@@ -23,9 +23,7 @@ export class IntersectionOf<B, T extends B> {
   /**
    * Add a new option for this intersection.
    */
-  public with<U extends B>(
-    ptu: PartialTypeGuard<B, U>,
-  ): IntersectionOf<B, T & U> {
+  public with<U extends B>(ptu: PartialTypeGuard<B, U>): IntersectionOf<B, T & U> {
     return new IntersectionOf(isIntersection(this.ptt, ptu));
   }
 }
