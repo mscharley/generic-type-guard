@@ -44,10 +44,7 @@ describe('Objects', function (this: Mocha.Suite) {
   });
 
   it('propertyUndefined', () => {
-    const hasMaybeFooString = o.hasProperty(
-      'foo',
-      c.isUnion(p.isUndefined, p.isString),
-    );
+    const hasMaybeFooString = o.hasProperty('foo', c.isUnion(p.isUndefined, p.isString));
     expect(hasMaybeFooString({ foo: 'bar' })).to.equal(true);
     expect(hasMaybeFooString({})).to.equal(true);
     expect(hasMaybeFooString({ bar: 'foo' })).to.equal(true);
@@ -58,10 +55,7 @@ describe('Objects', function (this: Mocha.Suite) {
     expect(hasStringStringIndex({ foo: 'bar' })).to.equal(true, 'string index');
     expect(hasStringStringIndex({})).to.equal(false, 'empty string index');
     expect(hasStringStringIndex(['foo'])).to.equal(false, 'numeric index');
-    expect(hasStringStringIndex({ foo: 'bar', bar: 10 })).to.equal(
-      false,
-      'string index with number',
-    );
+    expect(hasStringStringIndex({ foo: 'bar', bar: 10 })).to.equal(false, 'string index with number');
   });
 
   it('looseStringIndex', () => {
@@ -69,24 +63,15 @@ describe('Objects', function (this: Mocha.Suite) {
     expect(hasStringStringIndex({ foo: 'bar' })).to.equal(true, 'string index');
     expect(hasStringStringIndex({})).to.equal(true, 'empty string index');
     expect(hasStringStringIndex(['foo'])).to.equal(true, 'numeric index');
-    expect(hasStringStringIndex({ foo: 'bar', bar: 10 })).to.equal(
-      false,
-      'string index with number',
-    );
+    expect(hasStringStringIndex({ foo: 'bar', bar: 10 })).to.equal(false, 'string index with number');
   });
 
   it('numberIndex', () => {
     const hasNumberStringIndex = o.hasNumericIndexSignature(p.isString);
-    expect(hasNumberStringIndex({ foo: 'bar' })).to.equal(
-      false,
-      'string index',
-    );
+    expect(hasNumberStringIndex({ foo: 'bar' })).to.equal(false, 'string index');
     expect(hasNumberStringIndex(['foo'])).to.equal(true, 'numeric index');
     expect(hasNumberStringIndex([])).to.equal(false, 'empty numeric index');
-    expect(hasNumberStringIndex(['foo', 10])).to.equal(
-      false,
-      'numeric index with number',
-    );
+    expect(hasNumberStringIndex(['foo', 10])).to.equal(false, 'numeric index with number');
   });
 
   it('looseNumberIndex', () => {
@@ -94,10 +79,7 @@ describe('Objects', function (this: Mocha.Suite) {
     expect(hasNumberStringIndex({ foo: 'bar' })).to.equal(true, 'string index');
     expect(hasNumberStringIndex(['foo'])).to.equal(true, 'numeric index');
     expect(hasNumberStringIndex([])).to.equal(true, 'empty numeric index');
-    expect(hasNumberStringIndex(['foo', 10])).to.equal(
-      false,
-      'numeric index with number',
-    );
+    expect(hasNumberStringIndex(['foo', 10])).to.equal(false, 'numeric index with number');
   });
 
   it('instance', () => {

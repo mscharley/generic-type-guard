@@ -38,17 +38,11 @@ describe('utils', function (this: Mocha.Suite): void {
     });
 
     it('failures throw exceptions', () => {
-      expect(() => assert('foo', dummyGuard(false))).to.throw(
-        RangeError,
-        'Invalid value provided: "foo"',
-      );
+      expect(() => assert('foo', dummyGuard(false))).to.throw(RangeError, 'Invalid value provided: "foo"');
     });
 
     it('failures throw exceptions with custom message', () => {
-      expect(() => assert('foo', dummyGuard(false), 'Hello world')).to.throw(
-        RangeError,
-        'Hello world',
-      );
+      expect(() => assert('foo', dummyGuard(false), 'Hello world')).to.throw(RangeError, 'Hello world');
     });
   });
 

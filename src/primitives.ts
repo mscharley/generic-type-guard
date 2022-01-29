@@ -13,8 +13,7 @@ const MINIMUM_ARRAY_INDEX = 0;
  *
  * @public
  */
-export const isNumber: TypeGuard<number> = (n: unknown): n is number =>
-  typeof n === 'number' && !global.isNaN(n);
+export const isNumber: TypeGuard<number> = (n: unknown): n is number => typeof n === 'number' && !global.isNaN(n);
 
 /**
  * Validate the value is a finite number.
@@ -32,8 +31,7 @@ export const isFiniteNumber: TypeGuard<number> = (n: unknown): n is number =>
  *
  * @public
  */
-export const isFloat: TypeGuard<number> = (n: unknown): n is number =>
-  typeof n === 'number';
+export const isFloat: TypeGuard<number> = (n: unknown): n is number => typeof n === 'number';
 
 /**
  * Alias for isFloat.
@@ -56,8 +54,7 @@ export const isInfinity: TypeGuard<number> = (n: unknown): n is number =>
  *
  * @public
  */
-export const isNaN: TypeGuard<number> = (n: unknown): n is number =>
-  typeof n === 'number' && global.isNaN(n);
+export const isNaN: TypeGuard<number> = (n: unknown): n is number => typeof n === 'number' && global.isNaN(n);
 
 /**
  * Validates that a value is one of a set of values.
@@ -86,9 +83,7 @@ export const isSingletonNumber =
  *
  * @public
  */
-export const isSingletonNumberUnion = (<T extends number>(
-    ...ss: T[]
-  ): TypeGuard<T> =>
+export const isSingletonNumberUnion = (<T extends number>(...ss: T[]): TypeGuard<T> =>
   (s: unknown): s is T =>
     ss.indexOf(s as T) >= MINIMUM_ARRAY_INDEX) as {
   (): TypeGuard<never>;
@@ -100,8 +95,7 @@ export const isSingletonNumberUnion = (<T extends number>(
  *
  * @public
  */
-export const isString: TypeGuard<string> = (s: unknown): s is string =>
-  typeof s === 'string';
+export const isString: TypeGuard<string> = (s: unknown): s is string => typeof s === 'string';
 
 /**
  * Validate if a value is a specific string.
@@ -118,9 +112,7 @@ export const isSingletonString =
  *
  * @public
  */
-export const isSingletonStringUnion = (<T extends string>(
-    ...ss: T[]
-  ): TypeGuard<T> =>
+export const isSingletonStringUnion = (<T extends string>(...ss: T[]): TypeGuard<T> =>
   (s: unknown): s is T =>
     ss.indexOf(s as T) >= MINIMUM_ARRAY_INDEX) as {
   (): TypeGuard<never>;
@@ -132,8 +124,7 @@ export const isSingletonStringUnion = (<T extends string>(
  *
  * @public
  */
-export const isBoolean: TypeGuard<boolean> = (b: unknown): b is boolean =>
-  typeof b === 'boolean';
+export const isBoolean: TypeGuard<boolean> = (b: unknown): b is boolean => typeof b === 'boolean';
 
 /**
  * Validate if a value is the constant null.
@@ -147,8 +138,7 @@ export const isNull: TypeGuard<null> = (o: unknown): o is null => o === null;
  *
  * @public
  */
-export const isUndefined: TypeGuard<undefined> = (u: unknown): u is undefined =>
-  typeof u === 'undefined';
+export const isUndefined: TypeGuard<undefined> = (u: unknown): u is undefined => typeof u === 'undefined';
 
 /**
  * Validate if a value is optionally a given type.
@@ -188,8 +178,7 @@ export const isMissing =
 export const isArray =
   <T>(valueCheck: TypeGuard<T>): TypeGuard<T[]> =>
   (arr: unknown): arr is T[] =>
-    Array.isArray(arr) &&
-    arr.reduce<boolean>((acc, v) => acc && valueCheck(v as unknown), true);
+    Array.isArray(arr) && arr.reduce<boolean>((acc, v) => acc && valueCheck(v as unknown), true);
 
 /**
  * Narrow the type of a value.
@@ -197,10 +186,7 @@ export const isArray =
  * @public
  */
 export const narrowValue =
-  <T, U extends T, V extends U>(
-    ptt: PartialTypeGuard<T, U>,
-    ptu: PartialTypeGuard<U, V>,
-  ): PartialTypeGuard<T, V> =>
+  <T, U extends T, V extends U>(ptt: PartialTypeGuard<T, U>, ptu: PartialTypeGuard<U, V>): PartialTypeGuard<T, V> =>
   (t: T): t is V =>
     ptt(t) && ptu(t);
 
@@ -222,11 +208,7 @@ export const narrowArray =
 export const isSetOf =
   <T>(tg: TypeGuard<T>) =>
   (o: unknown): o is Set<T> =>
-    o instanceof Set &&
-    Array.of(...(o as Set<unknown>).values()).reduce<boolean>(
-      (acc, v) => acc && tg(v),
-      true,
-    );
+    o instanceof Set && Array.of(...(o as Set<unknown>).values()).reduce<boolean>((acc, v) => acc && tg(v), true);
 
 /**
  * Validate if a value is like an object.
@@ -236,8 +218,7 @@ export const isSetOf =
  *
  * @public
  */
-export const isObjectLike: TypeGuard<object> = (obj: unknown): obj is object =>
-  obj != null && typeof obj === 'object';
+export const isObjectLike: TypeGuard<object> = (obj: unknown): obj is object => obj != null && typeof obj === 'object';
 
 /**
  * Validate if a value is an object.
@@ -252,8 +233,7 @@ export const isObject: TypeGuard<object> = (obj: unknown): obj is object =>
  *
  * @public
  */
-export const isSet = <T = unknown>(obj: T): obj is Diff<T, undefined | null> =>
-  obj != null;
+export const isSet = <T = unknown>(obj: T): obj is Diff<T, undefined | null> => obj != null;
 
 /**
  * Helper for asserting nothing at all.
