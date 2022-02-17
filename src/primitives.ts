@@ -13,7 +13,7 @@ const MINIMUM_ARRAY_INDEX = 0;
  *
  * @public
  */
-export const isNumber: TypeGuard<number> = (n: unknown): n is number => typeof n === 'number' && !global.isNaN(n);
+export const isNumber: TypeGuard<number> = (n: unknown): n is number => typeof n === 'number' && !isNaN(n);
 
 /**
  * Validate the value is a finite number.
@@ -21,7 +21,7 @@ export const isNumber: TypeGuard<number> = (n: unknown): n is number => typeof n
  * @public
  */
 export const isFiniteNumber: TypeGuard<number> = (n: unknown): n is number =>
-  typeof n === 'number' && !global.isNaN(n) && global.isFinite(n);
+  typeof n === 'number' && !isNaN(n) && isFinite(n);
 
 /**
  * Validate the value is a number in the rawest sense.
@@ -47,14 +47,15 @@ export const isDouble = isFloat;
  * @public
  */
 export const isInfinity: TypeGuard<number> = (n: unknown): n is number =>
-  typeof n === 'number' && !global.isNaN(n) && !global.isFinite(n);
+  typeof n === 'number' && !isNaN(n) && !isFinite(n);
 
 /**
  * Validates a value is exactly the NaN constant value.
  *
  * @public
  */
-export const isNaN: TypeGuard<number> = (n: unknown): n is number => typeof n === 'number' && global.isNaN(n);
+const _isNaN: TypeGuard<number> = (n: unknown): n is number => typeof n === 'number' && isNaN(n);
+export { _isNaN as isNaN };
 
 /**
  * Validates that a value is one of a set of values.
