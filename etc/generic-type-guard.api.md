@@ -131,6 +131,9 @@ export class IsInterface implements InterfaceBuilder<object> {
 export const isIntersection: <B, T extends B, U extends B>(ptt: PartialTypeGuard<B, T>, ptu: PartialTypeGuard<B, U>) => PartialTypeGuard<B, T & U>;
 
 // @public
+export const isLikeObject: <V extends object>(props: MappedTypeGuard<V>) => TypeGuard<V>;
+
+// @public
 export const isMissing: <T>(tgt: TypeGuard<T>) => TypeGuard<T | null | undefined>;
 
 // @public
