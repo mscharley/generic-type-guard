@@ -166,9 +166,17 @@ export const hasOptionalProperties =
   };
 
 /**
- * Validate that an object has exactly the fields provided
+ * Validate that an object has the fields provided.
+ *
+ * @public
+ */
+export const isLikeObject = <V extends object>(props: MappedTypeGuard<V>): TypeGuard<V> =>
+  combine(isObject, hasProperties(props));
+
+/**
+ * Validate that an object has exactly the fields provided.
  *
  * @public
  */
 export const isExactObject = <V extends object>(props: MappedTypeGuard<V>): TypeGuard<V> =>
-  combine(isObject, hasProperties(props));
+  combine(isObject, hasOnlyProperties(props));
