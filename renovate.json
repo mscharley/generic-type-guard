@@ -11,6 +11,14 @@
       "packageNames": ["@types/node"],
       "allowedVersions": "^16.0.0",
       "major": { "enabled": true }
+    },
+    {
+      "matchPackageNames": [
+        "@mscharley/eslint-config",
+        "@mscharley/prettier-config"
+      ],
+      "groupName": "eslint packages",
+      "additionalBranchPrefix": ""
     }
   ]
 }
