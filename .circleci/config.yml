@@ -46,10 +46,6 @@ workflows:
   ci:
     jobs:
       - ci:
-          name: dubnium
-          node-version: '10.24'
-          update_npm: true
-      - ci:
           name: erbium
           node-version: '12.22'
           update_npm: true
