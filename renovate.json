@@ -4,8 +4,13 @@
     "schedule:weekends",
     ":automergeMinor",
     ":semanticCommits",
-    ":rebaseStalePrs"
+    ":rebaseStalePrs",
+    ":labels(dependencies)"
   ],
+  "timezone": "Australia/Melbourne",
+  "automergeStrategy": "fast-forward",
+  "automergeType": "branch",
+  "prConcurrentLimit": 3,
   "packageRules": [
     {
       "packageNames": ["@types/node"],
