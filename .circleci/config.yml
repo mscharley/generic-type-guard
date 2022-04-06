@@ -36,7 +36,7 @@ jobs:
       - checkout
       - run: npm install
       - run: npm run build
-      - run: npm run stryker -- -c 1
+      - run: npm run stryker -- -c 2
       - store_artifacts:
           path: packages/generic-type-guard/reports/mutation/html
           destination: stryker-generic-type-guard
