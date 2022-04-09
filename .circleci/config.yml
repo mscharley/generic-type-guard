@@ -46,10 +46,6 @@ workflows:
   ci:
     jobs:
       - ci:
-          name: erbium
-          node-version: '12.22'
-          update_npm: true
-      - ci:
           name: fermium
           node-version: '14.18'
           update_npm: true
