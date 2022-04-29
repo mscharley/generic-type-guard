@@ -7,16 +7,10 @@
     "sourceMap": true,
     "declaration": true,
     "declarationMap": true,
-    "typeRoots": [
-      "./types",
-      "./node_modules/@types",
-      "../../node_modules/@types"
-    ],
+    "typeRoots": ["./types", "./node_modules/@types", "../../node_modules/@types"],
     "strict": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
     "removeComments": false,
     "esModuleInterop": true,
     "resolveJsonModule": true,
