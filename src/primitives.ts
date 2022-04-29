@@ -1,4 +1,5 @@
 import type { PartialTypeGuard, TypeGuard } from './guards';
+import { combine } from './utils';
 
 /**
  * Helper to diff types.
@@ -185,11 +186,12 @@ export const isArray =
  * Narrow the type of a value.
  *
  * @public
+ * @deprecated Use combine instead, this alias is poorly named.
  */
-export const narrowValue =
-  <T, U extends T, V extends U>(ptt: PartialTypeGuard<T, U>, ptu: PartialTypeGuard<U, V>): PartialTypeGuard<T, V> =>
-  (t: T): t is V =>
-    ptt(t) && ptu(t);
+export const narrowValue = <T, U extends T, V extends U>(
+  ptt: PartialTypeGuard<T, U>,
+  ptu: PartialTypeGuard<U, V>,
+): PartialTypeGuard<T, V> => combine(ptt, ptu);
 
 /**
  * Narrow the type of elements inside an array.
@@ -235,6 +237,41 @@ export const isObject: TypeGuard<object> = (obj: unknown): obj is object =>
  * @public
  */
 export const isSet = <T = unknown>(obj: T): obj is Diff<T, undefined | null> => obj != null;
+
+/**
+ * Validates if a value is a valid part of a numeric enumeration.
+ *
+ * @param e - The enumeration to check
+ * @param flags - Whether this is a flag style enumeration
+ *
+ * @public
+ */
+export const isNumericalEnumeration = <T extends Record<string | number, string | number>>(
+  e: T,
+  flags = false,
+): TypeGuard<T> => {
+  const options = Object.values(e).filter(isNumber);
+  if (!flags) {
+    return (obj: unknown): obj is T => (options as unknown[]).includes(obj);
+  } else {
+    return (obj: unknown): obj is T =>
+      typeof obj === 'number' &&
+      obj !== 0 &&
+      options.filter((v) => (v & obj) === v).reduce((acc, v) => acc | v, 0) === obj;
+  }
+};
+
+/**
+ * Validates if a value is a valid part of a string enumeration.
+ *
+ * @param e - The enumeration to check
+ *
+ * @public
+ */
+export const isStringEnumeration = <T extends Record<string, string>>(e: T): TypeGuard<T> => {
+  const options: unknown[] = Object.values(e);
+  return (obj: unknown): obj is T => options.includes(obj);
+};
 
 /**
  * Helper for asserting nothing at all.

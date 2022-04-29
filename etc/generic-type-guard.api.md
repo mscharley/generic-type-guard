@@ -153,6 +153,9 @@ export const isNullable: <T>(tgt: TypeGuard<T>) => TypeGuard<T | null>;
 export const isNumber: TypeGuard<number>;
 
 // @public
+export const isNumericalEnumeration: <T extends Record<string | number, string | number>>(e: T, flags?: boolean) => TypeGuard<T>;
+
+// @public
 export const isObject: TypeGuard<object>;
 
 // @public
@@ -192,6 +195,9 @@ export const isSingletonStringUnion: {
 export const isString: TypeGuard<string>;
 
 // @public
+export const isStringEnumeration: <T extends Record<string, string>>(e: T) => TypeGuard<T>;
+
+// @public
 export const isUndefined: TypeGuard<undefined>;
 
 // @public
@@ -208,7 +214,7 @@ export type MappedTypeGuard<T> = {
 // @public
 export const narrowArray: <T, U extends T>(pt: PartialTypeGuard<T, U>) => PartialTypeGuard<T[], U[]>;
 
-// @public
+// @public @deprecated
 export const narrowValue: <T, U extends T, V extends U>(ptt: PartialTypeGuard<T, U>, ptu: PartialTypeGuard<U, V>) => PartialTypeGuard<T, V>;
 
 // @public

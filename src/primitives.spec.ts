@@ -151,6 +151,7 @@ describe('Primitives', function (this: Mocha.Suite) {
   });
 
   it('narrowValue', () => {
+    // eslint-disable-next-line deprecation/deprecation
     const narrow = p.narrowValue<unknown, string, 'foo'>(p.isString, p.isSingletonString('foo'));
 
     expect(narrow('foo')).to.equal(true);
@@ -203,6 +204,55 @@ describe('Primitives', function (this: Mocha.Suite) {
     expect(p.isSet(undefined)).to.equal(false);
     expect(p.isSet([])).to.equal(true);
     expect(p.isSet({})).to.equal(true);
+  });
+
+  it('numericalEnumeration', () => {
+    enum NumEnum {
+      READ = 1,
+      WRITE = 2,
+      EXECUTE = 4,
+    }
+
+    const isNumEnum = p.isNumericalEnumeration(NumEnum);
+    expect(isNumEnum(NumEnum.READ)).to.equal(true);
+    expect(isNumEnum(NumEnum.WRITE)).to.equal(true);
+    expect(isNumEnum(NumEnum.EXECUTE)).to.equal(true);
+    expect(isNumEnum(NumEnum.READ | NumEnum.WRITE)).to.equal(false);
+    expect(isNumEnum(0)).to.equal(false);
+    expect(isNumEnum(2)).to.equal(true);
+    expect(isNumEnum(3)).to.equal(false);
+    expect(isNumEnum(8)).to.equal(false);
+    expect(isNumEnum('READ')).to.equal(false);
+    expect(isNumEnum(null)).to.equal(false);
+
+    const isNumFlag = p.isNumericalEnumeration(NumEnum, true);
+    expect(isNumFlag(NumEnum.READ)).to.equal(true);
+    expect(isNumFlag(NumEnum.WRITE)).to.equal(true);
+    expect(isNumFlag(NumEnum.EXECUTE)).to.equal(true);
+    expect(isNumFlag(NumEnum.READ | NumEnum.WRITE)).to.equal(true);
+    expect(isNumFlag(0)).to.equal(false);
+    expect(isNumFlag(2)).to.equal(true);
+    expect(isNumFlag(3)).to.equal(true);
+    expect(isNumFlag(8)).to.equal(false);
+    expect(isNumFlag('READ')).to.equal(false);
+    expect(isNumFlag(null)).to.equal(false);
+  });
+
+  it('stringEnumeration', () => {
+    enum StringEnum {
+      Foo = 'FOO',
+      Bar = 'BAR',
+    }
+
+    const isStringEnum = p.isStringEnumeration(StringEnum);
+    expect(isStringEnum(StringEnum.Foo)).to.equal(true);
+    expect(isStringEnum(StringEnum.Bar)).to.equal(true);
+    expect(isStringEnum('FOO')).to.equal(true);
+    expect(isStringEnum('BAR')).to.equal(true);
+    expect(isStringEnum('Foo')).to.equal(false);
+    expect(isStringEnum('Bar')).to.equal(false);
+    expect(isStringEnum(false)).to.equal(false);
+    expect(isStringEnum(null)).to.equal(false);
   });
 
   it('any', () => {
