@@ -70,7 +70,7 @@
     "url": "https://github.com/sponsors/mscharley"
   },
   "devDependencies": {
-    "@microsoft/api-extractor": "7.29.5",
+    "@microsoft/api-extractor": "7.30.0",
     "@mscharley/eslint-config": "1.8.4",
     "@mscharley/prettier-config": "1.2.3",
     "@stryker-mutator/core": "6.1.2",
