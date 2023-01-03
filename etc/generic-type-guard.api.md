@@ -103,7 +103,7 @@ export const isFloat: TypeGuard<number>;
 export const isInfinity: TypeGuard<number>;
 
 // @public
-export const isInstance: <T extends object>(klass: new (...args: unknown[]) => T) => TypeGuard<T>;
+export const isInstance: <T extends object>(klass: new (...args: never[]) => T) => TypeGuard<T>;
 
 // @public
 export class IsInterface implements InterfaceBuilder<object> {
