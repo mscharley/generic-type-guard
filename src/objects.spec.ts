@@ -90,6 +90,12 @@ describe('Objects', function (this: Mocha.Suite) {
     // Objects that are structurally similar should not work.
     expect(isDummyClass({ foo: 'bar' })).to.equal(false);
     expect(isDummyClass('foo')).to.equal(false);
+
+    class DummyWithConstructor {
+      public constructor(public arg: string) {}
+    }
+    const isDummyWithConstructor = o.isInstance(DummyWithConstructor);
+    expect(isDummyWithConstructor(new DummyWithConstructor('Hello world!'))).to.equal(true);
   });
 
   it('optionalProperties', () => {

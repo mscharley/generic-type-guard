@@ -94,7 +94,7 @@ export const hasNumericIndexSignature =
  * @public
  */
 export const isInstance =
-  <T extends object>(klass: new (...args: unknown[]) => T): TypeGuard<T> =>
+  <T extends object>(klass: new (...args: never[]) => T): TypeGuard<T> =>
   (o: unknown): o is T =>
     o instanceof klass;
 
