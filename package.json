@@ -8,8 +8,8 @@
     "npm": ">= 7"
   },
   "scripts": {
-    "build": "rimraf dist && tsc --target es3 && api-extractor run --local --verbose",
-    "prepack": "rimraf dist && tsc --target es3 && api-extractor run --local",
+    "build": "rimraf dist && tsc --target es5 && api-extractor run --local --verbose",
+    "prepack": "rimraf dist && tsc --target es5 && api-extractor run --local",
     "test": "npm run lint && npm run mocha && git diff --name-only --exit-code",
     "test-watch": "nodemon -e ts,json --exec npm run test",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
