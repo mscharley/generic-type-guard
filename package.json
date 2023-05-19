@@ -76,7 +76,7 @@
     "@stryker-mutator/core": "6.4.2",
     "@stryker-mutator/mocha-runner": "6.4.2",
     "@stryker-mutator/typescript-checker": "6.4.2",
-    "@types/chai": "4.3.4",
+    "@types/chai": "4.3.5",
     "@types/mocha": "10.0.1",
     "@types/node": "16.18.23",
     "chai": "4.3.7",
