@@ -71,8 +71,8 @@
   },
   "devDependencies": {
     "@microsoft/api-extractor": "7.36.0",
-    "@mscharley/eslint-config": "2.0.1",
-    "@mscharley/prettier-config": "2.0.1",
+    "@mscharley/eslint-config": "2.0.4",
+    "@mscharley/prettier-config": "2.0.2",
     "@stryker-mutator/core": "7.1.0",
     "@stryker-mutator/mocha-runner": "7.1.0",
     "@stryker-mutator/typescript-checker": "7.1.0",
