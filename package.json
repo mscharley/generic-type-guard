@@ -70,7 +70,7 @@
     "url": "https://github.com/sponsors/mscharley"
   },
   "devDependencies": {
-    "@microsoft/api-extractor": "7.36.1",
+    "@microsoft/api-extractor": "7.36.0",
     "@mscharley/eslint-config": "2.0.4",
     "@mscharley/prettier-config": "2.0.2",
     "@stryker-mutator/core": "7.1.0",
@@ -82,7 +82,7 @@
     "chai": "4.3.7",
     "codecov": "3.8.3",
     "mocha": "10.2.0",
-    "nodemon": "2.0.22",
+    "nodemon": "3.0.1",
     "nyc": "15.1.0",
     "rimraf": "5.0.1",
     "source-map-support": "0.5.21",
