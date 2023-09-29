@@ -77,7 +77,7 @@
     "@stryker-mutator/mocha-runner": "7.1.1",
     "@stryker-mutator/typescript-checker": "7.1.1",
     "@types/chai": "4.3.6",
-    "@types/mocha": "10.0.1",
+    "@types/mocha": "10.0.2",
     "@types/node": "16.18.54",
     "chai": "4.3.8",
     "codecov": "3.8.3",
