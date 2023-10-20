@@ -1,29 +1,4 @@
 {
-  "extends": [
-    "config:js-lib",
-    "schedule:weekends",
-    ":automergeMinor",
-    ":semanticCommits",
-    ":rebaseStalePrs",
-    ":labels(dependencies)"
-  ],
-  "timezone": "Australia/Melbourne",
-  "automergeStrategy": "fast-forward",
-  "automergeType": "branch",
-  "prConcurrentLimit": 3,
-  "packageRules": [
-    {
-      "packageNames": ["@types/node"],
-      "allowedVersions": "^16.0.0",
-      "major": { "enabled": true }
-    },
-    {
-      "matchPackageNames": [
-        "@mscharley/eslint-config",
-        "@mscharley/prettier-config"
-      ],
-      "groupName": "eslint packages",
-      "additionalBranchPrefix": ""
-    }
-  ]
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["github>mscharley/renovate-config"]
 }
