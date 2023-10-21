@@ -1,5 +1,11 @@
 # generic-type-guard
 
+## 4.0.1
+
+### Patch Changes
+
+- b9487fb: Enable NPM provenance
+
 ## 4.0.0
 
 ### Major Changes
