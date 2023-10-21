@@ -1,0 +1,23 @@
+# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
+
+name: Node.js CI
+
+on:
+  push:
+    branches: ['main']
+  pull_request:
+    branches: ['main']
+
+jobs:
+  node:
+    uses: mscharley/.github/.github/workflows/node-ci.yml@main
+    strategy:
+      matrix:
+        node-version: [16.x, 18.x, 20.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+    with:
+      node-version: ${{ matrix.node-version }}
+
+  stryker:
+    uses: mscharley/.github/.github/workflows/stryker.yml@main
