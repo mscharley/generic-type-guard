@@ -11,7 +11,7 @@ jobs:
   release:
     uses: mscharley/.github/.github/workflows/changesets.yml@main
     permissions:
-      contents: read
+      contents: write
       id-token: write
     secrets:
       token: ${{ secrets.DEPENDENCY_UPDATE_GITHUB_TOKEN }}
