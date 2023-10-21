@@ -6,7 +6,10 @@ import type { GuardedType, PartialTypeGuard as PTG } from './guards';
  * @public
  */
 export class AssertionError extends RangeError {
-	public constructor(public value: unknown, message?: string) {
+	public constructor(
+		public value: unknown,
+		message?: string,
+	) {
 		super(message);
 
 		this.name = this.constructor.name;
