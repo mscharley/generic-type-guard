@@ -1,5 +1,11 @@
 # generic-type-guard
 
+## 4.0.2
+
+### Patch Changes
+
+- a11db9a: Redeploy to check fixed CI process
+
 ## 4.0.1
 
 ### Patch Changes
