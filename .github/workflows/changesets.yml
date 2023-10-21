@@ -10,6 +10,9 @@ concurrency: ${{ github.workflow }}-${{ github.ref }}
 jobs:
   release:
     uses: mscharley/.github/.github/workflows/changesets.yml@main
+    permissions:
+      contents: read
+      id-token: write
     secrets:
       token: ${{ secrets.DEPENDENCY_UPDATE_GITHUB_TOKEN }}
       npm-token: ${{ secrets.NPM_TOKEN }}
