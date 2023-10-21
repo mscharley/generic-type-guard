@@ -7,23 +7,23 @@ import type { PartialTypeGuard } from '../guards';
  * @public
  */
 export class IntersectionOf<B, T extends B> {
-  private readonly ptt: PartialTypeGuard<B, T>;
+	private readonly ptt: PartialTypeGuard<B, T>;
 
-  public constructor(ptt: PartialTypeGuard<B, T>) {
-    this.ptt = ptt;
-  }
+	public constructor(ptt: PartialTypeGuard<B, T>) {
+		this.ptt = ptt;
+	}
 
-  /**
-   * Finalise and return the partial type guard for this builder.
-   */
-  public get(): PartialTypeGuard<B, T> {
-    return this.ptt;
-  }
+	/**
+	 * Finalise and return the partial type guard for this builder.
+	 */
+	public get(): PartialTypeGuard<B, T> {
+		return this.ptt;
+	}
 
-  /**
-   * Add a new option for this intersection.
-   */
-  public with<U extends B>(ptu: PartialTypeGuard<B, U>): IntersectionOf<B, T & U> {
-    return new IntersectionOf(isIntersection(this.ptt, ptu));
-  }
+	/**
+	 * Add a new option for this intersection.
+	 */
+	public with<U extends B>(ptu: PartialTypeGuard<B, U>): IntersectionOf<B, T & U> {
+		return new IntersectionOf(isIntersection(this.ptt, ptu));
+	}
 }

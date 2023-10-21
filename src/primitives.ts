@@ -22,7 +22,7 @@ export const isNumber: TypeGuard<number> = (n: unknown): n is number => typeof n
  * @public
  */
 export const isFiniteNumber: TypeGuard<number> = (n: unknown): n is number =>
-  typeof n === 'number' && !isNaN(n) && isFinite(n);
+	typeof n === 'number' && !isNaN(n) && isFinite(n);
 
 /**
  * Validate the value is a number in the rawest sense.
@@ -48,7 +48,7 @@ export const isDouble = isFloat;
  * @public
  */
 export const isInfinity: TypeGuard<number> = (n: unknown): n is number =>
-  typeof n === 'number' && !isNaN(n) && !isFinite(n);
+	typeof n === 'number' && !isNaN(n) && !isFinite(n);
 
 /**
  * Validates a value is exactly the NaN constant value.
@@ -64,10 +64,10 @@ export { _isNaN as isNaN };
  * @public
  */
 export const isElementOf = (<T>(...ss: T[]): TypeGuard<T> =>
-  (s: unknown): s is T =>
-    ss.indexOf(s as T) >= MINIMUM_ARRAY_INDEX) as {
-  (): TypeGuard<never>;
-  <T>(...ss: T[]): TypeGuard<T>;
+	(s: unknown): s is T =>
+		ss.indexOf(s as T) >= MINIMUM_ARRAY_INDEX) as {
+	(): TypeGuard<never>;
+	<T>(...ss: T[]): TypeGuard<T>;
 };
 
 /**
@@ -76,9 +76,9 @@ export const isElementOf = (<T>(...ss: T[]): TypeGuard<T> =>
  * @public
  */
 export const isSingletonNumber =
-  <T extends number>(v: T): TypeGuard<T> =>
-  (n: unknown): n is T =>
-    n === v;
+	<T extends number>(v: T): TypeGuard<T> =>
+	(n: unknown): n is T =>
+		n === v;
 
 /**
  * Validate if a value is one of a set of specific numbers.
@@ -86,10 +86,10 @@ export const isSingletonNumber =
  * @public
  */
 export const isSingletonNumberUnion = (<T extends number>(...ss: T[]): TypeGuard<T> =>
-  (s: unknown): s is T =>
-    ss.indexOf(s as T) >= MINIMUM_ARRAY_INDEX) as {
-  (): TypeGuard<never>;
-  <T extends number>(...ss: T[]): TypeGuard<T>;
+	(s: unknown): s is T =>
+		ss.indexOf(s as T) >= MINIMUM_ARRAY_INDEX) as {
+	(): TypeGuard<never>;
+	<T extends number>(...ss: T[]): TypeGuard<T>;
 };
 
 /**
@@ -105,9 +105,9 @@ export const isString: TypeGuard<string> = (s: unknown): s is string => typeof s
  * @public
  */
 export const isSingletonString =
-  <T extends string>(v: T): TypeGuard<T> =>
-  (s: unknown): s is T =>
-    s === v;
+	<T extends string>(v: T): TypeGuard<T> =>
+	(s: unknown): s is T =>
+		s === v;
 
 /**
  * Validate if a value is one of a set of specific strings.
@@ -115,10 +115,10 @@ export const isSingletonString =
  * @public
  */
 export const isSingletonStringUnion = (<T extends string>(...ss: T[]): TypeGuard<T> =>
-  (s: unknown): s is T =>
-    ss.indexOf(s as T) >= MINIMUM_ARRAY_INDEX) as {
-  (): TypeGuard<never>;
-  <T extends string>(...ss: T[]): TypeGuard<T>;
+	(s: unknown): s is T =>
+		ss.indexOf(s as T) >= MINIMUM_ARRAY_INDEX) as {
+	(): TypeGuard<never>;
+	<T extends string>(...ss: T[]): TypeGuard<T>;
 };
 
 /**
@@ -148,9 +148,9 @@ export const isUndefined: TypeGuard<undefined> = (u: unknown): u is undefined =>
  * @public
  */
 export const isOptional =
-  <T>(tgt: TypeGuard<T>): TypeGuard<T | undefined> =>
-  (o: unknown): o is T | undefined =>
-    typeof o === 'undefined' || tgt(o);
+	<T>(tgt: TypeGuard<T>): TypeGuard<T | undefined> =>
+	(o: unknown): o is T | undefined =>
+		typeof o === 'undefined' || tgt(o);
 
 /**
  * Validate if a value is a given type or null.
@@ -158,9 +158,9 @@ export const isOptional =
  * @public
  */
 export const isNullable =
-  <T>(tgt: TypeGuard<T>): TypeGuard<T | null> =>
-  (o: unknown): o is T | null =>
-    o === null || tgt(o);
+	<T>(tgt: TypeGuard<T>): TypeGuard<T | null> =>
+	(o: unknown): o is T | null =>
+		o === null || tgt(o);
 
 /**
  * Validates if a value is a given type or null or undefined.
@@ -168,9 +168,9 @@ export const isNullable =
  * @public
  */
 export const isMissing =
-  <T>(tgt: TypeGuard<T>): TypeGuard<T | undefined | null> =>
-  (o: unknown): o is T | null | undefined =>
-    o == null || tgt(o);
+	<T>(tgt: TypeGuard<T>): TypeGuard<T | undefined | null> =>
+	(o: unknown): o is T | null | undefined =>
+		o == null || tgt(o);
 
 /**
  * Validate if a value is an array of a specific type of value.
@@ -178,9 +178,9 @@ export const isMissing =
  * @public
  */
 export const isArray =
-  <T>(valueCheck: TypeGuard<T>): TypeGuard<T[]> =>
-  (arr: unknown): arr is T[] =>
-    Array.isArray(arr) && arr.reduce<boolean>((acc, v) => acc && valueCheck(v as unknown), true);
+	<T>(valueCheck: TypeGuard<T>): TypeGuard<T[]> =>
+	(arr: unknown): arr is T[] =>
+		Array.isArray(arr) && arr.reduce<boolean>((acc, v) => acc && valueCheck(v as unknown), true);
 
 /**
  * Narrow the type of a value.
@@ -189,8 +189,8 @@ export const isArray =
  * @deprecated Use combine instead, this alias is poorly named.
  */
 export const narrowValue = <T, U extends T, V extends U>(
-  ptt: PartialTypeGuard<T, U>,
-  ptu: PartialTypeGuard<U, V>,
+	ptt: PartialTypeGuard<T, U>,
+	ptu: PartialTypeGuard<U, V>,
 ): PartialTypeGuard<T, V> => combine(ptt, ptu);
 
 /**
@@ -199,9 +199,9 @@ export const narrowValue = <T, U extends T, V extends U>(
  * @public
  */
 export const narrowArray =
-  <T, U extends T>(pt: PartialTypeGuard<T, U>): PartialTypeGuard<T[], U[]> =>
-  (ts: T[]): ts is U[] =>
-    ts.reduce<boolean>((acc, b) => acc && pt(b), true);
+	<T, U extends T>(pt: PartialTypeGuard<T, U>): PartialTypeGuard<T[], U[]> =>
+	(ts: T[]): ts is U[] =>
+		ts.reduce<boolean>((acc, b) => acc && pt(b), true);
 
 /**
  * Validate if an object is a Set containing elements of a given type.
@@ -209,9 +209,9 @@ export const narrowArray =
  * @public
  */
 export const isSetOf =
-  <T>(tg: TypeGuard<T>) =>
-  (o: unknown): o is Set<T> =>
-    o instanceof Set && Array.of(...(o as Set<unknown>).values()).reduce<boolean>((acc, v) => acc && tg(v), true);
+	<T>(tg: TypeGuard<T>) =>
+	(o: unknown): o is Set<T> =>
+		o instanceof Set && Array.of(...(o as Set<unknown>).values()).reduce<boolean>((acc, v) => acc && tg(v), true);
 
 /**
  * Validate if a value is like an object.
@@ -229,7 +229,7 @@ export const isObjectLike: TypeGuard<object> = (obj: unknown): obj is object => 
  * @public
  */
 export const isObject: TypeGuard<object> = (obj: unknown): obj is object =>
-  obj != null && typeof obj === 'object' && !(obj instanceof Array);
+	obj != null && typeof obj === 'object' && !(obj instanceof Array);
 
 /**
  * Validates if a value is not null and not undefined.
@@ -247,18 +247,18 @@ export const isSet = <T = unknown>(obj: T): obj is Diff<T, undefined | null> => 
  * @public
  */
 export const isNumericalEnumeration = <T extends Record<string | number, string | number>>(
-  e: T,
-  flags = false,
+	e: T,
+	flags = false,
 ): TypeGuard<T> => {
-  const options = Object.values(e).filter(isNumber);
-  if (!flags) {
-    return (obj: unknown): obj is T => (options as unknown[]).includes(obj);
-  } else {
-    return (obj: unknown): obj is T =>
-      typeof obj === 'number' &&
-      obj !== 0 &&
-      options.filter((v) => (v & obj) === v).reduce((acc, v) => acc | v, 0) === obj;
-  }
+	const options = Object.values(e).filter(isNumber);
+	if (!flags) {
+		return (obj: unknown): obj is T => (options as unknown[]).includes(obj);
+	} else {
+		return (obj: unknown): obj is T =>
+			typeof obj === 'number' &&
+			obj !== 0 &&
+			options.filter((v) => (v & obj) === v).reduce((acc, v) => acc | v, 0) === obj;
+	}
 };
 
 /**
@@ -269,8 +269,8 @@ export const isNumericalEnumeration = <T extends Record<string | number, string 
  * @public
  */
 export const isStringEnumeration = <T extends Record<string, string>>(e: T): TypeGuard<T> => {
-  const options: unknown[] = Object.values(e);
-  return (obj: unknown): obj is T => options.includes(obj);
+	const options: unknown[] = Object.values(e);
+	return (obj: unknown): obj is T => options.includes(obj);
 };
 
 /**
@@ -301,5 +301,5 @@ export const isUnknown = isAny;
  * @public
  */
 export const isNever = (n: never): never => {
-  throw Error(`Unexpected value when expecting never: ${n}`);
+	throw Error(`Unexpected value when expecting never: ${n}`);
 };

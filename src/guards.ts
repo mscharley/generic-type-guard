@@ -19,8 +19,8 @@ export type TypeGuard<T> = PartialTypeGuard<unknown, T>;
  * @public
  */
 export type GuardedType<T extends PartialTypeGuard<any, unknown>> = T extends PartialTypeGuard<any, infer U>
-  ? U
-  : never;
+	? U
+	: never;
 
 /**
  * An object of type guards based on the input type.
@@ -28,5 +28,5 @@ export type GuardedType<T extends PartialTypeGuard<any, unknown>> = T extends Pa
  * @public
  */
 export type MappedTypeGuard<T> = {
-  [P in keyof T]: TypeGuard<T[P]>;
+	[P in keyof T]: TypeGuard<T[P]>;
 };
