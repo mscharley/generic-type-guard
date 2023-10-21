@@ -20,7 +20,9 @@
     "stryker": "stryker run",
     "stryker-watch": "nodemon -e ts,json --exec stryker run",
     "codecov-local": "nyc report",
-    "codecov-report": "nyc report --reporter=json && codecov -f coverage/*.json -F generic_type_guard"
+    "codecov-report": "nyc report --reporter=json && codecov -f coverage/*.json -F generic_type_guard",
+    "cs-version": "npm run build && changeset version",
+    "cs-release": "changeset publish"
   },
   "nyc": {
     "include": [
