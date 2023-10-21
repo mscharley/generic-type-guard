@@ -1,0 +1,14 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - main
+
+concurrency: ${{ github.workflow }}-${{ github.ref }}
+
+jobs:
+  release:
+    uses: mscharley/.github/.github/workflows/changesets.yml@main
+    secrets:
+      token: ${{ secrets.DEPENDENCY_UPDATE_GITHUB_TOKEN }}
