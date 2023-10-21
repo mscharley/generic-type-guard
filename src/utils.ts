@@ -6,11 +6,11 @@ import type { GuardedType, PartialTypeGuard as PTG } from './guards';
  * @public
  */
 export class AssertionError extends RangeError {
-  public constructor(public value: unknown, message?: string) {
-    super(message);
+	public constructor(public value: unknown, message?: string) {
+		super(message);
 
-    this.name = this.constructor.name;
-  }
+		this.name = this.constructor.name;
+	}
 }
 
 /**
@@ -23,13 +23,13 @@ export class AssertionError extends RangeError {
  * @public
  */
 export const assert: <T, Guard extends PTG<T, T>>(
-  value: T,
-  guard: Guard,
-  message?: string,
+	value: T,
+	guard: Guard,
+	message?: string,
 ) => asserts value is GuardedType<Guard> = (value, guard, message) => {
-  if (!guard(value)) {
-    throw new AssertionError(value, message ?? `Invalid value provided: ${JSON.stringify(value)}`);
-  }
+	if (!guard(value)) {
+		throw new AssertionError(value, message ?? `Invalid value provided: ${JSON.stringify(value)}`);
+	}
 };
 
 /**
@@ -40,29 +40,29 @@ export const assert: <T, Guard extends PTG<T, T>>(
  * @public
  */
 export const combine: {
-  <A, B extends A, C extends B>(g1: PTG<A, B>, g2: PTG<B, C>): PTG<A, C>;
-  <A, B extends A, C extends B, D extends C>(g1: PTG<A, B>, g2: PTG<B, C>, g3: PTG<C, D>): PTG<A, D>;
-  <A, B extends A, C extends B, D extends C, E extends D>(
-    g1: PTG<A, B>,
-    g2: PTG<B, C>,
-    g3: PTG<C, D>,
-    g4: PTG<D, E>,
-  ): PTG<A, E>;
-  <A, B extends A, C extends B, D extends C, E extends D, F extends E>(
-    g1: PTG<A, B>,
-    g2: PTG<B, C>,
-    g3: PTG<C, D>,
-    g4: PTG<D, E>,
-    g5: PTG<D, E>,
-  ): PTG<A, F>;
+	<A, B extends A, C extends B>(g1: PTG<A, B>, g2: PTG<B, C>): PTG<A, C>;
+	<A, B extends A, C extends B, D extends C>(g1: PTG<A, B>, g2: PTG<B, C>, g3: PTG<C, D>): PTG<A, D>;
+	<A, B extends A, C extends B, D extends C, E extends D>(
+		g1: PTG<A, B>,
+		g2: PTG<B, C>,
+		g3: PTG<C, D>,
+		g4: PTG<D, E>,
+	): PTG<A, E>;
+	<A, B extends A, C extends B, D extends C, E extends D, F extends E>(
+		g1: PTG<A, B>,
+		g2: PTG<B, C>,
+		g3: PTG<C, D>,
+		g4: PTG<D, E>,
+		g5: PTG<D, E>,
+	): PTG<A, F>;
 } =
-  (...guards: Array<PTG<unknown, unknown>>) =>
-  (v: unknown): v is unknown => {
-    for (const guard of guards) {
-      if (!guard(v)) {
-        return false;
-      }
-    }
+	(...guards: Array<PTG<unknown, unknown>>) =>
+	(v: unknown): v is unknown => {
+		for (const guard of guards) {
+			if (!guard(v)) {
+				return false;
+			}
+		}
 
-    return true;
-  };
+		return true;
+	};
