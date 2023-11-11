@@ -1,5 +1,11 @@
 # generic-type-guard
 
+## 4.0.3
+
+### Patch Changes
+
+- 2b7dec2: fix(deps): update node to v20 (major)
+
 ## 4.0.2
 
 ### Patch Changes
