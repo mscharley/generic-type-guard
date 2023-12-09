@@ -76,7 +76,7 @@
 	},
 	"devDependencies": {
 		"@changesets/cli": "2.27.1",
-		"@microsoft/api-extractor": "7.38.3",
+		"@microsoft/api-extractor": "7.38.4",
 		"@mscharley/eslint-config": "3.0.4",
 		"@mscharley/prettier-config": "3.0.1",
 		"@stryker-mutator/core": "7.3.0",
