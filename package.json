@@ -84,7 +84,7 @@
 		"@stryker-mutator/typescript-checker": "8.0.0",
 		"@types/chai": "4.3.11",
 		"@types/mocha": "10.0.6",
-		"@types/node": "20.10.8",
+		"@types/node": "20.11.0",
 		"chai": "4.4.0",
 		"mocha": "10.2.0",
 		"nodemon": "3.0.2",
