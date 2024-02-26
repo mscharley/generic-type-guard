@@ -2,7 +2,7 @@ import { assert, AssertionError, combine } from './utils';
 import { isNumber, isObject } from './primitives';
 import { expect } from 'chai';
 import { hasProperties } from './objects';
-import td from 'testdouble';
+import { reset } from 'testdouble';
 
 /* eslint-disable @typescript-eslint/no-magic-numbers */
 
@@ -13,7 +13,7 @@ describe('utils', function (this: Mocha.Suite): void {
 	this.slow(5).timeout(300);
 
 	afterEach(() => {
-		td.reset();
+		reset();
 	});
 
 	describe('AssertionError', () => {
