@@ -87,7 +87,7 @@
 		"@types/node": "20.11.20",
 		"chai": "4.4.1",
 		"mocha": "10.3.0",
-		"nodemon": "3.0.3",
+		"nodemon": "3.1.0",
 		"nyc": "15.1.0",
 		"rimraf": "5.0.5",
 		"source-map-support": "0.5.21",
