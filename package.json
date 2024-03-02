@@ -82,7 +82,7 @@
 		"@stryker-mutator/core": "8.2.5",
 		"@stryker-mutator/mocha-runner": "8.2.5",
 		"@stryker-mutator/typescript-checker": "8.2.5",
-		"@types/chai": "4.3.11",
+		"@types/chai": "4.3.12",
 		"@types/mocha": "10.0.6",
 		"@types/node": "20.11.20",
 		"chai": "4.4.1",
