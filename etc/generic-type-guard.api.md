@@ -134,7 +134,7 @@ export const isIntersection: <B, T extends B, U extends B>(ptt: PartialTypeGuard
 export const isLikeObject: <V extends object>(props: MappedTypeGuard<V>) => TypeGuard<V>;
 
 // @public
-export const isMissing: <T>(tgt: TypeGuard<T>) => TypeGuard<T | null | undefined>;
+export const isMissing: <T>(tgt: TypeGuard<T>) => TypeGuard<T | undefined | null>;
 
 // @public
 const isNaN_2: TypeGuard<number>;
