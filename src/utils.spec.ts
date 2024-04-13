@@ -28,10 +28,10 @@ describe('utils', function (this: Mocha.Suite): void {
 	});
 
 	describe('#assert', () => {
-		const dummyGuard =
-			(ret: boolean) =>
-			(_o: unknown): _o is string =>
-				ret;
+		const dummyGuard
+			= (ret: boolean) =>
+				(_o: unknown): _o is string =>
+					ret;
 
 		it('test success', () => {
 			assert('foo', dummyGuard(true));

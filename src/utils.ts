@@ -58,14 +58,14 @@ export const combine: {
 		g4: PTG<D, E>,
 		g5: PTG<D, E>,
 	): PTG<A, F>;
-} =
-	(...guards: Array<PTG<unknown, unknown>>) =>
-	(v: unknown): v is unknown => {
-		for (const guard of guards) {
-			if (!guard(v)) {
-				return false;
+}
+	= (...guards: Array<PTG<unknown, unknown>>) =>
+		(v: unknown): v is unknown => {
+			for (const guard of guards) {
+				if (!guard(v)) {
+					return false;
+				}
 			}
-		}
 
-		return true;
-	};
+			return true;
+		};
