@@ -7,23 +7,23 @@ import { isObject } from './primitives';
  *
  * @public
  */
-export const hasProperty =
-	<K extends string, V>(property: K, value: TypeGuard<V>): PartialTypeGuard<object, Record<K, V>> =>
-	(o: object): o is { [prop in K]: V } =>
+export const hasProperty
+	= <K extends string, V>(property: K, value: TypeGuard<V>): PartialTypeGuard<object, Record<K, V>> =>
+		(o: object): o is { [prop in K]: V } =>
 		// If the property exists and conforms to the value type guard.
-		value((o as Record<string, unknown>)[property]);
+			value((o as Record<string, unknown>)[property]);
 
 /**
  * Validates that a given object has an optional property of a given type.
  *
  * @public
  */
-export const hasOptionalProperty =
-	<K extends string, V>(property: K, value: TypeGuard<V>): PartialTypeGuard<object, { [prop in K]?: V }> =>
-	(o: object): o is { [prop in K]: V } =>
-		!(property in o) ||
-		// If the property exists and conforms to the value type guard.
-		value((o as Record<string, unknown>)[property]);
+export const hasOptionalProperty
+	= <K extends string, V>(property: K, value: TypeGuard<V>): PartialTypeGuard<object, { [prop in K]?: V }> =>
+		(o: object): o is { [prop in K]: V } =>
+			!(property in o)
+			// If the property exists and conforms to the value type guard.
+			|| value((o as Record<string, unknown>)[property]);
 
 /**
  * Validate that a variable is an object with a single field.
@@ -32,10 +32,10 @@ export const hasOptionalProperty =
  *
  * @public
  */
-export const isRecord =
-	<K extends string, V>(property: K, value: TypeGuard<V>): TypeGuard<Record<K, V>> =>
-	(o: unknown): o is { [prop in K]: V } =>
-		isObject(o) && hasProperty(property, value)(o);
+export const isRecord
+	= <K extends string, V>(property: K, value: TypeGuard<V>): TypeGuard<Record<K, V>> =>
+		(o: unknown): o is { [prop in K]: V } =>
+			isObject(o) && hasProperty(property, value)(o);
 
 /**
  * Validates that a given object has a string index signature.
@@ -45,22 +45,22 @@ export const isRecord =
  *
  * @public
  */
-export const hasStringIndexSignature =
-	<V>(value: TypeGuard<V>, enforce = true): PartialTypeGuard<object, Record<string, V>> =>
-	(o: object): o is Record<string, V> => {
-		let n = 0;
-		for (const prop in o) {
-			if (isNaN(parseInt(prop, 10))) {
-				if (value((o as Record<string, unknown>)[prop])) {
-					n++;
-				} else {
-					return false;
+export const hasStringIndexSignature
+	= <V>(value: TypeGuard<V>, enforce = true): PartialTypeGuard<object, Record<string, V>> =>
+		(o: object): o is Record<string, V> => {
+			let n = 0;
+			for (const prop in o) {
+				if (isNaN(parseInt(prop, 10))) {
+					if (value((o as Record<string, unknown>)[prop])) {
+						n++;
+					} else {
+						return false;
+					}
 				}
 			}
-		}
 
-		return !enforce || n > 0;
-	};
+			return !enforce || n > 0;
+		};
 
 /**
  * Validates that a given object has a numeric index signature.
@@ -70,33 +70,33 @@ export const hasStringIndexSignature =
  *
  * @public
  */
-export const hasNumericIndexSignature =
-	<V>(value: TypeGuard<V>, enforce = true): PartialTypeGuard<object, Record<number, V>> =>
-	(o: object): o is Record<string, V> => {
-		let n = 0;
-		for (const prop in o) {
-			if (!isNaN(parseInt(prop, 10))) {
+export const hasNumericIndexSignature
+	= <V>(value: TypeGuard<V>, enforce = true): PartialTypeGuard<object, Record<number, V>> =>
+		(o: object): o is Record<string, V> => {
+			let n = 0;
+			for (const prop in o) {
+				if (!isNaN(parseInt(prop, 10))) {
 				// We still index as a string here because prop is a string.
-				if (value((o as Record<string, unknown>)[prop])) {
-					n++;
-				} else {
-					return false;
+					if (value((o as Record<string, unknown>)[prop])) {
+						n++;
+					} else {
+						return false;
+					}
 				}
 			}
-		}
 
-		return !enforce || n > 0;
-	};
+			return !enforce || n > 0;
+		};
 
 /**
  * Validates that a given object is an instance of a class.
  *
  * @public
  */
-export const isInstance =
-	<T extends object>(klass: abstract new (...args: never[]) => T): TypeGuard<T> =>
-	(o: unknown): o is T =>
-		o instanceof klass;
+export const isInstance
+	= <T extends object>(klass: abstract new (...args: never[]) => T): TypeGuard<T> =>
+		(o: unknown): o is T =>
+			o instanceof klass;
 
 /**
  * Validate that a given object has all the given properties
@@ -106,17 +106,17 @@ export const isInstance =
  *
  * @public
  */
-export const hasProperties =
-	<V extends object>(props: MappedTypeGuard<V>): PartialTypeGuard<object, V> =>
-	(o: object): o is V => {
-		for (const prop in props) {
-			if (!hasProperty(prop, props[prop])(o)) {
-				return false;
+export const hasProperties
+	= <V extends object>(props: MappedTypeGuard<V>): PartialTypeGuard<object, V> =>
+		(o: object): o is V => {
+			for (const prop in props) {
+				if (!hasProperty(prop, props[prop])(o)) {
+					return false;
+				}
 			}
-		}
 
-		return true;
-	};
+			return true;
+		};
 
 /**
  * Validate that a given object only has the given properties
@@ -125,25 +125,25 @@ export const hasProperties =
  *
  * @public
  */
-export const hasOnlyProperties =
-	<V extends object>(props: MappedTypeGuard<V>): PartialTypeGuard<object, V> =>
-	(o: object): o is V => {
-		const found: Array<keyof typeof props> = [];
+export const hasOnlyProperties
+	= <V extends object>(props: MappedTypeGuard<V>): PartialTypeGuard<object, V> =>
+		(o: object): o is V => {
+			const found: Array<keyof typeof props> = [];
 
-		for (const prop in o) {
-			if (prop in props) {
-				const propsKey = prop as Extract<keyof typeof props, string>;
-				if (!hasProperty(propsKey, props[propsKey])(o)) {
+			for (const prop in o) {
+				if (prop in props) {
+					const propsKey = prop as Extract<keyof typeof props, string>;
+					if (!hasProperty(propsKey, props[propsKey])(o)) {
+						return false;
+					}
+					found.push(propsKey);
+				} else {
 					return false;
 				}
-				found.push(propsKey);
-			} else {
-				return false;
 			}
-		}
 
-		return found.length === Object.keys(props).length;
-	};
+			return found.length === Object.keys(props).length;
+		};
 
 /**
  * Validate that a given object has all the given optional properties
@@ -153,17 +153,17 @@ export const hasOnlyProperties =
  *
  * @public
  */
-export const hasOptionalProperties =
-	<V extends object>(props: MappedTypeGuard<V>): PartialTypeGuard<object, Partial<V>> =>
-	(o: object): o is Partial<V> => {
-		for (const prop in props) {
-			if (!hasOptionalProperty(prop, props[prop])(o)) {
-				return false;
+export const hasOptionalProperties
+	= <V extends object>(props: MappedTypeGuard<V>): PartialTypeGuard<object, Partial<V>> =>
+		(o: object): o is Partial<V> => {
+			for (const prop in props) {
+				if (!hasOptionalProperty(prop, props[prop])(o)) {
+					return false;
+				}
 			}
-		}
 
-		return true;
-	};
+			return true;
+		};
 
 /**
  * Validate that an object has the fields provided.

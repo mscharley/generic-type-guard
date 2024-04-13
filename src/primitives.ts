@@ -75,10 +75,10 @@ export const isElementOf = (<T>(...ss: T[]): TypeGuard<T> =>
  *
  * @public
  */
-export const isSingletonNumber =
-	<T extends number>(v: T): TypeGuard<T> =>
-	(n: unknown): n is T =>
-		n === v;
+export const isSingletonNumber
+	= <T extends number>(v: T): TypeGuard<T> =>
+		(n: unknown): n is T =>
+			n === v;
 
 /**
  * Validate if a value is one of a set of specific numbers.
@@ -104,10 +104,10 @@ export const isString: TypeGuard<string> = (s: unknown): s is string => typeof s
  *
  * @public
  */
-export const isSingletonString =
-	<T extends string>(v: T): TypeGuard<T> =>
-	(s: unknown): s is T =>
-		s === v;
+export const isSingletonString
+	= <T extends string>(v: T): TypeGuard<T> =>
+		(s: unknown): s is T =>
+			s === v;
 
 /**
  * Validate if a value is one of a set of specific strings.
@@ -147,40 +147,40 @@ export const isUndefined: TypeGuard<undefined> = (u: unknown): u is undefined =>
  *
  * @public
  */
-export const isOptional =
-	<T>(tgt: TypeGuard<T>): TypeGuard<T | undefined> =>
-	(o: unknown): o is T | undefined =>
-		typeof o === 'undefined' || tgt(o);
+export const isOptional
+	= <T>(tgt: TypeGuard<T>): TypeGuard<T | undefined> =>
+		(o: unknown): o is T | undefined =>
+			typeof o === 'undefined' || tgt(o);
 
 /**
  * Validate if a value is a given type or null.
  *
  * @public
  */
-export const isNullable =
-	<T>(tgt: TypeGuard<T>): TypeGuard<T | null> =>
-	(o: unknown): o is T | null =>
-		o === null || tgt(o);
+export const isNullable
+	= <T>(tgt: TypeGuard<T>): TypeGuard<T | null> =>
+		(o: unknown): o is T | null =>
+			o === null || tgt(o);
 
 /**
  * Validates if a value is a given type or null or undefined.
  *
  * @public
  */
-export const isMissing =
-	<T>(tgt: TypeGuard<T>): TypeGuard<T | undefined | null> =>
-	(o: unknown): o is T | null | undefined =>
-		o == null || tgt(o);
+export const isMissing
+	= <T>(tgt: TypeGuard<T>): TypeGuard<T | undefined | null> =>
+		(o: unknown): o is T | null | undefined =>
+			o == null || tgt(o);
 
 /**
  * Validate if a value is an array of a specific type of value.
  *
  * @public
  */
-export const isArray =
-	<T>(valueCheck: TypeGuard<T>): TypeGuard<T[]> =>
-	(arr: unknown): arr is T[] =>
-		Array.isArray(arr) && arr.reduce<boolean>((acc, v) => acc && valueCheck(v as unknown), true);
+export const isArray
+	= <T>(valueCheck: TypeGuard<T>): TypeGuard<T[]> =>
+		(arr: unknown): arr is T[] =>
+			Array.isArray(arr) && arr.reduce<boolean>((acc, v) => acc && valueCheck(v as unknown), true);
 
 /**
  * Narrow the type of a value.
@@ -198,20 +198,20 @@ export const narrowValue = <T, U extends T, V extends U>(
  *
  * @public
  */
-export const narrowArray =
-	<T, U extends T>(pt: PartialTypeGuard<T, U>): PartialTypeGuard<T[], U[]> =>
-	(ts: T[]): ts is U[] =>
-		ts.reduce<boolean>((acc, b) => acc && pt(b), true);
+export const narrowArray
+	= <T, U extends T>(pt: PartialTypeGuard<T, U>): PartialTypeGuard<T[], U[]> =>
+		(ts: T[]): ts is U[] =>
+			ts.reduce<boolean>((acc, b) => acc && pt(b), true);
 
 /**
  * Validate if an object is a Set containing elements of a given type.
  *
  * @public
  */
-export const isSetOf =
-	<T>(tg: TypeGuard<T>) =>
-	(o: unknown): o is Set<T> =>
-		o instanceof Set && Array.of(...(o as Set<unknown>).values()).reduce<boolean>((acc, v) => acc && tg(v), true);
+export const isSetOf
+	= <T>(tg: TypeGuard<T>) =>
+		(o: unknown): o is Set<T> =>
+			o instanceof Set && Array.of(...(o as Set<unknown>).values()).reduce<boolean>((acc, v) => acc && tg(v), true);
 
 /**
  * Validate if a value is like an object.
@@ -255,9 +255,9 @@ export const isNumericalEnumeration = <T extends Record<string | number, string 
 		return (obj: unknown): obj is T => (options as unknown[]).includes(obj);
 	} else {
 		return (obj: unknown): obj is T =>
-			typeof obj === 'number' &&
-			obj !== 0 &&
-			options.filter((v) => (v & obj) === v).reduce((acc, v) => acc | v, 0) === obj;
+			typeof obj === 'number'
+			&& obj !== 0
+			&& options.filter((v) => (v & obj) === v).reduce((acc, v) => acc | v, 0) === obj;
 	}
 };
 
