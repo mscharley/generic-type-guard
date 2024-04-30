@@ -1,5 +1,11 @@
 # generic-type-guard
 
+## 4.1.0
+
+### Minor Changes
+
+- 46796bf: Add ESM support via a dual-package
+
 ## 4.0.3
 
 ### Patch Changes
