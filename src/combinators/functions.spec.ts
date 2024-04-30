@@ -1,8 +1,8 @@
-import * as c from './functions';
-import * as o from '../objects';
-import * as p from '../primitives';
+import * as c from './functions.js';
+import * as o from '../objects.js';
+import * as p from '../primitives.js';
 import { expect } from 'chai';
-import type { PartialTypeGuard } from '../guards';
+import type { PartialTypeGuard } from '../guards.js';
 
 /* eslint-disable @typescript-eslint/no-magic-numbers */
 

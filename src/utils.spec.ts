@@ -1,7 +1,7 @@
-import { assert, AssertionError, combine } from './utils';
-import { isNumber, isObject } from './primitives';
+import { assert, AssertionError, combine } from './utils.js';
+import { isNumber, isObject } from './primitives.js';
 import { expect } from 'chai';
-import { hasProperties } from './objects';
+import { hasProperties } from './objects.js';
 import { reset } from 'testdouble';
 
 /* eslint-disable @typescript-eslint/no-magic-numbers */

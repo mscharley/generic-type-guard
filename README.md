@@ -2,7 +2,6 @@
 
 [![npm](https://img.shields.io/npm/v/generic-type-guard.svg)](https://www.npmjs.com/package/generic-type-guard)
 [![CircleCI](https://img.shields.io/circleci/project/github/mscharley/generic-type-guard.svg)](https://circleci.com/gh/mscharley/generic-type-guard)
-[![Codecov](https://img.shields.io/codecov/c/github/mscharley/generic-type-guard.svg)](https://codecov.io/gh/mscharley/generic-type-guard)
 
 **Source:** [https://github.com/mscharley/generic-type-guard](https://github.com/mscharley/generic-type-guard)  
 **Author:** Matthew Scharley  
@@ -46,8 +45,8 @@ you must define your typeguards in the following way to make them the most effec
 
 ```typescript
 interface Foo {
-  foo: string;
-  bar: number;
+	foo: string;
+	bar: number;
 }
 
 // this fails.
@@ -55,9 +54,9 @@ const isBrokenFoo: tg.TypeGuard<Foo> = tg.isRecord('foo', tg.isString);
 
 // this works.
 const isFoo: tg.TypeGuard<Foo> = new tg.IsInterface()
-  .withProperty('foo', tg.isString)
-  .withProperty('bar', tg.isNumber)
-  .get();
+	.withProperty('foo', tg.isString)
+	.withProperty('bar', tg.isNumber)
+	.get();
 
 // This works around the gotchas explained below but has other issues, especially with complex types.
 // All guarantees are void if you use this format.
@@ -75,14 +74,14 @@ Some examples:
 import * as tg from 'generic-type-guard';
 
 export const isComplexInterface = new tg.IsInterface()
-  .withProperties({
-    str: tg.isString,
-    num: tg.isNumber,
-    b: tg.isBoolean,
-    maybeString: tg.isOptional(tg.isString),
-    nullableString: tg.isNullable(tg.isString),
-  })
-  .get();
+	.withProperties({
+		str: tg.isString,
+		num: tg.isNumber,
+		b: tg.isBoolean,
+		maybeString: tg.isOptional(tg.isString),
+		nullableString: tg.isNullable(tg.isString),
+	})
+	.get();
 export type ComplexInterface = tg.GuardedType<typeof isComplexInterface>;
 ```
 
@@ -114,7 +113,7 @@ Perhaps more insidiously:
 
 ```typescript
 interface Foo {
-  foo?: string;
+	foo?: string;
 }
 
 const isFoo: tg.TypeGuard<Foo> = tg.isRecord('foo', tg.isString);

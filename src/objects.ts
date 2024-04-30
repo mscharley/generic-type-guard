@@ -1,6 +1,6 @@
-import type { MappedTypeGuard, PartialTypeGuard, TypeGuard } from './guards';
-import { combine } from './utils';
-import { isObject } from './primitives';
+import type { MappedTypeGuard, PartialTypeGuard, TypeGuard } from './guards.js';
+import { combine } from './utils.js';
+import { isObject } from './primitives.js';
 
 /**
  * Validates that a given object has a property of a given type.

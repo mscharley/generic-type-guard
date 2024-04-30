@@ -1,4 +1,4 @@
-import type { PartialTypeGuard } from '../guards';
+import type { PartialTypeGuard } from '../guards.js';
 
 /**
  * Check if a value is a union of two types.

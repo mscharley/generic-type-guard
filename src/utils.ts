@@ -1,4 +1,4 @@
-import type { GuardedType, PartialTypeGuard as PTG } from './guards';
+import type { GuardedType, PartialTypeGuard as PTG } from './guards.js';
 
 /**
  * Indicates there was an error validating a typeguard.

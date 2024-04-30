@@ -1,8 +1,8 @@
-import * as o from '../objects';
-import * as p from '../primitives';
+import * as o from '../objects.js';
+import * as p from '../primitives.js';
 import { expect } from 'chai';
-import { IntersectionOf } from './intersectionof';
-import type { PartialTypeGuard } from '../guards';
+import { IntersectionOf } from './intersectionof.js';
+import type { PartialTypeGuard } from '../guards.js';
 
 /* eslint-disable @typescript-eslint/no-magic-numbers */
 

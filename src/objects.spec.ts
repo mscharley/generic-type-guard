@@ -1,7 +1,7 @@
-import * as c from './combinators';
-import * as o from './objects';
-import * as p from './primitives';
-import { DummyClass, FullDummyClass } from './dummy_classes.spec';
+import * as c from './combinators/index.js';
+import * as o from './objects.js';
+import * as p from './primitives.js';
+import { DummyClass, FullDummyClass } from './dummy_classes.spec.js';
 import { expect } from 'chai';
 
 /* eslint-disable @typescript-eslint/no-magic-numbers */

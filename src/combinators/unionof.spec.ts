@@ -1,7 +1,7 @@
-import * as p from '../primitives';
+import * as p from '../primitives.js';
 import { expect } from 'chai';
-import type { TypeGuard } from '../guards';
-import { UnionOf } from './unionof';
+import type { TypeGuard } from '../guards.js';
+import { UnionOf } from './unionof.js';
 
 /* eslint-disable @typescript-eslint/no-magic-numbers */
 

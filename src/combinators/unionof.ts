@@ -1,5 +1,5 @@
-import { isUnion } from './functions';
-import type { PartialTypeGuard } from '../guards';
+import { isUnion } from './functions.js';
+import type { PartialTypeGuard } from '../guards.js';
 
 /**
  * A small class to help with constructing larger union checkers.
