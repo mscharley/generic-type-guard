@@ -1,5 +1,5 @@
-import { isIntersection } from './functions';
-import type { PartialTypeGuard } from '../guards';
+import { isIntersection } from './functions.js';
+import type { PartialTypeGuard } from '../guards.js';
 
 /**
  * A small class to help with constructing larger intersection checkers.

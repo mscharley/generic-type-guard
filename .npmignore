@@ -1,9 +1,5 @@
 src/**/*
-dist/**/*.spec.js
-dist/**/*.spec.d.js
-dist/**/*.d.ts
-dist/**/*.d.ts.map
-!dist/generic-type-guard.d.ts
+dist/**/*
 .editorconfig
 .gitignore
 .nvmrc

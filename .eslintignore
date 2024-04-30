@@ -3,3 +3,4 @@ dist
 coverage
 reports/mutation
 .eslintrc.js
+/generic-type-guard.*

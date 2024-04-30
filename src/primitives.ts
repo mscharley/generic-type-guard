@@ -1,5 +1,5 @@
-import type { PartialTypeGuard, TypeGuard } from './guards';
-import { combine } from './utils';
+import type { PartialTypeGuard, TypeGuard } from './guards.js';
+import { combine } from './utils.js';
 
 /**
  * Helper to diff types.

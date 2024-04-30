@@ -1,0 +1,4 @@
+{
+	"root": true,
+	"extends": ["@mscharley", "@mscharley/eslint-config/node"]
+}

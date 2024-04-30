@@ -1,4 +1,4 @@
-import * as p from './primitives';
+import * as p from './primitives.js';
 import { expect } from 'chai';
 
 /* eslint-disable @typescript-eslint/no-magic-numbers */

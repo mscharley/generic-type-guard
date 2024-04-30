@@ -1,4 +1,4 @@
-import * as tg from './index';
+import * as tg from './index.js';
 
 /* eslint-disable no-console */
 /* eslint-disable @typescript-eslint/no-type-alias */

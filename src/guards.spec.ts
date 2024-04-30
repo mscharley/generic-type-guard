@@ -1,4 +1,4 @@
-import type * as g from './guards';
+import type * as g from './guards.js';
 import { expect } from 'chai';
 
 /* eslint-disable @typescript-eslint/no-magic-numbers */

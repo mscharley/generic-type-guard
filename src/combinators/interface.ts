@@ -1,7 +1,7 @@
-import * as o from '../objects';
-import type { MappedTypeGuard, PartialTypeGuard, TypeGuard } from '../guards';
-import { isIntersection } from './functions';
-import { isObjectLike } from '../primitives';
+import * as o from '../objects.js';
+import type { MappedTypeGuard, PartialTypeGuard, TypeGuard } from '../guards.js';
+import { isIntersection } from './functions.js';
+import { isObjectLike } from '../primitives.js';
 
 // tslint:disable:max-classes-per-file
 

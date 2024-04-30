@@ -8,6 +8,7 @@ reports/
 coverage/
 .vscode/settings.json
 /temp
+/generic-type-guard.*
 
 lerna-debug.log
 yarn-error.log

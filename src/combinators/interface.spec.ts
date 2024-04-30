@@ -1,10 +1,10 @@
-import * as o from '../objects';
-import * as p from '../primitives';
+import * as o from '../objects.js';
+import * as p from '../primitives.js';
 import { expect } from 'chai';
-import { FullDummyClass } from '../dummy_classes.spec';
-import { IsInterface } from './interface';
-import type { LargeInterface } from '../dummy_classes.spec';
-import type { TypeGuard } from '../guards';
+import { FullDummyClass } from '../dummy_classes.spec.js';
+import { IsInterface } from './interface.js';
+import type { LargeInterface } from '../dummy_classes.spec.js';
+import type { TypeGuard } from '../guards.js';
 
 /* eslint-disable @typescript-eslint/no-magic-numbers */
 

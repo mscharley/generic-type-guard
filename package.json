@@ -1,6 +1,7 @@
 {
 	"name": "generic-type-guard",
 	"version": "4.0.3",
+	"type": "module",
 	"publishConfig": {
 		"provenance": true
 	},
@@ -10,24 +11,40 @@
 	"engines": {
 		"node": ">= 16"
 	},
+	"exports": {
+		"./": {
+			"require": {
+				"types": "./generic-type-guard.d.cts",
+				"default": "./generic-type-guard.cjs"
+			},
+			"import": {
+				"types": "./generic-type-guard.d.ts",
+				"default": "./generic-type-guard.js"
+			}
+		}
+	},
 	"scripts": {
-		"build": "rimraf dist && tsc --target es5 && api-extractor run --local --verbose",
-		"prepack": "rimraf dist && tsc --target es5 && api-extractor run --local",
+		"clean": "rimraf dist generic-type-guard.* coverage temp",
+		"build": "npm run build:tsc && npm run build:api && npm run build:esbuild",
+		"build:tsc": "tsc --target es5",
+		"build:api": "api-extractor run --local --verbose && cp generic-type-guard.d.ts generic-type-guard.d.cts",
+		"build:esbuild": "npm run build:esbuild:esm && npm run build:esbuild:cjs",
+		"build:esbuild:cjs": "esbuild dist/index.js --bundle --sourcemap=linked --outfile=generic-type-guard.cjs --platform=node --packages=external",
+		"build:esbuild:esm": "esbuild dist/index.js --bundle --sourcemap=linked --outfile=generic-type-guard.js --platform=neutral --packages=external",
+		"prepack": "npm run clean && npm run build",
 		"test": "npm run lint && npm run mocha && git diff --name-only --exit-code",
 		"test-watch": "nodemon -e ts,json --exec npm run test",
 		"lint": "eslint . --ext .js,.jsx,.ts,.tsx",
 		"lint-fix": "eslint . --fix --ext .js,.jsx,.ts,.tsx",
 		"lint-watch": "nodemon -e ts,json --exec eslint . --ext .js,.jsx,.ts,.tsx",
-		"mocha": "nyc mocha 'src/**/*.spec.ts'",
+		"mocha": "c8 mocha 'src/**/*.spec.ts'",
 		"mocha-watch": "nodemon -e ts,json --exec npm run mocha 'src/**/*.spec.ts'",
 		"stryker": "stryker run",
 		"stryker-watch": "nodemon -e ts,json --exec stryker run",
-		"codecov-local": "nyc report",
-		"codecov-report": "nyc report --reporter=json && codecov -f coverage/*.json -F generic_type_guard",
 		"cs-version": "npm run build && changeset version",
 		"cs-release": "changeset publish"
 	},
-	"nyc": {
+	"c8": {
 		"include": [
 			"src/**/*.ts",
 			"src/**/*.tsx"
@@ -38,9 +55,6 @@
 		"extension": [
 			".ts",
 			".tsx"
-		],
-		"require": [
-			"ts-node/register"
 		],
 		"reporter": [
 			"text-summary",
@@ -85,10 +99,11 @@
 		"@types/chai": "4.3.14",
 		"@types/mocha": "10.0.6",
 		"@types/node": "20.12.7",
+		"c8": "^9.1.0",
 		"chai": "5.1.0",
+		"esbuild": "^0.20.2",
 		"mocha": "10.4.0",
 		"nodemon": "3.1.0",
-		"nyc": "15.1.0",
 		"rimraf": "5.0.5",
 		"source-map-support": "0.5.21",
 		"testdouble": "3.20.2",
