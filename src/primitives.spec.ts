@@ -151,7 +151,7 @@ describe('Primitives', function (this: Mocha.Suite) {
 	});
 
 	it('narrowValue', () => {
-		// eslint-disable-next-line deprecation/deprecation
+		// eslint-disable-next-line @typescript-eslint/no-deprecated
 		const narrow = p.narrowValue<unknown, string, 'foo'>(p.isString, p.isSingletonString('foo'));
 
 		expect(narrow('foo')).to.equal(true);
@@ -266,9 +266,9 @@ describe('Primitives', function (this: Mocha.Suite) {
 	});
 
 	it('never', () => {
-		// eslint-disable-next-line @typescript-eslint/ban-types
+		// eslint-disable-next-line @typescript-eslint/no-unsafe-function-type
 		const fn: Function = p.isNever;
-		// eslint-disable-next-line @typescript-eslint/no-unsafe-return
+		// eslint-disable-next-line @typescript-eslint/no-unsafe-return, @typescript-eslint/no-unsafe-call
 		expect(() => fn('Oops!')).to.throw('Unexpected value when expecting never: Oops!');
 	});
 });
