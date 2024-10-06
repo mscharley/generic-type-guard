@@ -301,5 +301,6 @@ export const isUnknown = isAny;
  * @public
  */
 export const isNever = (n: never): never => {
+	// eslint-disable-next-line @typescript-eslint/restrict-template-expressions
 	throw Error(`Unexpected value when expecting never: ${n}`);
 };
