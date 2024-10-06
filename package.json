@@ -91,8 +91,8 @@
 	"devDependencies": {
 		"@changesets/cli": "2.27.8",
 		"@microsoft/api-extractor": "7.47.9",
-		"@mscharley/eslint-config": "3.1.4",
-		"@mscharley/prettier-config": "3.0.5",
+		"@mscharley/eslint-config": "3.1.5",
+		"@mscharley/prettier-config": "3.0.6",
 		"@stryker-mutator/core": "8.6.0",
 		"@stryker-mutator/mocha-runner": "8.6.0",
 		"@stryker-mutator/typescript-checker": "8.6.0",
