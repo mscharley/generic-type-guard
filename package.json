@@ -89,7 +89,7 @@
 		"url": "https://github.com/sponsors/mscharley"
 	},
 	"devDependencies": {
-		"@changesets/cli": "2.27.8",
+		"@changesets/cli": "2.27.9",
 		"@microsoft/api-extractor": "7.47.9",
 		"@mscharley/eslint-config": "4.0.0",
 		"@mscharley/prettier-config": "3.0.6",
