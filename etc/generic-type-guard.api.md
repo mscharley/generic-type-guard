@@ -38,7 +38,7 @@ export const hasOnlyProperties: <V extends object>(props: MappedTypeGuard<V>) =>
 export const hasOptionalProperties: <V extends object>(props: MappedTypeGuard<V>) => PartialTypeGuard<object, Partial<V>>;
 
 // @public
-export const hasOptionalProperty: <K extends string, V>(property: K, value: TypeGuard<V>) => PartialTypeGuard<object, { [prop in K]?: V | undefined; }>;
+export const hasOptionalProperty: <K extends string, V>(property: K, value: TypeGuard<V>) => PartialTypeGuard<object, { [prop in K]?: V; }>;
 
 // @public
 export const hasProperties: <V extends object>(props: MappedTypeGuard<V>) => PartialTypeGuard<object, V>;
@@ -168,7 +168,7 @@ export const isOptional: <T>(tgt: TypeGuard<T>) => TypeGuard<T | undefined>;
 export const isRecord: <K extends string, V>(property: K, value: TypeGuard<V>) => TypeGuard<Record<K, V>>;
 
 // @public
-export const isSet: <T = unknown>(obj: T) => obj is Diff<T, null | undefined>;
+export const isSet: <T = unknown>(obj: T) => obj is Diff<T, undefined | null>;
 
 // @public
 export const isSetOf: <T>(tg: TypeGuard<T>) => (o: unknown) => o is Set<T>;
