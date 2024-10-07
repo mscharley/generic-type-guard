@@ -2,14 +2,6 @@
 
 [![npm](https://img.shields.io/npm/v/generic-type-guard.svg)](https://www.npmjs.com/package/generic-type-guard)
 
-**Source:** [https://github.com/mscharley/generic-type-guard](https://github.com/mscharley/generic-type-guard)  
-**Author:** Matthew Scharley  
-**Contributors:** [See contributors on GitHub][gh-contrib]  
-**Bugs/Support:** [Github Issues][gh-issues]  
-**Copyright:** 2022  
-**License:** [MIT license][license]  
-**Status:** Active
-
 ## Synopsis
 
 This library is an attempt to manage creating type guards in a sensible way, making them
