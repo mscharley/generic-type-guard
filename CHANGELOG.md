@@ -1,5 +1,11 @@
 # generic-type-guard
 
+## 5.0.0
+
+### Major Changes
+
+- 3a6a071: Updated license to MPL-2.0 from MIT
+
 ## 4.1.0
 
 ### Minor Changes
