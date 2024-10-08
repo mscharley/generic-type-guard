@@ -40,7 +40,7 @@
 		"stryker": "stryker run",
 		"stryker-watch": "nodemon -e ts,json --exec stryker run",
 		"cs-version": "turbo build && changeset version",
-		"cs-release": "pnpm publish -r"
+		"cs-release": "changeset publish"
 	},
 	"c8": {
 		"include": [
