@@ -9,7 +9,7 @@
 	"main": "dist/index.js",
 	"types": "dist/generic-type-guard.d.ts",
 	"engines": {
-		"node": ">= 16"
+		"node": ">= 18"
 	},
 	"exports": {
 		".": {
@@ -24,25 +24,23 @@
 		}
 	},
 	"scripts": {
-		"clean": "rimraf dist generic-type-guard.* coverage temp",
-		"build": "npm run build:tsc && npm run build:api && npm run build:esbuild",
+		"clean": "rimraf dist generic-type-guard.* coverage temp .turbo/cache",
 		"build:tsc": "tsc --target es5",
 		"build:api": "api-extractor run --local --verbose && cp generic-type-guard.d.ts generic-type-guard.d.cts",
-		"build:esbuild": "npm run build:esbuild:esm && npm run build:esbuild:cjs",
 		"build:esbuild:cjs": "esbuild dist/index.js --bundle --sourcemap=linked --outfile=generic-type-guard.cjs --platform=node --packages=external",
 		"build:esbuild:esm": "esbuild dist/index.js --bundle --sourcemap=linked --outfile=generic-type-guard.js --platform=neutral --packages=external",
-		"prepack": "npm run clean && npm run build",
-		"test": "npm run lint && npm run mocha && git diff --name-only --exit-code",
-		"test-watch": "nodemon -e ts,json --exec npm run test",
+		"prepack": "turbo clean && turbo build",
+		"test": "git diff --name-only --exit-code",
+		"test-watch": "nodemon -e ts,json --exec turbo test",
 		"lint": "eslint",
 		"lint-fix": "eslint",
 		"lint-watch": "nodemon -e ts,json --exec eslint",
 		"mocha": "c8 mocha 'src/**/*.spec.ts'",
-		"mocha-watch": "nodemon -e ts,json --exec npm run mocha 'src/**/*.spec.ts'",
+		"mocha-watch": "nodemon -e ts,json --exec turbo mocha",
 		"stryker": "stryker run",
 		"stryker-watch": "nodemon -e ts,json --exec stryker run",
-		"cs-version": "npm run build && changeset version",
-		"cs-release": "changeset publish"
+		"cs-version": "turbo build && changeset version",
+		"cs-release": "pnpm publish -r"
 	},
 	"c8": {
 		"include": [
@@ -109,7 +107,8 @@
 		"source-map-support": "0.5.21",
 		"testdouble": "3.20.2",
 		"ts-node": "10.9.2",
+		"turbo": "^2.1.3",
 		"typescript": "5.6.2"
 	},
-	"packageManager": "npm@10.9.0+sha512.65a9c38a8172948f617a53619762cd77e12b9950fe1f9239debcb8d62c652f2081824b986fee7c0af6c0a7df615becebe4bf56e17ec27214a87aa29d9e038b4b"
+	"packageManager": "pnpm@9.12.1+sha512.e5a7e52a4183a02d5931057f7a0dbff9d5e9ce3161e33fa68ae392125b79282a8a8a470a51dfc8a0ed86221442eb2fb57019b0990ed24fab519bf0e1bc5ccfc4"
 }

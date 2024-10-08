@@ -3,6 +3,7 @@ dist/
 *.tar.gz
 *.tgz
 .stryker-tmp/
+.turbo/
 reports/
 .nyc_output/
 coverage/

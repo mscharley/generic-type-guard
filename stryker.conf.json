@@ -1,11 +1,12 @@
 {
   "$schema": "./node_modules/@stryker-mutator/core/schema/stryker-schema.json",
-  "packageManager": "npm",
+  "packageManager": "pnpm",
+  "plugins": ["@stryker-mutator/mocha-runner", "@stryker-mutator/typescript-checker"],
   "reporters": [
     "html",
     "clear-text"
   ],
-  "buildCommand": "npm run build",
+  "buildCommand": "turbo build",
   "testRunner": "mocha",
   "checkers": ["typescript"],
   "tsconfigFile": "tsconfig.stryker.json",
