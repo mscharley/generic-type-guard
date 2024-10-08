@@ -6,8 +6,8 @@
 		"provenance": true
 	},
 	"description": "Generic type guards for TypeScript",
-	"main": "dist/index.js",
-	"types": "dist/generic-type-guard.d.ts",
+	"main": "./generic-type-guard.cjs",
+	"types": "./generic-type-guard.d.cts",
 	"engines": {
 		"node": ">= 18"
 	},

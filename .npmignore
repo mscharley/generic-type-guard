@@ -12,3 +12,13 @@ stryker.conf.js
 coverage/
 reports/
 *.tgz
+.turbo
+turbo.json
+.github
+.changeset
+.prettier*
+*.config.js
+*.tgz
+api-extractor.json
+renovate.json
+temp/
