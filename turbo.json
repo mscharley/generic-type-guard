@@ -1,0 +1,21 @@
+{
+	"$schema": "https://turbo.build/schema.json",
+	"globalPassThroughEnv": ["ASDF_*"],
+	"tasks": {
+		"build": {
+			"dependsOn": ["build:tsc", "build:api", "build:esbuild:cjs", "build:esbuild:esm"]
+		},
+		"build:api": {
+			"dependsOn": ["build:tsc"]
+		},
+		"build:esbuild:cjs": {
+			"dependsOn": ["build:tsc"]
+		},
+		"build:esbuild:esm": {
+			"dependsOn": ["build:tsc"]
+		},
+		"test": {
+			"dependsOn": ["lint", "mocha"]
+		}
+	}
+}
