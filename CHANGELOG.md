@@ -1,5 +1,11 @@
 # generic-type-guard
 
+## 5.0.1
+
+### Patch Changes
+
+- ae61593: Fixed some deployment issues
+
 ## 5.0.0
 
 ### Major Changes
