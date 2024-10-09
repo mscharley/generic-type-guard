@@ -124,4 +124,4 @@ type Foo = tg.GuardedType<typeof isFoo>;
 [gh-contrib]: https://github.com/mscharley/generic-type-guard/graphs/contributors
 [gh-issues]: https://github.com/mscharley/generic-type-guard/issues
 [license]: https://github.com/mscharley/generic-type-guard/blob/master/LICENSE
-[example-usage]: https://github.com/mscharley/generic-type-guard/blob/master/packages/generic-type-guard/src/examples.spec.ts
+[example-usage]: https://github.com/mscharley/generic-type-guard/blob/main/src/examples.spec.ts
