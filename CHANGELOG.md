@@ -1,5 +1,11 @@
 # generic-type-guard
 
+## 5.0.2
+
+### Patch Changes
+
+- a3167d2: Fix a broken link in the readme
+
 ## 5.0.1
 
 ### Patch Changes
