@@ -18,8 +18,8 @@ importers:
         specifier: 4.0.3
         version: 4.0.3(@stylistic/eslint-plugin@2.9.0(eslint@9.12.0)(typescript@5.6.2))(@types/eslint@9.6.1)(eslint-import-resolver-typescript@3.6.3)(eslint-plugin-import@2.31.0)(eslint-plugin-jest@28.8.3(@typescript-eslint/eslint-plugin@8.8.1(@typescript-eslint/parser@8.8.1(eslint@9.12.0)(typescript@5.6.2))(eslint@9.12.0)(typescript@5.6.2))(eslint@9.12.0)(typescript@5.6.2))(eslint-plugin-n@17.10.3(eslint@9.12.0))(eslint-plugin-react-hooks@5.1.0-beta-26f2496093-20240514(eslint@9.12.0))(eslint-plugin-react@7.37.1(eslint@9.12.0))(eslint@9.12.0)(typescript-eslint@8.8.1(eslint@9.12.0)(typescript@5.6.2))(typescript@5.6.2)
       '@mscharley/prettier-config':
-        specifier: 3.0.6
-        version: 3.0.6(prettier@3.3.3)
+        specifier: 3.0.7
+        version: 3.0.7(prettier@3.3.3)
       '@stryker-mutator/core':
         specifier: 8.6.0
         version: 8.6.0
@@ -617,8 +617,8 @@ packages:
       typescript: ^5.6.2
       typescript-eslint: ^8.8.0
 
-  '@mscharley/prettier-config@3.0.6':
-    resolution: {integrity: sha512-CYXGJpo6SwUPKFdakdNkiGt0FHVstBx7hXkJkPr2GzoMW74keZMuelxB2lXb07Dw7lwkr7L8xb33HpUnrfrkJQ==}
+  '@mscharley/prettier-config@3.0.7':
+    resolution: {integrity: sha512-FDURXpLxVWnjekNjTaKi3j0gfE0HyxYGZurpl0GDMHjJuMBqudLQxl4Z2A30VAgXnouyYW3dpDE3VXnFGVNQnQ==}
     peerDependencies:
       prettier: ^3.3.3
 
@@ -3409,7 +3409,7 @@ snapshots:
       typescript: 5.6.2
       typescript-eslint: 8.8.1(eslint@9.12.0)(typescript@5.6.2)
 
-  '@mscharley/prettier-config@3.0.6(prettier@3.3.3)':
+  '@mscharley/prettier-config@3.0.7(prettier@3.3.3)':
     dependencies:
       prettier: 3.3.3
 
