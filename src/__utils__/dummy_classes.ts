@@ -4,8 +4,6 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 
-/* eslint-disable @typescript-eslint/no-magic-numbers */
-
 export interface LargeInterface {
 	foo: string;
 	bar: number;

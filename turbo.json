@@ -15,7 +15,7 @@
 			"dependsOn": ["build:tsc"]
 		},
 		"test": {
-			"dependsOn": ["lint", "mocha"]
+			"dependsOn": ["lint", "jest"]
 		}
 	}
 }
