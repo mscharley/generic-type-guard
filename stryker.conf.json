@@ -1,22 +1,16 @@
 {
-  "$schema": "./node_modules/@stryker-mutator/core/schema/stryker-schema.json",
-  "packageManager": "pnpm",
-  "plugins": ["@stryker-mutator/mocha-runner", "@stryker-mutator/typescript-checker"],
-  "reporters": [
-    "html",
-    "clear-text"
-  ],
-  "buildCommand": "turbo build",
-  "testRunner": "mocha",
-  "checkers": ["typescript"],
-  "tsconfigFile": "tsconfig.stryker.json",
-  "coverageAnalysis": "perTest",
-  "mochaOptions": {
-    "spec": [ "dist/**/*.spec.js" ]
-  },
-  "thresholds": { "high": 100, "low": 99, "break": 95 },
-  "mutate": [
-    "src/**/*.ts",
-    "!src/**/*.spec.ts"
-  ]
+	"$schema": "./node_modules/@stryker-mutator/core/schema/stryker-schema.json",
+	"packageManager": "pnpm",
+	"plugins": ["@stryker-mutator/jest-runner", "@stryker-mutator/typescript-checker"],
+	"reporters": ["html", "clear-text", "progress"],
+	"testRunner": "jest",
+	"checkers": ["typescript"],
+	"tsconfigFile": "tsconfig.json",
+	"coverageAnalysis": "perTest",
+	"thresholds": { "high": 100, "low": 99, "break": 95 },
+	"mutate": [
+		"{src,lib}/**/!(*.+(s|S)pec|*.+(t|T)est).+(cjs|mjs|js|ts|jsx|tsx|html|vue)",
+		"!{src,lib}/**/+(__tests__|__utils__|__mocks__)/**/*.+(cjs|mjs|js|cts|mts|ts|jsx|tsx|html|vue)",
+		"!src/index.ts"
+	]
 }
