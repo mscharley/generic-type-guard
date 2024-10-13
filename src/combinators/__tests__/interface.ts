@@ -4,22 +4,18 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 
-import * as o from '../objects.js';
-import * as p from '../primitives.js';
-import { expect } from 'chai';
-import { FullDummyClass } from '../dummy_classes.spec.js';
-import { IsInterface } from './interface.js';
-import type { LargeInterface } from '../dummy_classes.spec.js';
-import type { TypeGuard } from '../guards.js';
-
-/* eslint-disable @typescript-eslint/no-magic-numbers */
+import * as o from '../../objects.js';
+import * as p from '../../primitives.js';
+import { describe, expect, it } from '@jest/globals';
+import { FullDummyClass } from '../../__utils__/dummy_classes.js';
+import { IsInterface } from '../interface.js';
+import type { LargeInterface } from '../../__utils__/dummy_classes.js';
+import type { TypeGuard } from '../../guards.js';
 
 /**
  * Compilation tests for the IsInterface class.
  */
-describe('Interface', function (this: Mocha.Suite) {
-	this.slow(5).timeout(3000);
-
+describe('interface', () => {
 	// This class is a wrapper around isUnion, most of the real tests happen there.
 	it('interface', () => {
 		const isSimpleInterface = new IsInterface()
@@ -28,10 +24,10 @@ describe('Interface', function (this: Mocha.Suite) {
 			.withProperty('b', p.isBoolean)
 			.with(o.hasProperty('n', p.isNull))
 			.get();
-		expect(isSimpleInterface({ str: 'foo', num: 10, b: false, n: null })).to.equal(true);
-		expect(isSimpleInterface({ str: 'foo', num: 10, n: null })).to.equal(false);
-		expect(isSimpleInterface({ str: 'foo', num: 'foo', b: false, n: null })).to.equal(false);
-		expect(isSimpleInterface(10)).to.equal(false);
+		expect(isSimpleInterface({ str: 'foo', num: 10, b: false, n: null })).toBe(true);
+		expect(isSimpleInterface({ str: 'foo', num: 10, n: null })).toBe(false);
+		expect(isSimpleInterface({ str: 'foo', num: 'foo', b: false, n: null })).toBe(false);
+		expect(isSimpleInterface(10)).toBe(false);
 	});
 
 	it('optionalInterface', () => {
@@ -41,10 +37,10 @@ describe('Interface', function (this: Mocha.Suite) {
 			.withOptionalProperty('b', p.isBoolean)
 			.with(o.hasOptionalProperty('n', p.isNull))
 			.get();
-		expect(isSimpleInterface({ str: 'foo', num: 10, b: false, n: null })).to.equal(true);
-		expect(isSimpleInterface({ str: 'foo', num: 10 })).to.equal(true);
-		expect(isSimpleInterface({ str: 'foo', num: 'foo', b: false, n: null })).to.equal(false);
-		expect(isSimpleInterface(10)).to.equal(false);
+		expect(isSimpleInterface({ str: 'foo', num: 10, b: false, n: null })).toBe(true);
+		expect(isSimpleInterface({ str: 'foo', num: 10 })).toBe(true);
+		expect(isSimpleInterface({ str: 'foo', num: 'foo', b: false, n: null })).toBe(false);
+		expect(isSimpleInterface(10)).toBe(false);
 	});
 
 	it('classImplementsInterface', () => {
@@ -53,7 +49,7 @@ describe('Interface', function (this: Mocha.Suite) {
 			.withProperty('bar', p.isNumber)
 			.withProperty('active', p.isBoolean)
 			.get();
-		expect(isLargeInterface(new FullDummyClass())).to.equal(true);
+		expect(isLargeInterface(new FullDummyClass())).toBe(true);
 	});
 
 	it('stringIndex', () => {
@@ -61,9 +57,9 @@ describe('Interface', function (this: Mocha.Suite) {
 		const isLooseObject: TypeGuard<Record<string, number>> = new IsInterface()
 			.withStringIndexSignature(p.isNumber, false)
 			.get();
-		expect(isObject({ one: 1, two: 2, three: 3 })).to.equal(true, 'filled object');
-		expect(isObject({})).to.equal(false, 'strict empty object');
-		expect(isLooseObject({})).to.equal(true, 'loose empty object');
+		expect(isObject({ one: 1, two: 2, three: 3 })).toBe(true);
+		expect(isObject({})).toBe(false);
+		expect(isLooseObject({})).toBe(true);
 	});
 
 	it('numberIndex', () => {
@@ -73,9 +69,9 @@ describe('Interface', function (this: Mocha.Suite) {
 		const isLooseArrayLike: TypeGuard<Record<number, string>> = new IsInterface()
 			.withNumericIndexSignature(p.isString, false)
 			.get();
-		expect(isArrayLike(['one', 'two', 'three'])).to.equal(true, 'filled array');
-		expect(isArrayLike([])).to.equal(false, 'strict empty array');
-		expect(isLooseArrayLike([])).to.equal(true, 'loose empty array');
+		expect(isArrayLike(['one', 'two', 'three'])).toBe(true);
+		expect(isArrayLike([])).toBe(false);
+		expect(isLooseArrayLike([])).toBe(true);
 	});
 
 	it('combinedIndex', () => {
@@ -95,19 +91,19 @@ describe('Interface', function (this: Mocha.Suite) {
 			[prop: string]: string;
 			0: string;
 		}> = new IsInterface().withProperty('0', p.isString).withStringIndexSignature(p.isString, false).get();
-		expect(isWeirdArray({ 0: 'foo', foo: 'bar' })).to.equal(true);
-		expect(isWeirdArray({ foo: 'bar' })).to.equal(false);
-		expect(isLooselyWeirdArray({ foo: 'bar' })).to.equal(true);
-		expect(isWeirdObject({ foo: 'bar', 0: 'baz' })).to.equal(true);
-		expect(isWeirdObject({ 0: 'baz' })).to.equal(false);
-		expect(isLooselyWeirdObject({ 0: 'baz' })).to.equal(true);
+		expect(isWeirdArray({ 0: 'foo', foo: 'bar' })).toBe(true);
+		expect(isWeirdArray({ foo: 'bar' })).toBe(false);
+		expect(isLooselyWeirdArray({ foo: 'bar' })).toBe(true);
+		expect(isWeirdObject({ foo: 'bar', 0: 'baz' })).toBe(true);
+		expect(isWeirdObject({ 0: 'baz' })).toBe(false);
+		expect(isLooselyWeirdObject({ 0: 'baz' })).toBe(true);
 	});
 
 	it('emptyInterface', () => {
 		const isEmptyInterface: TypeGuard<object> = new IsInterface().get();
-		expect(isEmptyInterface({})).to.equal(true);
-		expect(isEmptyInterface({ foo: 'bar' })).to.equal(true);
-		expect(isEmptyInterface(10)).to.equal(false);
+		expect(isEmptyInterface({})).toBe(true);
+		expect(isEmptyInterface({ foo: 'bar' })).toBe(true);
+		expect(isEmptyInterface(10)).toBe(false);
 	});
 
 	it('withOptionalProperties', () => {
@@ -121,10 +117,10 @@ describe('Interface', function (this: Mocha.Suite) {
 				n: p.isNull,
 			})
 			.get();
-		expect(isSimpleInterface({ str: 'foo', num: 10, b: false, n: null })).to.equal(true);
-		expect(isSimpleInterface({ str: 'foo', num: 'foo', b: false, n: null })).to.equal(false);
-		expect(isSimpleInterface({ b: false, n: null })).to.equal(true);
-		expect(isSimpleInterface(10)).to.equal(false);
+		expect(isSimpleInterface({ str: 'foo', num: 10, b: false, n: null })).toBe(true);
+		expect(isSimpleInterface({ str: 'foo', num: 'foo', b: false, n: null })).toBe(false);
+		expect(isSimpleInterface({ b: false, n: null })).toBe(true);
+		expect(isSimpleInterface(10)).toBe(false);
 	});
 
 	it('withProperties', () => {
@@ -138,9 +134,9 @@ describe('Interface', function (this: Mocha.Suite) {
 				str: p.isString,
 			})
 			.get();
-		expect(isSimpleInterface({ str: 'foo', num: 10, b: false, n: null })).to.equal(true);
-		expect(isSimpleInterface({ str: 'foo', num: 'foo', b: false, n: null })).to.equal(false);
-		expect(isSimpleInterface({ str: 'foo', num: 10, b: false })).to.equal(false);
-		expect(isSimpleInterface(10)).to.equal(false);
+		expect(isSimpleInterface({ str: 'foo', num: 10, b: false, n: null })).toBe(true);
+		expect(isSimpleInterface({ str: 'foo', num: 'foo', b: false, n: null })).toBe(false);
+		expect(isSimpleInterface({ str: 'foo', num: 10, b: false })).toBe(false);
+		expect(isSimpleInterface(10)).toBe(false);
 	});
 });

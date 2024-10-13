@@ -1,6 +1,0 @@
-require:
-  - source-map-support/register.js
-loader:
-  - ts-node/esm
-watch-extensions:
-  - ts

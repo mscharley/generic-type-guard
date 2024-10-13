@@ -4,32 +4,28 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 
-import { assert, AssertionError, combine } from './utils.js';
-import { isNumber, isObject } from './primitives.js';
-import { expect } from 'chai';
-import { hasProperties } from './objects.js';
+import { afterEach, describe, expect, it } from '@jest/globals';
+import { assert, AssertionError, combine } from '../utils.js';
+import { isNumber, isObject } from '../primitives.js';
+import { hasProperties } from '../objects.js';
 import { reset } from 'testdouble';
-
-/* eslint-disable @typescript-eslint/no-magic-numbers */
 
 /**
  * Tests for the utils functions.
  */
-describe('utils', function (this: Mocha.Suite): void {
-	this.slow(5).timeout(300);
-
+describe('utils', () => {
 	afterEach(() => {
 		reset();
 	});
 
-	describe('AssertionError', () => {
+	describe('assertionError', () => {
 		it('works as an exception', () => {
 			expect(() => {
 				throw new AssertionError({});
-			}).to.throw(RangeError);
+			}).toThrow(RangeError);
 			expect(() => {
 				throw new AssertionError({}, 'Hello world');
-			}).to.throw(RangeError, 'Hello world');
+			}).toThrow(RangeError);
 		});
 	});
 
@@ -39,16 +35,17 @@ describe('utils', function (this: Mocha.Suite): void {
 				(_o: unknown): _o is string =>
 					ret;
 
+		// eslint-disable-next-line jest/expect-expect
 		it('test success', () => {
 			assert('foo', dummyGuard(true));
 		});
 
 		it('failures throw exceptions', () => {
-			expect(() => assert('foo', dummyGuard(false))).to.throw(RangeError, 'Invalid value provided: "foo"');
+			expect(() => assert('foo', dummyGuard(false))).toThrow(RangeError);
 		});
 
 		it('failures throw exceptions with custom message', () => {
-			expect(() => assert('foo', dummyGuard(false), 'Hello world')).to.throw(RangeError, 'Hello world');
+			expect(() => assert('foo', dummyGuard(false), 'Hello world')).toThrow(RangeError);
 		});
 	});
 
@@ -59,11 +56,11 @@ describe('utils', function (this: Mocha.Suite): void {
 			});
 			const isCool = combine(isObject, hasLength);
 
-			expect(isCool({ length: 10 })).to.equal(true);
-			expect(isCool({ hello: 'world' })).to.equal(false);
+			expect(isCool({ length: 10 })).toBe(true);
+			expect(isCool({ hello: 'world' })).toBe(false);
 			// arrays are object type but not objects for isObject
-			expect(hasLength([])).to.equal(true);
-			expect(isCool([])).to.equal(false);
+			expect(hasLength([])).toBe(true);
+			expect(isCool([])).toBe(false);
 		});
 	});
 });

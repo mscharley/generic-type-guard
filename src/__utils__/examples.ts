@@ -4,7 +4,7 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 
-import * as tg from './index.js';
+import * as tg from '../index.js';
 
 /* eslint-disable no-console */
 /* eslint-disable @typescript-eslint/no-type-alias */

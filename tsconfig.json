@@ -8,6 +8,7 @@
 		"declaration": true,
 		"declarationMap": true,
 		"typeRoots": ["./types", "./node_modules/@types", "../../node_modules/@types"],
+		"types": [],
 		"strict": true,
 		"emitDecoratorMetadata": true,
 		"experimentalDecorators": true,

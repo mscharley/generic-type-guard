@@ -6,7 +6,6 @@ dist/
 .turbo/
 reports/
 .nyc_output/
-coverage/
 .vscode/settings.json
 /temp
 /generic-type-guard.*
