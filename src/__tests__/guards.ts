@@ -19,6 +19,7 @@ describe('guards', () => {
 	});
 
 	it('typeGuardsArePartialGuards', () => {
+		// eslint-disable-next-line jest/no-conditional-in-test
 		const fn: g.TypeGuard<'Hello'> = (s): s is 'Hello' => typeof s === 'string' && s === 'Hello';
 		const fn2: g.PartialTypeGuard<unknown, 'Hello'> = fn;
 
