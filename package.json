@@ -65,7 +65,7 @@
 		"@changesets/cli": "2.27.9",
 		"@jest/globals": "29.7.0",
 		"@microsoft/api-extractor": "7.47.9",
-		"@mscharley/eslint-config": "4.0.4",
+		"@mscharley/eslint-config": "4.0.6",
 		"@mscharley/prettier-config": "3.0.7",
 		"@stryker-mutator/core": "8.6.0",
 		"@stryker-mutator/jest-runner": "8.6.0",
