@@ -41,30 +41,6 @@
 		"cs-version": "turbo build && changeset version",
 		"cs-release": "changeset publish"
 	},
-	"c8": {
-		"include": [
-			"src/**/*.ts",
-			"src/**/*.tsx"
-		],
-		"exclude": [
-			"**/*.spec.ts"
-		],
-		"extension": [
-			".ts",
-			".tsx"
-		],
-		"reporter": [
-			"text-summary",
-			"html"
-		],
-		"sourceMap": true,
-		"instrument": true,
-		"checkCoverage": true,
-		"lines": 100,
-		"functions": 100,
-		"branches": 100,
-		"statements": 100
-	},
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/mscharley/generic-type-guard.git"
