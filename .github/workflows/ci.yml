@@ -21,3 +21,5 @@ jobs:
 
   stryker:
     uses: mscharley/.github/.github/workflows/stryker.yml@main
+    with:
+      node-version-file: .tool-versions
