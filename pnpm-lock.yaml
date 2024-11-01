@@ -33,8 +33,8 @@ importers:
         specifier: 8.6.0
         version: 8.6.0(@stryker-mutator/core@8.6.0)(typescript@5.6.3)
       '@swc/jest':
-        specifier: 0.2.36
-        version: 0.2.36(@swc/core@1.7.35)
+        specifier: 0.2.37
+        version: 0.2.37(@swc/core@1.7.35)
       '@types/node':
         specifier: 20.17.0
         version: 20.17.0
@@ -912,8 +912,8 @@ packages:
   '@swc/counter@0.1.3':
     resolution: {integrity: sha512-e2BR4lsJkkRlKZ/qCHPw9ZaSxc0MVUd7gtbtaB7aMvHeJVYe8sOB8DBZkP2DtISHGSku9sCK6T6cnY0CtXrOCQ==}
 
-  '@swc/jest@0.2.36':
-    resolution: {integrity: sha512-8X80dp81ugxs4a11z1ka43FPhP+/e+mJNXJSxiNYk8gIX/jPBtY4gQTrKu/KIoco8bzKuPI5lUxjfLiGsfvnlw==}
+  '@swc/jest@0.2.37':
+    resolution: {integrity: sha512-CR2BHhmXKGxTiFr21DYPRHQunLkX3mNIFGFkxBGji6r9uyIR5zftTOVYj1e0sFNMV2H7mf/+vpaglqaryBtqfQ==}
     engines: {npm: '>= 7.0.0'}
     peerDependencies:
       '@swc/core': '*'
@@ -4406,7 +4406,7 @@ snapshots:
 
   '@swc/counter@0.1.3': {}
 
-  '@swc/jest@0.2.36(@swc/core@1.7.35)':
+  '@swc/jest@0.2.37(@swc/core@1.7.35)':
     dependencies:
       '@jest/create-cache-key-function': 29.7.0
       '@swc/core': 1.7.35
