@@ -33,7 +33,7 @@ export interface InterfaceBuilder<T extends object> {
 	 * @param key - The string key of the property.
 	 * @param ptv - The type guard for this property.
 	 */
-	withProperty: <K extends string, V>(key: K, ptv: TypeGuard<V>) => InterfaceBuilder<T & { [prop in K]: V }>;
+	withProperty: <K extends string, V>(key: K, ptv: TypeGuard<V>) => InterfaceBuilder<T & Record<K, V>>;
 
 	/**
 	 * Add a single optional property to the interface.
@@ -41,7 +41,7 @@ export interface InterfaceBuilder<T extends object> {
 	 * @param key - The string key of the property.
 	 * @param ptv - The type guard for this property.
 	 */
-	withOptionalProperty: <K extends string, V>(key: K, ptv: TypeGuard<V>) => InterfaceBuilder<T & { [prop in K]?: V }>;
+	withOptionalProperty: <K extends string, V>(key: K, ptv: TypeGuard<V>) => InterfaceBuilder<T & Partial<Record<K, V>>>;
 
 	/**
 	 * Add a string index signature to the interface.
@@ -101,7 +101,7 @@ class InterfaceStep<T extends object> implements InterfaceBuilder<T> {
 	public withOptionalProperty<K extends string, V>(
 		key: K,
 		ptv: TypeGuard<V>,
-	): InterfaceBuilder<T & { [prop in K]?: V }> {
+	): InterfaceBuilder<T & Partial<Record<K, V>>> {
 		return new InterfaceStep(isIntersection(this.ptt, o.hasOptionalProperty(key, ptv)));
 	}
 
@@ -143,7 +143,7 @@ export class IsInterface implements InterfaceBuilder<object> {
 	public withOptionalProperty<K extends string, V>(
 		key: K,
 		ptv: TypeGuard<V>,
-	): InterfaceBuilder<object & { [prop in K]?: V }> {
+	): InterfaceBuilder<object & Partial<Record<K, V>>> {
 		return new InterfaceStep(o.hasOptionalProperty(key, ptv));
 	}
 

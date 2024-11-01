@@ -15,7 +15,7 @@ import { isObject } from './primitives.js';
  */
 export const hasProperty
 	= <K extends string, V>(property: K, value: TypeGuard<V>): PartialTypeGuard<object, Record<K, V>> =>
-		(o: object): o is { [prop in K]: V } =>
+		(o: object): o is Record<K, V> =>
 		// If the property exists and conforms to the value type guard.
 			value((o as Record<string, unknown>)[property]);
 
@@ -25,8 +25,8 @@ export const hasProperty
  * @public
  */
 export const hasOptionalProperty
-	= <K extends string, V>(property: K, value: TypeGuard<V>): PartialTypeGuard<object, { [prop in K]?: V }> =>
-		(o: object): o is { [prop in K]: V } =>
+	= <K extends string, V>(property: K, value: TypeGuard<V>): PartialTypeGuard<object, Partial<Record<K, V>>> =>
+		(o: object): o is Partial<Record<K, V>> =>
 			!(property in o)
 			// If the property exists and conforms to the value type guard.
 			|| value((o as Record<string, unknown>)[property]);
@@ -40,7 +40,7 @@ export const hasOptionalProperty
  */
 export const isRecord
 	= <K extends string, V>(property: K, value: TypeGuard<V>): TypeGuard<Record<K, V>> =>
-		(o: unknown): o is { [prop in K]: V } =>
+		(o: unknown): o is Record<K, V> =>
 			isObject(o) && hasProperty(property, value)(o);
 
 /**

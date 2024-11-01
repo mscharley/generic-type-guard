@@ -1,6 +1,7 @@
 {
 	"$schema": "https://turbo.build/schema.json",
 	"globalPassThroughEnv": ["ASDF_*"],
+	"daemon": false,
 	"tasks": {
 		"build": {
 			"dependsOn": ["build:tsc", "build:api", "build:esbuild:cjs", "build:esbuild:esm"]
