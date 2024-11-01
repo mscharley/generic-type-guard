@@ -38,7 +38,7 @@ export const hasOnlyProperties: <V extends object>(props: MappedTypeGuard<V>) =>
 export const hasOptionalProperties: <V extends object>(props: MappedTypeGuard<V>) => PartialTypeGuard<object, Partial<V>>;
 
 // @public
-export const hasOptionalProperty: <K extends string, V>(property: K, value: TypeGuard<V>) => PartialTypeGuard<object, { [prop in K]?: V; }>;
+export const hasOptionalProperty: <K extends string, V>(property: K, value: TypeGuard<V>) => PartialTypeGuard<object, Partial<Record<K, V>>>;
 
 // @public
 export const hasProperties: <V extends object>(props: MappedTypeGuard<V>) => PartialTypeGuard<object, V>;
@@ -55,13 +55,9 @@ export interface InterfaceBuilder<T extends object> {
     with: <V extends object>(ptv: PartialTypeGuard<object, V>) => InterfaceBuilder<T & V>;
     withNumericIndexSignature: <V>(value: TypeGuard<V>, enforce?: boolean) => InterfaceBuilder<T & Record<number, V>>;
     withOptionalProperties: <V extends object>(props: MappedTypeGuard<V>) => InterfaceBuilder<T & Partial<V>>;
-    withOptionalProperty: <K extends string, V>(key: K, ptv: TypeGuard<V>) => InterfaceBuilder<T & {
-        [prop in K]?: V;
-    }>;
+    withOptionalProperty: <K extends string, V>(key: K, ptv: TypeGuard<V>) => InterfaceBuilder<T & Partial<Record<K, V>>>;
     withProperties: <V extends object>(props: MappedTypeGuard<V>) => InterfaceBuilder<T & V>;
-    withProperty: <K extends string, V>(key: K, ptv: TypeGuard<V>) => InterfaceBuilder<T & {
-        [prop in K]: V;
-    }>;
+    withProperty: <K extends string, V>(key: K, ptv: TypeGuard<V>) => InterfaceBuilder<T & Record<K, V>>;
     withStringIndexSignature: <V>(value: TypeGuard<V>, enforce?: boolean) => InterfaceBuilder<T & Record<string, V>>;
 }
 
@@ -116,9 +112,7 @@ export class IsInterface implements InterfaceBuilder<object> {
     // (undocumented)
     withOptionalProperties<V extends object>(props: MappedTypeGuard<V>): InterfaceBuilder<object & Partial<V>>;
     // (undocumented)
-    withOptionalProperty<K extends string, V>(key: K, ptv: TypeGuard<V>): InterfaceBuilder<object & {
-        [prop in K]?: V;
-    }>;
+    withOptionalProperty<K extends string, V>(key: K, ptv: TypeGuard<V>): InterfaceBuilder<object & Partial<Record<K, V>>>;
     // (undocumented)
     withProperties<V extends object>(props: MappedTypeGuard<V>): InterfaceBuilder<object & V>;
     // (undocumented)
