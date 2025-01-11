@@ -15,8 +15,8 @@ importers:
         specifier: 29.7.0
         version: 29.7.0
       '@microsoft/api-extractor':
-        specifier: 7.48.1
-        version: 7.48.1(@types/node@20.17.12)
+        specifier: 7.49.0
+        version: 7.49.0(@types/node@20.17.12)
       '@mscharley/eslint-config':
         specifier: 4.1.1
         version: 4.1.1(@typescript-eslint/eslint-plugin@8.12.2(@typescript-eslint/parser@8.12.2(eslint@9.13.0)(typescript@5.7.2))(eslint@9.13.0)(typescript@5.7.2))(@typescript-eslint/parser@8.12.2(eslint@9.13.0)(typescript@5.7.2))(jest@29.7.0(@types/node@20.17.12)(ts-node@10.9.2(@swc/core@1.7.35)(@types/node@20.17.12)(typescript@5.7.2)))(typescript@5.7.2)
@@ -736,8 +736,8 @@ packages:
   '@microsoft/api-extractor-model@7.30.1':
     resolution: {integrity: sha512-CTS2PlASJHxVY8hqHORVb1HdECWOEMcMnM6/kDkPr0RZapAFSIHhg9D4jxuE8g+OWYHtPc10LCpmde5pylTRlA==}
 
-  '@microsoft/api-extractor@7.48.1':
-    resolution: {integrity: sha512-HN9Osa1WxqLM66RaqB5nPAadx+nTIQmY/XtkFdaJvusjG8Tus++QqZtD7KPZDSkhEMGHsYeSyeU8qUzCDUXPjg==}
+  '@microsoft/api-extractor@7.49.0':
+    resolution: {integrity: sha512-X5b462k0/yl8qWdGx3siq5vyI8fTDU9fRnwqTMlGHqFhLxpASmLWA2EU6nft+ZG8cQM2HRZlr4HSo62UqiAnug==}
     hasBin: true
 
   '@microsoft/tsdoc-config@0.17.1':
@@ -3052,11 +3052,6 @@ packages:
       typescript:
         optional: true
 
-  typescript@5.4.2:
-    resolution: {integrity: sha512-+2/g0Fds1ERlP6JsakQQDXjZdZMM+rqpamFZJEKh4kwTIn3iDkgKtby0CeNd5ATNZ4Ry1ax15TMx0W2V+miizQ==}
-    engines: {node: '>=14.17'}
-    hasBin: true
-
   typescript@5.7.2:
     resolution: {integrity: sha512-i5t66RHxDvVN40HfDd1PsEThGNnlMCMT3jMUuoh9/0TaqWevNontacunWyN02LA9/fIbEWlcHZcgTKb9QoaLfg==}
     engines: {node: '>=14.17'}
@@ -4085,7 +4080,7 @@ snapshots:
     transitivePeerDependencies:
       - '@types/node'
 
-  '@microsoft/api-extractor@7.48.1(@types/node@20.17.12)':
+  '@microsoft/api-extractor@7.49.0(@types/node@20.17.12)':
     dependencies:
       '@microsoft/api-extractor-model': 7.30.1(@types/node@20.17.12)
       '@microsoft/tsdoc': 0.15.1
@@ -4099,7 +4094,7 @@ snapshots:
       resolve: 1.22.8
       semver: 7.5.4
       source-map: 0.6.1
-      typescript: 5.4.2
+      typescript: 5.7.2
     transitivePeerDependencies:
       - '@types/node'
 
@@ -6839,8 +6834,6 @@ snapshots:
     transitivePeerDependencies:
       - eslint
       - supports-color
-
-  typescript@5.4.2: {}
 
   typescript@5.7.2: {}
 
