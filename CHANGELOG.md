@@ -1,5 +1,11 @@
 # generic-type-guard
 
+## 5.0.3
+
+### Patch Changes
+
+- f49fb23: fix(deps): update dependency @types/node to v22
+
 ## 5.0.2
 
 ### Patch Changes
