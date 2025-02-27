@@ -1,6 +1,6 @@
 {
 	"name": "generic-type-guard",
-	"version": "5.0.2",
+	"version": "5.0.3",
 	"type": "module",
 	"publishConfig": {
 		"provenance": true
