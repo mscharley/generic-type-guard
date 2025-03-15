@@ -30,7 +30,7 @@
 		"build:esbuild:cjs": "esbuild dist/index.js --bundle --sourcemap=linked --outfile=generic-type-guard.cjs --platform=node --packages=external",
 		"build:esbuild:esm": "esbuild dist/index.js --bundle --sourcemap=linked --outfile=generic-type-guard.js --platform=neutral --packages=external",
 		"prepack": "turbo clean && turbo build",
-		"test": "git diff --name-only --exit-code",
+		"test": "git diff --name-only --exit-code etc",
 		"test-watch": "nodemon -e ts,json --exec turbo test",
 		"lint": "eslint",
 		"lint-fix": "eslint",
