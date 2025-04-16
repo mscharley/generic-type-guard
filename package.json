@@ -56,7 +56,7 @@
 	"bugs": {
 		"url": "https://github.com/mscharley/generic-type-guard/issues"
 	},
-	"homepage": "https://github.com/mscharley/generic-type-guard/tree/master/packages/generic-type-guard#readme",
+	"homepage": "https://github.com/mscharley/generic-type-guard#readme",
 	"funding": {
 		"type": "individual",
 		"url": "https://github.com/sponsors/mscharley"
