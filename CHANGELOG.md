@@ -1,5 +1,11 @@
 # generic-type-guard
 
+## 5.0.5
+
+### Patch Changes
+
+- 4817cfb: docs: fix link to the examples
+
 ## 5.0.4
 
 ### Patch Changes
