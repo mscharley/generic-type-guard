@@ -1,5 +1,11 @@
 # generic-type-guard
 
+## 5.0.4
+
+### Patch Changes
+
+- d145261: Fix package homepage URL in `package.json`
+
 ## 5.0.3
 
 ### Patch Changes
