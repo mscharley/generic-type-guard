@@ -41,7 +41,10 @@ export interface InterfaceBuilder<T extends object> {
 	 * @param key - The string key of the property.
 	 * @param ptv - The type guard for this property.
 	 */
-	withOptionalProperty: <K extends string, V>(key: K, ptv: TypeGuard<V>) => InterfaceBuilder<T & Partial<Record<K, V>>>;
+	withOptionalProperty: <K extends string, V>(
+		key: K,
+		ptv: TypeGuard<V>,
+	) => InterfaceBuilder<T & Partial<Record<K, V>>>;
 
 	/**
 	 * Add a string index signature to the interface.
