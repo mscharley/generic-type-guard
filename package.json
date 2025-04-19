@@ -62,7 +62,7 @@
 		"url": "https://github.com/sponsors/mscharley"
 	},
 	"devDependencies": {
-		"@changesets/cli": "2.29.1",
+		"@changesets/cli": "2.29.2",
 		"@jest/globals": "29.7.0",
 		"@microsoft/api-extractor": "7.52.3",
 		"@mscharley/eslint-config": "4.2.10",
