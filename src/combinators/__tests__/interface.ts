@@ -53,7 +53,8 @@ describe('interface', () => {
 	});
 
 	it('stringIndex', () => {
-		const isObject: TypeGuard<Record<string, number>> = new IsInterface().withStringIndexSignature(p.isNumber).get();
+		const isObject: TypeGuard<Record<string, number>>
+			= new IsInterface().withStringIndexSignature(p.isNumber).get();
 		const isLooseObject: TypeGuard<Record<string, number>> = new IsInterface()
 			.withStringIndexSignature(p.isNumber, false)
 			.get();

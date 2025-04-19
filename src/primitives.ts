@@ -217,7 +217,8 @@ export const narrowArray
 export const isSetOf
 	= <T>(tg: TypeGuard<T>) =>
 		(o: unknown): o is Set<T> =>
-			o instanceof Set && Array.of(...(o as Set<unknown>).values()).reduce<boolean>((acc, v) => acc && tg(v), true);
+			o instanceof Set
+			&& Array.of(...(o as Set<unknown>).values()).reduce<boolean>((acc, v) => acc && tg(v), true);
 
 /**
  * Validate if a value is like an object.
