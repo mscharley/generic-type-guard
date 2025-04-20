@@ -15,8 +15,8 @@ importers:
         specifier: 29.7.0
         version: 29.7.0
       '@microsoft/api-extractor':
-        specifier: 7.52.3
-        version: 7.52.3(@types/node@22.14.1)
+        specifier: 7.52.4
+        version: 7.52.4(@types/node@22.14.1)
       '@mscharley/eslint-config':
         specifier: 4.2.10
         version: 4.2.10(@typescript-eslint/eslint-plugin@8.30.1(@typescript-eslint/parser@8.30.1(eslint@9.25.0)(typescript@5.8.3))(eslint@9.25.0)(typescript@5.8.3))(@typescript-eslint/parser@8.30.1(eslint@9.25.0)(typescript@5.8.3))(jest@29.7.0(@types/node@22.14.1)(ts-node@10.9.2(@swc/core@1.7.35)(@types/node@22.14.1)(typescript@5.8.3)))(typescript@5.8.3)
@@ -758,8 +758,8 @@ packages:
   '@microsoft/api-extractor-model@7.30.5':
     resolution: {integrity: sha512-0ic4rcbcDZHz833RaTZWTGu+NpNgrxVNjVaor0ZDUymfDFzjA/Uuk8hYziIUIOEOSTfmIQqyzVwlzxZxPe7tOA==}
 
-  '@microsoft/api-extractor@7.52.3':
-    resolution: {integrity: sha512-QEs6l8h7p9eOSHrQ9NBBUZhUuq+j/2QKcRgigbSs2YQepKz8glvsqmsUOp+nvuaY60ps7KkpVVYQCj81WLoMVQ==}
+  '@microsoft/api-extractor@7.52.4':
+    resolution: {integrity: sha512-mIEcqgx877CFwNrTuCdPnlIGak8FjlayZb8sSBwWXX+i4gxkZRpMsb5BQcFW3v1puuJB3jYMqQ08kyAc4Vldhw==}
     hasBin: true
 
   '@microsoft/tsdoc-config@0.17.1':
@@ -4311,7 +4311,7 @@ snapshots:
     transitivePeerDependencies:
       - '@types/node'
 
-  '@microsoft/api-extractor@7.52.3(@types/node@22.14.1)':
+  '@microsoft/api-extractor@7.52.4(@types/node@22.14.1)':
     dependencies:
       '@microsoft/api-extractor-model': 7.30.5(@types/node@22.14.1)
       '@microsoft/tsdoc': 0.15.1
