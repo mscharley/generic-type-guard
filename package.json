@@ -70,7 +70,7 @@
 		"@stryker-mutator/core": "8.7.1",
 		"@stryker-mutator/jest-runner": "8.7.1",
 		"@stryker-mutator/typescript-checker": "8.7.1",
-		"@swc/jest": "0.2.37",
+		"@swc/jest": "0.2.38",
 		"@types/node": "22.14.1",
 		"esbuild": "0.25.3",
 		"jest": "29.7.0",
