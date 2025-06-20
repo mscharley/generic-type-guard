@@ -1,6 +1,6 @@
 {
 	"compilerOptions": {
-		"target": "es6",
+		"target": "es2015",
 		"lib": ["es6"],
 		"module": "node16",
 		"moduleResolution": "node16",
@@ -8,7 +8,7 @@
 		"declaration": true,
 		"declarationMap": true,
 		"typeRoots": ["./types", "./node_modules/@types", "../../node_modules/@types"],
-		"types": [],
+		"types": ["node"],
 		"strict": true,
 		"emitDecoratorMetadata": true,
 		"experimentalDecorators": true,
@@ -19,5 +19,6 @@
 		"baseUrl": "./src",
 		"rootDirs": ["./src"],
 		"outDir": "./dist"
-	}
+	},
+	"exclude": ["./src/**/__tests__"]
 }
