@@ -6,7 +6,16 @@ export default [
 	...withStyles(),
 	...configs.license['MPL-2.0'](),
 	{
-		ignores: ['node_modules', 'dist', 'reports', 'eslint.config.js', 'generic-type-guard.*', '.stryker-tmp'],
+		ignores: [
+			'node_modules',
+			'dist',
+			'reports',
+			'eslint.config.js',
+			'generic-type-guard.*',
+			'.stryker-tmp',
+			'src/**/__tests__',
+			'src/**/__utils__',
+		],
 	},
 	{
 		files: ['*.config.js'],
