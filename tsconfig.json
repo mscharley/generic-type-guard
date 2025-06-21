@@ -16,9 +16,8 @@
 		"esModuleInterop": true,
 		"resolveJsonModule": true,
 		"downlevelIteration": true,
-		"baseUrl": "./src",
-		"rootDirs": ["./src"],
 		"outDir": "./dist"
 	},
-	"exclude": ["./src/**/__tests__"]
+	"include": ["./src"],
+	"exclude": ["./src/**/__tests__", "./src/**/__utils__"]
 }
