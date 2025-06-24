@@ -152,6 +152,15 @@ describe('primitives', () => {
 		expect(isNumberArray({})).toBe(false);
 	});
 
+	it('notEmptyList', () => {
+		const isNumberNel = p.isNotEmptyList(p.isNumber);
+
+		expect(isNumberNel([])).toBe(false);
+		expect(isNumberNel([1, 2, 3])).toBe(true);
+		expect(isNumberNel([1, 2, 'foo'])).toBe(false);
+		expect(isNumberNel({})).toBe(false);
+	});
+
 	it('narrowValue', () => {
 		// eslint-disable-next-line @typescript-eslint/no-deprecated
 		const narrow = p.narrowValue<unknown, string, 'foo'>(p.isString, p.isSingletonString('foo'));

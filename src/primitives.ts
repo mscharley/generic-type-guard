@@ -189,6 +189,18 @@ export const isArray
 			Array.isArray(arr) && arr.reduce<boolean>((acc, v) => acc && valueCheck(v as unknown), true);
 
 /**
+ * Validate if a value is a non-empty array of a specific type of value.
+ *
+ * @public
+ */
+export const isNotEmptyList
+	= <T>(valueCheck: TypeGuard<T>): TypeGuard<[T, ...T[]]> =>
+		(arr: unknown): arr is [T, ...T[]] =>
+			Array.isArray(arr)
+			&& arr.length >= 1
+			&& arr.reduce<boolean>((acc, v) => acc && valueCheck(v as unknown), true);
+
+/**
  * Narrow the type of a value.
  *
  * @public
