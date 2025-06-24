@@ -138,6 +138,9 @@ export { isNaN_2 as isNaN }
 export const isNever: (n: never) => never;
 
 // @public
+export const isNotEmptyList: <T>(valueCheck: TypeGuard<T>) => TypeGuard<[T, ...T[]]>;
+
+// @public
 export const isNull: TypeGuard<null>;
 
 // @public
