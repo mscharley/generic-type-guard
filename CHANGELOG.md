@@ -1,5 +1,11 @@
 # generic-type-guard
 
+## 5.1.0
+
+### Minor Changes
+
+- 0529242: Add support for isNotEmptyList which detects arrays with at least one value
+
 ## 5.0.5
 
 ### Patch Changes
