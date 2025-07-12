@@ -72,7 +72,7 @@
 		"@stryker-mutator/typescript-checker": "9.0.1",
 		"@swc/jest": "0.2.39",
 		"@types/node": "22.15.34",
-		"esbuild": "0.25.5",
+		"esbuild": "0.25.6",
 		"jest": "30.0.3",
 		"nodemon": "3.1.10",
 		"rimraf": "6.0.1",
