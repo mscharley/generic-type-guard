@@ -15,8 +15,8 @@ importers:
         specifier: 30.0.5
         version: 30.0.5
       '@microsoft/api-extractor':
-        specifier: 7.52.10
-        version: 7.52.10(@types/node@22.17.0)
+        specifier: 7.52.11
+        version: 7.52.11(@types/node@22.17.0)
       '@mscharley/eslint-config':
         specifier: 4.2.14
         version: 4.2.14(@typescript-eslint/eslint-plugin@8.35.0(@typescript-eslint/parser@8.35.0(eslint@9.30.0)(typescript@5.8.3))(eslint@9.30.0)(typescript@5.8.3))(@typescript-eslint/parser@8.35.0(eslint@9.30.0)(typescript@5.8.3))(jest@30.0.5(@types/node@22.17.0)(ts-node@10.9.2(@swc/core@1.7.35)(@types/node@22.17.0)(typescript@5.8.3)))(typescript@5.8.3)
@@ -858,8 +858,8 @@ packages:
   '@microsoft/api-extractor-model@7.30.7':
     resolution: {integrity: sha512-TBbmSI2/BHpfR9YhQA7nH0nqVmGgJ0xH0Ex4D99/qBDAUpnhA2oikGmdXanbw9AWWY/ExBYIpkmY8dBHdla3YQ==}
 
-  '@microsoft/api-extractor@7.52.10':
-    resolution: {integrity: sha512-LhKytJM5ZJkbHQVfW/3o747rZUNs/MGg6j/wt/9qwwqEOfvUDTYXXxIBuMgrRXhJ528p41iyz4zjBVHZU74Odg==}
+  '@microsoft/api-extractor@7.52.11':
+    resolution: {integrity: sha512-IKQ7bHg6f/Io3dQds6r9QPYk4q0OlR9A4nFDtNhUt3UUIhyitbxAqRN1CLjUVtk6IBk3xzyCMOdwwtIXQ7AlGg==}
     hasBin: true
 
   '@microsoft/tsdoc-config@0.17.1':
@@ -4467,7 +4467,7 @@ snapshots:
     transitivePeerDependencies:
       - '@types/node'
 
-  '@microsoft/api-extractor@7.52.10(@types/node@22.17.0)':
+  '@microsoft/api-extractor@7.52.11(@types/node@22.17.0)':
     dependencies:
       '@microsoft/api-extractor-model': 7.30.7(@types/node@22.17.0)
       '@microsoft/tsdoc': 0.15.1
@@ -4501,7 +4501,7 @@ snapshots:
       '@types/eslint': 9.6.1
       eslint: 9.30.0
       eslint-import-resolver-typescript: 4.4.4(eslint-plugin-import@2.31.0(@typescript-eslint/parser@8.35.0(eslint@9.30.0)(typescript@5.8.3))(eslint@9.30.0))(eslint@9.30.0)
-      eslint-plugin-import: 2.31.0(@typescript-eslint/parser@8.35.0(eslint@9.30.0)(typescript@5.8.3))(eslint-import-resolver-typescript@4.4.4(eslint-plugin-import@2.31.0(@typescript-eslint/parser@8.35.0(eslint@9.30.0)(typescript@5.8.3))(eslint@9.30.0))(eslint@9.30.0))(eslint@9.30.0)
+      eslint-plugin-import: 2.31.0(@typescript-eslint/parser@8.35.0(eslint@9.30.0)(typescript@5.8.3))(eslint-import-resolver-typescript@4.4.4)(eslint@9.30.0)
       eslint-plugin-jest: 28.14.0(@typescript-eslint/eslint-plugin@8.35.0(@typescript-eslint/parser@8.35.0(eslint@9.30.0)(typescript@5.8.3))(eslint@9.30.0)(typescript@5.8.3))(eslint@9.30.0)(jest@30.0.5(@types/node@22.17.0)(ts-node@10.9.2(@swc/core@1.7.35)(@types/node@22.17.0)(typescript@5.8.3)))(typescript@5.8.3)
       eslint-plugin-n: 17.20.0(eslint@9.30.0)(typescript@5.8.3)
       eslint-plugin-notice: 1.0.0(eslint@9.30.0)
@@ -5561,7 +5561,7 @@ snapshots:
       tinyglobby: 0.2.14
       unrs-resolver: 1.9.1
     optionalDependencies:
-      eslint-plugin-import: 2.31.0(@typescript-eslint/parser@8.35.0(eslint@9.30.0)(typescript@5.8.3))(eslint-import-resolver-typescript@4.4.4(eslint-plugin-import@2.31.0(@typescript-eslint/parser@8.35.0(eslint@9.30.0)(typescript@5.8.3))(eslint@9.30.0))(eslint@9.30.0))(eslint@9.30.0)
+      eslint-plugin-import: 2.31.0(@typescript-eslint/parser@8.35.0(eslint@9.30.0)(typescript@5.8.3))(eslint-import-resolver-typescript@4.4.4)(eslint@9.30.0)
     transitivePeerDependencies:
       - supports-color
 
@@ -5583,7 +5583,7 @@ snapshots:
       eslint: 9.30.0
       eslint-compat-utils: 0.5.1(eslint@9.30.0)
 
-  eslint-plugin-import@2.31.0(@typescript-eslint/parser@8.35.0(eslint@9.30.0)(typescript@5.8.3))(eslint-import-resolver-typescript@4.4.4(eslint-plugin-import@2.31.0(@typescript-eslint/parser@8.35.0(eslint@9.30.0)(typescript@5.8.3))(eslint@9.30.0))(eslint@9.30.0))(eslint@9.30.0):
+  eslint-plugin-import@2.31.0(@typescript-eslint/parser@8.35.0(eslint@9.30.0)(typescript@5.8.3))(eslint-import-resolver-typescript@4.4.4)(eslint@9.30.0):
     dependencies:
       '@rtsao/scc': 1.1.0
       array-includes: 3.1.8
