@@ -1,0 +1,33 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"type": "pwa-node",
+			"request": "launch",
+			"name": "Run tests",
+			"console": "integratedTerminal",
+			"runtimeExecutable": "npm",
+			"runtimeArgs": ["exec", "--"],
+			"program": "jest",
+			"args": ["-u", "--show-seed", "--randomize", "--no-cache"],
+			"env": {
+				"NODE_OPTIONS": "${env:NODE_OPTIONS} --experimental-vm-modules"
+			},
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "pwa-node",
+			"request": "launch",
+			"name": "Run current test suite",
+			"console": "integratedTerminal",
+			"runtimeExecutable": "npm",
+			"runtimeArgs": ["exec", "--"],
+			"program": "jest",
+			"args": ["-u", "--show-seed", "--randomize", "--no-cache", "${file}"],
+			"env": {
+				"NODE_OPTIONS": "${env:NODE_OPTIONS} --experimental-vm-modules"
+			},
+			"cwd": "${workspaceFolder}"
+		}
+	]
+}

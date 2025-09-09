@@ -35,7 +35,7 @@
 		"lint": "eslint",
 		"lint-fix": "eslint",
 		"lint-watch": "nodemon -e ts,json --exec eslint",
-		"jest": "DECORATOR_TYPE=experimental NODE_OPTIONS='--experimental-vm-modules' jest",
+		"jest": "NODE_OPTIONS='--experimental-vm-modules' jest",
 		"stryker": "stryker run",
 		"stryker-watch": "nodemon -e ts,json --exec stryker run",
 		"cs-version": "turbo build && changeset version",
