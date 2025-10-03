@@ -18,8 +18,8 @@ importers:
         specifier: 7.52.13
         version: 7.52.13(@types/node@22.18.6)
       '@mscharley/eslint-config':
-        specifier: 4.2.18
-        version: 4.2.18(@typescript-eslint/eslint-plugin@8.44.1(@typescript-eslint/parser@8.44.1(eslint@9.36.0)(typescript@5.9.2))(eslint@9.36.0)(typescript@5.9.2))(@typescript-eslint/parser@8.44.1(eslint@9.36.0)(typescript@5.9.2))(jest@30.1.3(@types/node@22.18.6)(ts-node@10.9.2(@swc/core@1.7.35)(@types/node@22.18.6)(typescript@5.9.2)))(typescript@5.9.2)
+        specifier: 4.2.19
+        version: 4.2.19(@typescript-eslint/eslint-plugin@8.44.1(@typescript-eslint/parser@8.44.1(eslint@9.36.0)(typescript@5.9.2))(eslint@9.36.0)(typescript@5.9.2))(@typescript-eslint/parser@8.44.1(eslint@9.36.0)(typescript@5.9.2))(jest@30.1.3(@types/node@22.18.6)(ts-node@10.9.2(@swc/core@1.7.35)(@types/node@22.18.6)(typescript@5.9.2)))(typescript@5.9.2)
       '@mscharley/prettier-config':
         specifier: 3.1.7
         version: 3.1.7(prettier-plugin-toml@2.0.6(prettier@3.6.2))(prettier@3.6.2)
@@ -867,8 +867,8 @@ packages:
   '@microsoft/tsdoc@0.15.1':
     resolution: {integrity: sha512-4aErSrCR/On/e5G2hDP0wjooqDdauzEbIq8hIkIe5pXV0rtWJZvdCEKL0ykZxex+IxIwBp0eGeV48hQN07dXtw==}
 
-  '@mscharley/eslint-config@4.2.18':
-    resolution: {integrity: sha512-zBtJ1Ha48VAzpH12ewWQ/JaYdr0UhtM49dqJ3ejWmMTgcpTfnJ0Z9QopX8hBJCivtFARZRjS4p6hhonFnXZw9g==}
+  '@mscharley/eslint-config@4.2.19':
+    resolution: {integrity: sha512-X67apYfypF8hi4kSk0REQHTGR5F7oPjGvouMwCg7pQX6+AABBydBJu0YJ3RtNIF4EN4ri9chfrzxE/D4gWW2Pw==}
 
   '@mscharley/prettier-config@3.1.7':
     resolution: {integrity: sha512-CbzC6qs6NrN+eIt5tRWSbDWsYD4SxBfu8NxScAMSxveVEMnZ0VDWUVCGIyRRwgSZX2gANedd/uIhgUjngUEvlg==}
@@ -4519,7 +4519,7 @@ snapshots:
 
   '@microsoft/tsdoc@0.15.1': {}
 
-  '@mscharley/eslint-config@4.2.18(@typescript-eslint/eslint-plugin@8.44.1(@typescript-eslint/parser@8.44.1(eslint@9.36.0)(typescript@5.9.2))(eslint@9.36.0)(typescript@5.9.2))(@typescript-eslint/parser@8.44.1(eslint@9.36.0)(typescript@5.9.2))(jest@30.1.3(@types/node@22.18.6)(ts-node@10.9.2(@swc/core@1.7.35)(@types/node@22.18.6)(typescript@5.9.2)))(typescript@5.9.2)':
+  '@mscharley/eslint-config@4.2.19(@typescript-eslint/eslint-plugin@8.44.1(@typescript-eslint/parser@8.44.1(eslint@9.36.0)(typescript@5.9.2))(eslint@9.36.0)(typescript@5.9.2))(@typescript-eslint/parser@8.44.1(eslint@9.36.0)(typescript@5.9.2))(jest@30.1.3(@types/node@22.18.6)(ts-node@10.9.2(@swc/core@1.7.35)(@types/node@22.18.6)(typescript@5.9.2)))(typescript@5.9.2)':
     dependencies:
       '@eslint/js': 9.36.0
       '@stylistic/eslint-plugin': 5.4.0(eslint@9.36.0)
