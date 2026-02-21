@@ -79,7 +79,7 @@
 		"source-map-support": "0.5.21",
 		"testdouble": "3.20.2",
 		"ts-node": "10.9.2",
-		"turbo": "2.8.9",
+		"turbo": "2.8.10",
 		"typescript": "5.9.3"
 	},
 	"packageManager": "pnpm@10.30.0+sha512.2b5753de015d480eeb88f5b5b61e0051f05b4301808a82ec8b840c9d2adf7748eb352c83f5c1593ca703ff1017295bc3fdd3119abb9686efc96b9fcb18200937",
