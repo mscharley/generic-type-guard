@@ -1,0 +1,16 @@
+catalogs:
+  # See pnpm/pnpm#9900
+  lint:
+    '@eslint/js': ^9.39.2
+    '@stylistic/eslint-plugin': ^5.7.0
+    eslint: ^9.39.2
+    eslint-import-resolver-typescript: ^4.4.4
+    eslint-plugin-import: ^2.32.0
+    eslint-plugin-jest: ^29.12.1
+    eslint-plugin-n: ^17.23.1
+    eslint-plugin-notice: ^1.0.0
+    eslint-plugin-react: ^7.37.5
+    eslint-plugin-react-hooks: ^7.0.1
+    typescript-eslint: ^8.52.0
+    prettier: ^3.7.4
+    prettier-plugin-toml: ^2.0.6
