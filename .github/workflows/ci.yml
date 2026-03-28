@@ -11,7 +11,7 @@ on:
 
 jobs:
   node:
-    uses: mscharley/.github/.github/workflows/node-ci.yml@main
+    uses: mscharley/.github/.github/workflows/node-ci.yml@3ea5efb827af3ad6391fa1a055197cea50931c25 # main
     strategy:
       matrix:
         node-version: [18.x, 20.x, 22.x, 24.x, current]
@@ -20,6 +20,6 @@ jobs:
       node-version: ${{ matrix.node-version }}
 
   stryker:
-    uses: mscharley/.github/.github/workflows/stryker.yml@main
+    uses: mscharley/.github/.github/workflows/stryker.yml@3ea5efb827af3ad6391fa1a055197cea50931c25 # main
     with:
       node-version-file: .tool-versions
