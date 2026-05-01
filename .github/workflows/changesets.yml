@@ -9,7 +9,7 @@ concurrency: ${{ github.workflow }}-${{ github.ref }}
 
 jobs:
   release:
-    uses: mscharley/.github/.github/workflows/changesets.yml@3ea5efb827af3ad6391fa1a055197cea50931c25 # main
+    uses: mscharley/.github/.github/workflows/changesets.yml@99c53eeb2e7be913acc1d75fc8042417405380f5 # main
     with:
       node-version-file: .tool-versions
     permissions:
