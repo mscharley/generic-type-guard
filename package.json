@@ -84,7 +84,7 @@
 		"@stryker-mutator/jest-runner": "9.6.1",
 		"@stryker-mutator/typescript-checker": "9.6.1",
 		"@swc/jest": "0.2.39",
-		"@types/node": "24.12.2",
+		"@types/node": "24.12.4",
 		"esbuild": "0.28.0",
 		"jest": "30.3.0",
 		"nodemon": "3.1.14",
