@@ -6,7 +6,7 @@ on:
 
 jobs:
   stale:
-    uses: mscharley/.github/.github/workflows/stale.yml@3ea5efb827af3ad6391fa1a055197cea50931c25 # main
+    uses: mscharley/.github/.github/workflows/stale.yml@de06745e8298d9a77c20fd040c8fde630d31eb5e # main
     permissions:
       issues: write
       pull-requests: write
