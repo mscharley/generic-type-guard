@@ -132,8 +132,8 @@ importers:
         specifier: 0.5.21
         version: 0.5.21
       testdouble:
-        specifier: 3.21.1
-        version: 3.21.1
+        specifier: 3.23.0
+        version: 3.23.0
       ts-node:
         specifier: 10.9.2
         version: 10.9.2(@swc/core@1.15.40)(@types/node@24.19.1)(typescript@5.9.3)
@@ -3204,8 +3204,8 @@ packages:
   queue-microtask@1.2.3:
     resolution: {integrity: sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==}
 
-  quibble@0.10.1:
-    resolution: {integrity: sha512-U6EUYQLj0EnKAq2qJAVGF9USj8qnMR7QOEkelbilpzi+/Y5NhUn/+CgBFbGDfMuiljUctS0S0ezpA6fRYyaj9Q==}
+  quibble@0.12.1:
+    resolution: {integrity: sha512-XyqltQYTTG+U5zLuvQusmc/F3Yes9DoqvgkrcY0pB1YmMaScqW0mdW00GYderJ+u8+geUv88Xapx+8FMp2Ro3Q==}
     engines: {node: '>= 0.14.0'}
 
   react-is@16.13.1:
@@ -3489,8 +3489,8 @@ packages:
     resolution: {integrity: sha512-u9E6A+ZDYdp7a4WnarkXPZOx8Ilz46+kby6p1yZ8zsGTz9gYa6FIS7lj2oezzNKmtdyyJNNmmXDppga5GB7kSw==}
     engines: {node: '>=18'}
 
-  testdouble@3.21.1:
-    resolution: {integrity: sha512-MaLFY3B+C7T8mAllp/tyrXWTg7L0XnWf/8CzEBxea6llSpy4GaixEPwv4CYzMsG7rvEc4TJ8NGoR1M2kOizjfg==}
+  testdouble@3.23.0:
+    resolution: {integrity: sha512-G2EnptkwqXYCZdBA2jT4UTTdsu3rfc3faXD/cE9VByaoRNJbfRRd8hBQAe5W+adR/dg+GC389QjYBzf7UZrrQg==}
     engines: {node: '>= 16'}
 
   theredoc@1.0.0:
@@ -7295,7 +7295,7 @@ snapshots:
 
   queue-microtask@1.2.3: {}
 
-  quibble@0.10.1:
+  quibble@0.12.1:
     dependencies:
       lodash: 4.18.1
       resolve: 1.22.12
@@ -7616,10 +7616,10 @@ snapshots:
       glob: 10.5.0
       minimatch: 10.2.5
 
-  testdouble@3.21.1:
+  testdouble@3.23.0:
     dependencies:
       lodash: 4.18.1
-      quibble: 0.10.1
+      quibble: 0.12.1
       stringify-object-es5: 2.5.0
       theredoc: 1.0.0
 
