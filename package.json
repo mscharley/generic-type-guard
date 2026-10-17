@@ -95,7 +95,7 @@
 		"turbo": "2.11.8",
 		"typescript": "5.9.3"
 	},
-	"packageManager": "pnpm@10.34.7+sha512.ba98abc585539933375b5971f4bc6d6c73a1b4b7edc4a879e7d102fe5423d1e02309d67c60a11f04955093a96e521ad9c3b138cdd654ca5be563f378b3ae48bd",
+	"packageManager": "pnpm@12.13.0+sha512.1e55719bf26e809dce5c5084fdebaa64efb3da9038ae5d68a9f8a68311f1a45841c8c3b76a37298c3b66f6bcc80409a9b7f33c78a7168a3e90fb65a5d8235ae4",
 	"pnpm": {
 		"onlyBuiltDependencies": [
 			"@swc/core",
